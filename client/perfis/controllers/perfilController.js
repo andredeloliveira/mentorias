@@ -35,6 +35,10 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
         $scope.etapaCadastro = $scope.etapaCadastro - 1;
     }
 
+
+
+
+
     /*Daqui pra baixo, a lógica é com as sintax do controllerAs definido no route.js ...*/
 
     var vm = this;
@@ -53,5 +57,13 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
         }
       );
     }
+
+    /*Aqui será definida a lógica para o controller das tags*/
+    vm.readonly = false;
+    vm.tagNames = ['Apple', 'Banana', 'Orange'];
+    vm.tags = [];
+
+    /*fim do controle das tags*/
+
 
   }]);

@@ -51,7 +51,9 @@
       <div class="row ">
         <img  class="logo" src="../resources/Logo-Agripa.png"/>
         <div class="twelve columns container">
-          <input type="text" name="tagsExpertise" placeholder="expertises">
+          <md-chips ng-model="pc.tagNames" readonly="pc.readonly" placeholder="adicione uma expertise"
+          delete-button-label="remova expertise" delete-hing="clique em delete para remover a tag"
+          secondary-placeholder="+Tag"></md-chips>
         </div> <!-- end twelve columns-->
       </div> <!-- end row-->
       <div class="row">
