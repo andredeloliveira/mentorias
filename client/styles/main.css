@@ -65,6 +65,27 @@ input[type=text]:focus {
     background : transparent;
     box-shadow : -8px 10px 0px -8px #FFFFFF, 8px 10px 0px -8px #FFFFFF;
 }
+input[type=file] {
+    height             : 30px;
+    border             : 0;
+    color              : #FFFFFF;
+    background         : transparent;
+    width              : calc(100% - 2px);
+    margin-left        : 1px;
+    margin-top         : 10px;
+    box-shadow         : -8px 10px 0px -8px #FFFFFF, 8px 10px 0px -8px #FFFFFF;
+    -webkit-transition : box-shadow 0.3s;
+    transition         : box-shadow 0.3s;
+}
+
+input[type=file]:focus {
+    outline    : none;
+    color      : #FFFFFF;
+    border     : 0;
+    margin-top : 10px;
+    background : transparent;
+    box-shadow : -8px 10px 0px -8px #FFFFFF, 8px 10px 0px -8px #FFFFFF;
+}
 
 input[type=password] {
     height             : 30px;

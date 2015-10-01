@@ -8,6 +8,7 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
 
     /*usuário provenientes do servidor*/
     $scope.users = $meteor.collection(Meteor.users, false).subscribe('users');
+    $scope.images = $meteor.collection(Images,false,Images).subscribe('images');
     /*
       Variável que define a etapa do cadastro. Com ela, sera possível controlar o que será mostrado na view
     */
@@ -36,9 +37,6 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
     }
 
 
-
-
-
     /*Daqui pra baixo, a lógica é com as sintax do controllerAs definido no route.js ...*/
 
     var vm = this;
@@ -51,7 +49,7 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
     vm.register = function(){
       $meteor.createUser(vm.credentials).then(
         function(){
-          $state.go('/');
+          $state.go('/proximaEtapa');
         }, function(err){
             vm.error = 'Erro de registro - ' + err;
         }

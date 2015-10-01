@@ -76,15 +76,19 @@
           <input type="text" name="twitter" placeholder="@twitter">
           <input type="text" name="linkedIn" placeholder="linkedin">
           <br>
-          <button>carregar foto perfil</button>
+          <div ng-controller="AddPhotoController">
+             <input type="file" value="escolher foto">
+          </div>
         </div> <!-- end twelve columns-->
       </div> <!-- end row-->
       <div class="row">
           <div class="twelve columns container">
 
+
+
             <ul class="nav nav-justified">
               <li><button class="buttonLogin" ng-click="setEtapaAnterior()">Voltar</button></li>
-              <li><input type="submit"  value="Concluir"></li>
+              <li><button ng-click="pc.register()">Concluir</button></li>
             </ul>
 
           </div>

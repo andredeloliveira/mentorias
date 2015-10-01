@@ -25,6 +25,11 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
           templateUrl: 'client/home/views/home.ng.html',
           controller: 'homeController'
         })
+        .state('proximaEtapa',{
+          url:'/proximaEtapa',
+          templateUrl: 'client/perfis/views/proximaEtapa.ng.html',
+          controller: 'proximaEtapaController'
+        })
         /*para a página de login*/
         .state('login', {
           url: '/login',
