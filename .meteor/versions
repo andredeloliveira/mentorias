@@ -7,6 +7,9 @@ accounts-ui@1.1.6
 accounts-ui-unstyled@1.1.8
 angular@1.0.1
 angular:angular@1.4.6
+angular:angular-animate@1.4.6
+angular:angular-aria@1.4.6
+angular:angular-material@0.11.1
 angularui:angular-ui-router@0.2.15
 autoupdate@1.2.3
 babel-compiler@5.8.24_1

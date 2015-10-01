@@ -3,8 +3,12 @@
 }
 
 body {
-  background: url('/resources/background.png') no-repeat;
-  color: #FFFFFF;
+  background: url('/resources/background.png') no-repeat fixed;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: #FFFFFF;
 }
 
 .img-button {
@@ -84,6 +88,15 @@ input[type=radio] {
     background-color: transparent !important;
 
 }
+input[type=submit]:hover{
+    color:#FFFFFF;
+}
+input[type=submit]:focus{
+    color:#FFFFFF;
+}
+input[type=submit]:{
+    color:#FFFFFF;
+}
 textarea {
 
   border: 0;
@@ -91,10 +104,12 @@ textarea {
   background: transparent;
   width: calc(100% - 2px);
   margin-left:1px;
+  height: 200px;
   box-shadow: -8px 10px 0px -8px #FFFFFF, 8px 10px 0px -8px #FFFFFF;
   -webkit-transition: box-shadow 0.3s;
   transition: box-shadow 0.3s;
   resize: none;
+  margin-top: 10px;
 }
 textarea:focus {
   outline: none;

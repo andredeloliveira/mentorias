@@ -1,1 +1,1 @@
-angular.module('mentorias', ['angular-meteor','ui.router']);
+angular.module('mentorias', ['angular-meteor','ui.router','ngMaterial']);

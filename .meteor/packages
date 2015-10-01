@@ -26,3 +26,4 @@ accounts-facebook
 accounts-twitter
 skeleton:skeleton
 twbs:bootstrap
+angular:angular-material

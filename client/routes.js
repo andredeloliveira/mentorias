@@ -11,20 +11,49 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
     function($urlRouterProvider, $stateProvider, $locationProvider){
 
       $locationProvider.html5Mode(true);
-
+      //router para o cadastro de perfil (Usando o $meteor.user !)
       $stateProvider
         .state('cadastroPerfil', {
           url: '/cadastroPerfil',
           templateUrl: 'client/perfis/views/cadastroPerfil.ng.html',
-          controller: 'perfilController'
+          controller: 'perfilController',
+          controllerAs: 'pc'
         })
+        /*para a home...*/
         .state('home', {
           url: '/',
+          templateUrl: 'client/home/views/home.ng.html',
+          controller: 'homeController'
+        })
+        /*para a página de login*/
+        .state('login', {
+          url: '/login',
           templateUrl: 'client/perfis/views/login.ng.html',
-          controller: 'perfilController'
+          controller: 'loginController',
+          controllerAS: 'lc'
+        })
+        /*pra reinicializar a senha*/
+        .state('resetSenha',{
+          url:'/resetSenha',
+          templateUrl: 'clients/perfis/views/reset-senha.ng.html',
+          controller: 'resetSenhaController',
+          controllerAs: 'rsc'
+        })
+        /*pro logout*/
+        .state('logout',{
+          url: '/logout',
+          resolve: {
+            "logout": ['$meteor','$state',function($meteor,$state){
+              return $meteor.logout().then(function(){
+                $state.go('/');
+              }, function(err){
+                console.log('logout error - ', err);
+              });
+            }]
           }
-        );
+        });
 
+        /*caso alguma merda acontença, redireciona pra página inicial. Caso isso aconteça abra ao debug e chore*/
       $urlRouterProvider.otherwise("/");
 
     }]);

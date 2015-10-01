@@ -5,9 +5,14 @@
 <body>
 
 <div ng-app="mentorias">
-<blaze-template name="loginButtons"></blaze-template>
 
 
+<div class="navbar-right navbar-text">
+    <md-button ng-href="/login" ng-hide="$root.currentUser">Entrar</md-button>
+    <md-button ng-href="/cadastroPerfil" ng-hide="$root.currentUser">Registrar</md-button>
+    <div ng-show="$root.currentUser">{{ $root.currentUser }}</div>
+    <md-button ng-href="/logout" ng-show="$root.currentUser">Sair</md-button>
+</div>
   <div ui-view></div>
 </div>
 
