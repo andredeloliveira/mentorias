@@ -1,98 +1,123 @@
 <!--Form do cadastro do perfil.-->
 <div class="login-home frame-form container text-center">
-  <form class="login-form frame-spaces">
-    <div ng-show="mostrarEtapa(0)">
-      <div class="row ">
-        <img  class="logo" src="../resources/Logo-Agripa.png"/>
-        <div class="twelve columns container">
-          <input type="text" name="nome" placeholder="nome completo">
-          <input type="text" name="email" placeholder="e-mail">
-          <input type="password" name="senha" placeholder="senha">
-        </div> <!-- end twelve columns-->
-      </div> <!-- end row-->
-      <div class="row">
-        <radiogroup>
-          <div class="six columns container">
-            <input type="radio" id="mentor" name="role" value="mentor"><label for="mentor">Mentor</label>
-          </div>
-          <div class="six columns container">
-            <input type="radio" name="role" id="empreendedor" value="empreendedor"><label for="mentor">Empreendedor</label>
-          </div>
-      </radiogroup>
-      </div>
-      <!-- Botões de navegação-->
-      <div class="row">
-          <div class="twelve columns container">
-            <ul class="nav nav-justified">
-              <li><button class="buttonLogin" ng-click="setProximaEtapa()">Próximo</button></li>
-            </ul>
-          </div>
+    <form class="login-form frame-spaces">
+        <div ng-show="mostrarEtapa(0)">
+            <div class="row ">
+                <img class="logo" src="../resources/Logo-Agripa.png"/>
+
+                <div class="twelve columns container">
+                    <input type="text" ng-model="nUser.nome" placeholder="nome completo">
+                    <input type="text" ng-model="nUser.email" placeholder="e-mail">
+                    <input type="password" ng-model="nUser.senha" placeholder="senha">
+                </div>
+                <!-- end twelve columns-->
+            </div>
+            <!-- end row-->
+            <div class="row">
+                <radiogroup>
+                    <div class="six columns container">
+                        <input type="radio" ng-model="nUser.tipo_conta" id="mentor" name="role" value="mentor"><label for="mentor">Mentor</label>
+                    </div>
+                    <div class="six columns container">
+                        <input type="radio" ng-model="nUser.tipo_conta" name="role" id="empreendedor" value="empreendedor"><label for="empreendedor">Empreendedor</label>
+                    </div>
+                </radiogroup>
+            </div>
+            <!-- Botões de navegação-->
+            <div class="row">
+                <div class="twelve columns container">
+                    <ul class="nav nav-justified">
+                        <li>
+                            <button class="buttonLogin" ng-click="setProximaEtapa()">Próximo</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>
-    <!-- Breve descrição-->
-    <div ng-show="mostrarEtapa(1)">
-      <div class="row ">
-        <img  class="logo" src="../resources/Logo-Agripa.png"/>
-        <div class="twelve columns container">
-          <textarea name="descricao" rows="20" cols="20" placeholder="breve descrição"></textarea>
-        </div> <!-- end twelve columns-->
-    </div> <!-- end row-->
-    <div class="row">
-        <div class="twelve columns container">
-          <ul class="nav nav-justified">
-            <li><button class="buttonLogin" ng-click="setEtapaAnterior()">Voltar</button></li>
-            <li><button class="buttonLogin" ng-click="setProximaEtapa()">Próximo</button></li>
-          </ul>
+        <!-- Breve descrição-->
+        <div ng-show="mostrarEtapa(1)">
+            <div class="row ">
+                <img class="logo" src="../resources/Logo-Agripa.png"/>
+
+                <div class="twelve columns container">
+                    <textarea name="descricao" ng-model="nUser.breve_descricao" rows="20" cols="20" placeholder="breve descrição"></textarea>
+                </div>
+                <!-- end twelve columns-->
+            </div>
+            <!-- end row-->
+            <div class="row">
+                <div class="twelve columns container">
+                    <ul class="nav nav-justified">
+                        <li>
+                            <button class="buttonLogin" ng-click="setEtapaAnterior()">Voltar</button>
+                        </li>
+                        <li>
+                            <button class="buttonLogin" ng-click="setProximaEtapa()">Próximo</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>
-    </div>
-    <!-- tags expertise-->
-    <div ng-show="mostrarEtapa(2)">
-      <div class="row ">
-        <img  class="logo" src="../resources/Logo-Agripa.png"/>
-        <div class="twelve columns container">
-          <md-chips ng-model="pc.tagNames" readonly="pc.readonly" placeholder="adicione uma expertise"
-          delete-button-label="remova expertise" delete-hing="clique em delete para remover a tag"
-          secondary-placeholder="+Tag"></md-chips>
-        </div> <!-- end twelve columns-->
-      </div> <!-- end row-->
-      <div class="row">
-          <div class="twelve columns container">
+        <!-- tags expertise-->
+        <div ng-show="mostrarEtapa(2)">
+            <div class="row ">
+                <img class="logo" src="../resources/Logo-Agripa.png"/>
 
-            <ul class="nav nav-justified">
-              <li><button class="buttonLogin" ng-click="setEtapaAnterior()">Voltar</button></li>
-              <li><button class="buttonLogin" ng-click="setProximaEtapa()">Próximo</button></li>
-            </ul>
+                <div class="twelve columns container">
+                    <md-chips ng-model="pc.tagNames" readonly="pc.readonly" placeholder="adicione uma expertise"
+                              delete-button-label="remova expertise" delete-hing="clique em delete para remover a tag"
+                              secondary-placeholder="+Tag"></md-chips>
+                </div>
+                <!-- end twelve columns-->
+            </div>
+            <!-- end row-->
+            <div class="row">
+                <div class="twelve columns container">
 
-          </div>
+                    <ul class="nav nav-justified">
+                        <li>
+                            <button class="buttonLogin" ng-click="setEtapaAnterior()">Voltar</button>
+                        </li>
+                        <li>
+                            <button class="buttonLogin" ng-click="setProximaEtapa()">Próximo</button>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
         </div>
-    </div>
-    <!-- Redes sociais-->
-    <div ng-show="mostrarEtapa(3)">
-      <div class="row ">
-        <img  class="logo" src="../resources/Logo-Agripa.png"/>
-        <div class="twelve columns container">
-          <input type="text" name="facebook" placeholder="facebook">
-          <input type="text" name="twitter" placeholder="@twitter">
-          <input type="text" name="linkedIn" placeholder="linkedin">
-          <br>
-          <div ng-controller="AddPhotoController">
-             <input type="file" value="escolher foto">
-          </div>
-        </div> <!-- end twelve columns-->
-      </div> <!-- end row-->
-      <div class="row">
-          <div class="twelve columns container">
+        <!-- Redes sociais-->
+        <div ng-show="mostrarEtapa(3)">
+            <div class="row ">
+                <img class="logo" src="../resources/Logo-Agripa.png"/>
 
+                <div class="twelve columns container">
+                    <input type="text" name="facebook" placeholder="facebook">
+                    <input type="text" name="twitter" placeholder="@twitter">
+                    <input type="text" name="linkedIn" placeholder="linkedin">
+                    <br>
 
+                    <div ng-controller="AddPhotoController">
+                        <input type="file" value="escolher foto">
+                    </div>
+                </div>
+                <!-- end twelve columns-->
+            </div>
+            <!-- end row-->
+            <div class="row">
+                <div class="twelve columns container">
 
-            <ul class="nav nav-justified">
-              <li><button class="buttonLogin" ng-click="setEtapaAnterior()">Voltar</button></li>
-              <li><button ng-click="pc.register()">Concluir</button></li>
-            </ul>
+                    <ul class="nav nav-justified">
+                        <li>
+                            <button class="buttonLogin" ng-click="setEtapaAnterior()">Voltar</button>
+                        </li>
+                        <li>
+                            <button ng-click="pc.register(nUser)">Concluir</button>
+                        </li>
+                    </ul>
 
-          </div>
+                </div>
+            </div>
         </div>
-    </div>
-  </form>
+    </form>
 </div>

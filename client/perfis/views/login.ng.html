@@ -1,25 +1,31 @@
 <div class="login-home frame-form container text-center">
-<form class="login-form frame-spaces">
-  <div class="row ">
-    <div class="twelve columns container">
-      <img  class="logo" src="../resources/Logo-Agripa.png"/>
-      <h4 class="text-center">Bem-vindo ao sistema de gestão de mentorias</h4>
-      <input type="text" name="email" placeholder="e-mail" ng-model="lc.credentials.email">
-      <input type="password" name="senha" placeholder="senha" ng-model="lc.credentials.password">
-    </div> <!-- end six columns-->
-  </div> <!-- end row-->
-  <div class="row">
-      <div class="twelve columns container">
-        <ul class="nav nav-justified">
-          <li><button class="buttonLoginLinkedIn">Entrar com <img class="img-button" src="../resources/logo-linkedin.png"></button></li>
-          <li><button ng-click="lc.login()">Entrar</button></li>
-        </ul>
-        <div class="text-center">
-          <span>Não está cadastrado? Cadastre-se </span><a href="/cadastroPerfil">aqui</a>
-          <br>
-          <a href="/resetSenha">Esqueci minha senha</a>
+    <form class="login-form frame-spaces">
+        <div class="row ">
+            <div class="twelve columns container">
+                <img class="logo" src="../resources/Logo-Agripa.png"/>
+                <h4 class="text-center">Bem-vindo ao sistema de gestão de mentorias</h4>
+                <input type="text" ng-model="aUser.email" placeholder="e-mail">
+                <input type="password" ng-model="aUser.senha" placeholder="senha">
+            </div>
+            <!-- end six columns-->
         </div>
-      </div>
-    </div>
-</form>
+        <!-- end row-->
+        <div class="row">
+            <div class="twelve columns container">
+                <ul class="nav nav-justified">
+                    <li>
+                        <button class="buttonLoginLinkedIn">Entrar com <img class="img-button" src="../resources/logo-linkedin.png"></button>
+                    </li>
+                    <li>
+                        <button ng-click="login(aUser)">Entrar</button>
+                    </li>
+                </ul>
+                <div class="text-center">
+                    <span>Não está cadastrado? Cadastre-se </span><a href="/cadastroPerfil">aqui</a>
+                    <br>
+                    <a href="/resetSenha">Esqueci minha senha</a>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
