@@ -1,4 +1,4 @@
-<!--Form do cadastro do perfil.-->
+<!--Form do cadastro da empresa. Bem similar ao cadastro do usuário.-->
 <div class="login-home frame-form container text-center space-header">
     <form class="login-form frame-spaces">
         <div ng-show="mostrarEtapa(0)">
@@ -6,22 +6,17 @@
                 <img class="logo" src="../resources/Logo-Agripa.png"/>
 
                 <div class="twelve columns container">
-                    <input type="text" ng-model="nUser.nome" placeholder="nome completo">
-                    <input type="text" ng-model="nUser.email" placeholder="e-mail">
-                    <input type="password" ng-model="nUser.senha" placeholder="senha">
+                    <input type="text" ng-model="nEmpresa.nome" placeholder="nome da empresa">
+                    <input type="text" ng-model="nEmpresa.website" placeholder="website">
+
                 </div>
                 <!-- end twelve columns-->
             </div>
             <!-- end row-->
             <div class="row">
-                <radiogroup>
-                    <div class="six columns container">
-                        <input type="radio" ng-model="nUser.tipo_conta" id="mentor" name="role" value="mentor"><label for="mentor">Mentor</label>
-                    </div>
-                    <div class="six columns container">
-                        <input type="radio" ng-model="nUser.tipo_conta" name="role" id="empreendedor" value="empreendedor"><label for="empreendedor">Empreendedor</label>
-                    </div>
-                </radiogroup>
+              <md-chips ng-model="ec.produtos" readonly="ec.readonly" placeholder="produtos"
+                        delete-button-label="remova produto" delete-hing="clique em delete para remover um produto"
+                        secondary-placeholder="+produto"></md-chips>
             </div>
             <!-- Botões de navegação-->
             <div class="row">
@@ -40,7 +35,7 @@
                 <img class="logo" src="../resources/Logo-Agripa.png"/>
 
                 <div class="twelve columns container">
-                    <textarea name="descricao" ng-model="nUser.breve_descricao" rows="20" cols="20" placeholder="breve descrição"></textarea>
+                    <textarea name="descricao" ng-model="nEmpresa.breve_descricao" rows="20" cols="20" placeholder="breve descrição"></textarea>
                 </div>
                 <!-- end twelve columns-->
             </div>
@@ -64,9 +59,11 @@
                 <img class="logo" src="../resources/Logo-Agripa.png"/>
 
                 <div class="twelve columns container">
-                    <md-chips ng-model="pc.tagNames" readonly="pc.readonly" placeholder="adicione uma expertise"
-                              delete-button-label="remova expertise" delete-hing="clique em delete para remover a tag"
-                              secondary-placeholder="+Expertise"></md-chips>
+                  Buscar os integrantes ainda precisa ser melhor discutido. Não ficou muito claro se os participantes têm ou
+                  Não de estar cadastrados no sistema. Só mentores? Ou empreendedores também?
+                    <md-chips ng-model="ec.integrantes" readonly="ec.readonly" placeholder="adicione um integrante"
+                              delete-button-label="remova integrante" delete-hing="clique em delete para remover o integrante"
+                              secondary-placeholder="+Integrante"></md-chips>
                 </div>
                 <!-- end twelve columns-->
             </div>

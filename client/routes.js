@@ -30,6 +30,13 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
                 templateUrl: 'client/perfis/views/proximaEtapa.ng.html',
                 controller: 'proximaEtapaController'
             })
+            /*para o cadastro de Empresa*/
+            .state('cadastroEmpresa',{
+              url:'/cadastroEmpresa',
+              templateUrl: 'client/empresa/views/cadastroEmpresa.ng.html',
+              controller: 'empresaController',
+              controllerAs: 'ec'
+            })
             /*para a página de login*/
             .state('login', {
                 url: '/login',
@@ -50,7 +57,7 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
                 resolve: {
                     "logout": ['$meteor', '$state', function ($meteor, $state) {
                         return $meteor.logout().then(function () {
-                            $state.go('/');
+                            $state.go('home');
                         }, function (err) {
                             console.log('logout error - ', err);
                         });

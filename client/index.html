@@ -5,12 +5,9 @@
 <body>
     <div class="container-fluid">
         <div ng-app="mentorias">
-
-
             <div class="navbar-right navbar-text">
                 <md-button ng-href="/login" ng-hide="$root.currentUser">Entrar</md-button>
                 <md-button ng-href="/cadastroPerfil" ng-hide="$root.currentUser">Registrar</md-button>
-
                 <md-button ng-href="/logout" ng-show="$root.currentUser">Sair</md-button>
                 {{#if currentUser}}
                     <p>{{currentUser.profile.name}}</p>
