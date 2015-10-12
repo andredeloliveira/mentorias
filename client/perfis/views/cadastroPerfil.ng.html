@@ -22,6 +22,14 @@
                         <input type="radio" ng-model="nUser.tipo_conta" name="role" id="empreendedor" value="empreendedor"><label for="empreendedor">Empreendedor</label>
                     </div>
                 </radiogroup>
+                <radiogroup>
+                    <div class="six columns container">
+                        <input type="radio" ng-model="nUser.genero" id="masculino" name="genero" value="masculino"><label for="masculino">Masculino</label>
+                    </div>
+                    <div class="six columns container">
+                        <input type="radio" ng-model="nUser.genero" name="genero" id="feminino" value="feminino"><label for="feminino">Feminino</label>
+                    </div>
+                </radiogroup>
             </div>
             <!-- Botões de navegação-->
             <div class="row">
@@ -98,7 +106,7 @@
                     <br>
 
                     <div ng-controller="AddPhotoController">
-                        <input type="file" value="escolher foto">
+                        <input type="file" ng-model="nUser.file"  onchange="angular.element(this).scope().addImages(this.files)" value="escolher foto">
                     </div>
                 </div>
                 <!-- end twelve columns-->

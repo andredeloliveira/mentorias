@@ -8,7 +8,7 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
 
         /*usuário provenientes do servidor*/
         $scope.users = $meteor.collection(Meteor.users, false).subscribe('users');
-        $scope.images = $meteor.collection(Images, false, Images).subscribe('images');
+        $scope.images = $meteor.collectionFS(Images, false, Images).subscribe('images');
         /*
          Variável que define a etapa do cadastro. Com ela, sera possível controlar o que será mostrado na view
          */
@@ -45,8 +45,8 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
 
         /*Precisamos fazer uma função customizada pra adicionar o tipo (mentor/empreendedor), etc, etc*/
         /*Os campos para página do facebook, twitter e linkedIn estão também. Só a URL será adicionada, logo
-        Não poderemos obter a foto do perfil do facebook. Somente se o perfil tiver ligaçao com OAuth2.0!
-        */
+         Não poderemos obter a foto do perfil do facebook. Somente se o perfil tiver ligaçao com OAuth2.0!
+         */
         vm.register = function (nUser) {
 
             vm.credentials = {
@@ -57,11 +57,11 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
                     name: nUser.nome,
                     breve_descricao: nUser.breve_descricao,
                     tipo_conta: nUser.tipo_conta,
+                    genero: nUser.genero,
                     expertise: vm.tagNames,
                     facebook: nUser.facebook_page,
                     twitter: nUser.twitter_profile,
                     linkedIn: nUser.linkedIn
-
                 },
                 services: {
                     facebook: {
@@ -81,14 +81,14 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
 
             $meteor.createUser(vm.credentials).then(
                 function () {
-                  /*aqui é onde decide se vai a proxima etapa do empreendedor ou do mentor.
-                  Que deve ser adicionada depois, assim como qualquer outra condição depois do cadastro ;)*/
-                  if(vm.credentials.profile.tipo_conta === 'empreendedor'){
-                    console.log(vm.credentials);
-                    $state.go('proximaEtapa');
-                  }else{
-                    $state.go('home');
-                  }
+                    /*aqui é onde decide se vai a proxima etapa do empreendedor ou do mentor.
+                     Que deve ser adicionada depois, assim como qualquer outra condição depois do cadastro ;)*/
+                    if (vm.credentials.profile.tipo_conta === 'empreendedor') {
+                        console.log(vm.credentials);
+                        $state.go('proximaEtapa');
+                    } else {
+                        $state.go('home');
+                    }
                 }, function (err) {
                     vm.error = 'Erro de registro - ' + err;
                 }
