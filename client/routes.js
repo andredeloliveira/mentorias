@@ -37,6 +37,13 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
               controller: 'empresaController',
               controllerAs: 'ec'
             })
+            /*para a página meu perfil*/
+            .state('meuPerfil',{
+              url:'/meuPerfil',
+              templateUrl: 'client/perfis/views/meuPerfil.ng.html',
+              controller: 'meuPerfilController',
+              conrollerAs: 'mpc'
+            })
             /*para a página de login*/
             .state('login', {
                 url: '/login',
@@ -57,7 +64,7 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
                 resolve: {
                     "logout": ['$meteor', '$state', function ($meteor, $state) {
                         return $meteor.logout().then(function () {
-                            $state.go('home');
+                            $state.go('login');
                         }, function (err) {
                             console.log('logout error - ', err);
                         });

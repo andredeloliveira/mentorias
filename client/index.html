@@ -3,17 +3,38 @@
     <title>Mentorias - Agripa Innovation Labs </title>
 </head>
 <body>
-    <div class="container-fluid">
-        <div ng-app="mentorias">
-            <div class="navbar-right navbar-text">
-                <md-button ng-href="/login" ng-hide="$root.currentUser">Entrar</md-button>
-                <md-button ng-href="/cadastroPerfil" ng-hide="$root.currentUser">Registrar</md-button>
-                <md-button ng-href="/logout" ng-show="$root.currentUser">Sair</md-button>
-                {{#if currentUser}}
-                    <p>{{currentUser.profile.name}}</p>
-                {{/if}}
+  <div class="container-fluid">
+      <div ng-app="mentorias">
+        {{#if currentUser}}
+         <!--essa parte será o cabeçalho para quem está logado, onde ficará o menu. Uma
+          directive pode ser feita para isso no futuro, ou então um novo html que pode
+        ser inserido utilizando as directive(?) do meteor
+        muitas melhorias podem ser feitas
+        -->
+
+            <div layout="row" layout-align="center start" layout-padding style="margin-top: 60px;">
+
+                <img src="/resources/Logo-Agripa.png"  style=" width:190px; height:80px;">
+
+                <button> Meu Perfil</button>
+                <button> Empresas</button>
+                <button> Trajetórias</button>
+                <button><i class="fa fa-gear"></i></button> <!--G is for gear button-->
+                <button><i class="fa fa-power-off"></i></button> <!-- for logout apparently-->
+                <input style="width:180px; margin-left:200px;" type="text" placeholder="Pesquisar">
+                <button><i class="fa fa-search"></i></button><!--P for pesquisar-->
             </div>
-            <div ui-view></div>
-        </div>
-    </div>
+
+        {{/if}}
+          <!--<div class="navbar-right navbar-text">
+              <md-button ng-href="/login" ng-hide="$root.currentUser">Entrar</md-button>
+              <md-button ng-href="/cadastroPerfil" ng-hide="$root.currentUser">Registrar</md-button>
+              <md-button ng-href="/logout" ng-show="$root.currentUser">Sair</md-button>
+              {{#if currentUser}}
+                  <p>{{currentUser.profile.name}}</p>
+              {{/if}}
+          </div> -->
+          <div ui-view></div>
+      </div>
+  </div>
 </body>

@@ -61,7 +61,8 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
                     expertise: vm.tagNames,
                     facebook: nUser.facebook_page,
                     twitter: nUser.twitter_profile,
-                    linkedIn: nUser.linkedIn
+                    linkedIn: nUser.linkedIn,
+                    profile_photo: nUser.file
                 },
                 services: {
                     facebook: {
