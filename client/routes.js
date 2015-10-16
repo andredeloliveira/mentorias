@@ -1,9 +1,10 @@
 angular.module("mentorias").run(['$rootScope', '$state', function ($rootScope, $state) {
+
     $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
         // We can catch the error thrown when the $requireUser promise is rejected
         // and redirect the user back to the main page
         if (error === 'AUTH_REQUIRED') {
-            $state.go('home');
+            $state.go('login');
         }
     });
 }]);
@@ -23,7 +24,12 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
             .state('home', {
                 url: '/',
                 templateUrl: 'client/home/views/home.ng.html',
-                controller: 'homeController'
+                controller: 'homeController',
+                resolve: {
+                    "currentUser": ["$meteor", function ($meteor) {
+                        return $meteor.requireUser();
+                    }]
+                }
             })
             .state('proximaEtapa', {
                 url: '/proximaEtapa',
@@ -31,25 +37,46 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
                 controller: 'proximaEtapaController'
             })
             /*para o cadastro de Empresa*/
-            .state('cadastroEmpresa',{
-              url:'/cadastroEmpresa',
-              templateUrl: 'client/empresa/views/cadastroEmpresa.ng.html',
-              controller: 'empresaController',
-              controllerAs: 'ec'
+            .state('cadastroEmpresa', {
+                url: '/cadastroEmpresa',
+                templateUrl: 'client/empresa/views/cadastroEmpresa.ng.html',
+                controller: 'empresaController',
+                controllerAs: 'ec',
+                resolve: {
+                    "currentUser": ["$meteor", function ($meteor) {
+                        return $meteor.requireUser();
+                    }]
+                }
             })
             /*para a página meu perfil*/
-            .state('meuPerfil',{
-              url:'/meuPerfil',
-              templateUrl: 'client/perfis/views/meuPerfil.ng.html',
-              controller: 'meuPerfilController',
-              conrollerAs: 'mpc'
+            .state('meuPerfil', {
+                url: '/meuPerfil',
+                templateUrl: 'client/perfis/views/meuPerfil.ng.html',
+                controller: 'meuPerfilController',
+                conrollerAs: 'mpc',
+                resolve: {
+                    "currentUser": ["$meteor", function ($meteor) {
+                        return $meteor.requireUser();
+                    }]
+                }
             })
             /*para a página de login*/
             .state('login', {
                 url: '/login',
                 templateUrl: 'client/perfis/views/login.ng.html',
                 controller: 'loginController',
-                controllerAS: 'lc'
+                controllerAS: 'lc',
+                resolve: {
+                    "currentUser": ["$meteor", "$rootScope", "$state", function ($meteor, $rootScope, $state) {
+                        $meteor.waitForUser().then(function () {
+                            if ($rootScope.currentUser) {
+                                $state.go('home');
+                            }
+                        }, function (err) {
+                            console.log('Login error - ', err);
+                        });
+                    }]
+                }
             })
             /*pra reinicializar a senha*/
             .state('resetSenha', {
