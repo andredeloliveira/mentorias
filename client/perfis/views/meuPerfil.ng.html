@@ -1,25 +1,47 @@
 <div class="container-fluid">
-  <div layout="row">
-    <!-- para a foto do perfil-->
-    <div flex="20">
-      <img src="/resources/icone_calendario.png">
+  <div class="row profile-border">
+    <!-- para a foto do perfil
+
+    A foto do perfil é carregada pela referencia do objeto d foto. profile é onde tem os campos especiais do usuário
+    A função getFileRecord, faz o Images.find({file:_id}); por trás, trazendo o objeto salvo no banco com a id da referencia
+
+    Mais info ver: https://github.com/CollectionFS/Meteor-CollectionFS
+    -->
+    <div class="three columns ">
+    <img src="{{$root.currentUser.profile.profilePic.getFileRecord().url()}}" class="profile-picture">
     </div>
-    <!-- para os dados do usuário-->
-    <div flex="20">
-      balbablablalblalb
-      bakbakbakbkalbalba
+    <div class="three columns ">
+      <div class="row text-center">
+        <h4>{{$root.currentUser.profile.name}}</h4>
+      </div>
+      <div class="row">
+          <span ng-repeat="expertise in $root.currentUser.profile.expertise"><i class="fa fa-square"></i>{{' ' +expertise + ' '}}</span>
+      </div>
     </div>
-    <div flex="15">
-      estrelas, etc
+
+    <div class="two columns ">
+      <div class="row">
+        <div class="twelve columns">
+          <button >estrelas</button>
+        </div>
+        <div class="six columns">horas mentoria</div>
+        <div class="six columns">badges</div>
+      </div>
     </div>
-    <div flex="20">
-      breve descrição
+
+    <div class="three columns ">
+      <p class="text-center">
+        {{$root.currentUser.profile.breve_descricao}}
+      </p>
     </div>
-    <div flex="7">
-      links
+
+    <div class="one column ">
+      <a href="{{$root.currentUser.profile.facebook}}"><i class="fa fa-facebook-official icon-bar"></i></a>
+
+      <a href="{{$root.currentUser.profile.twitter}}"><i class="fa fa-twitter icon-bar"></i></a>
+      <a href="{{$root.currentUser.profile.linkedIn}}"><i class="fa fa-linkedin icon-bar"></i></a>
+
     </div>
-    <div flex="18">
-      mais links
-    </div>
+
   </div>
 </div>

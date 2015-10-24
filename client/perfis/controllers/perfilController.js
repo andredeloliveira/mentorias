@@ -9,6 +9,37 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
         /*usuário provenientes do servidor*/
         $scope.users = $meteor.collection(Meteor.users, false).subscribe('users');
         $scope.images = $meteor.collectionFS(Images, false, Images).subscribe('images');
+        $scope.tempImage = {};
+        $scope.feedbackUpload = false;
+
+        /*controle de imagens de usuário. A função add temp foi adicionada pra não criar um gargalo no banco.
+          Antes a foto era adicionada pelo simples fato de clicar no botão de procurar e escolher a foto.
+          Agora o botão upload foi adicionado.
+        */
+
+        $scope.addTempImage = function(images){
+          $scope.tempImage = images[0];
+        };
+
+
+
+        $scope.addImages = function () {
+            /*Uma referencia da imagem do perfil é salva no nUser, que é o objeto
+            criado na view, que será inserido no banco. A imagem está em uma collection diferente
+            da do usuário, ou seja, aqui só tem uma referencia ao objeto, que é buscado
+            na view meuPerfil.ng.html*/
+            var fileObj = Images.insert($scope.tempImage, function(err, fileObj){
+              if(err)
+                console.log('erro no upload '+ err);
+              return fileObj;
+            });
+            $scope.nUser.profilePic = fileObj;
+            $scope.feedbackUpload = true;
+            console.log($scope.nUser);
+
+
+        };
+
         /*
          Variável que define a etapa do cadastro. Com ela, sera possível controlar o que será mostrado na view
          */
@@ -43,7 +74,7 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
 
         vm.error = '';
 
-        /*Precisamos fazer uma função customizada pra adicionar o tipo (mentor/empreendedor), etc, etc*/
+
         /*Os campos para página do facebook, twitter e linkedIn estão também. Só a URL será adicionada, logo
          Não poderemos obter a foto do perfil do facebook. Somente se o perfil tiver ligaçao com OAuth2.0!
          */
@@ -59,10 +90,10 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
                     tipo_conta: nUser.tipo_conta,
                     genero: nUser.genero,
                     expertise: vm.tagNames,
-                    facebook: nUser.facebook_page,
-                    twitter: nUser.twitter_profile,
+                    facebook: nUser.facebook,
+                    twitter: nUser.twitter,
                     linkedIn: nUser.linkedIn,
-                    profile_photo: nUser.file
+                    profilePic: nUser.profilePic
                 },
                 services: {
                     facebook: {

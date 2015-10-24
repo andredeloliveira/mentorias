@@ -1,5 +1,39 @@
+
+.profile-picture {
+  width: 200px;
+  height: 100px;
+}
+
+.icon-bar{
+  font-size: 3.8em;
+  margin: 2px;
+  border: 1px;
+  border-color: #FFFFFF;
+}
+
+a {
+  text-decoration: none;
+  color:#FFFFFF;
+}
+a:visited {
+    text-decoration: none;
+    color: #CCCCCC;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+a:active {
+    text-decoration: none;
+    color: #FFFFFF;
+}
 .button {
   color: #FFFFFF;
+  margin: 0;
+
+
 }
 .space-header {
     margin-top : 100px;
@@ -24,8 +58,12 @@ body {
     height : 100px;
 }
 
-.row {
-    margin-top : 50px;
+.profile-border{
+  border: 2px;
+  border-color: #FFFFFF;
+  border-style: solid;
+  width:100%;
+  height: 100%;
 }
 
 .frame-form {

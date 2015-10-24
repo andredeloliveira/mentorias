@@ -1,3 +1,4 @@
+
 Images = new FS.Collection("images", {
     stores: [
         new FS.Store.GridFS("original")
@@ -9,6 +10,7 @@ Images = new FS.Collection("images", {
     }
 });
 
+
 if (Meteor.isServer) {
     Images.allow({
         'insert': function () {
@@ -17,6 +19,7 @@ if (Meteor.isServer) {
     });
 
     Meteor.publish('images', function () {
+
         return Images.find({});
     });
 }

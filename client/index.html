@@ -16,13 +16,14 @@
 
                 <img src="/resources/Logo-Agripa.png"  style=" width:190px; height:80px;">
 
-                <button> Meu Perfil</button>
-                <button> Empresas</button>
-                <button> Trajetórias</button>
-                <button><i class="fa fa-gear"></i></button> <!--G is for gear button-->
-                <button><i class="fa fa-power-off"></i></button> <!-- for logout apparently-->
-                <input style="width:180px; margin-left:200px;" type="text" placeholder="Pesquisar">
-                <button><i class="fa fa-search"></i></button><!--P for pesquisar-->
+                <a class="button" href="/meuPerfil"> Meu Perfil</a>
+                <a class="button" href="#"> Empresas</a> <!--precisamos da tela :/ -->
+                <a class="button" href="#"> Trajetórias</a>
+                <a class="button" href="#"><i class="fa fa-gear" ></i></a> <!--G is for gear button-->
+                <a href="/logout" class="button"><i class="fa fa-power-off" ></i></a> <!-- for logout apparently-->
+
+                  <input style="width:180px; margin-left:180px;" type="text" placeholder="Pesquisar">
+                  <a class="button" src="#"><i class="fa fa-search"></i></a><!--P for pesquisar-->
             </div>
 
         {{/if}}
