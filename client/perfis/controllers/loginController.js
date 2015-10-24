@@ -5,18 +5,28 @@ angular.module("mentorias").controller("loginController", ['$scope', '$meteor', 
 
         /*incialização do objeto contendo as credenciais para o login e da variavel de erro.*/
 
-        vm.error = '';
+        $scope.error = '';
 
         /*a função de login em si.*/
         $scope.login = function (aUser) {
 
-            $meteor.loginWithPassword(aUser.email, aUser.senha).then(
-                function () {
+            $meteor.loginWithPassword(aUser.email, aUser.senha, handleError);
+
+            function handleError(err) {
+                if (err) {
+                    //err.error = 'Erro de login - ' + err;
+                    if (err.reason == 'User not found') {
+                        $scope.error = 'Usuário não encontrado!';
+                    } else if (err.reason == 'Incorrect password') {
+                        $scope.error = 'Senha incorreta!';
+                    } else {
+                        $scope.error = 'Ocorreu uma falha na comunicação!';
+                    }
+
+                } else {
                     $state.go('home');
-                }, function (err) {
-                    vm.error = 'Erro de login - ' + err;
                 }
-            );
+            }
         }
     }
 ]);
