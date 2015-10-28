@@ -31,3 +31,5 @@ cfs:standard-packages
 cfs:gridfs
 fortawesome:fontawesome
 cfs:ejson-file
+cfs:filesystem
+rzymek:fullcalendar

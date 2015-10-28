@@ -1,5 +1,6 @@
 <div class="container-fluid">
-  <div class="row profile-border">
+
+  <div class="row profile-border" style="margin-top: 30px;">
     <!-- para a foto do perfil
 
     A foto do perfil é carregada pela referencia do objeto d foto. profile é onde tem os campos especiais do usuário
@@ -11,8 +12,11 @@
     <img src="{{$root.currentUser.profile.profilePic.getFileRecord().url()}}" class="profile-picture">
     </div>
     <div class="three columns ">
-      <div class="row text-center">
+      <div class="row">
         <h4>{{$root.currentUser.profile.name}}</h4>
+      </div>
+      <div>
+        {{$root.currentUser.emails[0].address}}
       </div>
       <div class="row">
           <span ng-repeat="expertise in $root.currentUser.profile.expertise"><i class="fa fa-square"></i>{{' ' +expertise + ' '}}</span>
@@ -22,10 +26,17 @@
     <div class="two columns ">
       <div class="row">
         <div class="twelve columns">
-          <button >estrelas</button>
+          <span><i class="fa fa-star stars"></i></span>
+          <span><i class="fa fa-star stars"></i></span>
+          <span><i class="fa fa-star stars"></i></span>
+          <span><i class="fa fa-star stars"></i></span>
+          <span><i class="fa fa-star-half-o stars"></i></span>
         </div>
-        <div class="six columns">horas mentoria</div>
-        <div class="six columns">badges</div>
+        <div>
+            media de avaliações
+        </div>
+        <div class="twelve columns"><b class="horas-mentorias">19 hs</b> de mentoria</div>
+        <div class="twelve columns"><b class="horas-mentorias">9</b> badges</div>
       </div>
     </div>
 
@@ -43,5 +54,9 @@
 
     </div>
 
+  </div>
+  <!-- Calendario daqui pra baixo-->
+  <div class="row profile-border">
+    <div id="calendar"  style="width:800px; margin-left:auto; margin-right:auto;"></div>
   </div>
 </div>

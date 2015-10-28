@@ -2,10 +2,23 @@
 .profile-picture {
   width: 200px;
   height: 100px;
+  margin: auto;
+
+}
+
+.stars{
+  font-size: 1.22em;
+  margin-top: 10px;
+}
+
+
+
+.horas-mentorias {
+  font-size: 1.33em;
 }
 
 .icon-bar{
-  font-size: 3.8em;
+  font-size: 2.8em;
   margin: 2px;
   border: 1px;
   border-color: #FFFFFF;
@@ -40,7 +53,11 @@ a:active {
 }
 
 body {
-    background              : url('/resources/background.png') no-repeat fixed;
+    background              : url('/resources/background.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #CCCCCC;
     -webkit-background-size : cover;
     -moz-background-size    : cover;
     -o-background-size      : cover;
@@ -59,7 +76,7 @@ body {
 }
 
 .profile-border{
-  border: 2px;
+  border: 1px;
   border-color: #FFFFFF;
   border-style: solid;
   width:100%;
