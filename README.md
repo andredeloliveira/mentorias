@@ -29,3 +29,24 @@ O resultado é um JSON. Os metodos PUT e GET estão disponíveis.
 para usar o GET
 
 /api/users/:id
+
+####Login
+para o login é só acessar a URL:
+
+/api/login
+
+uma possivel chamada seria:
+
+`curl http://localhost:3000/api/login/ -d "email=test&password=password"`
+
+isso vai gerar um status:
+
+ {status: "success", data: {authToken: "f2KpRW7KeN9aPmjSZ", userId: fbdpsNf4oHiX79vMJ} }
+
+é necessário salvar o userId e o authToken para permanecer com o usuário logado.
+
+Para o logout é simples, só
+
+/api/logout
+
+Depois disso não vai mais rolar usar o authToken para mais nada, pois será invalidado.
