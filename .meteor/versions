@@ -43,6 +43,7 @@ cfs:tempstore@0.1.5
 cfs:upload-http@0.0.20
 cfs:worker@0.1.4
 check@1.0.6
+coffeescript@1.0.10
 dburles:mongo-collection-instances@0.3.4
 ddp@1.2.2
 ddp-client@1.2.1
@@ -83,6 +84,7 @@ momentjs:moment@2.8.4
 mongo@1.1.2
 mongo-id@1.0.1
 mongo-livedata@1.0.9
+nimble:restivus@0.8.4
 npm-bcrypt@0.7.8_2
 npm-mongo@1.4.39_1
 oauth@1.1.6
@@ -103,6 +105,7 @@ rzymek:fullcalendar@2.4.0
 service-configuration@1.0.5
 session@1.1.1
 sha@1.0.4
+simple:json-routes@1.0.4
 skeleton:skeleton@2.0.4
 spacebars@1.0.7
 spacebars-compiler@1.0.7

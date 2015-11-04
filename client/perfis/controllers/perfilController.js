@@ -95,7 +95,10 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
                     facebook: nUser.facebook,
                     twitter: nUser.twitter,
                     linkedIn: nUser.linkedIn,
-                    profilePic: nUser.profilePic
+                    profilePic: nUser.profilePic,
+                    stars: 0,
+                    horasMentorias:0,
+                    badges: 0
                 },
                 services: {
                     facebook: {

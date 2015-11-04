@@ -8,15 +8,18 @@
 
     Mais info ver: https://github.com/CollectionFS/Meteor-CollectionFS
     -->
-    <div class="three columns ">
+    <div class="three columns profile-border">
     <img src="{{$root.currentUser.profile.profilePic.getFileRecord().url()}}" class="profile-picture">
     </div>
-    <div class="three columns ">
+    <div class="three columns separador-vertical">
+      <div class="row">
+        <h4>{{profileTitle}}</h4>
+      </div>
       <div class="row">
         <h4>{{$root.currentUser.profile.name}}</h4>
       </div>
-      <div>
-        {{$root.currentUser.emails[0].address}}
+      <div class="row">
+        <h4>{{$root.currentUser.emails[0].address}}</h4>
       </div>
       <div class="row">
           <span ng-repeat="expertise in $root.currentUser.profile.expertise"><i class="fa fa-square"></i>{{' ' +expertise + ' '}}</span>
