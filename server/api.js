@@ -10,7 +10,7 @@ Api = new Restivus({
 Api.addCollection(Meteor.users,{
   excludedEndPoints:['getAll', 'put'],
   routeOptions: {
-    useDefaultAuth: true;
+    useDefaultAuth: true
   },
   endpoints:{
     post:{

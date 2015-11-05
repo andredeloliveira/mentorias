@@ -8,19 +8,19 @@
 
     Mais info ver: https://github.com/CollectionFS/Meteor-CollectionFS
     -->
-    <div class="three columns profile-border">
+    <div class="three columns ">
     <img src="{{$root.currentUser.profile.profilePic.getFileRecord().url()}}" class="profile-picture">
     </div>
-    <div class="three columns separador-vertical">
-      <div class="row">
-        <h4>{{profileTitle}}</h4>
-      </div>
-      <div class="row">
-        <h4>{{$root.currentUser.profile.name}}</h4>
-      </div>
-      <div class="row">
-        <h4>{{$root.currentUser.emails[0].address}}</h4>
-      </div>
+    <div class="two columns">
+
+        <span style="font-size: 0.87em;">{{profileTitle}}</span>
+        <br>
+
+        <span style="font-size: 1.33em;">{{$root.currentUser.profile.name}}</span>
+        <br>
+
+        <span style="font-size:0.77em;">{{$root.currentUser.emails[0].address}}</span>
+        <br>
       <div class="row">
           <span ng-repeat="expertise in $root.currentUser.profile.expertise"><i class="fa fa-square"></i>{{' ' +expertise + ' '}}</span>
       </div>
@@ -43,20 +43,24 @@
       </div>
     </div>
 
-    <div class="three columns ">
+    <div class="two columns ">
       <p class="text-center">
         {{$root.currentUser.profile.breve_descricao}}
       </p>
     </div>
 
-    <div class="one column ">
+    <div class="one column" style=" margin-left:10px; margin-right:0;">
       <a href="{{$root.currentUser.profile.facebook}}"><i class="fa fa-facebook-official icon-bar"></i></a>
 
       <a href="{{$root.currentUser.profile.twitter}}"><i class="fa fa-twitter icon-bar"></i></a>
       <a href="{{$root.currentUser.profile.linkedIn}}"><i class="fa fa-linkedin icon-bar"></i></a>
 
     </div>
-
+    <div class="two columns" style="margin-left:0;">
+      <button style="width:220px;"><i class="fa fa-commenting-o"></i> Mensagens <span></span></button>
+      <button style="width:220px;"><i class="fa fa-calendar"></i> Agenda <span></span></button>
+      <button style="width:220px;"><i class="fa fa-group"></i> Ações de mentoria<span></span></button>
+    </div>
   </div>
   <!-- Calendario daqui pra baixo-->
   <div class="row profile-border">
