@@ -2,8 +2,8 @@
  Controller responsável pelo Perfil. Aqui os métodos para Login, cadastro e busca de usuários são definidos.
  **/
 
-angular.module("mentorias").controller("perfilController", ['$scope', '$stateParams', '$meteor', '$state',
-    function ($scope, $stateParams, $meteor, $state) {
+angular.module("mentorias").controller("perfilController", ['$scope', '$stateParams', '$meteor', '$state', '$q',
+    function ($scope, $stateParams, $meteor, $state, $q) {
 
 
         /*usuário provenientes do servidor*/
@@ -81,7 +81,8 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
          */
         vm.register = function (nUser) {
           console.log('entered the register function');
-
+            var filteredExpertise = $scope.filterExpertises($scope.tags);
+            console.log(filteredExpertise);
             vm.credentials = {
                 email: nUser.email,
                 password: nUser.senha,
@@ -91,14 +92,14 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
                     breve_descricao: nUser.breve_descricao,
                     tipo_conta: nUser.tipo_conta,
                     genero: nUser.genero,
-                    expertise: vm.tagNames,
+                    expertise: filteredExpertise,
                     facebook: nUser.facebook,
                     twitter: nUser.twitter,
                     linkedIn: nUser.linkedIn,
                     profilePic: nUser.profilePic,
                     stars: 0,
                     horasMentorias:0,
-                    badges: 0
+                    badges: []
                 },
                 services: {
                     facebook: {
@@ -134,10 +135,53 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
             );
         }
 
-        /*Aqui será definida a lógica para o controller das tags*/
-        vm.readonly = false;
-        vm.tagNames = [];
-        vm.tags = [];
+        $scope.filterExpertises = function(tags){
+          var result = [];
+          for(var i=0; i<tags.length; i++){
+            result.push(tags[i].name);
+          };
+          return result;
+        };
+        /*Aqui será definida a lógica para o controller das tags. A variavel tagsExpertise1 contem os objetos que
+        serão mostrados e selecionados no cadastro*/
+
+
+        $scope.loadTags = function(){
+          var tags = ['Consultoria', 'Auditoria', 'Web Design',
+          'Programação', 'Design de Interface',
+          'Design de Produto', 'Design Editorial',
+          'Design Gráfico', 'Tecnologia', 'Marketing',
+          'Economia', 'Arquitetura', 'Alimentação',
+          'Engenharia', 'Saúde', 'Turismo', 'Mobilidade'];
+          return tags.map(function(c,index){
+            var cParts = c.split(' ');
+            var tag = {
+              name: c
+            };
+            tag._lowername = tag.name.toLowerCase();
+            return tag;
+          });
+        };
+
+        $scope.createFilterFor = function(query){
+          var lowercaseQuery = angular.lowercase(query);
+
+          return function filterFn(tag) {
+            return (tag._lowername.indexOf(lowercaseQuery) != -1);;
+          };
+        };
+        $scope.querySearch   = function(query){
+          var results = query ?
+            $scope.tagNames.filter($scope.createFilterFor(query)) : [];
+          console.log(results);
+          return results;
+        };
+
+        $scope.filterSelected = true;
+        $scope.readonly = false;
+        $scope.tagNames = $scope.loadTags();
+        console.log($scope.tagNames);
+        $scope.tags = [];
 
 
         /*fim do controle das tags*/

@@ -74,9 +74,18 @@
                 <img class="logo" src="../resources/Logo-Agripa.png"/>
 
                 <div class="twelve columns container">
-                    <md-chips ng-model="pc.tagNames" readonly="pc.readonly" placeholder="adicione uma expertise"
+                    <!--<md-chips ng-model="pc.tagNames" readonly="pc.readonly" placeholder="adicione uma expertise"
                               delete-button-label="remova expertise" delete-hing="clique em delete para remover a tag"
-                              secondary-placeholder="+Expertise"></md-chips>
+                              secondary-placeholder="+Expertise"></md-chips> -->
+                 <md-contact-chips
+                      ng-model="tags"
+                      md-contacts="querySearch($query)"
+                      md-contact-name="name"
+                      md-require-match="true"
+                      md-highlight-flags="i"
+                      filter-selected="filterSelected"
+                      placeholder="Expertises">
+                 </md-contact-chips>
                 </div>
                 <!-- end twelve columns-->
             </div>
