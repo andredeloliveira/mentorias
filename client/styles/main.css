@@ -212,3 +212,67 @@ textarea:focus {
 .no-margin-top {
     margin-top: 0;
 }
+
+/*Modal*/
+.modal-content {
+    background-color: #000;
+    border-radius: 0;
+    border: 1px solid #fff;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.modal-close-icon {
+    margin-top: -16px !important;
+    margin-right: -55px;
+    height: 26px;
+    padding: 0px 6px;
+    opacity: 1;
+}
+
+.right-white-border {
+    border-right: 1px solid #fff;
+}
+
+.background-transparent {
+    background: transparent;
+}
+
+.background-transparent:hover {
+    background: transparent;
+}
+
+.border-radious-none {
+    border-radius: 0px;
+}
+
+.border-white, .border-white:hover {
+    border: 1px solid #fff;
+}
+
+.color-white, .color-white:hover {
+    color: #fff;
+}
+
+.modal-footer{
+    border: 0 none;
+}
+
+.modal-b-title{
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    top: -30px;
+    font-size: 16px;
+    padding: 3px 10px;
+}
+
+.modal-dialog{
+    margin-top: 80px;
+}
