@@ -24,7 +24,6 @@ accounts-ui
 urigo:angular-blaze-template
 accounts-facebook
 accounts-twitter
-skeleton:skeleton
 twbs:bootstrap
 angular:angular-material
 cfs:standard-packages

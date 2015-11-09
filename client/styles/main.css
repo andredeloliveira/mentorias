@@ -1,10 +1,16 @@
+* {
+  -webkit-border-radius: 0 !important;
+     -moz-border-radius: 0 !important;
+          border-radius: 0 !important;
+}
+
 html {
     background: none;
 }
 
 .profile-picture {
     width: 200px;
-    height: 150px;
+    height: 115px;
     margin: auto;
 
 }
@@ -56,12 +62,14 @@ a:active {
 }
 
 body {
-    background: #CCCCCC url('/resources/background.png') no-repeat fixed center center !important;
+    height: auto !important;
+    background: #000 url('/resources/background.png') no-repeat center center !important;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     color: #FFFFFF;
+    background-size:130% !important;
 }
 
 .img-button {
@@ -251,19 +259,15 @@ textarea:focus {
 .border-radious-none {
     border-radius: 0px;
 }
-
 .border-white, .border-white:hover {
     border: 1px solid #fff;
 }
-
 .color-white, .color-white:hover {
     color: #fff;
 }
-
 .modal-footer{
     border: 0 none;
 }
-
 .modal-b-title{
     position: absolute;
     background-color: rgb(255, 255, 255);
@@ -272,7 +276,24 @@ textarea:focus {
     font-size: 16px;
     padding: 3px 10px;
 }
-
 .modal-dialog{
     margin-top: 80px;
+}
+.agripa-brand{width: 90%;margin: 0% 5%;}
+#menu .button{ margin-left:0.5% !important; width: 100% !important;}
+.pesquisar{float:left !important; width:100%;height: 32px !important;}
+.btn-pesquisar{float:right !important; border:1px solid white;padding:5px;}
+.profile-border > *{border:1px solid white; }
+.profile-boxes{ min-height: 135px !important; }
+.btn-default{ background-color: transparent !important; color:#fff;}
+.profile-actions{width: 100% !important;}
+.no-padding{padding: 0px !important;}
+.search{ float:right;}
+.btn:focus, .btn:active, .btn:hover, .btn:visited{
+    color:#c9c9c9;
+} 
+
+@media only screen and (min-width: 1200px) {
+    
+    .container{width: 96% !important}
 }

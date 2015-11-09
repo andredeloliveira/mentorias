@@ -15,3 +15,4 @@ angular.module('mentorias')
 function onReady() {
   angular.bootstrap(document, ['socially']);
 }
+

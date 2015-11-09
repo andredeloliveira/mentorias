@@ -145,7 +145,6 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
         /*Aqui será definida a lógica para o controller das tags. A variavel tagsExpertise1 contem os objetos que
         serão mostrados e selecionados no cadastro*/
 
-
         $scope.loadTags = function(){
           var tags = ['Consultoria', 'Auditoria', 'Web Design',
           'Programação', 'Design de Interface',

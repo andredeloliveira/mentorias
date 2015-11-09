@@ -13,14 +13,14 @@
 
 CSS boilerplates:
 `meteor add twbs:bootstrap`
-`meteor add skeleton:skeleton`
+¹removido o pack skeleton
 
 Outros estilos de css estão incluidos no arquivo main.css
 
 E muitos outros, que agora eu não me lembro, mas postarei. Do mesmo modo, os pacotes estão contidos na pasta .meteor
 e não trarão muitas consequencias.
 
-##API DOC:
+##API DOCS:
 
 Para acessar a API é simples:
 http://server/api/users

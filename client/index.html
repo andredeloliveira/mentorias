@@ -3,7 +3,7 @@
     <title>Mentorias - Agripa Innovation Labs </title>
 </head>
 <body>
-  <div class="container-fluid">
+  <div class="container no-padding">
       <div ng-app="mentorias">
         {{#if currentUser}}
          <!--essa parte será o cabeçalho para quem está logado, onde ficará o menu. Uma
@@ -11,21 +11,31 @@
         ser inserido utilizando as directive(?) do meteor
         muitas melhorias podem ser feitas
         -->
+        <div class="row">
+             <div id="menu" class="container col-md-12" layout="row" layout-align="center start" layout-padding style="margin-top: 60px;">
+                
+              <div class=" col-lg-3 col-md-3 col-xs-12">
+                  <img src="/resources/Logo-Agripa.png"  class="agripa-brand">
+                </div>
+                
+                <div class="col-lg-6 col-md-6 col-xs-12 ">
+                  <a class="btn btn-default" href="/meuPerfil"> Meu Perfil</a>
+                  <a class="btn btn-default" href="#"> Empresas</a> <!--precisamos da tela :/ -->
+                  <a class="btn btn-default" href="#"> Trajetórias</a>
+                  <a class="btn btn-default" href="#"><i class="fa fa-gear" style="font-size: 1.44em;" ></i></a> <!--G is for gear button-->
+                  <a href="/logout" class="btn btn-default"><i class="fa fa-power-off" style="font-size: 1.44em;" ></i></a> <!-- for logout apparently-->
+                </div>
 
-            <div layout="row" layout-align="center start" layout-padding style="margin-top: 60px;">
-
-                <img src="/resources/Logo-Agripa.png"  style=" width:190px; height:80px;">
-
-                <a class="button" href="/meuPerfil"> Meu Perfil</a>
-                <a class="button" href="#"> Empresas</a> <!--precisamos da tela :/ -->
-                <a class="button" href="#"> Trajetórias</a>
-                <a class="button" href="#"><i class="fa fa-gear" style="font-size: 1.44em;" ></i></a> <!--G is for gear button-->
-                <a href="/logout" class="button"><i class="fa fa-power-off" style="font-size: 1.44em;" ></i></a> <!-- for logout apparently-->
-
-                  <input style="width:180px; margin-left:180px;" type="text" placeholder="Pesquisar">
-                  <a class="button" src="#"><i class="fa fa-search" style="font-size: 1.44em;"></i></a><!--P for pesquisar-->
+                <div class="col-lg-3 col-xs-12 col-md-3  no-padding">
+                  <div class="col-md-11 col-xs-11 no-padding">
+                    <input type="text" placeholder="Pesquisar" class="pesquisar">   
+                  </div>  
+                  <div class="col-md-1 no-padding">
+                    <a class="button btn-pesquisar" src="#"><i class="fa fa-search" style="font-size: 1.44em;"></i></a><!--P for pesquisar-->    
+                  </div>
+                </div>
             </div>
-
+        </div>
         {{/if}}
           <!--<div class="navbar-right navbar-text">
               <md-button ng-href="/login" ng-hide="$root.currentUser">Entrar</md-button>
@@ -35,7 +45,7 @@
                   <p>{{currentUser.profile.name}}</p>
               {{/if}}
           </div> -->
-          <div ui-view></div>
+          <div ui-view class="col-md-12 no-=padding"></div>
       </div>
   </div>
 </body>
