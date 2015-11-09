@@ -14,6 +14,13 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
         $locationProvider.html5Mode(true);
         //router para o cadastro de perfil (Usando o $meteor.user !)
         $stateProvider
+            //modais
+            .state('modais', {
+                url: '/modais',
+                templateUrl: 'client/perfis/views/modais.ng.html',
+                controller: 'modaisController',
+                controllerAs: 'pc'
+            })
             .state('cadastroPerfil', {
                 url: '/cadastroPerfil',
                 templateUrl: 'client/perfis/views/cadastroPerfil.ng.html',
