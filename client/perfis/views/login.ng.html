@@ -1,32 +1,36 @@
-<div class="login-home frame-form container text-center space-header">
-    <form class="login-form frame-spaces">
-        <div class="row ">
-            <div class="twelve columns container">
-                <img class="logo" src="../resources/Logo-Agripa.png"/>
-                <h4 class="text-center">Bem-vindo ao sistema de gestão de mentorias</h4>
-                <input ng-keyup="$event.keyCode == 13 && login(aUser)()" type="text" ng-model="aUser.email" placeholder="e-mail">
-                <input ng-keyup="$event.keyCode == 13 && login(aUser)()" type="password" ng-model="aUser.senha" placeholder="senha">
+<div class="col-md-4 float-none center-block">
+    <div class="login-home frame-form text-center space-header">
+        <form class="login-form frame-spaces">
+            <div class="row">
+                <img class="img-responsive center-block" src="../resources/Logo-Agripa.png"/>
+                <br><br>
+                <h4 class="text-center">Bem-vindo ao sistema de gestão de mentorias</h4><br>
+                <input ng-keyup="$event.keyCode == 13 && login(aUser)()" type="text" ng-model="aUser.email" placeholder="E-mail"><br><br>
+                <input ng-keyup="$event.keyCode == 13 && login(aUser)()" type="password" ng-model="aUser.senha" placeholder="Senha">
                 <span>{{error}}</span>
+                <!-- end six columns-->
             </div>
-            <!-- end six columns-->
-        </div>
-        <!-- end row-->
-        <div class="row" style="margin-top:50px;">
-            <div class="twelve columns container">
+            <!-- end row-->
+            <div class="row" style="margin-top:50px;">
                 <ul class="nav nav-justified">
                     <li>
-                        <button class="buttonLoginLinkedIn">Entrar com <img class="img-button" src="../resources/logo-linkedin.png"></button>
+                        <a id="button-login-linkedIn" class="btn btn-default">
+                            Logar com
+                            <img class="img-button-linkedin" src="../resources/logo-linkedin.png">
+                        </a>
                     </li>
                     <li>
-                        <button ng-click="login(aUser)">Entrar</button>
+                        <a class="btn btn-default" ng-click="login(aUser)">Logar</a>
                     </li>
                 </ul>
-                <div class="text-center">
-                    <span>Não está cadastrado? Cadastre-se </span><a href="/cadastroPerfil">aqui</a>
-                    <br>
-                    <a href="/resetSenha">Esqueci minha senha</a>
+                <br><br>
+
+                <div class="text-center text-decoration-underline">
+                    <a class="color-white" href="/cadastroPerfil">Não possui uma conta? Cadastre-se</a>
+                    <br><br>
+                    <a class="color-white" href="/resetSenha">Esqueci minha senha</a>
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
