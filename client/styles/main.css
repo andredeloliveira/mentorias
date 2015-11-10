@@ -22,6 +22,7 @@ html {
 
 .horas-mentorias {
     font-size: 1.33em;
+    margin-bottom:0px;
 }
 
 .icon-bar {
@@ -69,7 +70,7 @@ body {
     -o-background-size: cover;
     background-size: cover;
     color: #FFFFFF;
-    background-size:130% !important;
+    background-size:150% !important;
 }
 
 .img-button {
@@ -282,18 +283,27 @@ textarea:focus {
 .agripa-brand{width: 90%;margin: 0% 5%;}
 #menu .button{ margin-left:0.5% !important; width: 100% !important;}
 .pesquisar{float:left !important; width:100%;height: 32px !important;}
-.btn-pesquisar{float:right !important; border:1px solid white;padding:5px;}
+.btn-pesquisar{float:right !important; border:1px solid white;padding:5px; text-align: center;}
 .profile-border > *{border:1px solid white; }
 .profile-boxes{ min-height: 135px !important; }
 .btn-default{ background-color: transparent !important; color:#fff;}
-.profile-actions{width: 100% !important;}
+.profile-actions{width: 100% !important; margin:5px 0px;}
 .no-padding{padding: 0px !important;}
 .search{ float:right;}
-.btn:focus, .btn:active, .btn:hover, .btn:visited{
-    color:#c9c9c9;
-} 
-
+.btn:focus, .btn:active, .btn:visited{color:#fff;} 
+.btn:hover{color:#c9c9c9;}
+.centered{float: none !important;margin: 0 auto !important;}
 @media only screen and (min-width: 1200px) {
-    
     .container{width: 96% !important}
+}
+#dirSidebar{
+
+    border:2px solid #fff;
+    background-color: #c8c8c8;
+    filter:alpha(opacity=50);
+    opacity: 0.5;
+    -moz-opacity:0.5;
+    -webkit-opacity:0.5;
+
+    
 }

@@ -1,38 +1,32 @@
-<div class="container">
 
+ <div class="container">
   <div class="row profile-border" style="margin-top: 30px;">
-    <!-- para a foto do perfil
-
-    A foto do perfil é carregada pela referencia do objeto d foto. profile é onde tem os campos especiais do usuário
-    A função getFileRecord, faz o Images.find({file:_id}); por trás, trazendo o objeto salvo no banco com a id da referencia
-
-    Mais info ver: https://github.com/CollectionFS/Meteor-CollectionFS
-    -->
+   
     <div class="col-md-3 profile-boxes">
-    <img src="{{$root.currentUser.profile.profilePic.getFileRecord().url()}}" class="profile-picture">
+    <img src="" class="profile-picture">
     </div>
     <div class="col-md-2 profile-boxes">
 
         <div class="row">
            <div class="col-md-12">
-             <span style="font-size: 0.87em;">{{profileTitle}}</span>
+             <span style="font-size: 0.87em;"></span>
            </div>
         </div> 
         <div class="row">
           <div class="col-md-12">
-             <span style="font-size: 1.33em;">{{$root.currentUser.profile.name}}</span>     
+             <span style="font-size: 1.33em;"></span>     
           </div>
         </div>
         <div class="row">
          <div class="col-md-12">
-            <span style="font-size:0.77em;">{{$root.currentUser.emails[0].address}}</span>     
+            <span style="font-size:0.77em;"></span>     
          </div>
         </div>
       <div class="row">
         <div class="col-md-12">
-            <span ng-repeat="expertise in $root.currentUser.profile.expertise">
+            <span>
             <i class="fa fa-square"></i> 
-            {{' ' +expertise + ' '}} 
+      
           </span>
         </div>
       </div>
@@ -66,32 +60,38 @@
 
     <div class="col-md-2 profile-boxes">
       <p class="text-center">
-        {{$root.currentUser.profile.breve_descricao}}
+       
       </p>
     </div>
 
     <div class="col-md-1 profile-boxes">
       <div class="row">
         <div class="col-md-9 centered">
-          <a href="{{$root.currentUser.profile.facebook}}"><i class="fa fa-facebook-official icon-bar"></i></a>   
+          <a href=""><i class="fa fa-facebook-official icon-bar"></i></a>   
         </div>
       </div>
       <div class="row">
         <div class="col-md-9 centered">
-          <a href="{{$root.currentUser.profile.twitter}}"><i class="fa fa-twitter icon-bar"></i></a>
+          <a href=""><i class="fa fa-twitter icon-bar"></i></a>
         </div>
       </div>
       <div class="row">
         <div class="col-md-9 centered">
-          <a href="{{$root.currentUser.profile.linkedIn}}"><i class="fa fa-linkedin icon-bar"></i></a>
+          <a href=""><i class="fa fa-linkedin icon-bar"></i></a>
         </div>
       </div>
 
     </div>
     <div class="col-md-2 profile-boxes">
-      <button class="btn btn-default profile-actions" ><i class="fa fa-commenting-o"></i> Mensagens <span></span></button>
-      <button class="btn btn-default profile-actions" ><i class="fa fa-calendar"></i> Agenda <span></span></button>
-      <button class="btn btn-default profile-actions" ><i class="fa fa-group"></i> Ações de mentoria<span></span></button>
+      <button class="btn btn-default profile-actions" ><i class="fa fa-commenting-o">
+        </i> Mensagens <span></span>
+      </button>
+      <button class="btn btn-default profile-actions" ><i class="fa fa-calendar">
+        </i> Agenda <span></span>
+      </button>
+      <button class="btn btn-default profile-actions" >
+        <i class="fa fa-group"></i> Ações de mentoria<span></span>
+      </button>
     </div>
   </div>
   <!-- Calendario daqui pra baixo-->

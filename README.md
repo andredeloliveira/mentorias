@@ -15,6 +15,11 @@ CSS boilerplates:
 `meteor add twbs:bootstrap`
 ¹removido o pack skeleton
 
+Como descrito na documentacao do meteor seria denecessário desmembrar o template do mesmo e usar o do angular, achei melhor por causa disso então usar as diretivas default do angular 
+https://www.meteor.com/tutorials/angular/templates
+
+Mas poderiamos fazer os partials separados.
+
 Outros estilos de css estão incluidos no arquivo main.css
 
 E muitos outros, que agora eu não me lembro, mas postarei. Do mesmo modo, os pacotes estão contidos na pasta .meteor
