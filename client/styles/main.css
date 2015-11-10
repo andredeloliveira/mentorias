@@ -255,10 +255,11 @@ textarea:focus, input:focus {
 }
 
 .login-form .img-button-linkedin {
-    width : 45px;
+    width : 75px;
+    margin-left: 5px;
 }
 
-.login-form {
+.login-form, .login-form a {
     font-size : 18px;
     padding   : 0 42px;
 }
