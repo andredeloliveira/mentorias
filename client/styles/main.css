@@ -366,6 +366,52 @@ textarea:focus, input:focus {
     }
 }
 
+/********************************Progress Bar********************************/
+.progressbar {
+    margin-bottom : 30px;
+    overflow      : hidden;
+    margin-left: 45px;
+}
+
+.progressbar li {
+    list-style-type : none;
+    width           : 100px;
+    float           : left;
+    position        : relative;
+}
+
+.progressbar li:before {
+    content     : ' ';
+    padding     : 6px 0px;
+    width       : 15px;
+    line-height : 15px;
+    display     : block;
+    border      : 2px solid #fff;
+}
+
+.progressbar li:after {
+    content    : '';
+    width      : 85px;
+    height     : 2px;
+    background : #fff;
+    position   : absolute;
+    left       : 15px;
+    top        : 7px;
+}
+
+.progressbar li:last-child:after {
+    content : none;
+}
+
+.progressbar li.active:before,
+.progressbar li.active:after {
+    background : #fff;
+}
+
+/********************************Progress Bar End********************************/
+
+/*********************************Text area com linhas********************************/
+
 .lined-textarea, .lined-textarea:focus {
     background-color : transparent;
     background-image : -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 30px, #fff 30px, #fff 31px, rgba(0, 0, 0, 0) 31px);
@@ -376,8 +422,10 @@ textarea:focus, input:focus {
     background-size  : 100% 31px;
     line-height      : 31px;
     padding          : 8px;
-    border:0 none;
+    border           : 0 none;
 }
+
+/*Text area com linhas End*/
 
 /********************************Campos Input Quadrados**********************/
 
@@ -425,7 +473,7 @@ textarea:focus, input:focus {
 
 /****************************Campos Input Quadrados End**********************/
 
-/*Helpers*/
+/*********************************Helpers*********************************/
 .margin-top-30 {
     margin-top : 30px;
 }
@@ -478,9 +526,9 @@ a.color-white, a.color-white:hover {
     width : 100%;
 }
 
-/*Helpers End*/
+/**********************************Helpers End**********************************/
 
-/*Bootstrap sobrescrita*/
+/**********************************Bootstrap sobrescrita*********************/
 
 .text-center {
     text-align : center;
@@ -509,7 +557,7 @@ a.color-white, a.color-white:hover {
     border : 0 none;
 }
 
-/*Bootstrap sobrescrita End*/
+/**********************************Bootstrap sobrescrita End**********************************/
 
 /*Media Querys*/
 
