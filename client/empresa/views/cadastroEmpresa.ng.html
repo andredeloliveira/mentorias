@@ -9,7 +9,7 @@
                     <div class="twelve columns">
                         <input type="text" ng-model="nEmpresa.nome" placeholder="nome da empresa">
                         <input type="text" ng-model="nEmpresa.website" placeholder="website">
-
+                        <li ng-repead="user in users">{{user.profile.name}}</li>
                     </div>
                     <!-- end twelve columns-->
                 </div>
@@ -62,9 +62,7 @@
                     <div class="twelve columns">
                         Buscar os integrantes ainda precisa ser melhor discutido. Não ficou muito claro se os participantes têm ou
                         Não de estar cadastrados no sistema. Só mentores? Ou empreendedores também?
-                        <md-chips ng-model="ec.integrantes" readonly="ec.readonly" placeholder="adicione um integrante"
-                                  delete-button-label="remova integrante" delete-hing="clique em delete para remover o integrante"
-                                  secondary-placeholder="+Integrante"></md-chips>
+
                     </div>
                     <!-- end twelve columns-->
                 </div>
