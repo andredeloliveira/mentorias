@@ -1,11 +1,10 @@
 <div class="col-md-4 float-none center-block">
-    <div class="login-home frame-form text-center space-header">
+    <div class="login-home frame-form text-center space-header space-footer">
         <form class="login-form frame-spaces">
             <div class="row">
-                <br>
                 <img class="img-responsive center-block" src="../resources/Logo-Agripa.png"/>
-                <br><br>
-                <h4 class="text-center">Bem-vindo ao sistema de gestão de mentorias</h4><br>
+
+                <h4 class="text-center margin-top-30">Bem-vindo ao sistema de gestão de mentorias</h4><br>
                 <input ng-keyup="$event.keyCode == 13 && login(aUser)()" type="text" ng-model="aUser.email" placeholder="E-mail"><br><br>
                 <input ng-keyup="$event.keyCode == 13 && login(aUser)()" type="password" ng-model="aUser.senha" placeholder="Senha">
                 <span>{{error}}</span>
@@ -13,20 +12,19 @@
             </div>
             <!-- end row-->
             <div class="row" style="margin-top:50px;">
-                <ul class="nav nav-justified">
-                    <li>
-                        <a id="button-login-linkedIn" class="btn btn-default">
-                            Logar com
-                            <img class="img-button-linkedin" src="../resources/logo-linkedin.png">
-                        </a>
-                    </li>
-                    <li>
-                        <a class="btn btn-default" ng-click="login(aUser)">Logar</a>
-                    </li>
-                </ul>
-                <br><br>
 
-                <div class="text-center text-decoration-underline">
+                <div class="col-lg-8">
+                    <a id="button-login-linkedIn" class="btn btn-default  btn-100-percent">
+                        Logar com
+                        <img class="img-button-linkedin " src="../resources/logo-linkedin.png">
+                    </a>
+                </div>
+
+                <div class="col-lg-4">
+                    <a class="btn btn-default  btn-100-percent" ng-click="login(aUser)">Logar</a>
+                </div>
+
+                <div class="text-center text-decoration-underline margin-top-30">
                     <a class="color-white" href="/cadastroPerfil">Não possui uma conta? Cadastre-se</a>
                     <br><br>
                     <a class="color-white" href="/resetSenha">Esqueceu sua senha?</a>
