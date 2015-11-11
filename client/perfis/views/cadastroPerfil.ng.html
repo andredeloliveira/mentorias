@@ -16,23 +16,32 @@
                 <br/>
 
                 <div class="row">
-                    <radiogroup>
-                        <div class="col-md-6">
-                            <input type="radio" ng-model="nUser.tipo_conta" id="mentor" name="role" value="mentor"><label for="mentor">Mentor</label>
+                    <div class="col-md-6">
+                        <div class="input-squared pull-left">
+                            <input type="radio" ng-model="nUser.tipo_conta" id="mentor" name="role" value="mentor"><label for="mentor"></label>
                         </div>
-                        <div class="col-md-6">
-                            <input type="radio" ng-model="nUser.tipo_conta" name="role" id="empreendedor" value="empreendedor"><label for="empreendedor">Empreendedor</label>
+                        <span class="pull-left">Mentor</span>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-squared pull-left">
+                            <input type="radio" ng-model="nUser.tipo_conta" name="role" id="empreendedor" value="empreendedor"><label for="empreendedor"></label>
                         </div>
-                    </radiogroup>
+                        <span class="pull-left">Empreendedor</span>
+                    </div>
                     <br/><br/>
-                    <radiogroup>
-                        <div class="col-md-6">
-                            <input type="radio" ng-model="nUser.genero" id="masculino" name="genero" value="masculino"><label for="masculino">Masculino</label>
+
+                    <div class="col-md-6">
+                        <div class="input-squared pull-left">
+                            <input type="radio" ng-model="nUser.genero" id="masculino" name="genero" value="masculino"><label for="masculino"></label>
                         </div>
-                        <div class="col-md-6">
-                            <input type="radio" ng-model="nUser.genero" name="genero" id="feminino" value="feminino"><label for="feminino">Feminino</label>
+                        <span class="pull-left">Masculino</span>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-squared pull-left">
+                            <input type="radio" ng-model="nUser.genero" name="genero" id="feminino" value="feminino"><label for="feminino"></label>
                         </div>
-                    </radiogroup>
+                        <span class="pull-left">Feminino</span>
+                    </div>
                 </div>
                 <!-- Botões de navegação-->
                 <br/>
@@ -50,7 +59,7 @@
             <div ng-show="mostrarEtapa(1)">
                 <div class="row">
                     <img class="img-responsive center-block" src="../resources/Logo-Agripa.png"/>
-                    <textarea name="descricao" ng-model="nUser.breve_descricao" rows="20" cols="20" placeholder="Descrição Profissional"></textarea>
+                    <textarea class="lined-textarea" name="descricao" ng-model="nUser.breve_descricao" rows="20" cols="20" placeholder="Descrição Profissional"></textarea>
                 </div>
                 <!-- end row-->
                 <div class="row" style="margin-top:50px;">
@@ -104,11 +113,20 @@
                     <br><br/>
 
                     <div>
-                        <label style="font-size: 16px"><input type="checkbox" style="margin-right: 10px;"/>Utilizar mesma foto de perfil do Facebook</label>
+                        <div class="col-md-12">
+                            <div class="input-squared pull-left">
+                                <input type="checkbox" id="img-perfil-faceboox" style="margin-right: 10px;"/><label for="img-perfil-faceboox" style="font-size: 16px"></label>Utilizar mesma foto de
+                                                                                                                                                                              perfil
+                            </div>
+                            <span class="pull-left">Utilizar mesma foto de perfil</span>
+                        </div>
 
-                        <input type="file" ng-model="fileF" onchange="angular.element(this).scope().addTempImage(this.files)" value="escolher foto">
+                        <div class="col-md-12">
+                            <input type="file" ng-model="fileF" onchange="angular.element(this).scope().addTempImage(this.files)" value="escolher foto">
+                        </div>
 
                         <p ng-show="feedbackUpload">Upload realizado com sucesso!</p>
+
                         <div class="col-md-12">
                             <button class="btn btn-default btn-100-percent" ng-click="addImages()" style="margin-top:20px;">Carregar foto de perfil</button>
                         </div>
