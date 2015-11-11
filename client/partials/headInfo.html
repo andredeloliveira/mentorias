@@ -1,9 +1,7 @@
-
- <div class="container">
+<template name="headerInfo">
   <div class="row profile-border" style="margin-top: 30px;">
-   
-    <div class="col-md-3 profile-boxes">
-    <img src="" class="profile-picture">
+    <div class="col-md-3 profile-boxes picture no-padding">
+    <img src="#" class="profile-picture">
     </div>
     <div class="col-md-2 profile-boxes">
 
@@ -26,7 +24,7 @@
         <div class="col-md-12">
             <span>
             <i class="fa fa-square"></i> 
-      
+         
           </span>
         </div>
       </div>
@@ -67,35 +65,26 @@
     <div class="col-md-1 profile-boxes">
       <div class="row">
         <div class="col-md-9 centered">
-          <a href=""><i class="fa fa-facebook-official icon-bar"></i></a>   
+          <a href="{{$root.currentUser.profile.facebook}}"><i class="fa fa-facebook-official icon-bar"></i></a>   
         </div>
       </div>
       <div class="row">
         <div class="col-md-9 centered">
-          <a href=""><i class="fa fa-twitter icon-bar"></i></a>
+          <a href="{{$root.currentUser.profile.twitter}}"><i class="fa fa-twitter icon-bar"></i></a>
         </div>
       </div>
       <div class="row">
         <div class="col-md-9 centered">
-          <a href=""><i class="fa fa-linkedin icon-bar"></i></a>
+          <a href="{{$root.currentUser.profile.linkedIn}}"><i class="fa fa-linkedin icon-bar"></i></a>
         </div>
       </div>
 
     </div>
     <div class="col-md-2 profile-boxes">
-      <button class="btn btn-default profile-actions" ><i class="fa fa-commenting-o">
-        </i> Mensagens <span></span>
-      </button>
-      <button class="btn btn-default profile-actions" ><i class="fa fa-calendar">
-        </i> Agenda <span></span>
-      </button>
-      <button class="btn btn-default profile-actions" >
-        <i class="fa fa-group"></i> Ações de mentoria<span></span>
-      </button>
+      <button class="btn btn-default profile-actions" ><i class="fa fa-commenting-o"></i> Mensagens <span></span></button>
+      <button class="btn btn-default profile-actions" ><i class="fa fa-calendar"></i> Agenda <span></span></button>
+      <button class="btn btn-default profile-actions" ><i class="fa fa-group"></i> Ações de mentoria<span></span></button>
     </div>
   </div>
-  <!-- Calendario daqui pra baixo-->
-  <div class="row profile-border">
-    <div id="calendar"></div>
-  </div>
-</div>
+
+</template>

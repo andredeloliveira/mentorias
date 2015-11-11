@@ -10,8 +10,7 @@ Images = new FS.Collection("images", {
     }
 });
 
-
-if (Meteor.isServer) {
+/*if (Meteor.isServer) {
     Images.allow({
         'insert': function () {
             return true;
@@ -22,4 +21,4 @@ if (Meteor.isServer) {
 
         return Images.find({});
     });
-}
+}*/

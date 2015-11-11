@@ -7,4 +7,4 @@ angular.module("mentorias")
 .controller("produtosController", ['$scope', '$stateParams', '$meteor', '$state', '$q',
 	function ($scope, $stateParams, $meteor, $state, $q){
 
-	}])
+}])

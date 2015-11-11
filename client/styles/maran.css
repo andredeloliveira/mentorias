@@ -1,0 +1,7 @@
+div {
+	border:1px solid RED;
+}
+.profile-picture{
+	width: 100% !important;
+	height:143px !important;
+}

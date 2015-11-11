@@ -3,9 +3,9 @@
  */
 
 // Para usar
-// Empresa = new Mongo.Collection("empresa");
+//Empresa = new Mongo.Collection("empresa");
 
-/**Empresas = new Mongo.Collection("empresa");
+Empresas = new Mongo.Collection("empresa");
 
 Schemas = {};
 
@@ -60,4 +60,4 @@ Schemas.Empresa = new SimpleSchema({
     }
 });
 
-Empresas.attachSchema(Schemas.Empresa); **/
+//Empresas.attachSchema(Schemas.Empresa);

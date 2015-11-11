@@ -13,6 +13,7 @@ angular.module("mentorias").controller("loginController", ['$scope', '$meteor', 
             $meteor.loginWithPassword(aUser.email, aUser.senha, handleError);
 
             function handleError(err) {
+                console.log(err);
                 if (err) {
                     //err.error = 'Erro de login - ' + err;
                     if (err.reason == 'User not found') {
