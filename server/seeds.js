@@ -79,9 +79,9 @@ var empresasSeeds =[
     "status": true
 }
 ];
-if(Empresas.find().count() === 0){
+/*if(Empresas.find().count() === 0){
   _.each(empresasSeeds, function(valoresSeeds){
     Empresas.insert(valoresSeeds);
     console.log("Enviado ", valoresSeeds.nome);
   })
-}
+}*/

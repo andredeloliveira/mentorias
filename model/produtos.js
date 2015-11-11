@@ -1,4 +1,4 @@
-Produtos = new Mongo.Collection("Produtos");
+/*Produtos = new Mongo.Collection("Produtos");
 
 Schemas = {};
 
@@ -19,4 +19,4 @@ Schemas.Produto = new SimpleSchema({
         max:500
     }
 });
-   
+   */

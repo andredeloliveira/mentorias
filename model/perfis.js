@@ -5,7 +5,7 @@
 // Para usar
 // Perfil = new Mongo.Collection("perfil");
 
-/**Perfis = new Mongo.Collection("perfis");
+/*Perfis = new Mongo.Collection("perfis");
 
 Schemas = {};
 
@@ -77,4 +77,4 @@ Schemas.Perfil = new SimpleSchema({
 
 });
 
-Perfis.attachSchema(Schemas.Perfil); **/
+Perfis.attachSchema(Schemas.Perfil); */
