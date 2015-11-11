@@ -1,120 +1,122 @@
 <!--Form do cadastro da empresa. Bem similar ao cadastro do usuário.-->
-<div class="login-home frame-form container text-center space-header">
-    <form class="login-form frame-spaces">
-        <div ng-show="mostrarEtapa(0)">
-            <div class="row ">
-                <img class="logo" src="../resources/Logo-Agripa.png"/>
+<div class="col-md-4 float-none center-block">
+    <div class="login-home frame-form text-center space-header">
+        <form class="login-form frame-spaces">
+            <div ng-show="mostrarEtapa(0)">
+                <div class="row ">
+                    <img class="img-responsive center-block" src="../resources/Logo-Agripa.png"/>
 
-                <div class="twelve columns container">
-                    <input type="text" ng-model="nEmpresa.nome" placeholder="nome da empresa">
-                    <input type="text" ng-model="nEmpresa.website" placeholder="website">
+                    <div class="twelve columns">
+                        <input type="text" ng-model="nEmpresa.nome" placeholder="nome da empresa">
+                        <input type="text" ng-model="nEmpresa.website" placeholder="website">
 
+                    </div>
+                    <!-- end twelve columns-->
                 </div>
-                <!-- end twelve columns-->
-            </div>
-            <!-- end row-->
-            <div class="row">
-              <md-chips ng-model="ec.produtos" readonly="ec.readonly" placeholder="produtos"
-                        delete-button-label="remova produto" delete-hing="clique em delete para remover um produto"
-                        secondary-placeholder="+produto"></md-chips>
-            </div>
-            <!-- Botões de navegação-->
-            <div class="row">
-                <div class="twelve columns container">
-                    <ul class="nav nav-justified">
-                        <li>
-                            <button class="buttonLogin" ng-click="setProximaEtapa()">Próximo</button>
-                        </li>
-                    </ul>
+                <!-- end row-->
+                <div class="row">
+                    <md-chips ng-model="ec.produtos" readonly="ec.readonly" placeholder="produtos"
+                              delete-button-label="remova produto" delete-hing="clique em delete para remover um produto"
+                              secondary-placeholder="+produto"></md-chips>
                 </div>
-            </div>
-        </div>
-        <!-- Breve descrição-->
-        <div ng-show="mostrarEtapa(1)">
-            <div class="row ">
-                <img class="logo" src="../resources/Logo-Agripa.png"/>
-
-                <div class="twelve columns container">
-                    <textarea name="descricao" ng-model="nEmpresa.breve_descricao" rows="20" cols="20" placeholder="breve descrição"></textarea>
-                </div>
-                <!-- end twelve columns-->
-            </div>
-            <!-- end row-->
-            <div class="row">
-                <div class="twelve columns container">
-                    <ul class="nav nav-justified">
-                        <li>
-                            <button class="buttonLogin" ng-click="setEtapaAnterior()">Voltar</button>
-                        </li>
-                        <li>
-                            <button class="buttonLogin" ng-click="setProximaEtapa()">Próximo</button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- tags expertise-->
-        <div ng-show="mostrarEtapa(2)">
-            <div class="row ">
-                <img class="logo" src="../resources/Logo-Agripa.png"/>
-
-                <div class="twelve columns container">
-                  Buscar os integrantes ainda precisa ser melhor discutido. Não ficou muito claro se os participantes têm ou
-                  Não de estar cadastrados no sistema. Só mentores? Ou empreendedores também?
-                    <md-chips ng-model="ec.integrantes" readonly="ec.readonly" placeholder="adicione um integrante"
-                              delete-button-label="remova integrante" delete-hing="clique em delete para remover o integrante"
-                              secondary-placeholder="+Integrante"></md-chips>
-                </div>
-                <!-- end twelve columns-->
-            </div>
-            <!-- end row-->
-            <div class="row">
-                <div class="twelve columns container">
-
-                    <ul class="nav nav-justified">
-                        <li>
-                            <button class="buttonLogin" ng-click="setEtapaAnterior()">Voltar</button>
-                        </li>
-                        <li>
-                            <button class="buttonLogin" ng-click="setProximaEtapa()">Próximo</button>
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
-        </div>
-        <!-- Redes sociais-->
-        <div ng-show="mostrarEtapa(3)">
-            <div class="row ">
-                <img class="logo" src="../resources/Logo-Agripa.png"/>
-
-                <div class="twelve columns container">
-                    <input type="text" name="facebook" ng-model="nUser.facebook" placeholder="facebook">
-                    <input type="text" name="twitter" ng-model="nUser.twitter" placeholder="@twitter">
-                    <input type="text" name="linkedIn" ng-model="nUser.linkedIn" placeholder="linkedin">
-                    <br>
-
-                    <div ng-controller="AddPhotoController">
-                        <input type="file" value="escolher foto">
+                <!-- Botões de navegação-->
+                <div class="row">
+                    <div class="twelve columns">
+                        <ul class="nav nav-justified">
+                            <li>
+                                <button class="buttonLogin" ng-click="setProximaEtapa()">Próximo</button>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <!-- end twelve columns-->
             </div>
-            <!-- end row-->
-            <div class="row">
-                <div class="twelve columns container">
+            <!-- Breve descrição-->
+            <div ng-show="mostrarEtapa(1)">
+                <div class="row ">
+                    <img class="img-responsive center-block" src="../resources/Logo-Agripa.png"/>
 
-                    <ul class="nav nav-justified">
-                        <li>
-                            <button class="buttonLogin" ng-click="setEtapaAnterior()">Voltar</button>
-                        </li>
-                        <li>
-                            <button ng-click="pc.register(nUser)">Concluir</button>
-                        </li>
-                    </ul>
-
+                    <div class="twelve columns">
+                        <textarea name="descricao" ng-model="nEmpresa.breve_descricao" rows="20" cols="20" placeholder="breve descrição"></textarea>
+                    </div>
+                    <!-- end twelve columns-->
+                </div>
+                <!-- end row-->
+                <div class="row">
+                    <div class="twelve columns">
+                        <ul class="nav nav-justified">
+                            <li>
+                                <button class="buttonLogin" ng-click="setEtapaAnterior()">Voltar</button>
+                            </li>
+                            <li>
+                                <button class="buttonLogin" ng-click="setProximaEtapa()">Próximo</button>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </form>
+            <!-- tags expertise-->
+            <div ng-show="mostrarEtapa(2)">
+                <div class="row ">
+                    <img class="img-responsive center-block" src="../resources/Logo-Agripa.png"/>
+
+                    <div class="twelve columns">
+                        Buscar os integrantes ainda precisa ser melhor discutido. Não ficou muito claro se os participantes têm ou
+                        Não de estar cadastrados no sistema. Só mentores? Ou empreendedores também?
+                        <md-chips ng-model="ec.integrantes" readonly="ec.readonly" placeholder="adicione um integrante"
+                                  delete-button-label="remova integrante" delete-hing="clique em delete para remover o integrante"
+                                  secondary-placeholder="+Integrante"></md-chips>
+                    </div>
+                    <!-- end twelve columns-->
+                </div>
+                <!-- end row-->
+                <div class="row">
+                    <div class="twelve columns">
+
+                        <ul class="nav nav-justified">
+                            <li>
+                                <button class="buttonLogin" ng-click="setEtapaAnterior()">Voltar</button>
+                            </li>
+                            <li>
+                                <button class="buttonLogin" ng-click="setProximaEtapa()">Próximo</button>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Redes sociais-->
+            <div ng-show="mostrarEtapa(3)">
+                <div class="row ">
+                    <img class="img-responsive center-block" src="../resources/Logo-Agripa.png"/>
+
+                    <div class="twelve columns">
+                        <input type="text" name="facebook" ng-model="nUser.facebook" placeholder="facebook">
+                        <input type="text" name="twitter" ng-model="nUser.twitter" placeholder="@twitter">
+                        <input type="text" name="linkedIn" ng-model="nUser.linkedIn" placeholder="linkedin">
+                        <br>
+
+                        <div ng-controller="AddPhotoController">
+                            <input type="file" value="escolher foto">
+                        </div>
+                    </div>
+                    <!-- end twelve columns-->
+                </div>
+                <!-- end row-->
+                <div class="row">
+                    <div class="twelve columns">
+
+                        <ul class="nav nav-justified">
+                            <li>
+                                <button class="buttonLogin" ng-click="setEtapaAnterior()">Voltar</button>
+                            </li>
+                            <li>
+                                <button ng-click="pc.register(nUser)">Concluir</button>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
