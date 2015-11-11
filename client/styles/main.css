@@ -575,14 +575,10 @@ a.color-white, a.color-white:hover {
     /* Style adjustments for viewports that meet the condition */
 }
 
-<<<<<<< HEAD
-@media print, (-webkit-min-device-pixel-ratio : 1.25), (min-resolution : 1.25dppx), (min-resolution : 120dpi) {
-=======
 @media print,
 (-webkit-min-device-pixel-ratio: 1.25),
 (min-resolution: 1.25dppx),
 (min-resolution: 120dpi) {
->>>>>>> 474fd2f5a7b028391cb20e82e688266b091d9e76
     /* Style adjustments for high resolution devices */
 }
 
