@@ -97,7 +97,7 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
                     twitter: nUser.twitter,
                     linkedIn: nUser.linkedIn,
                     profilePic: nUser.profilePic,
-                    stars: 0,
+                    stars: [],
                     horasMentorias:0,
                     badges: []
                 },
@@ -127,7 +127,7 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
                         console.log(vm.credentials);
                         $state.go('proximaEtapa');
                     } else {
-                        $state.go('home');
+                        $state.go('meuPerfil');
                     }
                 }, function (err) {
                     vm.error = 'Erro de registro - ' + err;
@@ -172,14 +172,12 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
         $scope.querySearch   = function(query){
           var results = query ?
             $scope.tagNames.filter($scope.createFilterFor(query)) : [];
-          console.log(results);
           return results;
         };
 
         $scope.filterSelected = true;
         $scope.readonly = false;
         $scope.tagNames = $scope.loadTags();
-        console.log($scope.tagNames);
         $scope.tags = [];
 
 
