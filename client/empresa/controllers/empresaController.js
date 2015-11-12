@@ -1,8 +1,9 @@
 /**
  Controller responsável pelo Perfil. Aqui os métodos para Login, cadastro e busca de usuários são definidos.
  **/
-angular.module("mentorias").controller("empresaController", ['$scope', '$stateParams', '$meteor', '$state','$meteorSubscribe',
-    function ($scope, $stateParams, $meteor, $state, $meteorSubscribe) {
+angular.module("mentorias").controller("empresaController", ['$scope', '$stateParams', '$meteor', '$state','$meteorSubscribe','$q',
+    function ($scope, $stateParams, $meteor, $state, $meteorSubscribe,$q) {
+
         /*usuário provenientes do servidor*/
            
         $scope.users = $meteor.collection(Meteor.users,false).subscribe('users');
@@ -66,18 +67,27 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$statePa
             console.log($scope.nEmpresa);
         };
 
-
+        $scope.getIntegrantesId = function(integrantes){
+          if(!integrantes){
+            return console.error('integrantes vazio');
+          }
+          var result = [];
+          for(var i; i< integrantes.length; i++){
+            result.push(integrantes[i]._id);
+          }
+        };
 
         /*registra a nova empresa no banco*/
         vm.register = function(nEmpresa){
           if(!nEmpresa)
             vm.error = 'object undefined!';
+          var integrantesN = $scope.getIntegrantesId($scope.tags);
+          console.log(integrantesN);
           vm.empresa = {
             nome: nEmpresa.nome,
             website: nEmpresa.website,
-            produtos: nEmpresa.produtos,
-            descricao: nEmpresa.descricao,
-            integrantes: nEmpresa.integrantes,
+            descricao: nEmpresa.breve_descricao,
+            integrantes: $scope.usersLoaded,
             facebook: nEmpresa.facebook,
             twitter: nEmpresa.twitter,
             linkedIn: nEmpresa.linkedIn,
@@ -99,21 +109,21 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$statePa
         $scope.loadUsers = function(users){
           var result = [];
 
-          console.log($scope.users);
-/*
+          /*as propriedades dos usuarios são recuperadas atraves*/
           for( var prop in users){
             if(users.hasOwnProperty(prop)){
               if(users[prop].emails){
                 var tempUser = {
+                  _id: users[prop]._id,
                   name: users[prop].profile.name,
                   email: users[prop].emails[0].address
                 };
+                tempUser._lowername = tempUser.name.toLowerCase();
                 result.push(tempUser);
               }
             }
           }
-          console.log(result);
-          return result;*/
+          return result;
         }
 
         $scope.createFilterFor = function(query){
@@ -132,10 +142,11 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$statePa
 
         $scope.filterSelected = true;
         $scope.readonly = false;
-        /*#purungus*/
+        $scope.usersLoaded = $scope.loadUsers($scope.users);
 
         vm.produtos = [];
-        $scope.tags = [];
+        $scope.integrantes = [];
+        console.log($scope.integrantes);
         /*fim do controle das tags*/
         /*fim do controle das tags*/
 
