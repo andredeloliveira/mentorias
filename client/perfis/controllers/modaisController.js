@@ -1,5 +1,5 @@
 /**
- Controller responsável pelo Perfil. Aqui os métodos para Login, cadastro e busca de usuários são definidos.
+ Controller responsável pelos Modais de teste.
  **/
 
 angular.module("mentorias").controller("perfilController", ['$scope', '$stateParams', '$meteor', '$state', '$q',
