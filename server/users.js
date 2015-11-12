@@ -1,8 +1,8 @@
 Meteor.publish('users', function(){
-return Meteor.users.find({}, {limit: 6});
-
+	return Meteor.users.find();
 });
 
-Meteor.publish('getUsers' , function(){
-	return Meteor.users.find({}, {_id:0, limit:3});
-});
+/*Meteor.publish('pegaTudo', function(){
+	var emails = _.pluck(Meteor.users.find({}, {fields: {'profile.email': 1, _id:0}}).fetch(), 'profile.email');
+return emails;
+});*/

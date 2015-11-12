@@ -4,12 +4,10 @@
 angular.module("mentorias").controller("empresaController", ['$scope', '$stateParams', '$meteor', '$state','$meteorSubscribe',
     function ($scope, $stateParams, $meteor, $state, $meteorSubscribe) {
         /*usuário provenientes do servidor*/
-        //$scope.users = $meteor.collection(Meteor.users,false).subscribe('users');
-
+           
         $scope.users = $meteor.collection(Meteor.users,false).subscribe('users');
 
-        $scope.getUsers = $meteor.collection(Meteor.users,false).subscribe('getUsers');
-
+        //$scope.users  = Meteor.subscribe('usuarios');
         $scope.images = $meteor.collection(Images, false, Images).subscribe('images');
         $scope.empresas = $meteor.collection(Empresas,false).subscribe('empresas');
         $scope.userstemp = [];
@@ -23,7 +21,6 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$statePa
          2 - Integrantes
          3 - Redes sociais e foto do perfil
          */
-
         /*Mostra a etapa na view através do ng-show*/
         $scope.mostrarEtapa = function (etapa) {
             return etapa === $scope.etapaCadastro;
@@ -40,7 +37,6 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$statePa
                 $scope.etapaCadastro = $scope.etapaCadastro - 1;
         }
 
-
         /*Daqui pra baixo, a lógica é com as sintax do controllerAs definido no route.js ...*/
 
         var vm = this;
@@ -54,8 +50,6 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$statePa
           $scope.tempImage = images[0];
           console.log('image on the temp var');
         };
-
-
 
         $scope.addImages = function () {
             /*Uma referencia da imagem do perfil é salva no nUser, que é o objeto
@@ -102,12 +96,24 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$statePa
 
         /*Aqui será definida a lógica para o controller das tags*/
 
-        $scope.loadUsers = function(users, getUsers){
+        $scope.loadUsers = function(users){
           var result = [];
-        //#purungus
-         console.log(Meteor.subscribe("users").ready());
 
-         console.log(Meteor.subscribe("getUsers"));
+          console.log($scope.users);
+/*
+          for( var prop in users){
+            if(users.hasOwnProperty(prop)){
+              if(users[prop].emails){
+                var tempUser = {
+                  name: users[prop].profile.name,
+                  email: users[prop].emails[0].address
+                };
+                result.push(tempUser);
+              }
+            }
+          }
+          console.log(result);
+          return result;*/
         }
 
         $scope.createFilterFor = function(query){
@@ -119,7 +125,7 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$statePa
         };
         $scope.querySearch   = function(query){
           var results = query ?
-            $scope.usersLoaded.filter($scope.createFilterFor(query)) : [];
+          $scope.usersLoaded.filter($scope.createFilterFor(query)) : [];
           console.log(results);
           return results;
         };
@@ -127,8 +133,7 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$statePa
         $scope.filterSelected = true;
         $scope.readonly = false;
         /*#purungus*/
-        $scope.usersLoaded = $scope.loadUsers($scope.users);
-        //console.log($scope.usersLoaded);
+
         vm.produtos = [];
         $scope.tags = [];
         /*fim do controle das tags*/

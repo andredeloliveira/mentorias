@@ -14,19 +14,30 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
         $locationProvider.html5Mode(true);
         //router para o cadastro de perfil (Usando o $meteor.user !)
         $stateProvider
-            //produtos
             .state('produtos', {
                 url: '/produtos',
                 templateUrl: 'client/produtos/views/produtos.ng.html',
                 controller: 'produtosController',
                 controllerAs: 'pc'
             })
-            //modais
+
             .state('modais', {
                 url: '/modais',
                 templateUrl: 'client/perfis/views/modais.ng.html',
                 controller: 'modaisController',
                 controllerAs: 'pc'
+            })
+            .state('trocar-senha', {
+                url: '/trocar-senha',
+                templateUrl: 'client/perfis/views/trocar-senha.ng.html',
+                controller: 'trocarSenhaController',
+                controllerAs: 'tsc'
+            })
+            .state('recuperar-senha', {
+                url: '/recuperar-senha',
+                templateUrl: 'client/perfis/views/recuperar-senha.ng.html',
+                controller: 'recuperarSenhaController',
+                controllerAs: 'rsc'
             })
             .state('cadastroPerfil', {
                 url: '/cadastroPerfil',
@@ -112,12 +123,6 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
                 }
             })
             /*pra reinicializar a senha*/
-            .state('resetSenha', {
-                url: '/resetSenha',
-                templateUrl: 'clients/perfis/views/reset-senha.ng.html',
-                controller: 'resetSenhaController',
-                controllerAs: 'rsc'
-            })
             /*pro logout*/
             .state('logout', {
                 url: '/logout',
