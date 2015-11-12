@@ -108,15 +108,18 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$statePa
 
         $scope.loadUsers = function(users){
           var result = [];
-
+          console.log($scope.users);
           /*as propriedades dos usuarios são recuperadas atraves*/
-          for( var prop in users){
-            if(users.hasOwnProperty(prop)){
-              if(users[prop].emails){
+          for( var prop in $scope.users){
+            if($scope.users.hasOwnProperty(prop)){
+              if($scope.users[prop].email){
+
+                console.log($scope.users[prop].email);
+                
                 var tempUser = {
                   _id: users[prop]._id,
                   name: users[prop].profile.name,
-                  email: users[prop].emails[0].address
+                  email: $scope.users[prop].emails[0].address
                 };
                 tempUser._lowername = tempUser.name.toLowerCase();
                 result.push(tempUser);
