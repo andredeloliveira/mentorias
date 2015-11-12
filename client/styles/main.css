@@ -370,6 +370,8 @@ textarea:focus, input:focus {
 .progressbar {
     margin-bottom : 30px;
     overflow      : hidden;
+    width: 300px;
+    padding: 0;
 }
 
 .progressbar li {
@@ -402,7 +404,7 @@ textarea:focus, input:focus {
     content : none;
 }
 .progressbar li:last-child {
-    width       : 15px;
+    width      : 15px;
 }
 
 .progressbar li.active:before,
