@@ -1,12 +1,6 @@
-/**
- * Created by Tadashi on 27/09/2015.
- */
+Empresas = new Mongo.Collection("empresa");
 
-// Para usar
-//Empresa = new Mongo.Collection("empresa");
-
-/*Empresas = new Mongo.Collection("empresa");
-
+/*
 Schemas = {};
 
 Schemas.Empresa = new SimpleSchema({
@@ -61,3 +55,4 @@ Schemas.Empresa = new SimpleSchema({
 });
 */
 //Empresas.attachSchema(Schemas.Empresa);
+

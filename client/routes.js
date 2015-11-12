@@ -50,17 +50,36 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
                 templateUrl: 'client/perfis/views/proximaEtapa.ng.html',
                 controller: 'proximaEtapaController'
             })
+            /*para a lista de empresas*/
+            .state('empresas',{
+              url: '/empresas',
+              templateUrl: 'client/empresa/views/empresas.ng.html',
+              controller: 'empresasController',
+              controllerAs: 'ecs',
+              resolve: {
+                  "currentUser": ["$meteor", function ($meteor) {
+                      return $meteor.requireUser();
+                  }]
+              }
+            })
+            /*para ver os detahes da Empresa*/
+            .state('verEmpresa',{
+              url:'/empresas/:empresaId',
+              templateUrl: 'client/empresa/views/empresaDetails.ng.html',
+              controller: 'empresaDetailsControler',
+              controllerAs: 'edc',
+              resolve: {
+                  "currentUser": ["$meteor", function ($meteor) {
+                      return $meteor.requireUser();
+                  }]
+              }
+            })
             /*para o cadastro de Empresa*/
             .state('cadastroEmpresa', {
                 url: '/cadastroEmpresa',
                 templateUrl: 'client/empresa/views/cadastroEmpresa.ng.html',
                 controller: 'empresaController',
-                controllerAs: 'ec',
-                resolve: {
-                    "currentUser": ["$meteor", function ($meteor) {
-                        return $meteor.requireUser();
-                    }]
-                }
+                controllerAs: 'ec'
             })
             /*para a página meu perfil*/
             .state('meuPerfil', {

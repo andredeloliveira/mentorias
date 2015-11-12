@@ -1,14 +1,18 @@
 /**
  Controller responsável pelo Perfil. Aqui os métodos para Login, cadastro e busca de usuários são definidos.
  **/
-
-angular.module("mentorias").controller("empresaController", ['$scope', '$stateParams', '$meteor', '$state',
-    function ($scope, $stateParams, $meteor, $state) {
-
-
+angular.module("mentorias").controller("empresaController", ['$scope', '$stateParams', '$meteor', '$state','$meteorSubscribe',
+    function ($scope, $stateParams, $meteor, $state, $meteorSubscribe) {
         /*usuário provenientes do servidor*/
-        $scope.users = $meteor.collection(Meteor.users, false).subscribe('users');
+        //$scope.users = $meteor.collection(Meteor.users,false).subscribe('users');
+
+        $scope.users = $meteor.collection(Meteor.users,false).subscribe('users');
+
+        $scope.getUsers = $meteor.collection(Meteor.users,false).subscribe('getUsers');
+
         $scope.images = $meteor.collection(Images, false, Images).subscribe('images');
+        $scope.empresas = $meteor.collection(Empresas,false).subscribe('empresas');
+        $scope.userstemp = [];
         /*
          Variável que define a etapa do cadastro. Com ela, sera possível controlar o que será mostrado na view
          */
@@ -43,21 +47,91 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$statePa
 
         vm.error = '';
 
-        vm.empresa = {
-          /*definir o objeto da empresa aqui*/
-
+        /*controla a imagem temporariamente para não ficar adicionando imagens a esmo, cada vez que
+        se clica no botão upload
+        */
+        $scope.addTempImage = function(images){
+          $scope.tempImage = images[0];
+          console.log('image on the temp var');
         };
 
-        /*fazer a função para adicionar a empresa*/
 
 
+        $scope.addImages = function () {
+            /*Uma referencia da imagem do perfil é salva no nUser, que é o objeto
+            criado na view, que será inserido no banco. A imagem está em uma collection diferente
+            da do usuário, ou seja, aqui só tem uma referencia ao objeto, que é buscado
+            na view meuPerfil.ng.html*/
+            var fileObj = Images.insert($scope.tempImage, function(err, fileObj){
+              if(err)
+                console.log('erro no upload '+ err);
+              return fileObj;
+            });
+            $scope.nEmpresa.profilePic = fileObj;
+            $scope.feedbackUpload = true;
+            console.log($scope.nEmpresa);
+        };
+
+
+
+        /*registra a nova empresa no banco*/
+        vm.register = function(nEmpresa){
+          if(!nEmpresa)
+            vm.error = 'object undefined!';
+          vm.empresa = {
+            nome: nEmpresa.nome,
+            website: nEmpresa.website,
+            produtos: nEmpresa.produtos,
+            descricao: nEmpresa.descricao,
+            integrantes: nEmpresa.integrantes,
+            facebook: nEmpresa.facebook,
+            twitter: nEmpresa.twitter,
+            linkedIn: nEmpresa.linkedIn,
+            profilePic: nEmpresa.profilePic
+          };
+          //Diz a lenda que o save é mais rṕ    rápido que o insert. Tenho minhas duvidas, mah beleZ
+          $scope.empresas.save(vm.empresa);
+          $state.go('home');
+        }
+        /*remove a dita cuja*/
+        vm.remove = function(nEmpresa){
+          if(!nEmpresa)
+            vm.error = 'empresa não encontrada';
+          $scope.empresas.remove(nEmpresa);
+        }
 
         /*Aqui será definida a lógica para o controller das tags*/
-        vm.readonly = false;
-        vm.produtos = [];
-        vm.integrantes = [];
-        vm.tags = [];
 
+        $scope.loadUsers = function(users, getUsers){
+          var result = [];
+        //#purungus
+         console.log(Meteor.subscribe("users").ready());
+
+         console.log(Meteor.subscribe("getUsers"));
+        }
+
+        $scope.createFilterFor = function(query){
+          var lowercaseQuery = angular.lowercase(query);
+
+          return function filterFn(user) {
+            return (user._lowername.indexOf(lowercaseQuery) != -1);;
+          };
+        };
+        $scope.querySearch   = function(query){
+          var results = query ?
+            $scope.usersLoaded.filter($scope.createFilterFor(query)) : [];
+          console.log(results);
+          return results;
+        };
+
+        $scope.filterSelected = true;
+        $scope.readonly = false;
+        /*#purungus*/
+        $scope.usersLoaded = $scope.loadUsers($scope.users);
+        //console.log($scope.usersLoaded);
+        vm.produtos = [];
+        $scope.tags = [];
+        /*fim do controle das tags*/
         /*fim do controle das tags*/
 
 
