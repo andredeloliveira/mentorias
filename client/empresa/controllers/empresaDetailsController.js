@@ -1,5 +1,5 @@
 /*Controller para lidar com a página de visualização da empresa. */
-angular.module("mentorias").controller("empresaDetailsControler", ['$scope', '$meteor', '$state',
+angular.module("mentorias").controller("empresaDetailsController", ['$scope', '$meteor', '$state',
     function ($scope, $meteor, $state) {
         var vm = this;
 

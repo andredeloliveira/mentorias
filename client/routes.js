@@ -14,10 +14,10 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
         $locationProvider.html5Mode(true);
         //router para o cadastro de perfil (Usando o $meteor.user !)
         $stateProvider
-            .state('produtos', {
-                url: '/produtos',
-                templateUrl: 'client/produtos/views/produtos.ng.html',
-                controller: 'produtosController',
+            .state('DetalhesEmpresa', {
+                url: '/detalhesEmpresa',
+                templateUrl: 'client/empresa/views/empresaDetails.ng.html',
+                controller: 'empresaDetailsController',
                 controllerAs: 'pc'
             })
 
@@ -138,7 +138,9 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
             });
 
         /*caso alguma merda acontença, redireciona pra página inicial. Caso isso aconteça abra ao debug e chore*/
-        $urlRouterProvider.otherwise("/");
+        $urlRouterProvider.when('', '/');
+
+        $urlRouterProvider.otherwise('/404');
 
     }
 ]);

@@ -73,8 +73,11 @@ Schemas.Perfil = new SimpleSchema({
         type: Boolean,
         label: "Utilizar mesma foto de perfil do Facebook",
         optional: true
+    }, 
+    roles:{
+        []
     }
-
+    
 });
 
 Perfis.attachSchema(Schemas.Perfil); */

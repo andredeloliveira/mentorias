@@ -71,11 +71,17 @@
             <!-- tags expertise-->
             <div ng-show="mostrarEtapa(2)">
                 <div class="row">
+                    <div class="col-md-12" style="border:1px solid BLUE">
+                        {{email}}     
+                    </div>
                     <img class="img-responsive center-block" src="../resources/Logo-Agripa.png"/>
 
                     <!--<md-chips ng-model="pc.tagNames" readonly="pc.readonly" placeholder="adicione uma expertise"
                               delete-button-label="remova expertise" delete-hing="clique em delete para remover a tag"
                               secondary-placeholder="+Expertise"></md-chips> -->
+                  
+                   
+                    
                     <md-contact-chips
                             ng-model="integrantes"
                             md-contacts="querySearch($query)"

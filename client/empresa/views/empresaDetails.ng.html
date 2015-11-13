@@ -1,5 +1,161 @@
-<div class="container-fluid">
-    <p>
-      e aqui os detalhes dela
-    </p>
+<div class="container">
+
+  <div class="row profile-border" style="margin-top: 30px;">
+    <!-- para a foto do perfil
+
+    A foto do perfil é carregada pela referencia do objeto d foto. profile é onde tem os campos especiais do usuário
+    A função getFileRecord, faz o Images.find({file:_id}); por trás, trazendo o objeto salvo no banco com a id da referencia
+
+    Mais info ver: https://github.com/CollectionFS/Meteor-CollectionFS
+    -->
+    <div class="col-md-3 profile-boxes picture no-padding">
+    <img src="{{$root.currentUser.profile.profilePic.getFileRecord().url()}}" class="profile-picture">
+    </div>
+    <div class="col-md-2 profile-boxes">
+
+        <div class="row">
+           <div class="col-md-12">
+             <span style="font-size: 0.87em;">{{profileTitle}}</span>
+           </div>
+        </div> 
+        <div class="row">
+          <div class="col-md-12">
+             <span style="font-size: 1.33em;">{{$root.currentUser.profile.name}}</span>     
+          </div>
+        </div>
+        <div class="row">
+         <div class="col-md-12">
+            <span style="font-size:0.77em;">{{$root.currentUser.emails[0].address}}</span>     
+         </div>
+        </div>
+      <div class="row">
+        <div class="col-md-12">
+            <span ng-repeat="expertise in $root.currentUser.profile.expertise">
+            <i class="fa fa-square"></i> 
+            {{' ' +expertise + ' '}} 
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 profile-boxes">
+      <div class="row">
+        <div class="col-md-8 centered">
+          <span><i class="fa fa-star stars"></i></span>
+          <span><i class="fa fa-star stars"></i></span>
+          <span><i class="fa fa-star stars"></i></span>
+          <span><i class="fa fa-star stars"></i></span>
+          <span><i class="fa fa-star-half-o stars"></i></span>
+        </div>
+        <div class="col-md-10 centered">
+            media de avaliações
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <h4 class="horas-mentorias text-center">{{$root.currentUser.stars}}  hs</h4>
+          <p class="text-center">mentoria</p>
+        </div>
+        <div class="col-md-6">
+          <h4 class="horas-mentorias text-center">9</h4> 
+          <p class="text-center">badges</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 profile-boxes">
+      <p class="text-center">
+        {{$root.currentUser.profile.breve_descricao}}
+      </p>
+    </div>
+
+    <div class="col-md-1 profile-boxes">
+      <div class="row">
+        <div class="col-md-9 centered">
+          <a href="{{$root.currentUser.profile.facebook}}"><i class="fa fa-facebook-official icon-bar"></i></a>   
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-9 centered">
+          <a href="{{$root.currentUser.profile.twitter}}"><i class="fa fa-twitter icon-bar"></i></a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-9 centered">
+          <a href="{{$root.currentUser.profile.linkedIn}}"><i class="fa fa-linkedin icon-bar"></i></a>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-2 profile-boxes">
+      <button class="btn btn-default profile-actions" ><i class="fa fa-commenting-o"></i> Mensagens <span></span></button>
+      <button class="btn btn-default profile-actions" ><i class="fa fa-calendar"></i> Agenda <span></span></button>
+      <button class="btn btn-default profile-actions" ><i class="fa fa-group"></i> Ações de mentoria<span></span></button>
+    </div>
+  </div>
+  <!-- Calendario daqui pra baixo-->
+</div>
+<div class="container">
+  <div class="row">
+<div class="col-md-4">
+	<div id="dirSidebar" class="col-md-4">
+		<div class="row">
+			<div class="col-md-12">
+				teste
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				teste
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				teste
+			</div>
+		</div>
+	</div>	
+</div> 
+<div class="col-md-8">
+	  <div class="col-sm-4">
+    <div class="col-item">
+      <div class="photo">
+        <img src="/images/produtos/" class="img-responsive" alt="a" />
+      </div>
+      <div class="info">
+        <div class="row">
+          <div class="price col-md-6">
+            <h5>
+          
+            </h5>
+            <h5 class="price-text-color">
+  
+            </h5>
+          </div>
+          <div class="rating hidden-sm col-md-6">
+            <i class="price-text-color glyphicon glyphicon-star"></i>
+            <i class="price-text-color glyphicon glyphicon-star"></i>
+            <i class="price-text-color glyphicon glyphicon-star"></i>
+            <i class="glyphicon glyphicon-star"></i>
+          </div>
+        </div>
+        <div class="separator clear-left">
+          <p class="btn-add">
+            <i class="glyphicon glyphicon-shopping-cart"></i>
+            <a href="#" class="hidden-sm add-to-cart">Add to cart</a></p>
+          <p class="btn-details">
+            <i class="glyphicon glyphicon-list"></i>
+            <a href="" class="hidden-sm">More details</a>
+          </p>
+        </div>
+        <div class="clearfix">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
 </div>

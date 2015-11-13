@@ -1,5 +1,5 @@
-/*Aqui é onde a API é definida. o pacote utulizado é nimble:restivus. A documentação está discponivel em
-atmosphere.js/nimble/restivus*/
+/*Aqui é onde a API é definida. o pacote utulizado é nimble:restivus. 
+A documentação está discponivel em atmosphere.js/nimble/restivus*/
 Api = new Restivus({
   prettyJson: true
 });
@@ -18,3 +18,28 @@ Api.addCollection(Meteor.users,{
     }
   }
 });
+/*
+Api.addCollection(Meteor.Empresas,{
+  excludedEndPoints:['getAll', 'put'],
+  routeOptions: {
+    useDefaultAuth: false
+  },
+  endpoints:{
+    post:{
+      authRequired:false
+    }
+  }
+});*/
+
+
+/*Api.addCollection(Meteor.produtos,{
+  excludedEndPoints:['getAll', 'put'],
+  routeOptions: {
+    useDefaultAuth: true
+  },
+  endpoints:{
+    post:{
+      authRequired:false
+    }
+  }
+});*/

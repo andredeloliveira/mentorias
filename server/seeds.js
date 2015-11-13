@@ -4,18 +4,22 @@
     password: "123123",
     profile: { name: "Big Boss" },
     roles : []
-  });
-
-  Roles.addUsersToRoles(id, ["root"]);
-  console.log("Adicionando o cabeça  da app");*/
-
-/*  Roles.addUsersToRoles(id, ["Empreendedor"]);
-  console.log("Criando Role Empreendedor");
-
-  Roles.addUsersToRoles(id, ["Mentor"]);
-  console.log("Criando Role Mentor");*/
-
-
+  }, 
+  {
+    username : "Mentor",
+    email: "mentor@mentor.com",
+    password: "123123",
+    profile: { name: "Mentor" },
+    roles : ["mentor"]
+  },
+  {
+    username : "Empreendedor",
+    email: "empreendedor@empreendedor.com",
+    password: "123123",
+    profile: { name: "empreendedor" },
+    roles : ["empreendedor"]
+  }
+);
 
 var empresasSeeds =[
 {
