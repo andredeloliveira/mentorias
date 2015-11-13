@@ -508,8 +508,12 @@ textarea:focus, input:focus {
 /****************************Campos Input Quadrados End**********************/
 
 /*********************************Helpers*********************************/
-.margin-top-30 {
+.margin-top-60 {
     margin-top : 30px;
+}
+
+.margin-top-30 {
+    margin-top : 60px;
 }
 
 .text-decoration-underline {
