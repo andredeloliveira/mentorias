@@ -399,13 +399,13 @@ textarea:focus, input:focus {
 .progressbar {
     margin-bottom : 30px;
     overflow      : hidden;
-    width         : 300px;
+    width         : 260px;
     padding       : 0;
 }
 
 .progressbar li {
     list-style-type : none;
-    width           : 95px;
+    width           : 80px;
     float           : left;
     position        : relative;
 }
@@ -421,7 +421,7 @@ textarea:focus, input:focus {
 
 .progressbar li:after {
     content    : '';
-    width      : 80px;
+    width      : 65px;
     height     : 2px;
     background : #fff;
     position   : absolute;
