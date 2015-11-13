@@ -82,17 +82,19 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$statePa
           }
         };
 
+
+
         /*registra a nova empresa no banco*/
         vm.register = function(nEmpresa){
           if(!nEmpresa)
             vm.error = 'object undefined!';
-          var integrantesN = $scope.getIntegrantesId($scope.tags);
+          var integrantesN = $scope.getIntegrantesId($scope.integrantes);
           console.log(integrantesN);
           vm.empresa = {
             nome: nEmpresa.nome,
             website: nEmpresa.website,
             descricao: nEmpresa.breve_descricao,
-            integrantes: $scope.usersLoaded,
+            integrantes: integrantesN,
             facebook: nEmpresa.facebook,
             twitter: nEmpresa.twitter,
             linkedIn: nEmpresa.linkedIn,
@@ -151,8 +153,10 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$statePa
         $scope.filterSelected = true;
         $scope.readonly = false;
         $scope.usersLoaded = $scope.loadUsers($scope.users);
+        console.log($scope.usersLoaded);
         vm.produtos = [];
         $scope.integrantes = [];
+        
         console.log($scope.integrantes);
         /*fim do controle das tags*/
         /*fim do controle das tags*/

@@ -28,7 +28,7 @@
 
     <div class="col-md-2 profile-boxes">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12" >
           <span><i class="fa fa-star stars"></i></span>
           <span><i class="fa fa-star stars"></i></span>
           <span><i class="fa fa-star stars"></i></span>
@@ -38,8 +38,8 @@
         <div>
             media de avaliações
         </div>
-        <div class="col-md-12"><b class="horas-mentorias">{{$root.currentUser.stars}} hs</b> de mentoria</div>
-        <div class="col-md-12"><b class="horas-mentorias">9</b> badges</div>
+        <div class="col-md-12"><b class="horas-mentorias">{{$root.currentUser.profile.horasMentorias}} hs</b> de mentoria</div>
+        <div class="col-md-12"><b class="horas-mentorias">{{$root.currentUser.profile.badges.length}}</b> badges</div>
       </div>
     </div>
 
@@ -49,8 +49,8 @@
       </p>
     </div>
 
-    <div class="col-md-1 profile-boxes">
-      <a href="{{$root.currentUser.profile.facebook}}"><i class="fa fa-facebook-official icon-bar"></i></a>
+    <div class="col-md-1 profile-boxes text-center">
+      <a href="{{$root.currentUser.profile.facebook}}" target="_blank" ><i class="fa fa-facebook-official icon-bar"></i></a>
 
       <a href="{{$root.currentUser.profile.twitter}}"><i class="fa fa-twitter icon-bar"></i></a>
       <a href="{{$root.currentUser.profile.linkedIn}}"><i class="fa fa-linkedin icon-bar"></i></a>
@@ -63,7 +63,13 @@
     </div>
   </div>
   <!-- Calendario daqui pra baixo-->
-  <div class="row profile-border">
+  <div class="row profile-border" style="background-color: rgba(48,50,58,0.75); color:grey;">
+    <div class="col-md-4">
+      <div id="calendarioDia">
+      </div>
+    </div>
+  <div class="col-md-8 float-right">
     <div id="calendar"></div>
+  </div>
   </div>
 </div>

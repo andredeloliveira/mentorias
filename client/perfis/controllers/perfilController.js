@@ -87,6 +87,11 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
                 email: nUser.email,
                 password: nUser.senha,
                 createdAt: new Date(),
+                /*assim ficou o objeto para o usuário:
+                  com multiplos calendarios (um para o dia e outro para o mês.)
+                  o motivo disso é para mostrar na tela. Como temos duas versões, a parada vai ser meio
+                  redundante. Mas ta aí
+                */
                 profile: {
                     name: nUser.nome,
                     breve_descricao: nUser.breve_descricao,
@@ -99,7 +104,8 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
                     profilePic: nUser.profilePic,
                     stars: [],
                     horasMentorias:0,
-                    badges: []
+                    badges: [],
+                    calendarios: []
                 },
                 services: {
                     facebook: {
