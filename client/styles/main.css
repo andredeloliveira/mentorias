@@ -113,7 +113,8 @@ body {
     -webkit-background-size : cover;
     -moz-background-size    : cover;
     -o-background-size      : cover;
-    background-size         : cover;
+    background-size         : cover !important;
+    background-attachment   : fixed !important;
     color                   : #FFFFFF;
 
 }
@@ -370,8 +371,8 @@ textarea:focus, input:focus {
 .progressbar {
     margin-bottom : 30px;
     overflow      : hidden;
-    width: 300px;
-    padding: 0;
+    width         : 300px;
+    padding       : 0;
 }
 
 .progressbar li {
@@ -403,8 +404,9 @@ textarea:focus, input:focus {
 .progressbar li:last-child:after {
     content : none;
 }
+
 .progressbar li:last-child {
-    width      : 15px;
+    width : 15px;
 }
 
 .progressbar li.active:before,
