@@ -6,6 +6,12 @@ angular.module("mentorias").run(['$rootScope', '$state', function ($rootScope, $
         if (error === 'AUTH_REQUIRED') {
             $state.go('login');
         }
+        if (error === 'FORBIDDEN') {
+             $state.go('403');
+        }
+        if (error === 'NOT_FOUND') {
+             $state.go('404');
+        }
     });
 }]);
 angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
@@ -13,14 +19,25 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
 
         $locationProvider.html5Mode(true);
         //router para o cadastro de perfil (Usando o $meteor.user !)
+       
         $stateProvider
+           
+            .state("Eventos", {
+              url: "/eventos",
+              views: {
+                content: {
+                  templateUrl: "client/agenda/views/agenda.ng.html",
+                  controller: "agendaController",
+                  controllerAs: "evc"
+                }
+              }
+            })
             .state('DetalhesEmpresa', {
                 url: '/detalhesEmpresa',
                 templateUrl: 'client/empresa/views/empresaDetails.ng.html',
                 controller: 'empresaDetailsController',
-                controllerAs: 'pc'
+                controllerAs: 'dc'
             })
-
             .state('modais', {
                 url: '/modais',
                 templateUrl: 'client/perfis/views/modais.ng.html',
@@ -138,9 +155,10 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
             });
 
         /*caso alguma merda acontença, redireciona pra página inicial. Caso isso aconteça abra ao debug e chore*/
+        
         $urlRouterProvider.when('', '/');
+        //$urlRouterProvider.otherwise('/404');
 
-        $urlRouterProvider.otherwise('/404');
 
     }
 ]);

@@ -3,7 +3,7 @@
     email: "root@root.com",
     password: "123123",
     profile: { name: "Big Boss" },
-    roles : []
+    roles : ['root']
   }, 
   {
     username : "Mentor",
