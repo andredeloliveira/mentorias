@@ -18,6 +18,7 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
         */
 
         $scope.addTempImage = function(images){
+
           $scope.tempImage = images[0];
           console.log('image on the temp var');
         };
@@ -119,10 +120,12 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
             console.log(vm.credentials);
 
             $meteor.createUser(vm.credentials).then(
-                function () {
-                  console.log('entered the createUser function')
+   
+                  console.log('entered the createUser function');
+
                     /*aqui é onde decide se vai a proxima etapa do empreendedor ou do mentor.
-                     Que deve ser adicionada depois, assim como qualquer outra condição depois do cadastro ;*/
+                     Que deve ser adicionada depois, assim como qualquer outra condição depois
+                      do cadastro ;*/
                     if (vm.credentials.profile.tipo_conta === 'empreendedor') {
                         console.log(vm.credentials);
                         $state.go('proximaEtapa');
