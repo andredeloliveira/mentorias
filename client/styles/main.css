@@ -395,6 +395,34 @@ textarea:focus, input:focus {
     }
 }
 
+/********************************Painel de Controle********************************/
+
+#painel-controle {
+
+}
+
+#painel-controle #lista-usuarios {
+
+}
+
+#painel-controle #lista-empresas {
+
+}
+
+#painel-controle .lista {
+
+}
+
+#painel-controle .lista .item {
+
+}
+
+#painel-controle .lista > div {
+
+}
+
+/********************************Painel de Controle********************************/
+
 /********************************Progress Bar********************************/
 .progressbar {
     margin-bottom : 30px;
@@ -405,7 +433,7 @@ textarea:focus, input:focus {
 
 .progressbar li {
     list-style-type : none;
-    width           : 80px;
+    width           : 170px;
     float           : left;
     position        : relative;
 }
