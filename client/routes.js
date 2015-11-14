@@ -42,7 +42,7 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
                 url: '/modais',
                 templateUrl: 'client/perfis/views/modais.ng.html',
                 controller: 'modaisController',
-                controllerAs: 'pc'
+                controllerAs: 'modal'
             })
             .state('trocar-senha', {
                 url: '/trocar-senha',
@@ -158,7 +158,6 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
         
         $urlRouterProvider.when('', '/');
         //$urlRouterProvider.otherwise('/404');
-
 
     }
 ]);

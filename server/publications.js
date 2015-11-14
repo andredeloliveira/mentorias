@@ -1,6 +1,6 @@
 
 Meteor.publish("produtos-destaque", function(){
-  return Produtos.destaque({},{limit:3});
+  return produtos.destaque({},{limit:3});
 });
 
 Meteor.publish("users-all", function(){
@@ -11,9 +11,12 @@ Meteor.publish("usersById", function(_id){
   return Users.find({"users" : _id});
 });
 
-Meteor.publish("cart", function(key){
-  check(key, String);
-  return Carts.find({userKey : key});
+Meteor.publish("produtosByID", function(_id){
+  return Users.find({"produtos" : _id});
+});
+
+Meteor.publish("empresaByID", function(_id){
+  return Users.find({"empresa" : _id});
 });
 
 Meteor.publish(null, function (){ 

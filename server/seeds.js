@@ -89,3 +89,36 @@ var empresasSeeds =[
     console.log("Enviado ", valoresSeeds.nome);
   })
 }*/
+
+var produtosSeeds = [
+{
+"nome":"Cavalo de fogo" ,
+"imagem_destaque":"http://cloudsource.com.br/publica/logo.png",
+"descricao":
+    "blabla"
+},
+{
+"nome":"Telefone com fio" ,
+"imagem_destaque":"http://cloudsource.com.br/publica/logo.png",
+"descricao":
+    "blabla"
+},
+{
+"nome":"Panela de Barro" ,
+"imagem_destaque":"http://cloudsource.com.br/publica/logo.png",
+"descricao":
+    "blabla"
+},
+{
+"nome":"Corrente de prata" ,
+"imagem_destaque":"http://cloudsource.com.br/publica/logo.png",
+"descricao":
+    "blabla"
+}
+];
+if(Produtos.find().count() === 0){
+  _.each(produtosSeeds, function(workSeeds){
+    Produtos.insert(workSeeds);
+    console.log("Produto Cadastrado ", workSeeds.nome);
+  })
+}
