@@ -9,20 +9,20 @@
     Mais info ver: https://github.com/CollectionFS/Meteor-CollectionFS
     -->
     <div class="col-md-3 profile-boxes">
-    <img src="{{$root.currentUser.profile.profilePic.getFileRecord().url()}}" class="profile-picture">
+    <img src="{{user.profile.profilePic.getFileRecord().url()}}" class="profile-picture">
     </div>
     <div class="col-md-2 profile-boxes">
 
         <span style="font-size: 0.87em;">{{profileTitle}}</span>
         <br>
 
-        <span style="font-size: 1.33em;">{{$root.currentUser.profile.name}}</span>
+        <span style="font-size: 1.33em;">{{user.profile.name}}</span>
         <br>
 
-        <span style="font-size:0.77em;">{{$root.currentUser.emails[0].address}}</span>
+        <span style="font-size:0.77em;">{{user.emails[0].address}}</span>
         <br>
       <div class="row">
-          <span ng-repeat="expertise in $root.currentUser.profile.expertise"><i class="fa fa-square"></i>{{' ' +expertise + ' '}}</span>
+          <span ng-repeat="expertise in user.profile.expertise"><i class="fa fa-square"></i>{{' ' +expertise + ' '}}</span>
       </div>
     </div>
 
@@ -38,28 +38,23 @@
         <div>
             media de avaliações
         </div>
-        <div class="col-md-12"><b class="horas-mentorias">{{$root.currentUser.profile.horasMentorias}} hs</b> de mentoria</div>
-        <div class="col-md-12"><b class="horas-mentorias">{{$root.currentUser.profile.badges.length}}</b> badges</div>
+        <div class="col-md-12"><b class="horas-mentorias">{{user.profile.horasMentorias}} hs</b> de mentoria</div>
+        <div class="col-md-12"><b class="horas-mentorias">{{user.profile.badges.length}}</b> badges</div>
       </div>
     </div>
 
     <div class="col-md-2 profile-boxes">
       <p class="text-center">
-        {{$root.currentUser.profile.breve_descricao}}
+        {{user.profile.breve_descricao}}
       </p>
     </div>
 
     <div class="col-md-1 profile-boxes text-center">
-      <a href="{{$root.currentUser.profile.facebook}}" target="_blank" ><i class="fa fa-facebook-official icon-bar"></i></a>
+      <a href="{{user.profile.facebook}}" target="_blank" ><i class="fa fa-facebook-official icon-bar"></i></a>
 
-      <a href="{{$root.currentUser.profile.twitter}}"><i class="fa fa-twitter icon-bar"></i></a>
-      <a href="{{$root.currentUser.profile.linkedIn}}"><i class="fa fa-linkedin icon-bar"></i></a>
+      <a href="{{user.profile.twitter}}"><i class="fa fa-twitter icon-bar"></i></a>
+      <a href="{{user.profile.linkedIn}}"><i class="fa fa-linkedin icon-bar"></i></a>
 
-    </div>
-    <div class="col-md-2 profile-boxes">
-      <button class="btn btn-default profile-actions" ><i class="fa fa-commenting-o"></i> Mensagens <span></span></button>
-      <button class="btn btn-default profile-actions" ><i class="fa fa-calendar"></i> Agenda <span></span></button>
-      <button class="btn btn-default profile-actions" ><i class="fa fa-group"></i> Ações de mentoria<span></span></button>
     </div>
   </div>
   <!-- Calendario daqui pra baixo-->

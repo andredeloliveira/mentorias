@@ -10,7 +10,7 @@ angular.module("mentorias").controller("meuPerfilController", ['$scope', '$meteo
         2 = açoes do mentor
         */
         $scope.currentView = 0;
-        
+
         $scope.images = $meteor.collectionFS(Images, false, Images).subscribe('images');
         console.log($rootScope.currentUser);
 
@@ -44,6 +44,10 @@ angular.module("mentorias").controller("meuPerfilController", ['$scope', '$meteo
           /*Mostra a view  - retorna um boolean caso a view selecionada for a em questão*/
           $scope.showView = function(view){
             return $scope.curretView === view;
+          };
+          /*para criar um evento no calendario*/
+          $scope.createEvent = function(event){
+
           };
         /*essa parte do código é pra lidar com o JQuery e o caledar. Posteriormente sera mudado o modo
         de acesso, etc. Mas primeiro, o objetivo é fazer funcionar*/

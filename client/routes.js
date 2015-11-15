@@ -103,7 +103,7 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
                 url: '/login',
                 templateUrl: 'client/perfis/views/login.ng.html',
                 controller: 'loginController',
-                controllerAS: 'lc',
+                controllerAs: 'lc',
                 resolve: {
                     "currentUser": ["$meteor", "$rootScope", "$state", function ($meteor, $rootScope, $state) {
                         $meteor.waitForUser().then(function () {
@@ -115,6 +115,18 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
                         });
                     }]
                 }
+            })
+            //detalhes do perfil (quando um terceiro acessa o perfil)
+            .state('perfilDetalhes',{
+              url:'/perfis/:userId',
+              templateUrl: 'client/perfis/views/perfilDetalhes.ng.html',
+              controller:'perfilDetalhesController',
+              controllerAs:'pdc',
+              resolve: {
+                  "currentUser": ["$meteor", function ($meteor) {
+                      return $meteor.requireUser();
+                  }]
+              }
             })
             /*pra reinicializar a senha*/
             /*pro logout*/
