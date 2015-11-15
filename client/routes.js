@@ -44,6 +44,12 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
                 controller: 'modaisController',
                 controllerAs: 'modal'
             })
+            .state('painel-controle', {
+                url: '/painel-controle',
+                templateUrl: 'client/perfis/views/painel-controle.ng.html',
+                controller: 'painelControleController',
+                controllerAs: 'pc'
+            })
             .state('trocar-senha', {
                 url: '/trocar-senha',
                 templateUrl: 'client/perfis/views/trocar-senha.ng.html',
