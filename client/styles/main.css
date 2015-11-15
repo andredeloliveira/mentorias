@@ -391,6 +391,120 @@ textarea:focus, input:focus {
 /********************************Painel de Controle********************************/
 
 #painel-controle {
+    border           : 1px solid #fff;
+    background-color : rgba(0, 0, 0, 0.6);
+}
+
+#painel-controle #lista-usuarios {
+
+}
+
+#painel-controle #lista-empresas {
+
+}
+
+#painel-controle .lista {
+    list-style       : none;
+    padding          : 0;
+    border           : 1px solid rgb(255, 255, 255);
+    overflow         : hidden;
+    background-color : rgba(123, 123, 123, 0.9);
+}
+
+#painel-controle .lista .item {
+
+}
+
+#painel-controle .lista > li {
+    border-bottom : 1px solid rgb(255, 255, 255);
+    overflow      : hidden;
+}
+
+#painel-controle .lista > li > div {
+    float : left;
+}
+
+#painel-controle .lista > li.item > div {
+    padding : 5px;
+}
+
+#painel-controle .lista > li.item p {
+    margin-bottom : 0;
+}
+
+#painel-controle .lista > li.item > div:first-child {
+    margin-bottom : 0;
+}
+
+#painel-controle .lista > li.item > div:last-child {
+    margin-bottom : 0;
+}
+
+#painel-controle .lista > li > div:first-child {
+    width            : 30%;
+    background-color : rgba(144, 144, 144, 0.9);
+    text-align       : center;
+}
+
+#painel-controle .lista > li > div:last-child {
+    width : 70%;
+}
+
+#painel-controle #trajetorias {
+    border           : 1px solid #fff;
+    overflow         : hidden;
+    background-color : rgba(90, 90, 90, 0.9);
+}
+
+#painel-controle #trajetorias > div {
+    border-bottom : 1px solid #fff;
+    padding       : 10px;
+}
+
+#painel-controle #trajetorias > div > div {
+    padding : 10px;
+}
+
+#painel-controle #trajetorias > div > div hr {
+    clear     : both;
+    width     : 68px;
+    transform : rotate(90deg);
+}
+
+#painel-controle #trajetorias > div > div p {
+    margin-bottom : 0;
+}
+
+#painel-controle #trajetorias > div div {
+    z-index : 1;
+}
+
+#painel-controle #trajetorias > div > div:first-child {
+    border-right : 1px solid #fff;
+    padding      : 0 10px 0 0;
+}
+
+#painel-controle #trajetorias > div > div:last-child {
+    border-left : 1px solid #fff;
+    padding     : 0 0 0 10px;
+}
+
+/********************************Painel de Controle End********************************/
+
+/********************************Trajetória de Desenvolvimento********************************/
+
+#trajetoria-de-desenvolvimento {
+    border           : 1px solid #fff;
+    background-color : rgba(0, 0, 0, 0.6);
+}
+
+
+
+/********************************Trajetória de Desenvolvimento End********************************/
+
+/********************************Painel de Controle********************************/
+
+#painel-controle {
 
 }
 
