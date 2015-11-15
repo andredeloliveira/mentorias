@@ -9,9 +9,18 @@
                     <div class="margin-top-30">
                         <input type="text" ng-model="nEmpresa.nome" placeholder="Nome Empresa"> <br/><br/>
                         <input type="text" ng-model="nEmpresa.website" placeholder="Website"><br/><br/>
-                        <!--<md-chips ng-model="produtos" readonly="ctrl.readonly">
 
+                        <!--<md-chips ng-model="produtos" readonly="ctrl.readonly">
                         </md-chips> -->
+                        <md-contact-chips
+                                ng-model="produtos"
+                                md-contacts="querySearch($query)"
+                                md-contact-name="name"
+                                md-require-match="true"
+                                md-highlight-flags="i"
+                                filter-selected="filterSelected"
+                                placeholder="Produtos">
+                        </md-contact-chips>
                     </div>
                 </div>
                 <!-- end row-->
