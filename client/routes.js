@@ -27,6 +27,12 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
                 controller: 'painelControleController',
                 controllerAs: 'pc'
             })
+            .state('criar-trajetoria', {
+                url: '/criar-trajetoria',
+                templateUrl: 'client/trajetoria/views/criar-trajetoria.ng.html',
+                controller: 'criarTrajetoriaController',
+                controllerAs: 'vt'
+            })
             .state('visualizar-trajetoria', {
                 url: '/visualizar-trajetoria',
                 templateUrl: 'client/trajetoria/views/visualizar-trajetoria.ng.html',
