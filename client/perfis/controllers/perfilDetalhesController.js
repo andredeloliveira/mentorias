@@ -3,8 +3,7 @@ angular.module("mentorias").controller("perfilDetalhesController", ['$scope', '$
     function ($scope, $meteor, $state, $stateParams) {
 
         /*usuário sendo requisitado*/
-        $scope.user = $meteor.object(Meteor.users,$stateParams.userId).subscribe('users');
-        console.log($scope.user);
+        $scope.user = $meteor.object(Meteor.users,$stateParams.userId,false).subscribe('users');
         $scope.profileTitle = '';
         $scope.error = '';
 
