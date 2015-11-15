@@ -3,7 +3,7 @@
     <div class="login-home frame-form text-center space-header space-footer">
         <form class="login-form frame-spaces">
             <div ng-show="mostrarEtapa(0)">
-                <div class="row">
+                <div>
                     <img class="img-responsive center-block" src="../resources/Logo-Agripa.png"/>
 
                     <div class="margin-top-30">
@@ -15,7 +15,7 @@
                 <!-- end row-->
                 <br/>
 
-                <div class="row">
+                <div class="overflow-hidden">
                     <small class="visible-xs text-left col-xs-12">Perfil <br></small>
                     <div class="col-sm-6  col-xs-11">
                         <div class="input-squared pull-left">
@@ -69,7 +69,7 @@
             </div>
             <!-- Breve descrição-->
             <div ng-show="mostrarEtapa(1)">
-                <div class="row">
+                <div>
                     <img class="img-responsive center-block" src="../resources/Logo-Agripa.png"/>
                     <textarea class="lined-textarea" name="descricao" ng-model="nUser.breve_descricao" rows="20" cols="20" placeholder="Descrição Profissional"></textarea>
                 </div>
@@ -95,7 +95,7 @@
             </div>
             <!-- tags expertise-->
             <div ng-show="mostrarEtapa(2)">
-                <div class="row">
+                <div>
                     <img class="img-responsive center-block" src="../resources/Logo-Agripa.png"/>
 
                     <!--<md-chips ng-model="pc.tagNames" readonly="pc.readonly" placeholder="adicione uma expertise"
@@ -135,7 +135,7 @@
             </div>
             <!-- Redes sociais-->
             <div ng-show="mostrarEtapa(3)">
-                <div class="row">
+                <div>
                     <img class="img-responsive center-block" src="../resources/Logo-Agripa.png"/>
 
                     <div id="input-midias-sociais" class="margin-top-30">
@@ -145,7 +145,7 @@
                     </div>
                     <br><br/>
 
-                    <div>
+                    <div class="row">
                         <div class="col-md-12">
                             <div class="input-squared pull-left">
                                 <input type="checkbox" id="img-perfil-faceboox" style="margin-right: 10px;"/><label for="img-perfil-faceboox"></label>
@@ -159,23 +159,23 @@
 
                         <p ng-show="feedbackUpload">Upload realizado com sucesso!</p>
 
-                        <div class="col-md-12">
-                            <button class="btn btn-default btn-100-percent" ng-click="addImages()" style="margin-top:20px;">Carregar foto de perfil</button>
-                        </div>
                     </div>
                     <!-- end twelve columns-->
                 </div>
                 <!-- end row-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn btn-default btn-100-percent" ng-click="addImages()" style="margin-top:20px;">Carregar foto de perfil</button>
+                    </div>
+                </div>
                 <div class="row" style="margin-top:50px;">
 
-                    <div>
-                        <div class="col-md-6">
-                            <button class="btn btn-default btn-100-percent" ng-click="setEtapaAnterior()">Voltar</button>
-                        </div>
-                        <div class="margin-top-30 visible-xs"></div>
-                        <div class="col-md-6">
-                            <button class="btn btn-default btn-100-percent" ng-click="pc.register(nUser)">Concluir</button>
-                        </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-default btn-100-percent" ng-click="setEtapaAnterior()">Voltar</button>
+                    </div>
+                    <div class="margin-top-30 visible-xs"></div>
+                    <div class="col-md-6">
+                        <button class="btn btn-default btn-100-percent" ng-click="pc.register(nUser)">Concluir</button>
                     </div>
                 </div>
 

@@ -297,9 +297,7 @@ textarea:focus, input:focus {
 }
 
 .login-form {
-    padding        : 0 15px;
-    padding-top    : 50px;
-    padding-bottom : 30px;
+
 }
 
 .side-padding-20 {
@@ -319,18 +317,13 @@ textarea:focus, input:focus {
 }
 
 .frame-form {
-    border       : 2px;
-    border-color : #FFFFFF;
-    border-style : solid;
-    overflow     : hidden;
+    border   : 2px solid #FFFFFF;
+    overflow : hidden;
+    padding  : 50px;
 }
 
 .frame-spaces {
-    margin-top    : 20px;
-    margin-left   : 20px;
-    margin-right  : 20px;
-    margin-bottom : 20px;
-    display       : block;
+    display : block;
 }
 
 .modal-close-icon {
@@ -427,13 +420,13 @@ textarea:focus, input:focus {
 .progressbar {
     margin-bottom : 30px;
     overflow      : hidden;
-    width         : 260px;
+    width         : 170px;
     padding       : 0;
 }
 
 .progressbar li {
     list-style-type : none;
-    width           : 170px;
+    width           : 50px;
     float           : left;
     position        : relative;
 }
@@ -449,7 +442,7 @@ textarea:focus, input:focus {
 
 .progressbar li:after {
     content    : '';
-    width      : 65px;
+    width      : 35px;
     height     : 2px;
     background : #fff;
     position   : absolute;
