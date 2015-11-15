@@ -27,6 +27,12 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
                 controller: 'painelControleController',
                 controllerAs: 'pc'
             })
+            .state('trajetoria-de-desenvolvimento', {
+                url: '/trajetoria-de-desenvolvimento',
+                templateUrl: 'client/perfis/views/trajetoria-de-desenvolvimento.ng.html',
+                controller: 'trajetoriaDesenvolvimentoController',
+                controllerAs: 'pc'
+            })
             .state('trocar-senha', {
                 url: '/trocar-senha',
                 templateUrl: 'client/perfis/views/trocar-senha.ng.html',
