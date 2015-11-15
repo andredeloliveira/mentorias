@@ -497,6 +497,23 @@ textarea:focus, input:focus {
 
 }
 
+#trajetoria-de-desenvolvimento .trajetoria-detalhe {
+    margin-bottom : 10px;
+}
+
+#trajetoria-de-desenvolvimento .trajetoria-detalhe > div {
+    margin  : 10px 0;
+    padding : 0 10px;
+}
+
+#trajetoria-de-desenvolvimento .trajetoria-detalhe > div:first-child {
+    border-right : 1px solid #fff;
+}
+
+#trajetoria-de-desenvolvimento .trajetoria-detalhe > div:last-child {
+    border-left : 1px solid #fff;
+}
+
 .trajetoria {
 
 }
@@ -732,6 +749,11 @@ textarea:focus, input:focus {
 
 .background-blacked {
     background-color : rgba(0, 0, 0, 0.6);
+}
+
+.background-grey {
+    background-color : rgba(90, 90, 90, 0.6);
+
 }
 
 .border-radious-none {
