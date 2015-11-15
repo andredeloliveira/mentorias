@@ -1,17 +1,26 @@
 <!--Form do cadastro do perfil.-->
-<div class="col-md-4 float-none center-block">
-    <div class="login-home frame-form text-center space-header">
+<div class="col-lg-5 col-md-6 col-sm-7 col-xs-11 float-none center-block">
+    <div class="login-home frame-form text-center space-header space-footer">
         <form class="login-form frame-spaces">
             <div ng-show="mostrarEtapa(0)">
-                <div class="row">
+                <div>
                     <img class="img-responsive center-block" src="../resources/Logo-Agripa.png"/>
 
                     <div class="margin-top-30">
                         <input type="text" ng-model="nEmpresa.nome" placeholder="Nome Empresa"> <br/><br/>
                         <input type="text" ng-model="nEmpresa.website" placeholder="Website"><br/><br/>
-                        <!--<md-chips ng-model="produtos" readonly="ctrl.readonly">
 
+                        <!--<md-chips ng-model="produtos" readonly="ctrl.readonly">
                         </md-chips> -->
+                        <md-contact-chips
+                                ng-model="produtos"
+                                md-contacts="querySearch($query)"
+                                md-contact-name="name"
+                                md-require-match="true"
+                                md-highlight-flags="i"
+                                filter-selected="filterSelected"
+                                placeholder="Produtos">
+                        </md-contact-chips>
                     </div>
                 </div>
                 <!-- end row-->
@@ -31,7 +40,7 @@
                 </div>
 
                 <ul class="progressbar margin-top-30 col-md-12 float-none center-block">
-                    <li class="active"></li>
+                    <li><span class="active"></span></li>
                     <li></li>
                     <li></li>
                     <li></li>
@@ -39,7 +48,7 @@
             </div>
             <!-- Breve descrição-->
             <div ng-show="mostrarEtapa(1)">
-                <div class="row">
+                <div>
                     <img class="img-responsive center-block" src="../resources/Logo-Agripa.png"/>
                     <textarea class="lined-textarea" name="descricao" ng-model="nEmpresa.breve_descricao" rows="20" cols="20" placeholder="Descrição Profissional"></textarea>
                 </div>
@@ -54,8 +63,8 @@
                 </div>
 
                 <ul class="progressbar margin-top-30 col-md-12 float-none center-block">
-                    <li class="active"></li>
-                    <li class="active"></li>
+                    <li><span class="active"></span></li>
+                    <li><span class="active"></span></li>
                     <li></li>
                     <li></li>
                 </ul>
@@ -64,7 +73,7 @@
             </div>
             <!-- tags expertise-->
             <div ng-show="mostrarEtapa(2)">
-                <div class="row">
+                <div>
                     <img class="img-responsive center-block" src="../resources/Logo-Agripa.png"/>
 
                     <!--<md-chips ng-model="pc.tagNames" readonly="pc.readonly" placeholder="adicione uma expertise"
@@ -82,7 +91,7 @@
                     <!-- end twelve columns-->
                 </div>
                 <!-- end row-->
-                <div class="row  margin-top-30">
+                <div class="row margin-top-30">
 
                     <div class="col-md-6">
                         <button class="btn btn-default btn-100-percent" ng-click="setEtapaAnterior()">Voltar</button>
@@ -94,16 +103,16 @@
                 </div>
 
                 <ul class="progressbar margin-top-30 col-md-12 float-none center-block">
-                    <li class="active"></li>
-                    <li class="active"></li>
-                    <li class="active"></li>
+                    <li><span class="active"></span></li>
+                    <li><span class="active"></span></li>
+                    <li><span class="active"></span></li>
                     <li></li>
                 </ul>
 
             </div>
             <!-- Redes sociais-->
             <div ng-show="mostrarEtapa(3)">
-                <div class="row">
+                <div>
                     <img class="img-responsive center-block" src="../resources/Logo-Agripa.png"/>
 
                     <input type="text" name="facebook" ng-model="nEmpresa.facebook" placeholder="facebook">
@@ -111,7 +120,7 @@
                     <input type="text" name="linkedIn" ng-model="nEmpresa.linkedIn" placeholder="linkedin">
                     <br><br/>
 
-                    <div>
+                    <div class="row">
                         <div class="col-md-12">
                             <div class="input-squared pull-left">
                                 <input type="checkbox" id="img-perfil-faceboox" style="margin-right: 10px;"/><label for="img-perfil-faceboox"></label>
@@ -132,7 +141,7 @@
                     <!-- end twelve columns-->
                 </div>
                 <!-- end row-->
-                <div class="row" style="margin-top:50px;">
+                <div class="row margin-top-30">
 
                     <div>
                         <div class="col-md-6">
@@ -145,10 +154,10 @@
                 </div>
 
                 <ul class="progressbar margin-top-30 col-md-12 float-none center-block">
-                    <li class="active"></li>
-                    <li class="active"></li>
-                    <li class="active"></li>
-                    <li class="active"></li>
+                    <li><span class="active"></span></li>
+                    <li><span class="active"></span></li>
+                    <li><span class="active"></span></li>
+                    <li><span class="active"></span></li>
                 </ul>
 
             </div>

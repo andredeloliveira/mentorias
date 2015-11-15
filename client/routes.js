@@ -21,6 +21,30 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
                 controller: 'modaisController',
                 controllerAs: 'pc'
             })
+            .state('painel-controle', {
+                url: '/painel-controle',
+                templateUrl: 'client/perfis/views/painel-controle.ng.html',
+                controller: 'painelControleController',
+                controllerAs: 'pc'
+            })
+            .state('criar-trajetoria', {
+                url: '/criar-trajetoria',
+                templateUrl: 'client/trajetoria/views/criar-trajetoria.ng.html',
+                controller: 'criarTrajetoriaController',
+                controllerAs: 'vt'
+            })
+            .state('visualizar-trajetoria', {
+                url: '/visualizar-trajetoria',
+                templateUrl: 'client/trajetoria/views/visualizar-trajetoria.ng.html',
+                controller: 'visualizarTrajetoriaController',
+                controllerAs: 'vt'
+            })
+            .state('trajetoria-de-desenvolvimento', {
+                url: '/trajetoria-de-desenvolvimento',
+                templateUrl: 'client/trajetoria/views/trajetoria-de-desenvolvimento.ng.html',
+                controller: 'trajetoriaDesenvolvimentoController',
+                controllerAs: 'td'
+            })
             .state('trocar-senha', {
                 url: '/trocar-senha',
                 templateUrl: 'client/perfis/views/trocar-senha.ng.html',
@@ -56,28 +80,28 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
                 controller: 'proximaEtapaController'
             })
             /*para a lista de empresas*/
-            .state('empresas',{
-              url: '/empresas',
-              templateUrl: 'client/empresa/views/empresas.ng.html',
-              controller: 'empresasController',
-              controllerAs: 'ecs',
-              resolve: {
-                  "currentUser": ["$meteor", function ($meteor) {
-                      return $meteor.requireUser();
-                  }]
-              }
+            .state('empresas', {
+                url: '/empresas',
+                templateUrl: 'client/empresa/views/empresas.ng.html',
+                controller: 'empresasController',
+                controllerAs: 'ecs',
+                resolve: {
+                    "currentUser": ["$meteor", function ($meteor) {
+                        return $meteor.requireUser();
+                    }]
+                }
             })
             /*para ver os detahes da Empresa*/
-            .state('verEmpresa',{
-              url:'/empresas/:empresaId',
-              templateUrl: 'client/empresa/views/empresaDetails.ng.html',
-              controller: 'empresaDetailsControler',
-              controllerAs: 'edc',
-              resolve: {
-                  "currentUser": ["$meteor", function ($meteor) {
-                      return $meteor.requireUser();
-                  }]
-              }
+            .state('verEmpresa', {
+                url: '/empresas/:empresaId',
+                templateUrl: 'client/empresa/views/empresaDetails.ng.html',
+                controller: 'empresaDetailsControler',
+                controllerAs: 'edc',
+                resolve: {
+                    "currentUser": ["$meteor", function ($meteor) {
+                        return $meteor.requireUser();
+                    }]
+                }
             })
             /*para o cadastro de Empresa*/
             .state('cadastroEmpresa', {
