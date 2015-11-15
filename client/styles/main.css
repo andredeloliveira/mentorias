@@ -217,7 +217,7 @@ textarea:focus, input:focus {
 
 #input-midias-sociais span {
     position : absolute;
-    right    : 37px;
+    right    : 66px;
     padding  : 2px 10px;
     border   : 1px solid #FFF;
     cursor   : pointer;
@@ -420,7 +420,7 @@ textarea:focus, input:focus {
 .progressbar {
     margin-bottom : 30px;
     overflow      : hidden;
-    width         : 170px;
+    width         : 180px;
     padding       : 0;
 }
 
@@ -433,8 +433,8 @@ textarea:focus, input:focus {
 
 .progressbar li:before {
     content     : ' ';
-    padding     : 6px 0px;
-    width       : 15px;
+    padding     : 10px 0px;
+    width       : 24px;
     line-height : 15px;
     display     : block;
     border      : 2px solid #fff;
@@ -442,12 +442,12 @@ textarea:focus, input:focus {
 
 .progressbar li:after {
     content    : '';
-    width      : 35px;
+    width      : 28px;
     height     : 2px;
     background : #fff;
     position   : absolute;
-    left       : 15px;
-    top        : 7px;
+    left       : 23px;
+    top        : 11px;
 }
 
 .progressbar li:last-child:after {
@@ -458,9 +458,13 @@ textarea:focus, input:focus {
     width : 15px;
 }
 
-.progressbar li.active:before,
-.progressbar li.active:after {
-    background : #fff;
+.progressbar li span.active {
+    background-color : #fff;
+    width            : 14px;
+    height           : 14px;
+    position         : absolute;
+    left             : 5px;
+    top              : 5px;
 }
 
 /********************************Progress Bar End********************************/
