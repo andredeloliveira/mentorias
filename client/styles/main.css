@@ -494,11 +494,54 @@ textarea:focus, input:focus {
 /********************************Trajetória de Desenvolvimento********************************/
 
 #trajetoria-de-desenvolvimento {
-    border           : 1px solid #fff;
-    background-color : rgba(0, 0, 0, 0.6);
+
 }
 
+.trajetoria {
 
+}
+
+.trajetoria thead {
+    border : 1px solid #fff;
+}
+
+.trajetoria thead tr {
+
+}
+
+.trajetoria thead tr td {
+    border-right : 2px solid #fff;
+    font-weight  : bold;
+    padding      : 5px 40px;
+}
+
+.trajetoria tbody {
+
+}
+
+.trajetoria tbody tr {
+
+}
+
+.trajetoria tbody tr td {
+    border-top : 0 none;
+    padding    : 5px 0px 0 0;
+}
+
+.trajetoria tbody tr.linhas-verticais {
+
+}
+
+.trajetoria tbody tr.linhas-verticais td {
+    padding : 15px 0;
+}
+
+.trajetoria tbody tr.linhas-verticais td hr {
+    width     : 32px;
+    transform : rotate(90deg);
+    z-index   : 0;
+    margin    : 0 auto;
+}
 
 /********************************Trajetória de Desenvolvimento End********************************/
 
@@ -685,6 +728,10 @@ textarea:focus, input:focus {
 
 .background-transparent:hover {
     background : transparent;
+}
+
+.background-blacked {
+    background-color : rgba(0, 0, 0, 0.6);
 }
 
 .border-radious-none {
