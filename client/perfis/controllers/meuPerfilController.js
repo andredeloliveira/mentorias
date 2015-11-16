@@ -51,33 +51,9 @@ angular.module("mentorias").controller("meuPerfilController", ['$scope', '$meteo
           };
         /*essa parte do código é pra lidar com o JQuery e o caledar. Posteriormente sera mudado o modo
         de acesso, etc. Mas primeiro, o objetivo é fazer funcionar*/
-        var calendario  = $('#calendar').fullCalendar({
-          weekends:false,
-          header: {
-            center: 'prev title next',
-            left: '',
-            right:''
-          },
-          lang: 'pt-br'
-          ,
-          aspectRatio: 2
-        });
+        var calendario  = $('#agendaMes').fullCalendar($rootScope.currentUser.profile.agendaMes);
 
-        var calendarioDia = $('#calendarioDia').fullCalendar({
-          header: {
-            center: 'prev title next',
-            left: '',
-            right:''
-          },
-          views: {
-            agendaDay: {
-              titleFormat: 'DD/MM/YYYY'
-            }
-          },
-          defaultView: 'agendaDay',
-          height: 450,
-          lang: 'pt-br'
-        });
+        var calendarioDia = $('#agendaDia').fullCalendar($rootScope.currentUser.profile.agendaDia);
 
     }
 ]);

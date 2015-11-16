@@ -11,6 +11,35 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
         $scope.images = $meteor.collectionFS(Images, false, Images).subscribe('images');
         $scope.tempImage = {};
         $scope.feedbackUpload = false;
+        $scope.erroCadastro = '';
+        /*Inicialização das agendas diárias e mensais sem nenhum evento, para a criação do perfil*/
+        $scope.agendaDia = {
+          header: {
+            center: 'prev title next',
+            left: '',
+            right:''
+          },
+          views: {
+            agendaDay: {
+              titleFormat: 'DD/MM/YYYY'
+            }
+          },
+          events: [],
+          defaultView: 'agendaDay',
+          height: 500,
+          lang: 'pt-br'
+        };
+        $scope.agendaMes = {
+          weekends:false,
+          header: {
+            center: 'prev title next',
+            left: '',
+            right:''
+          },
+          lang: 'pt-br',
+          events: [],
+          aspectRatio: 2
+        };
 
         /*controle de imagens de usuário. A função add temp foi adicionada pra não criar um gargalo no banco.
           Antes a foto era adicionada pelo simples fato de clicar no botão de procurar e escolher a foto.
@@ -55,18 +84,24 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
         /*Mostra a etapa na view através do ng-show*/
         $scope.mostrarEtapa = function (etapa) {
             return etapa === $scope.etapaCadastro;
-        }
+        };
         /*Seleciona a proxima etapa que irá para a view*/
         $scope.setProximaEtapa = function () {
-            $scope.etapaCadastro = $scope.etapaCadastro + 1;
-        }
+            if(!$scope.nUser.nome ){
+              $scope.error = 'Preecha o campo Nome Completo!'
+            } else if(!$scope.nUser.senha){
+              $scope.error = 'Preencha a senha!'
+            }else if(!$scope.nUser.email){
+              $scope.error = 'Preencha seu e-mail'
+            } $scope.etapaCadastro = $scope.etapaCadastro + 1;
+        };
         /*Seleciona a etapa Anterior do cadastro*/
         $scope.setEtapaAnterior = function () {
             if ($scope.etapaCadastro === 0)
                 $scope.etapaCadastro = 0;
             else
                 $scope.etapaCadastro = $scope.etapaCadastro - 1;
-        }
+        };
 
 
         /*Daqui pra baixo, a lógica é com as sintax do controllerAs definido no route.js ...*/
@@ -105,7 +140,8 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
                     stars: [],
                     horasMentorias:0,
                     badges: [],
-                    calendarios: []
+                    agendaDia: $scope.agendaDia,
+                    agendaMes: $scope.agendaMes
                 },
                 services: {
                     facebook: {
