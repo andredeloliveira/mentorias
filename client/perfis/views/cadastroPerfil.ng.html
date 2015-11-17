@@ -10,7 +10,6 @@
                         <input type="text" ng-model="nUser.nome" placeholder="Nome Completo"> <br/><br/>
                         <input type="text" ng-model="nUser.email" placeholder="E-mail"><br/><br/>
                         <input type="password" ng-model="nUser.senha" placeholder="Senha"><br/><br/>
-                        <span>{{error}}</span>
                     </div>
                 </div>
                 <!-- end row-->
@@ -73,6 +72,7 @@
                 <div>
                     <img class="img-responsive center-block" src="../resources/Logo-Agripa.png"/>
                     <textarea class="lined-textarea" name="descricao" ng-model="nUser.breve_descricao" rows="20" cols="20" placeholder="Descrição Profissional"></textarea>
+                    <span>{{error}}</span>
                 </div>
                 <!-- end row-->
                 <div class="row margin-top-30">

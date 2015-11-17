@@ -93,7 +93,10 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
               $scope.error = 'Preencha a senha!'
             }else if(!$scope.nUser.email){
               $scope.error = 'Preencha seu e-mail'
-            } $scope.etapaCadastro = $scope.etapaCadastro + 1;
+            }else{
+             $scope.etapaCadastro = $scope.etapaCadastro + 1;
+             $scope.error = '';
+           }
         };
         /*Seleciona a etapa Anterior do cadastro*/
         $scope.setEtapaAnterior = function () {
