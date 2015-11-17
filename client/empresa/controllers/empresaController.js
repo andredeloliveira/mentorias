@@ -84,7 +84,7 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$statePa
           //Diz a lenda que o save é mais rápido que o insert. 
           //Tenho minhas duvidas, mah beleZ
           $scope.empresas.save(vm.empresa);
-          $state.go('home');
+          $state.go('meuPerfil');
         }
         /*remove a dita cuja*/
         vm.remove = function(nEmpresa){
@@ -136,7 +136,7 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$statePa
         console.log($scope.usersLoaded);
         vm.produtos = [];
         $scope.integrantes = [];
-        
+
         console.log($scope.integrantes);
         /*fim do controle das tags*/
     }

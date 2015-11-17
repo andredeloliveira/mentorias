@@ -1,5 +1,5 @@
 <!--Form do cadastro do perfil.-->
-<div class="col-lg-5 col-md-6 col-sm-7 col-xs-11 float-none center-block">
+<div class="col-lg-5 col-md-6 col-sm-8 col-xs-11 float-none center-block">
     <div class="login-home frame-form text-center space-header space-footer">
         <form class="login-form frame-spaces">
             <div ng-show="mostrarEtapa(0)">
@@ -17,13 +17,13 @@
 
                 <div class="overflow-hidden">
                     <small class="visible-xs text-left col-xs-12">Perfil <br></small>
-                    <div class="col-sm-6  col-xs-11">
+                    <div class="col-sm-5  col-xs-11">
                         <div class="input-squared pull-left">
                             <input type="radio" ng-model="nUser.tipo_conta" id="mentor" name="role" value="mentor"><label for="mentor"></label>
                         </div>
                         <span class="pull-left">Mentor</span>
                     </div>
-                    <div class="col-sm-6  col-xs-11">
+                    <div class="col-sm-7  col-xs-11">
                         <div class="input-squared pull-left">
                             <input type="radio" ng-model="nUser.tipo_conta" name="role" id="empreendedor" value="empreendedor"><label for="empreendedor"></label>
                         </div>
@@ -32,13 +32,13 @@
                     <br/><br/>
 
                     <small class="visible-xs text-left col-xs-12">Genero <br></small>
-                    <div class="col-sm-6  col-xs-11">
+                    <div class="col-sm-5  col-xs-11">
                         <div class="input-squared pull-left">
                             <input type="radio" ng-model="nUser.genero" id="masculino" name="genero" value="masculino"><label for="masculino"></label>
                         </div>
                         <span class="pull-left">Masculino</span>
                     </div>
-                    <div class="col-sm-6  col-xs-11">
+                    <div class="col-sm-7  col-xs-11">
                         <div class="input-squared pull-left">
                             <input type="radio" ng-model="nUser.genero" name="genero" id="feminino" value="feminino"><label for="feminino"></label>
                         </div>
@@ -52,7 +52,7 @@
                     <div class="col-md-6">
                         <button class="btn btn-default btn-100-percent" ng-click="setEtapaAnterior()">Voltar</button>
                     </div>
-                    <div class="margin-top-30 visible-xs"></div>
+                    <div class="visible-sm"><br/></div>
                     <div class="col-md-6">
                         <button class="btn btn-default btn-100-percent" ng-click="setProximaEtapa()">Próximo</button>
                     </div>
@@ -72,13 +72,14 @@
                 <div>
                     <img class="img-responsive center-block" src="../resources/Logo-Agripa.png"/>
                     <textarea class="lined-textarea" name="descricao" ng-model="nUser.breve_descricao" rows="20" cols="20" placeholder="Descrição Profissional"></textarea>
+                    <span>{{error}}</span>
                 </div>
                 <!-- end row-->
                 <div class="row margin-top-30">
                     <div class="col-md-6">
                         <button class="btn btn-default btn-100-percent" ng-click="setEtapaAnterior()">Voltar</button>
                     </div>
-                    <div class="margin-top-30 visible-xs"></div>
+                    <div class="visible-sm"><br/></div>
                     <div class="col-md-6">
                         <button class="btn btn-default btn-100-percent" ng-click="setProximaEtapa()">Próximo</button>
                     </div>
@@ -118,7 +119,7 @@
                     <div class="col-md-6">
                         <button class="btn btn-default btn-100-percent" ng-click="setEtapaAnterior()">Voltar</button>
                     </div>
-                    <div class="margin-top-30 visible-xs"></div>
+                    <div class="visible-sm"><br/></div>
                     <div class="col-md-6">
                         <button class="btn btn-default btn-100-percent" ng-click="setProximaEtapa()">Próximo</button>
                     </div>
@@ -173,7 +174,7 @@
                     <div class="col-md-6">
                         <button class="btn btn-default btn-100-percent" ng-click="setEtapaAnterior()">Voltar</button>
                     </div>
-                    <div class="margin-top-30 visible-xs"></div>
+                    <div class="visible-sm"><br/></div>
                     <div class="col-md-6">
                         <button class="btn btn-default btn-100-percent" ng-click="pc.register(nUser)">Concluir</button>
                     </div>
