@@ -1,0 +1,74 @@
+<div class="container">
+
+  <div class="row profile-border margin-top-30">
+    <!-- para a foto do perfil
+
+    A foto do perfil é carregada pela referencia do objeto d foto. profile é onde tem os campos especiais do usuário
+    A função getFileRecord, faz o Images.find({file:_id}); por trás, trazendo o objeto salvo no banco com a id da referencia
+
+    Mais info ver: https://github.com/CollectionFS/Meteor-CollectionFS
+    -->
+    <div class="col-md-3 profile-boxes text-center">
+    <img src="{{user.profile.profilePic.getFileRecord().url()}}" class="profile-picture text-center">
+    </div>
+    <div class="col-md-2 profile-boxes text-center">
+
+        <span style="font-size: 0.87em;">{{profileTitle}}</span>
+        <br>
+
+        <span style="font-size: 1.33em;">{{user.profile.name}}</span>
+        <br>
+
+        <span style="font-size:0.77em;">{{user.emails[0].address}}</span>
+        <br>
+      <div class="row">
+          <span ng-repeat="expertise in user.profile.expertise"><i class="fa fa-square"></i>{{' ' +expertise + ' '}}</span>
+      </div>
+    </div>
+
+    <div class="col-md-2 profile-boxes text-center">
+      <div class="row">
+        <div class="col-md-12" >
+          <span><i class="fa fa-star stars"></i></span>
+          <span><i class="fa fa-star stars"></i></span>
+          <span><i class="fa fa-star stars"></i></span>
+          <span><i class="fa fa-star stars"></i></span>
+          <span><i class="fa fa-star-half-o stars"></i></span>
+        </div>
+        <div>
+            media de avaliações
+        </div>
+        <div class="col-md-12"><b class="horas-mentorias">{{user.profile.horasMentorias}} hs</b> de mentoria</div>
+        <div class="col-md-12"><b class="horas-mentorias">{{user.profile.badges.length}}</b> badges</div>
+      </div>
+    </div>
+
+    <div class="col-md-2 profile-boxes text-center">
+      <p class="text-center">
+        {{user.profile.breve_descricao}}
+      </p>
+    </div>
+
+    <div class="col-md-1 profile-boxes text-center">
+      <a href="{{user.profile.facebook}}" target="_blank" ><i class="fa fa-facebook-official icon-bar"></i></a>
+
+      <a href="{{user.profile.twitter}}"><i class="fa fa-twitter icon-bar"></i></a>
+      <a href="{{user.profile.linkedIn}}"><i class="fa fa-linkedin icon-bar"></i></a>
+
+    </div>
+  </div>
+  <!-- Calendario daqui pra baixo-->
+
+  <div class="row profile-border" >
+    <div class="col-md-4">
+      <div id="calendarioDia">
+      </div>
+    </div>
+  <div class="col-md-8 float-right">
+
+  <div class="row profile-border margin-top-30 space-footer">
+    <div id="calendar"></div>
+  </div>
+  </div>
+</div>
+</div>

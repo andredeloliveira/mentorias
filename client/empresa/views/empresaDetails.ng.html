@@ -3,31 +3,28 @@
   <div class="row profile-border" style="margin-top: 30px;">
 
     <div class="col-md-3 profile-boxes picture no-padding">
-    <img src="" class="profile-picture">
+    <img src="{{imagemEmpresa.getFileRecord().url()}}" class="profile-picture">
     </div>
     <div class="col-md-2 profile-boxes">
 
         <div class="row">
+          <span style="font-size: 0.47em;"> {{detalhesEmpresa._id}}</span>
            <div class="col-md-12">
-             <span style="font-size: 0.87em;"></span>
+             <span style="font-size: 0.87em;">Empresa</span>
            </div>
         </div> 
         <div class="row">
           <div class="col-md-12">
-             <span style="font-size: 1.33em;"></span>     
+             <span style="font-size: 1.33em;" ng-bind="detalhesEmpresa.nome" ></span>     
           </div>
         </div>
         <div class="row">
          <div class="col-md-12">
-            <span style="font-size:0.77em;"></span>     
+            <span style="font-size:0.77em;" ng-bind="detalhesEmpresa.website"></span>     
          </div>
         </div>
       <div class="row">
         <div class="col-md-12">
-            <span ng-repeat="expertise in $root.currentUser.profile.expertise">
-            <i class="fa fa-square"></i> 
-          
-          </span>
         </div>
       </div>
     </div>

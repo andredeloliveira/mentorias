@@ -17,7 +17,26 @@ Api.addCollection(Meteor.users,{
     }
   }
 });
-
-
-
+Api.addCollection(Produtos, {
+  excludedEndPoints:['getAll', 'put'],
+  routeOptions: {
+    useDefaultAuth: true
+  },
+  endpoints:{
+    post:{
+      authRequired:false
+    }
+  }
+} );
+Api.addCollection(Empresas, {
+  excludedEndPoints:['getAll', 'put'],
+  routeOptions: {
+    useDefaultAuth: true
+  },
+  endpoints:{
+    post:{
+      authRequired:false
+    }
+  }
+});
 

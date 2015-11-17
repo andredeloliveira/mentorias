@@ -1,27 +1,38 @@
-
-Meteor.publish("produtos-destaque", function(){
-  return produtos.destaque({},{limit:3});
+//produtos
+Meteor.publish("produtos", function(){
+  return Produtos.find({});
 });
-
-Meteor.publish("users-all", function(){
-  return Users.find();
+Meteor.publish("produtosByID", function(_id){
+  return Produtos.find({"produtos" : _id});
+});
+//users
+Meteor.publish('allUsers',function(){
+ return Meteor.users.find({}, {fields: {emails: 1, profile: 1}});
 });
 
 Meteor.publish("usersById", function(_id){
   return Users.find({"users" : _id});
 });
-
-Meteor.publish("produtosByID", function(_id){
-  return Users.find({"produtos" : _id});
+//empresas
+Meteor.publish("empresaByID", function(empresaId){
+  retorno =  Empresas.find({_id:empresaId.empresaId});
+  //console.log(retorno);
+  return retorno;
 });
 
-Meteor.publish("empresaByID", function(_id){
-  return Users.find({"empresa" : _id});
+Meteor.publish('imagensID', function(imgid) {
+  //console.log(imgid);
+   rs = Images.find({_id:imgid});
+   return rs;
 });
 
+Meteor.publish("empresas", function(){
+  return Empresas.find({});
+});
+//roles
 Meteor.publish(null, function (){ 
-  return Meteor.roles.find({})
-});
+  return Meteor.roles.find({});
+})
 
 
 /*Meteor.publish('seguranca', function (group) {

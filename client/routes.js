@@ -21,22 +21,14 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
         //router para o cadastro de perfil (Usando o $meteor.user !)
        
         $stateProvider
-           
-            .state("Eventos", {
-              url: "/eventos",
-              views: {
-                content: {
-                  templateUrl: "client/agenda/views/agenda.ng.html",
-                  controller: "agendaController",
-                  controllerAs: "evc"
-                }
-              }
+
+            .state('403', {
+                url: '/403',
+                templateUrl: 'client/403.html',
             })
-            .state('DetalhesEmpresa', {
-                url: '/detalhesEmpresa',
-                templateUrl: 'client/empresa/views/empresaDetails.ng.html',
-                controller: 'empresaDetailsController',
-                controllerAs: 'dc'
+            .state('404', {
+                url: '/404',
+                templateUrl: 'client/404.html',
             })
             .state('modais', {
                 url: '/modais',
@@ -115,16 +107,18 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
                 }
             })
             /*para ver os detahes da Empresa*/
-            .state('verEmpresa', {
-                url: '/empresas/:empresaId',
+            .state('DetalhesEmpresa', {
+                url: '/detalhesEmpresa/:empresaId',
                 templateUrl: 'client/empresa/views/empresaDetails.ng.html',
-                controller: 'empresaDetailsControler',
-                controllerAs: 'edc',
-                resolve: {
-                    "currentUser": ["$meteor", function ($meteor) {
-                        return $meteor.requireUser();
-                    }]
-                }
+                controller: 'empresaDetailsController',
+                controllerAs: 'dc',
+                 resolve: { 
+                   'subscribe': [
+                        "currentUser": ["$meteor", function ($meteor) {
+                            return $meteor.requireUser();
+                        }
+                    ]
+                 }
             })
             /*para o cadastro de Empresa*/
             .state('cadastroEmpresa', {
@@ -150,7 +144,7 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
                 url: '/login',
                 templateUrl: 'client/perfis/views/login.ng.html',
                 controller: 'loginController',
-                controllerAS: 'lc',
+                controllerAs: 'lc',
                 resolve: {
                     "currentUser": ["$meteor", "$rootScope", "$state", function ($meteor, $rootScope, $state) {
                         $meteor.waitForUser().then(function () {
@@ -162,6 +156,18 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
                         });
                     }]
                 }
+            })
+            //detalhes do perfil (quando um terceiro acessa o perfil)
+            .state('perfilDetalhes',{
+              url:'/perfis/:userId',
+              templateUrl: 'client/perfis/views/perfilDetalhes.ng.html',
+              controller:'perfilDetalhesController',
+              controllerAs:'pdc',
+              resolve: {
+                  "currentUser": ["$meteor", function ($meteor) {
+                      return $meteor.requireUser();
+                  }]
+              }
             })
             /*pra reinicializar a senha*/
             /*pro logout*/

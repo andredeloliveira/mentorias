@@ -14,36 +14,41 @@ angular.module("mentorias").controller("loginController", ['$scope', '$meteor', 
             if (aUser == null || aUser.email == '' ) {
                 $scope.error = "Digite email e nome";
             };
-            console.log(aUser + 'object aUser');
+            //console.log(aUser + 'object aUser');
+            try{
 
-            $meteor.loginWithPassword(aUser.email, aUser.senha, handleError);
+                $meteor.loginWithPassword(aUser.email, aUser.senha, handleError);
+    
+            }catch(err){
 
-            function handleError(err) {
-                console.log(err + 'error aqui')
-                if (err == null || err == "NaN" || err == undefined) {
-                    $scope.error = 'Erro de login - ' + err ;
-                        for(obj in aUser){
-                            console.log(obj);    
+
+                function handleError(err) {
+                    console.log(err+" erro tipo");
+                    if (err){
+                        if (err.reason == 'User not found') {
+                            $scope.error = 'Usuário não encontrado!';
+                        } else if (err.reason == 'Incorrect password') {
+                            $scope.error = 'Senha incorreta!';
+                        } else if(err.reason == 'NaN'){
+                            $scope.error = "Erro handle  NaN";
+                        }else if(err.reason == 'undefined'){
+                            $scope.error = "Erro undefined";
+                        }else if(err == 'undefined'){
+                            $scope.error = "Erro indefinido";
+                            Meteor._reload.reload("home");
+                        } else {
+                            $scope.error = 'Ocorreu uma falha na comunicação!';
                         }
-                        for(errrinho in err){
-                            console.log(errrinho);    
-                        }
-                    }
-                    if (err.reason == 'User not found') {
-                        $scope.error = 'Usuário não encontrado!';
-                    } else if (err.reason == 'Incorrect password') {
-                        $scope.error = 'Senha incorreta!';
-                    } else if(err.reason == 'NaN'){
-                        $scope.error = "Erro handle  NaN";
-                    } else if(err.reason == undefined){
-                        $scope.error = "Digite Nome e Email por favor";
                     } else {
-                        $scope.error = 'Ocorreu uma falha na comunicação!';
+                        //Meteor._reload.reload();
+                        $state.go('home');
                     }
-                } else {
-                    $state.go('home');
                 }
-            }    
+
+
+            }
+            
+             
         }
     }
 ]);

@@ -40,7 +40,9 @@
 
     <div class="col-md-2 profile-boxes">
       <div class="row">
-        <div class="col-md-8 centered">
+
+        <div class="col-md-12" >
+
           <span><i class="fa fa-star stars"></i></span>
           <span><i class="fa fa-star stars"></i></span>
           <span><i class="fa fa-star stars"></i></span>
@@ -55,11 +57,11 @@
 
       <div class="row">
         <div class="col-md-6">
-          <h4 class="horas-mentorias text-center">{{$root.currentUser.stars}}  hs</h4>
+          <h4 class="horas-mentorias text-center">{{$root.currentUser.profile.horasMentorias}} hs</h4>
           <p class="text-center">mentoria</p>
         </div>
         <div class="col-md-6">
-          <h4 class="horas-mentorias text-center">9</h4> 
+          <h4 class="horas-mentorias text-center"> {{$root.currentUser.profile.badges.length}} </h4> 
           <p class="text-center">badges</p>
         </div>
       </div>
@@ -96,7 +98,17 @@
     </div>
   </div>
   <!-- Calendario daqui pra baixo-->
+
+  <div class="row profile-border" >
+    <div class="col-md-4">
+      <div id="calendarioDia">
+      </div>
+    </div>
+  <div class="col-md-8 float-right">
+
   <div class="row profile-border margin-top-30 space-footer">
     <div id="calendar"></div>
   </div>
+  </div>
+</div>
 </div>

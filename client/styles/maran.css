@@ -5,3 +5,10 @@
 	width: 100% !important;
 	height:143px !important;
 }
+#login-buttons *{
+	background: transparent;
+	color:#fff;
+}
+.accounts-dialog{
+	margin-top:30px !important;
+}

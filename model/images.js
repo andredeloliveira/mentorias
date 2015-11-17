@@ -1,6 +1,4 @@
 //erro na lib FS ver conduta, erro deriva do package FS
-
-
 Images = new FS.Collection("images", {
     stores: [
         new FS.Store.GridFS("original")
@@ -20,7 +18,6 @@ if (Meteor.isServer) {
     });
 
     Meteor.publish('images', function () {
-
         return Images.find({});
     });
 }

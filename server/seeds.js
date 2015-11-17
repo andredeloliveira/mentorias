@@ -90,22 +90,24 @@ var empresasSeeds =[
   })
 }*/
 
+//Meteor.Empresas.remove('passar o id');
+
 var produtosSeeds = [
 {
 "nome":"Cavalo de fogo" ,
-"imagem_destaque":"http://cloudsource.com.br/publica/logo.png",
+"imagem_destaque":"empresas/logo.png",
 "descricao":
     "blabla"
 },
 {
 "nome":"Telefone com fio" ,
-"imagem_destaque":"http://cloudsource.com.br/publica/logo.png",
+"imagem_destaque":"empresas/logo.png",
 "descricao":
     "blabla"
 },
 {
 "nome":"Panela de Barro" ,
-"imagem_destaque":"http://cloudsource.com.br/publica/logo.png",
+"imagem_destaque":"empresas/publica/logo.png",
 "descricao":
     "blabla"
 },
@@ -122,3 +124,31 @@ if(Produtos.find().count() === 0){
     console.log("Produto Cadastrado ", workSeeds.nome);
   })
 }
+//Meteor.Produtos.remove('passar o id');
+
+var users = [
+      {name:"empreendedor-admin",email:"empreendedor-admin@example.com",roles:['empreendedor-admin']},
+      {name:"empreendedor-gestor",email:"empreendedor-gestor@example.com",roles:['empreendedor-gestor']},
+      {name:"empreendedor",email:"empreendedor@example.com",roles:['empreendedor']},
+      {name:"mentor",email:"mentor@example.com",roles:['mentor']},
+      {name:"pmo",email:"pmo@example.com",roles:['pmo']}
+    ];
+
+/*_.each(users, function (user) {
+  var id;
+
+  id = Accounts.createUser({
+    email: user.email,
+    password: "admin",
+    profile: { name: user.name }
+  });
+
+  if (user.roles.length > 0) {
+    // Need _id of existing user record so this call must come 
+    // after `Accounts.createUser` or `Accounts.onCreate`
+    Roles.addUsersToRoles(id, user.roles, 'grupo');
+  }
+});*/
+
+//remover usuarios por id
+//Meteor.users.remove('passar id');  

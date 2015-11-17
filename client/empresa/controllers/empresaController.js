@@ -64,18 +64,18 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$statePa
             console.log($scope.nEmpresa);
         };
 
-
-
         /*registra a nova empresa no banco*/
         vm.register = function(nEmpresa){
           if(!nEmpresa)
             vm.error = 'object undefined!';
+
+          var integrantesN = $scope.getIntegrantesId($scope.integrantes);
+          console.log(integrantesN);
           vm.empresa = {
             nome: nEmpresa.nome,
             website: nEmpresa.website,
-            produtos: nEmpresa.produtos,
-            descricao: nEmpresa.descricao,
-            integrantes: nEmpresa.integrantes,
+            descricao: nEmpresa.breve_descricao,
+            integrantes: integrantesN,
             facebook: nEmpresa.facebook,
             twitter: nEmpresa.twitter,
             linkedIn: nEmpresa.linkedIn,
@@ -98,7 +98,7 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$statePa
         $scope.loadUsers = function(users){
           var result = [];
 
-        /*  console.log(users);
+          console.log(users);
 
           for( var prop in users){
             if(users.hasOwnProperty(prop)){
@@ -113,28 +113,31 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$statePa
           }
           console.log(result);
           return result;
-          */
+          
         }
 
         $scope.createFilterFor = function(query){
           var lowercaseQuery = angular.lowercase(query);
 
           return function filterFn(user) {
-            return (user._lowername.indexOf(lowercaseQuery) != -1);;
+            return (user._lowername.indexOf(lowercaseQuery) != -1);
           };
         };
         $scope.querySearch   = function(query){
           var results = query ?
           $scope.usersLoaded.filter($scope.createFilterFor(query)) : [];
-          console.log(results);
+          console.log(results+"filtro");
           return results;
         };
 
         $scope.filterSelected = true;
         $scope.readonly = false;
-      
+        $scope.usersLoaded = $scope.loadUsers($scope.users);
+        console.log($scope.usersLoaded);
         vm.produtos = [];
-        $scope.tags = [];
+        $scope.integrantes = [];
+        
+        console.log($scope.integrantes);
         /*fim do controle das tags*/
     }
 ]);
