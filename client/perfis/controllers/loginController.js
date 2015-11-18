@@ -24,7 +24,7 @@ angular.module("mentorias").controller("loginController", ['$scope', '$meteor', 
                     }
 
                 } else {
-                    $state.go('home');
+                    $state.go('meuPerfil');
                 }
             }
         }

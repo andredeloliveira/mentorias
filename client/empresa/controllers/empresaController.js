@@ -100,15 +100,36 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$statePa
             linkedIn: nEmpresa.linkedIn,
             profilePic: nEmpresa.profilePic
           };
-          //Diz a lenda que o save é mais rṕ    rápido que o insert. Tenho minhas duvidas, mah beleZ
-          $scope.empresas.save(vm.empresa);
-          $state.go('meuPerfil');
+
+          var id_empresa = Empresas.insert(vm.empresa, function(error, result){
+            if(error){
+              vm.error = 'Erro ao inserir empresa'
+            };
+            return result;
+          });
+          if(id_empresa)
+            $state.go('meuPerfil');
         }
         /*remove a dita cuja*/
         vm.remove = function(nEmpresa){
           if(!nEmpresa)
             vm.error = 'empresa não encontrada';
           $scope.empresas.remove(nEmpresa);
+        }
+
+        /*load Produtos, Hard coded mesmo, porque né*/
+
+        $scope.loadProdutos = function(){
+          var produtos = ['Jogos Digitais', 'Softwares', 'Eletrônicos', 'Realidade Virtual', 'Eficiência Energética', 'Bioarquitetura'];
+
+          var result = produtos.map(function(value, index){
+            var tempProd = {
+              nome: value
+            };
+            tempProd._lowername = tempProd.nome.toLowerCase();
+            return tempProd;
+          });
+          return result;
         }
 
         /*Aqui será definida a lógica para o controller das tags*/
@@ -148,15 +169,23 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$statePa
           return results;
         };
 
+        $scope.querySearchProdutos = function(query){
+          var results = query ?
+            $scope.produtosLoaded.filter($scope.createFilterFor(query)) : [];
+          console.log(results);
+          return results;
+        };
+
 
 
         $scope.filterSelected = true;
         $scope.readonly = false;
         $scope.usersLoaded = $scope.loadUsers($scope.users);
         console.log($scope.usersLoaded);
-        vm.produtos = [];
+        $scope.produtosLoaded = $scope.loadProdutos();
+        console.log($scope.produtosLoaded);
         $scope.integrantes = [];
-
+        $scope.produtos= [];
         console.log($scope.integrantes);
         /*fim do controle das tags*/
         /*fim do controle das tags*/
