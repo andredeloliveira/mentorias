@@ -21,7 +21,9 @@ Meteor.publish("empresaByID", function(empresaId){
 });
 
 Meteor.publish('imagensID', function(imgid) {
-  //console.log(imgid);
+  /*console.log("******************");
+  console.log(imgid);
+  console.log("******************");*/
    rs = Images.find({_id:imgid});
    return rs;
 });

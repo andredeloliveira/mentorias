@@ -8,16 +8,16 @@
 <body>
   <div class="container no-padding">
       <div ng-app="mentorias">
-        {{#if currentUser}}
-         <!--essa parte será o cabeçalho para quem está logado, onde ficará o menu. Uma
+          <!--essa parte será o cabeçalho para quem está logado, onde ficará o menu. Uma
           directive pode ser feita para isso no futuro, ou então um novo html que pode
         ser inserido utilizando as directive(?) do meteor
         muitas melhorias podem ser feitas
         -->
-        {{>nav}}
-
-        
+        {{#if currentUser}}
+          {{>nav}}
+          <small>{{currentUser}}</small>
         {{/if}}
+        
         <!--Meteor templating, não deu para separar o menu de outra forma-->
        
           <!--<div class="navbar-right navbar-text">

@@ -99,26 +99,14 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
                 url: '/empresas',
                 templateUrl: 'client/empresa/views/empresas.ng.html',
                 controller: 'empresasController',
-                controllerAs: 'ecs',
-                resolve: {
-                    "currentUser": ["$meteor", function ($meteor) {
-                        return $meteor.requireUser();
-                    }]
-                }
+                controllerAs: 'ecs'
             })
             /*para ver os detahes da Empresa*/
             .state('DetalhesEmpresa', {
                 url: '/detalhesEmpresa/:empresaId',
                 templateUrl: 'client/empresa/views/empresaDetails.ng.html',
                 controller: 'empresaDetailsController',
-                controllerAs: 'dc',
-                 resolve: { 
-                   'subscribe': [
-                        "currentUser": ["$meteor", function ($meteor) {
-                            return $meteor.requireUser();
-                        }
-                    ]
-                 }
+                controllerAs: 'dc'
             })
             /*para o cadastro de Empresa*/
             .state('cadastroEmpresa', {
