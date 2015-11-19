@@ -5,7 +5,7 @@
 // Para usar
 // Perfil = new Mongo.Collection("perfil");
 
-/**Perfis = new Mongo.Collection("perfis");
+/*Perfis = new Mongo.Collection("perfis");
 
 Schemas = {};
 
@@ -73,8 +73,11 @@ Schemas.Perfil = new SimpleSchema({
         type: Boolean,
         label: "Utilizar mesma foto de perfil do Facebook",
         optional: true
+    }, 
+    roles:{
+        []
     }
-
+    
 });
 
-Perfis.attachSchema(Schemas.Perfil); **/
+Perfis.attachSchema(Schemas.Perfil); */

@@ -4,9 +4,7 @@ angular.module("mentorias").controller("empresasController", ['$scope', '$meteor
         var vm = this;
         //fetch the empresas in the collection created in the /model/empresas.js
         $scope.empresas = $meteor.collection(Empresas);
-        
-
-
+       
         $scope.error = '';
     }
 ]);

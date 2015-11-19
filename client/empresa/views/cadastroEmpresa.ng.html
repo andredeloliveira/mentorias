@@ -5,11 +5,12 @@
             <div ng-show="mostrarEtapa(0)">
                 <div>
                     <img class="img-responsive center-block" src="../resources/Logo-Agripa.png"/>
+                    <div class="twelve columns">
+                        <li ng-repead="user in users">{{user.profile.name}}</li>
 
                     <div class="margin-top-30">
                         <input type="text" ng-model="nEmpresa.nome" placeholder="Nome Empresa"> <br/><br/>
                         <input type="text" ng-model="nEmpresa.website" placeholder="Website"><br/><br/>
-
                         <!--<md-chips ng-model="produtos" readonly="ctrl.readonly">
                         </md-chips> -->
                         <md-contact-chips
@@ -46,6 +47,7 @@
                     <li></li>
                 </ul>
             </div>
+        </div>
             <!-- Breve descrição-->
             <div ng-show="mostrarEtapa(1)">
                 <div>
@@ -73,7 +75,25 @@
             </div>
             <!-- tags expertise-->
             <div ng-show="mostrarEtapa(2)">
+                <div class="row">
+                    <div class="col-md-12" style="border:1px solid BLUE">
+                        <md-chips ng-model="itensSelecionados" md-autocomplete-snap md-require-match>
+                            <md-autocomplete 
+                                md-autofocus="true"
+                                md-no-cache="true" 
+                                md-min-length="0"
+                                md-selected-item="selected"
+                                md-search-text="searchText"
+                                md-items="item in nomeUsuarios2"
+                                placeholder="Pick something...">
+                                <md-item-template>{{item}}</md-item-template>
+                            </md-autocomplete>
+                             <md-chip-template><span><em>{{$chip}}</em></span></md-chip-template>
+                        </md-chips>
+                    </div>
+            </div>
                 <div>
+
                     <img class="img-responsive center-block" src="../resources/Logo-Agripa.png"/>
 
                     <!--<md-chips ng-model="pc.tagNames" readonly="pc.readonly" placeholder="adicione uma expertise"
@@ -88,6 +108,7 @@
                             filter-selected="filterSelected"
                             placeholder="Integrantes">
                     </md-contact-chips>
+
                     <!-- end twelve columns-->
                 </div>
                 <!-- end row-->

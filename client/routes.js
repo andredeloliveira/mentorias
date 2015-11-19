@@ -6,6 +6,12 @@ angular.module("mentorias").run(['$rootScope', '$state', function ($rootScope, $
         if (error === 'AUTH_REQUIRED') {
             $state.go('login');
         }
+        if (error === 'FORBIDDEN') {
+             $state.go('403');
+        }
+        if (error === 'NOT_FOUND') {
+             $state.go('404');
+        }
     });
 }]);
 angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
@@ -13,13 +19,22 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
 
         $locationProvider.html5Mode(true);
         //router para o cadastro de perfil (Usando o $meteor.user !)
+       
         $stateProvider
-            //modais testes
+
+            .state('403', {
+                url: '/403',
+                templateUrl: 'client/403.html',
+            })
+            .state('404', {
+                url: '/404',
+                templateUrl: 'client/404.html',
+            })
             .state('modais', {
                 url: '/modais',
                 templateUrl: 'client/perfis/views/modais.ng.html',
                 controller: 'modaisController',
-                controllerAs: 'pc'
+                controllerAs: 'modal'
             })
             .state('painel-controle', {
                 url: '/painel-controle',
@@ -84,24 +99,14 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
                 url: '/empresas',
                 templateUrl: 'client/empresa/views/empresas.ng.html',
                 controller: 'empresasController',
-                controllerAs: 'ecs',
-                resolve: {
-                    "currentUser": ["$meteor", function ($meteor) {
-                        return $meteor.requireUser();
-                    }]
-                }
+                controllerAs: 'ecs'
             })
             /*para ver os detahes da Empresa*/
-            .state('verEmpresa', {
-                url: '/empresas/:empresaId',
+            .state('DetalhesEmpresa', {
+                url: '/detalhesEmpresa/:empresaId',
                 templateUrl: 'client/empresa/views/empresaDetails.ng.html',
-                controller: 'empresaDetailsControler',
-                controllerAs: 'edc',
-                resolve: {
-                    "currentUser": ["$meteor", function ($meteor) {
-                        return $meteor.requireUser();
-                    }]
-                }
+                controller: 'empresaDetailsController',
+                controllerAs: 'dc'
             })
             /*para o cadastro de Empresa*/
             .state('cadastroEmpresa', {
@@ -168,7 +173,9 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
             });
 
         /*caso alguma merda acontença, redireciona pra página inicial. Caso isso aconteça abra ao debug e chore*/
-        $urlRouterProvider.otherwise("/");
+        
+        $urlRouterProvider.when('', '/');
+        //$urlRouterProvider.otherwise('/404');
 
     }
 ]);

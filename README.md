@@ -5,15 +5,38 @@
 ##Novidades serão postadas aqui.
 
 ####Pacotes utilizados:
+meteor-base             # Packages every Meteor app needs to have
+mobile-experience       # Packages for a great mobile UX
+mongo                   # The database Meteor supports right now
+session                 # Client-side reactive dictionary for your app
+jquery                  # Helpful client-side library
+tracker                 # Meteor's client-side reactive programming library
 
-`meteor add angular`
-`meteor add accounts-ui`
-`meteor add accounts-password`
-`meteor add accounts-facebook accounts-twitter`
+standard-minifiers      # JS/CSS minifiers run for production mode
+es5-shim                # ECMAScript 5 compatibility for older browsers.
 
-CSS boilerplates:
-`meteor add twbs:bootstrap`
-¹removido o pack skeleton
+insecure                # Allow all DB writes from clients (for prototyping)
+angular
+angularui:angular-ui-router
+accounts-password
+accounts-ui
+urigo:angular-blaze-template
+accounts-facebook
+accounts-twitter
+twbs:bootstrap
+angular:angular-material
+cfs:standard-packages
+cfs:gridfs
+fortawesome:fontawesome
+cfs:ejson-file
+cfs:filesystem
+rzymek:fullcalendar
+nimble:restivus
+vitalets:angular-xeditable
+ecmascript
+blaze-html-templates
+aldeed:simple-schema
+alanning:roles
 
 Outros estilos de css estão incluidos no arquivo main.css
 

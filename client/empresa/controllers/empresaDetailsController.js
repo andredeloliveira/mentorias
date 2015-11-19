@@ -1,10 +1,57 @@
+if (Meteor.isClient) {
+
 /*Controller para lidar com a página de visualização da empresa. */
-angular.module("mentorias").controller("empresaDetailsControler", ['$scope', '$meteor', '$state',
-    function ($scope, $meteor, $state) {
-        var vm = this;
+angular.module("mentorias").controller("empresaDetailsController", ["$scope", "$rootScope", "$stateParams", "$meteor",
+   function ($scope, $rootScope, $stateParams, $meteor) {
+var minha = 'teste';
+   	    
+   		$meteor.subscribe('allUsers').then(function(usersHandle){
+   			allUsers = $meteor.collection(Meteor.users);
+   				arrayUsers = $.map(allUsers, function(value, index) {
+    			return [value];
+			});
+			var usuario =  Meteor.userId();
+			$scope.usuarios = arrayUsers;
+   		})
 
-        /*incialização do objeto contendo as credenciais para o login e da variavel de erro.*/
+   		$meteor.subscribe('empresaByID', $stateParams).then(function(empresaHandle){
+   			empresaByID = $meteor.collection(Empresas);
+   			//console.log(empresaByID);
+   			arrEmpresa = $.map(empresaByID, function(valor, idx){
+   				return [valor];
+   			})
+   			$scope.detalhesEmpresa = arrEmpresa[0];
+   			
+   			console.log($scope.detalhesEmpresa);
 
-        $scope.error = '';
-    }
+   			imgid = $scope.detalhesEmpresa.profilePic._id;
+   			
+   			//console.log(imgid);
+
+   			$scope.arr = $meteor.subscribe('imagensID', imgid).then(function(imgHandle){
+	   			arr = $meteor.collectionFS(Images, false, Images);
+	   			img = $.map(arr, function(v, i){
+	   				return [v];
+	   			});
+	   			$scope.imagemEmpresa = img[0];
+   			});
+   		})
+	
+		$meteor.subscribe('produtos').then(function(produtosHandle){
+   			produtos = $meteor.collection(Produtos);
+   			arrProdutos = $.map(produtos, function(val, ind){
+   				return [val];
+   			})
+   			$scope.listaprodutos = arrProdutos; 
+   			
+   			//console.log($scope.listaprodutos);
+   		})
+   		
+   		// console.log($scope.listaprodutos, arrProdutos);
+		//Carregando no template
+		
+   }
 ]);
+
+
+}

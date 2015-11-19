@@ -8,35 +8,67 @@
 
     Mais info ver: https://github.com/CollectionFS/Meteor-CollectionFS
     -->
-    <div class="col-md-3 profile-boxes">
+    <div class="col-md-3 profile-boxes picture no-padding">
     <img src="{{$root.currentUser.profile.profilePic.getFileRecord().url()}}" class="profile-picture">
     </div>
     <div class="col-md-2 profile-boxes">
 
-        <span style="font-size: 0.87em;">{{profileTitle}}</span>
-        <br>
-
-        <span style="font-size: 1.33em;">{{$root.currentUser.profile.name}}</span>
-        <br>
-
-        <span style="font-size:0.77em;">{{$root.currentUser.emails[0].address}}</span>
-        <br>
+        <div class="row">
+           <div class="col-md-12">
+             <span style="font-size: 0.87em;">{{profileTitle}}</span>
+           </div>
+        </div> 
+        <div class="row">
+          <div class="col-md-12">
+             <span style="font-size: 1.33em;">{{$root.currentUser.profile.name}}</span>     
+          </div>
+        </div>
+        <div class="row">
+         <div class="col-md-12">
+            <span style="font-size:0.77em;">{{$root.currentUser.emails[0].address}}</span>     
+         </div>
+        </div>
       <div class="row">
-          <span ng-repeat="expertise in $root.currentUser.profile.expertise"><i class="fa fa-square"></i>{{' ' +expertise + ' '}}</span>
+        <div class="col-md-12">
+            <span ng-repeat="expertise in $root.currentUser.profile.expertise">
+            <i class="fa fa-square"></i> 
+            {{' ' +expertise + ' '}} 
+          </span>
+        </div>
       </div>
     </div>
 
     <div class="col-md-2 profile-boxes">
       <div class="row">
+
         <div class="col-md-12" >
+<<<<<<< HEAD
           <span ng-repeat="n in [] | range:stars.realStars"><i class="fa fa-star stars"></i></span>
           <span ng-repeat="n in [] | range:stars.blankStars"><i class="fa fa-star-o"></i></span>
+=======
+
+          <span><i class="fa fa-star stars"></i></span>
+          <span><i class="fa fa-star stars"></i></span>
+          <span><i class="fa fa-star stars"></i></span>
+          <span><i class="fa fa-star stars"></i></span>
+          <span><i class="fa fa-star-half-o stars"></i></span>
+>>>>>>> 07c463bec9be77a152d3dc094082ac9495e9f4e4
         </div>
-        <div>
+        <div class="col-md-10 centered">
             media de avaliações
         </div>
-        <div class="col-md-12"><b class="horas-mentorias">{{$root.currentUser.profile.horasMentorias}} hs</b> de mentoria</div>
-        <div class="col-md-12"><b class="horas-mentorias">{{$root.currentUser.profile.badges.length}}</b> badges</div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <h4 class="horas-mentorias text-center">{{$root.currentUser.profile.horasMentorias}} hs</h4>
+          <p class="text-center">mentoria</p>
+        </div>
+        <div class="col-md-6">
+          <h4 class="horas-mentorias text-center"> {{$root.currentUser.profile.badges.length}} </h4> 
+          <p class="text-center">badges</p>
+        </div>
       </div>
     </div>
 
@@ -46,11 +78,22 @@
       </p>
     </div>
 
-    <div class="col-md-1 profile-boxes text-center">
-      <a href="{{$root.currentUser.profile.facebook}}" target="_blank" ><i class="fa fa-facebook-official icon-bar"></i></a>
-
-      <a href="{{$root.currentUser.profile.twitter}}"><i class="fa fa-twitter icon-bar"></i></a>
-      <a href="{{$root.currentUser.profile.linkedIn}}"><i class="fa fa-linkedin icon-bar"></i></a>
+    <div class="col-md-1 profile-boxes">
+      <div class="row">
+        <div class="col-md-9 centered">
+          <a href="{{$root.currentUser.profile.facebook}}"><i class="fa fa-facebook-official icon-bar"></i></a>   
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-9 centered">
+          <a href="{{$root.currentUser.profile.twitter}}"><i class="fa fa-twitter icon-bar"></i></a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-9 centered">
+          <a href="{{$root.currentUser.profile.linkedIn}}"><i class="fa fa-linkedin icon-bar"></i></a>
+        </div>
+      </div>
 
     </div>
     <!-- fazer essas porra funcionarem pra amanha sem falta, preciso da merda da grana!-->
