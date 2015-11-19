@@ -29,11 +29,8 @@
     <div class="col-md-2 profile-boxes">
       <div class="row">
         <div class="col-md-12" >
-          <span><i class="fa fa-star stars"></i></span>
-          <span><i class="fa fa-star stars"></i></span>
-          <span><i class="fa fa-star stars"></i></span>
-          <span><i class="fa fa-star stars"></i></span>
-          <span><i class="fa fa-star-half-o stars"></i></span>
+          <span ng-repeat="n in [] | range:stars.realStars"><i class="fa fa-star stars"></i></span>
+          <span ng-repeat="n in [] | range:stars.blankStars"><i class="fa fa-star-o"></i></span>
         </div>
         <div>
             media de avaliações
@@ -56,6 +53,7 @@
       <a href="{{$root.currentUser.profile.linkedIn}}"><i class="fa fa-linkedin icon-bar"></i></a>
 
     </div>
+    <!-- fazer essas porra funcionarem pra amanha sem falta, preciso da merda da grana!-->
     <div class="col-md-2 profile-boxes">
       <button class="btn btn-default profile-actions" ><i class="fa fa-commenting-o"></i> Mensagens <span></span></button>
       <button class="btn btn-default profile-actions" ><i class="fa fa-calendar"></i> Agenda <span></span></button>
@@ -78,4 +76,7 @@
   </div>
   </div>
 </div>
+<!-- fim da porra do calendário, daqui pra baixo estão as outras telas de choradeira (Mensagens e ações da mentoria,
+
+que na real são as solicitaçoes pra aceitar PORRA!) -->
 </div>

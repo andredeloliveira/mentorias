@@ -143,8 +143,11 @@ angular.module("mentorias").controller("perfilController", ['$scope', '$statePar
                     stars: [],
                     horasMentorias:0,
                     badges: [],
+                    //se o filho da puta for empreendedor a merda é compartilhada, a não ser que seja
+                    // o corno do lider (Faz sentido agora sáporra)
                     agendaDia: $scope.agendaDia,
-                    agendaMes: $scope.agendaMes
+                    agendaMes: $scope.agendaMes,
+                    requisicoes: []
                 },
                 services: {
                     facebook: {

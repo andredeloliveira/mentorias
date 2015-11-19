@@ -88,6 +88,7 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$statePa
         vm.register = function(nEmpresa){
           if(!nEmpresa)
             vm.error = 'object undefined!';
+          console.log($scope.integrantes);
           var integrantesN = $scope.getIntegrantesId($scope.integrantes);
           console.log(integrantesN);
           vm.empresa = {

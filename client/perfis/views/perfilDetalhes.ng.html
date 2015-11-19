@@ -13,7 +13,7 @@
     </div>
     <div class="col-md-2 profile-boxes text-center">
 
-        <span style="font-size: 0.87em;">{{user.profile.tipo_conta}}</span>
+        <span style="font-size: 0.87em;">{{profileTitle}}</span>
         <br>
 
         <span style="font-size: 1.33em;">{{user.profile.name}}</span>
@@ -29,11 +29,8 @@
     <div class="col-md-2 profile-boxes text-center">
       <div class="row">
         <div class="col-md-12" >
-          <span><i class="fa fa-star stars"></i></span>
-          <span><i class="fa fa-star stars"></i></span>
-          <span><i class="fa fa-star stars"></i></span>
-          <span><i class="fa fa-star stars"></i></span>
-          <span><i class="fa fa-star-half-o stars"></i></span>
+          <span ng-repeat="n in [] | range:stars.blankStars"><i class="fa fa-star-o"></i></span>
+          <span ng-repeat="n in [] | range:stars.realStars"><i class="fa fa-star"></i></span>
         </div>
         <div>
             media de avaliações
@@ -56,18 +53,28 @@
       <a href="{{user.profile.linkedIn}}"><i class="fa fa-linkedin icon-bar"></i></a>
 
     </div>
+    <!-- Vou ter que achar um jeito de por os modais aqui, pro usuário ter sua resposta lá na porra da
+      página dele. Uhul, estamos fazendo uma engine massa mais rapido e com mais funcionalidades
+      que o zuck!
+    -->
+    <div class="col-md-2 profile-boxes" ng-show="viewEmpreendedor">
+      <a href="#" class="btn btn-default profile-actions"><i class="fa fa-commenting-o"></i>Enviar Mensagem<span></span></a>
+      <a href="#" class="btn btn-default profile-actions"><i class="fa fa-calendar"></i>Agendar Horário<span></span></a>
+      <a href="#" class="btn btn-default profile-actions"><i class="fa fa-user-plus"></i> Solicitar Mentoria<span></span></a>
+    </div>
+
   </div>
   <!-- Calendario daqui pra baixo-->
 
   <div class="row profile-border" >
-    <div class="col-md-4">
-      <div id="calendarioDia">
+    <div class="col-md-4 margin-top-30 space-footer">
+      <div id="agendaDia">
       </div>
     </div>
   <div class="col-md-8 float-right">
 
   <div class="row profile-border margin-top-30 space-footer">
-    <div id="calendar"></div>
+    <div id="agendaMes"></div>
   </div>
   </div>
 </div>
