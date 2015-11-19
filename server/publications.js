@@ -28,9 +28,9 @@ Meteor.publish('imagensID', function(imgid) {
    return rs;
 });
 
-Meteor.publish("empresas", function(){
+/*Meteor.publish("empresas", function(){
   return Empresas.find({});
-});
+});*/
 //roles
 Meteor.publish(null, function (){ 
   return Meteor.roles.find({});

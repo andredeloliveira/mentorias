@@ -1,11 +1,29 @@
 /**
  Controller responsável pelo Perfil. Aqui os métodos para Login, cadastro e busca de usuários são definidos.
  **/
-angular.module("mentorias").controller("empresaController", ['$scope', '$stateParams', '$meteor', '$state','$meteorSubscribe',
-    function ($scope, $stateParams, $meteor, $state, $meteorSubscribe) {
+angular.module("mentorias").controller("empresaController", ['$scope', '$rootScope', '$stateParams', '$meteor', '$state','$meteorSubscribe',
+    function ($scope, $rootScope, $stateParams, $meteor, $state, $meteorSubscribe) {
         /*usuário provenientes do servidor*/
            
-        $scope.users = $meteor.collection(Meteor.users,false).subscribe('users');
+        //$scope.users = $meteor.collection(Meteor.users,false).subscribe('users');
+
+        $meteor.subscribe('allUsers').then(function(cadastroUsuariosHandle){
+          allUsers = $meteor.collection(Meteor.users);
+          arrUsuarios = $.map(allUsers, function(valores, indices) {
+            return [valores];
+          });
+         
+         $rootScope.nomeUsuarios2 = [];
+            nomeUsuarios = _.map(arrUsuarios, function(parametro){
+            labirinto = parametro.profile.name;
+            $rootScope.nomeUsuarios2.push(labirinto);
+          });
+          console.log($rootScope, $rootScope.nomeUsuarios2);
+          var usuarioLogado =  Meteor.userId();
+          $scope.cadastroUsuarios = arrUsuarios;
+          //console.log($scope.cadastroUsuarios, usuarioLogado);
+        })
+
         $scope.images = $meteor.collection(Images, false, Images).subscribe('images');
         $scope.empresas = $meteor.collection(Empresas,false).subscribe('empresas');
         $scope.userstemp = [];
@@ -69,7 +87,7 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$statePa
           if(!nEmpresa)
             vm.error = 'object undefined!';
 
-          var integrantesN = $scope.getIntegrantesId($scope.integrantes);
+          integrantesN = $scope.getIntegrantesId($scope.integrantes);
           console.log(integrantesN);
           vm.empresa = {
             nome: nEmpresa.nome,
@@ -81,16 +99,35 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$statePa
             linkedIn: nEmpresa.linkedIn,
             profilePic: nEmpresa.profilePic
           };
-          //Diz a lenda que o save é mais rápido que o insert. 
-          //Tenho minhas duvidas, mah beleZ
-          $scope.empresas.save(vm.empresa);
-          $state.go('meuPerfil');
+          var id_empresa = Empresas.insert(vm.empresa, function(error, result){
+            if(error){
+              vm.error = 'Erro ao inserir empresa'
+            };
+            return result;
+          });
+          if(id_empresa)
+            $state.go('meuPerfil');
         }
         /*remove a dita cuja*/
         vm.remove = function(nEmpresa){
           if(!nEmpresa)
             vm.error = 'empresa não encontrada';
           $scope.empresas.remove(nEmpresa);
+        }
+
+        /*load Produtos, Hard coded mesmo, porque né*/
+
+        $scope.loadProdutos = function(){
+          var produtos = ['Jogos Digitais', 'Softwares', 'Eletrônicos', 'Realidade Virtual', 'Eficiência Energética', 'Bioarquitetura'];
+
+          var result = produtos.map(function(value, index){
+            var tempProd = {
+              nome: value
+            };
+            tempProd._lowername = tempProd.nome.toLowerCase();
+            return tempProd;
+          });
+          return result;
         }
 
         /*Aqui será definida a lógica para o controller das tags*/
@@ -130,13 +167,30 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$statePa
           return results;
         };
 
+        $scope.querySearchProdutos = function(query){
+          var results = query ?
+            $scope.produtosLoaded.filter($scope.createFilterFor(query)) : [];
+          console.log(results);
+          return results;
+        };
+
+
+        $rootScope.nomeUsuarios2;
+        console.log($rootScope.items, $rootScope);
+        $scope.selected = [];
+        $scope.itensSelecionados = [];
+
+        console.log($scope.integrantes, $scope.selected, $scope.meusIntegrantes);
+
+
         $scope.filterSelected = true;
         $scope.readonly = false;
         $scope.usersLoaded = $scope.loadUsers($scope.users);
         console.log($scope.usersLoaded);
-        vm.produtos = [];
+        $scope.produtosLoaded = $scope.loadProdutos();
+        console.log($scope.produtosLoaded);
         $scope.integrantes = [];
-
+        $scope.produtos= [];
         console.log($scope.integrantes);
         /*fim do controle das tags*/
     }

@@ -10,7 +10,10 @@ var themeIcons = ['$mdIconProvider' , function ($mdIconProvider) {
 angular.module('mentorias')
   .config(themeIcons);
 
+
+
 function onReady() {
   angular.bootstrap(document, ['mentorias']);
 }
 
+var query = '';

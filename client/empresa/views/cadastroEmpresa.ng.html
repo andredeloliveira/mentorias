@@ -15,8 +15,8 @@
                         </md-chips> -->
                         <md-contact-chips
                                 ng-model="produtos"
-                                md-contacts="querySearch($query)"
-                                md-contact-name="name"
+                                md-contacts="querySearchProdutos($query)"
+                                md-contact-name="nome"
                                 md-require-match="true"
                                 md-highlight-flags="i"
                                 filter-selected="filterSelected"
@@ -77,7 +77,19 @@
             <div ng-show="mostrarEtapa(2)">
                 <div class="row">
                     <div class="col-md-12" style="border:1px solid BLUE">
-                        {{email}}     
+                        <md-chips ng-model="itensSelecionados" md-autocomplete-snap md-require-match>
+                            <md-autocomplete 
+                                md-autofocus="true"
+                                md-no-cache="true" 
+                                md-min-length="0"
+                                md-selected-item="selected"
+                                md-search-text="searchText"
+                                md-items="item in nomeUsuarios2"
+                                placeholder="Pick something...">
+                                <md-item-template>{{item}}</md-item-template>
+                            </md-autocomplete>
+                             <md-chip-template><span><em>{{$chip}}</em></span></md-chip-template>
+                        </md-chips>
                     </div>
             </div>
                 <div>
@@ -87,9 +99,6 @@
                     <!--<md-chips ng-model="pc.tagNames" readonly="pc.readonly" placeholder="adicione uma expertise"
                               delete-button-label="remova expertise" delete-hing="clique em delete para remover a tag"
                               secondary-placeholder="+Expertise"></md-chips> -->
-                  
-                   
-                    
                     <md-contact-chips
                             ng-model="integrantes"
                             md-contacts="querySearch($query)"
@@ -99,6 +108,7 @@
                             filter-selected="filterSelected"
                             placeholder="Integrantes">
                     </md-contact-chips>
+
                     <!-- end twelve columns-->
                 </div>
                 <!-- end row-->

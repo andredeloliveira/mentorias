@@ -125,7 +125,7 @@ if(Produtos.find().count() === 0){
   })
 }
 //Meteor.Produtos.remove('passar o id');
-
+//TODO normalizar com ISSUE 13
 var users = [
       {name:"empreendedor-admin",email:"empreendedor-admin@example.com",roles:['empreendedor-admin']},
       {name:"empreendedor-gestor",email:"empreendedor-gestor@example.com",roles:['empreendedor-gestor']},

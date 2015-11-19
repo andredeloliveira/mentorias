@@ -1,6 +1,6 @@
-/*Meteor.publish("users", function(){
-  return Meteor.users.find({});
-});*/
+Meteor.publish("users", function(){
+  return Meteor.users.find({},{fields:{emails:1, profile:1}});
+});
 
 /*Meteor.publish('pegaTudo', function(){
 	var emails = _.pluck(Meteor.users.find({}, {fields: {'profile.email': 1, _id:0}}).fetch(), 'profile.email');

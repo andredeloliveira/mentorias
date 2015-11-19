@@ -14,10 +14,7 @@
         muitas melhorias podem ser feitas
         -->
         {{#if currentUser}}
-          {{>nav}}
-          <small>{{currentUser}}</small>
-        {{/if}}
-        
+          <small>{{currentUser}}</small>     
         <!--Meteor templating, não deu para separar o menu de outra forma-->
        
           <!--<div class="navbar-right navbar-text">
@@ -28,6 +25,34 @@
                   <p>{{currentUser.profile.name}}</p>
               {{/if}}
           </div> -->
+        <div class="row">
+             <div id="menu" class="container col-md-12 margin-top-60">
+
+              <div class=" col-lg-3 col-md-3 col-xs-12">
+                  <img src="/resources/Logo-Agripa.png"  class="agripa-brand">
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-xs-12 ">
+                  <a class="btn btn-default" href="/meuPerfil"> Meu Perfil</a>
+                  <a class="btn btn-default" href="/empresas"> Empresas</a> <!--precisamos da tela :/ -->
+                  <a class="btn btn-default" href="#"> Trajetórias</a>
+                  <a class="btn btn-default" href="#"><i class="fa fa-gear" style="font-size: 1.44em;" ></i></a> <!--G is for gear button-->
+                  <a href="/logout" class="btn btn-default"><i class="fa fa-power-off" style="font-size: 1.44em;" ></i></a> <!-- for logout apparently-->
+                </div>
+
+                  <div class="col-lg-3 col-xs-12 col-md-3  no-padding">
+                    <div class="col-md-11 col-xs-11 no-padding">
+                      <input type="text" placeholder="Pesquisar" class="pesquisar" id="pesquisar">
+                    </div>
+                    <div class="col-md-1 no-padding">
+                      <a class="button btn-pesquisar" onclick="window.open('/pesquisar/'+ {{query}})" href=""><i class="fa fa-search" style="font-size: 1.44em;"></i></a><!--P for pesquisar-->
+                    </div>
+                  </div>
+
+                </div>
+            </div>
+
+        {{/if}}
           <div ui-view class="row"></div>
 
       </div>

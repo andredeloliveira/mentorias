@@ -16,10 +16,10 @@ angular.module("mentorias").controller("loginController", ['$scope', '$meteor', 
             function handleError(err) {
                 if (err === undefined || err == "undefined" ) {
                       console.log(err +'erro indefinido');
-                      $state.go('home');  
+                      $meteor.next();  
                     if (Meteor.user()) {
                       console.log(err +'tenho um usuario');
-                      $state.go('home');  
+                      $meteor.next();   
                     }      
                 }
                 console.log(err);
@@ -34,7 +34,7 @@ angular.module("mentorias").controller("loginController", ['$scope', '$meteor', 
                     }
 
                 } else {
-                    $state.go('home');
+                    $state.go('meuPerfil');
                 }
             }
         }
