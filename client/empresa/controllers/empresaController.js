@@ -4,7 +4,7 @@
 angular.module("mentorias").controller("empresaController", ['$scope', '$rootScope', '$stateParams', '$meteor', '$state','$meteorSubscribe',
     function ($scope, $rootScope, $stateParams, $meteor, $state, $meteorSubscribe) {
         /*usuário provenientes do servidor*/
-           
+
         //$scope.users = $meteor.collection(Meteor.users,false).subscribe('users');
 
         $meteor.subscribe('allUsers').then(function(cadastroUsuariosHandle){
@@ -12,7 +12,7 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
           arrUsuarios = $.map(allUsers, function(valores, indices) {
             return [valores];
           });
-         
+
          $rootScope.nomeUsuarios2 = [];
             nomeUsuarios = _.map(arrUsuarios, function(parametro){
             labirinto = parametro.profile.name;
@@ -150,7 +150,7 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
           }
           console.log(result);
           return result;
-          
+
         }
 
         $scope.createFilterFor = function(query){

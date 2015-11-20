@@ -11,7 +11,7 @@ Meteor.publish('allUsers',function(){
 });
 
 Meteor.publish("usersById", function(_id){
-  return Users.find({"users" : _id});
+  return Meteor.users.find({"users" : _id});
 });
 //empresas
 Meteor.publish("empresaByID", function(empresaId){
@@ -32,7 +32,7 @@ Meteor.publish('imagensID', function(imgid) {
   return Empresas.find({});
 });*/
 //roles
-Meteor.publish(null, function (){ 
+Meteor.publish(null, function (){
   return Meteor.roles.find({});
 })
 
@@ -49,4 +49,3 @@ Meteor.publish(null, function (){
 
   }
 });*/
-

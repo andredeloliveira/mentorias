@@ -49,11 +49,50 @@ angular.module("mentorias").controller("meuPerfilController", ['$scope', '$meteo
           $scope.createEvent = function(event){
 
           };
+          /*Função que vai tratar a média das notas.
+          @result -> Objeto com a média das notas (em estrelinhas) e quantas estrelinhas em branco;
+          */
+          $scope.getStars = function(stars){
+
+            var nStars = stars.length;
+            if(!stars)
+              console.error('estrelas vazio');
+            var total = 0;
+            var media = 0;
+            var nBlankStars = 0;
+            var nRealStars = 0;
+            for(var i; i < nStars; i++){
+              total = total + stars[i];
+            }
+
+            if(total !== 0 &&  nStars !== 0){
+              media = Math.floor(total / nStars);
+            }
+            if(media === 0){
+              nBlankStars = 5;
+              nRealStars = 0;
+            }else if(media === 5){
+              nRealStars = media;
+              nBlankStars = 0;
+            }else{
+              nRealStars = media;
+              nBlankStars = 5 - media;
+            }
+            var tempStars = {
+              realStars: nRealStars,
+              blankStars: nBlankStars
+            };
+            return tempStars;
+
+          };
         /*essa parte do código é pra lidar com o JQuery e o caledar. Posteriormente sera mudado o modo
         de acesso, etc. Mas primeiro, o objetivo é fazer funcionar*/
         var calendario  = $('#agendaMes').fullCalendar($rootScope.currentUser.profile.agendaMes);
 
         var calendarioDia = $('#agendaDia').fullCalendar($rootScope.currentUser.profile.agendaDia);
+
+        $scope.stars = $scope.getStars($rootScope.currentUser.profile.stars);
+        console.log($scope.stars);
 
     }
 ]);

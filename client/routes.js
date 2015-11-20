@@ -19,7 +19,7 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
 
         $locationProvider.html5Mode(true);
         //router para o cadastro de perfil (Usando o $meteor.user !)
-       
+
         $stateProvider
 
             .state('403', {
@@ -29,6 +29,12 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
             .state('404', {
                 url: '/404',
                 templateUrl: 'client/404.html',
+            })
+            .state('chat', {
+                url: '/chat',
+                templateUrl: 'client/perfis/chat/chat.ng.html',
+                controller: 'chatController',
+                controllerAs: 'chat'
             })
             .state('modais', {
                 url: '/modais',
@@ -147,7 +153,7 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
             })
             //detalhes do perfil (quando um terceiro acessa o perfil)
             .state('perfilDetalhes',{
-              url:'/perfis/:userId',
+              url:'/perfis/:perfilId',
               templateUrl: 'client/perfis/views/perfilDetalhes.ng.html',
               controller:'perfilDetalhesController',
               controllerAs:'pdc',
@@ -173,7 +179,7 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
             });
 
         /*caso alguma merda acontença, redireciona pra página inicial. Caso isso aconteça abra ao debug e chore*/
-        
+
         $urlRouterProvider.when('', '/');
         //$urlRouterProvider.otherwise('/404');
 
