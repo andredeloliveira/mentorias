@@ -83,11 +83,11 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
         };
 
         /*registra a nova empresa no banco*/
-        vm.register = function(nEmpresa){
+        vm.register = function(nEmpresa, itensSelecionados){
           if(!nEmpresa)
             vm.error = 'object undefined!';
 
-          integrantesN = $scope.getIntegrantesId($scope.integrantes);
+          integrantesN = itensSelecionados;
           console.log(integrantesN);
           vm.empresa = {
             nome: nEmpresa.nome,
@@ -174,15 +174,11 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
           return results;
         };
 
-
-        $rootScope.nomeUsuarios2;
-        console.log($rootScope.items, $rootScope);
         $scope.selected = [];
         $scope.itensSelecionados = [];
-
-        console.log($scope.integrantes, $scope.selected, $scope.meusIntegrantes);
-
-
+        
+        console.log($scope.selected, $scope.itensSelecionados);
+   
         $scope.filterSelected = true;
         $scope.readonly = false;
         $scope.usersLoaded = $scope.loadUsers($scope.users);

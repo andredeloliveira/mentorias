@@ -94,15 +94,14 @@
 
 
             </div>
-            <!-- tags expertise-->
             <div ng-show="mostrarEtapa(2)">
                 <div>
                     <img class="img-responsive center-block" src="../resources/Logo-Agripa.png"/>
+                </div>
+                <!-- end row-->
+                <div class="row  margin-top-30">
 
-                    <!--<md-chips ng-model="pc.tagNames" readonly="pc.readonly" placeholder="adicione uma expertise"
-                              delete-button-label="remova expertise" delete-hing="clique em delete para remover a tag"
-                              secondary-placeholder="+Expertise"></md-chips> -->
-                    <md-contact-chips
+                  <md-contact-chips
                             ng-model="tags"
                             md-contacts="querySearch($query)"
                             md-contact-name="name"
@@ -111,10 +110,6 @@
                             filter-selected="filterSelected"
                             placeholder="Expertises">
                     </md-contact-chips>
-                    <!-- end twelve columns-->
-                </div>
-                <!-- end row-->
-                <div class="row  margin-top-30">
 
                     <div class="col-md-6">
                         <button class="btn btn-default btn-100-percent" ng-click="setEtapaAnterior()">Voltar</button>
