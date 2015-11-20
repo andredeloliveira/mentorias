@@ -123,6 +123,7 @@ a, a:visited, a:hover, a:active {
     text-decoration : none;
     color           : #FFFFFF;
 }
+
 input[type=text] {
     height             : 30px;
     border             : 0;
@@ -558,6 +559,113 @@ textarea:focus, input:focus {
 
 /********************************Trajetória de Desenvolvimento End********************************/
 
+#chat {
+    overflow : hidden;
+
+}
+
+#chat #lista-mensagens {
+
+}
+
+#chat #lista-contatos {
+
+}
+
+#chat .lista {
+    list-style       : none;
+    padding          : 0;
+    border           : 1px solid rgb(255, 255, 255);
+    overflow         : hidden;
+    background-color : rgba(123, 123, 123, 0.9);
+}
+
+#chat .lista > li {
+    border-bottom : 1px solid rgb(255, 255, 255);
+    overflow      : hidden;
+}
+
+#chat .lista > li > div {
+    float : left;
+}
+
+#chat .lista > li > div {
+    padding : 5px;
+}
+
+#chat .lista > li > div.picture {
+    width            : 25%;
+    background-color : rgba(144, 144, 144, 0.9);
+    text-align       : center;
+}
+
+#chat .lista > li > div.details {
+    width : 60%;
+}
+
+#chat .lista > li > div.details p {
+    font-size : 12px;
+}
+
+#chat .lista > li > div.details h5 {
+    font-weight : bold;
+}
+
+#chat .lista > li > div.time {
+    width : 15%;
+}
+
+#chat .lista > li > div.time small {
+    font-size : 10px;
+}
+
+#chat .lista > li > div.buttons {
+    width : 15%;
+}
+
+#chat #conversa {
+    border           : 1px solid #fff;
+    overflow         : hidden;
+    background-color : rgba(90, 90, 90, 0.9);
+}
+
+#chat #conversa > div.mensagens {
+    border-bottom : 1px solid #fff;
+}
+
+#chat #conversa > .mensagens .mensagem {
+    margin   : 15px 0;
+    overflow : hidden;
+    clear    : both;
+}
+
+#chat #conversa > .mensagens .mensagem.me .picture {
+
+}
+
+#chat #conversa > .mensagens .mensagem.me .text {
+    background-color : #fff;
+    color            : #444;
+    text-align       : right;
+}
+
+#chat #conversa > .mensagens .mensagem .text {
+    width : auto;
+}
+
+#chat #conversa > .mensagens .mensagem.other .picture {
+    float : right;
+}
+
+#chat #conversa > .mensagens .mensagem.other .text {
+    background-color : #444;
+    color            : #fff;
+    float            : right;
+    text-align       : left;
+}
+
+/********************************Chat End********************************/
+
 /********************************Painel de Controle********************************/
 
 #painel-controle {
@@ -759,44 +867,97 @@ textarea:focus, input:focus {
 .border-white, .border-white:hover {
     border : 1px solid #fff;
 }
-.color-white, .color-white:hover {
-    color: #fff;
-}
-.modal-footer{
-    border: 0 none;
-}
-.modal-b-title{
-    position: absolute;
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    top: -30px;
-    font-size: 16px;
-    padding: 3px 10px;
-}
-.modal-dialog{
-    margin-top: 80px;
-}
-.agripa-brand{width: 90%;margin: 0% 5%;}
-#menu .button{ margin-left:0.5% !important; width: 100% !important;}
-.pesquisar{float:left !important; width:100%;height: 32px !important;}
-.btn-pesquisar{float:right !important; border:1px solid white;padding:5px; text-align: center;}
-.profile-border > *{border:1px solid white; }
-.profile-boxes{ min-height: 145px !important; }
-.btn-default{ background-color: transparent !important; color:#fff;}
-.profile-actions{width: 100% !important; margin:5px 0px;}
-.no-padding{padding: 0px !important;}
-.search{ float:right;}
-.btn:focus, .btn:active, .btn:visited{color:#fff;} 
-.btn:hover{color:#c9c9c9;}
-.centered{float: none !important;margin: 0 auto !important;}
 
-#dirSidebar{
-border:2px solid #fff;
-background-color: #c8c8c8; 
-filter:alpha(opacity=50); 
-opacity: 0.5;
--moz-opacity:0.5;
--webkit-opacity:0.5;
+.color-white, .color-white:hover {
+    color : #fff;
+}
+
+.modal-footer {
+    border : 0 none;
+}
+
+.modal-b-title {
+    position         : absolute;
+    background-color : rgb(255, 255, 255);
+    color            : rgb(0, 0, 0);
+    top              : -30px;
+    font-size        : 16px;
+    padding          : 3px 10px;
+}
+
+.modal-dialog {
+    margin-top : 80px;
+}
+
+.agripa-brand {
+    width  : 90%;
+    margin : 0% 5%;
+}
+
+#menu .button {
+    margin-left : 0.5% !important;
+    width       : 100% !important;
+}
+
+.pesquisar {
+    float  : left !important;
+    width  : 100%;
+    height : 32px !important;
+}
+
+.btn-pesquisar {
+    float      : right !important;
+    border     : 1px solid white;
+    padding    : 5px;
+    text-align : center;
+}
+
+.profile-border > * {
+    border : 1px solid white;
+}
+
+.profile-boxes {
+    min-height : 145px !important;
+}
+
+.btn-default {
+    background-color : transparent !important;
+    color            : #fff;
+}
+
+.profile-actions {
+    width  : 100% !important;
+    margin : 5px 0px;
+}
+
+.no-padding {
+    padding : 0px !important;
+}
+
+.search {
+    float : right;
+}
+
+.btn:focus, .btn:active, .btn:visited {
+    color : #fff;
+}
+
+.btn:hover {
+    color : #c9c9c9;
+}
+
+.centered {
+    float  : none !important;
+    margin : 0 auto !important;
+}
+
+#dirSidebar {
+    border           : 2px solid #fff;
+    background-color : #c8c8c8;
+    filter           : alpha(opacity=50);
+    opacity          : 0.5;
+    -moz-opacity     : 0.5;
+    -webkit-opacity  : 0.5;
 }
 
 a.color-white, a.color-white:hover {
@@ -935,12 +1096,11 @@ a.color-white, a.color-white:hover {
     /* Style adjustments for high resolution devices */
 }
 
-
 @media print {
     *,
     *:before,
     *:after {
-        background: transparent !important;
+        background  : transparent !important;
 
         background  : transparent !important;
         color       : #000 !important;
@@ -977,11 +1137,9 @@ a.color-white, a.color-white:hover {
         border            : 1px solid #999;
         page-break-inside : avoid;
     }
+
     /*Full callendar options, colors, etc*/
-
-    
     /*fim dos estilos do full callendar*/
-
     /*
      * Printing Tables:
      * http://css-discuss.incutio.com/wiki/Printing_Tables
@@ -1012,4 +1170,7 @@ a.color-white, a.color-white:hover {
     }
 }
 
-@import("maran.css");
+@import(
+"maran.css"
+)
+;
