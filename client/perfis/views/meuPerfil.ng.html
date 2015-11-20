@@ -17,22 +17,22 @@
            <div class="col-md-12">
              <span style="font-size: 0.87em;">{{profileTitle}}</span>
            </div>
-        </div> 
+        </div>
         <div class="row">
           <div class="col-md-12">
-             <span style="font-size: 1.33em;">{{$root.currentUser.profile.name}}</span>     
+             <span style="font-size: 1.33em;">{{$root.currentUser.profile.name}}</span>
           </div>
         </div>
         <div class="row">
          <div class="col-md-12">
-            <span style="font-size:0.77em;">{{$root.currentUser.emails[0].address}}</span>     
+            <span style="font-size:0.77em;">{{$root.currentUser.emails[0].address}}</span>
          </div>
         </div>
       <div class="row">
         <div class="col-md-12">
             <span ng-repeat="expertise in $root.currentUser.profile.expertise">
-            <i class="fa fa-square"></i> 
-            {{' ' +expertise + ' '}} 
+            <i class="fa fa-square"></i>
+            {{' ' +expertise + ' '}}
           </span>
         </div>
       </div>
@@ -42,17 +42,8 @@
       <div class="row">
 
         <div class="col-md-12" >
-<<<<<<< HEAD
           <span ng-repeat="n in [] | range:stars.realStars"><i class="fa fa-star stars"></i></span>
           <span ng-repeat="n in [] | range:stars.blankStars"><i class="fa fa-star-o"></i></span>
-=======
-
-          <span><i class="fa fa-star stars"></i></span>
-          <span><i class="fa fa-star stars"></i></span>
-          <span><i class="fa fa-star stars"></i></span>
-          <span><i class="fa fa-star stars"></i></span>
-          <span><i class="fa fa-star-half-o stars"></i></span>
->>>>>>> 07c463bec9be77a152d3dc094082ac9495e9f4e4
         </div>
         <div class="col-md-10 centered">
             media de avaliações
@@ -66,7 +57,7 @@
           <p class="text-center">mentoria</p>
         </div>
         <div class="col-md-6">
-          <h4 class="horas-mentorias text-center"> {{$root.currentUser.profile.badges.length}} </h4> 
+          <h4 class="horas-mentorias text-center"> {{$root.currentUser.profile.badges.length}} </h4>
           <p class="text-center">badges</p>
         </div>
       </div>
@@ -81,7 +72,7 @@
     <div class="col-md-1 profile-boxes">
       <div class="row">
         <div class="col-md-9 centered">
-          <a href="{{$root.currentUser.profile.facebook}}"><i class="fa fa-facebook-official icon-bar"></i></a>   
+          <a href="{{$root.currentUser.profile.facebook}}"><i class="fa fa-facebook-official icon-bar"></i></a>
         </div>
       </div>
       <div class="row">
@@ -98,9 +89,9 @@
     </div>
     <!-- fazer essas porra funcionarem pra amanha sem falta, preciso da merda da grana!-->
     <div class="col-md-2 profile-boxes">
-      <button class="btn btn-default profile-actions" ><i class="fa fa-commenting-o"></i> Mensagens <span></span></button>
-      <button class="btn btn-default profile-actions" ><i class="fa fa-calendar"></i> Agenda <span></span></button>
-      <button class="btn btn-default profile-actions" ><i class="fa fa-group"></i> Ações de mentoria<span></span></button>
+      <button class="btn btn-default profile-actions" ><i class="fa fa-commenting-o"></i> Mensagens <span class="badge">{{$root.currentUser.profile.requisicoes.length}}</span></button>
+      <button class="btn btn-default profile-actions" ><i class="fa fa-calendar"></i> Agenda <span class="badge"></span></button>
+      <button class="btn btn-default profile-actions" ><i class="fa fa-group"></i> Ações de mentoria<span class="badge"></span></button>
     </div>
   </div>
   <!-- Calendario daqui pra baixo-->

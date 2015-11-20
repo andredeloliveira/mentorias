@@ -16,11 +16,11 @@ angular.module("mentorias").controller("loginController", ['$scope', '$meteor', 
             function handleError(err) {
                 if (err === undefined || err == "undefined" ) {
                       console.log(err +'erro indefinido');
-                      $meteor.next();  
+                      $meteor.next();
                     if (Meteor.user()) {
                       console.log(err +'tenho um usuario');
                       $meteor.next();   
-                    }      
+                    }
                 }
                 console.log(err);
                 if (err) {

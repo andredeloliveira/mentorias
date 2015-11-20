@@ -1,6 +1,12 @@
-angular.module("mentorias").controller("pesquisaController", ['$scope', '$stateParams', '$meteor', '$state', '$q',
-    function ($scope, $stateParams, $meteor, $state, $q) {
+angular.module("mentorias").controller("pesquisaController", ['$scope', '$stateParams', '$meteor', '$state', '$q','$rootScope',
+    function ($scope, $stateParams, $meteor, $state, $q, $rootScope) {
       /*Todos os usuários cadastrados*/
+      if(Meteor.userId()){
+        $scope.loggedIn = 1;
+      }else {
+        $scope.loggedIn = 0;
+      }
+      console.log($rootScope.currentUser);
       $meteor.subscribe('users').then(function(usersHandle){
                         $scope.allUsers = $meteor.collection(Meteor.users,false);
                                 arrayUsers = $.map($scope.allUsers, function(value, index) {
@@ -17,8 +23,7 @@ angular.module("mentorias").controller("pesquisaController", ['$scope', '$stateP
           $scope.empresas = arrayEmpresas;
       });
 
-      console.log($scope.empresas);
-      console.log($scope.users);
+
 
 
 

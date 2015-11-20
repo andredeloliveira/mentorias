@@ -13,10 +13,10 @@
         ser inserido utilizando as directive(?) do meteor
         muitas melhorias podem ser feitas
         -->
-        {{#if currentUser}}
-          <small>{{currentUser}}</small>     
+
+          <small>{{$root.currentUser.profile.name}}</small>
         <!--Meteor templating, não deu para separar o menu de outra forma-->
-       
+
           <!--<div class="navbar-right navbar-text">
               <md-button ng-href="/login" ng-hide="$root.currentUser">Entrar</md-button>
               <md-button ng-href="/cadastroPerfil" ng-hide="$root.currentUser">Registrar</md-button>
@@ -25,7 +25,8 @@
                   <p>{{currentUser.profile.name}}</p>
               {{/if}}
           </div> -->
-        <div class="row">
+        <div ng-controller="pesquisaController">
+          <div class="row" ng-show="{{loggedIn}}">
              <div id="menu" class="container col-md-12 margin-top-60">
 
               <div class=" col-lg-3 col-md-3 col-xs-12">
@@ -45,14 +46,14 @@
                       <input type="text" placeholder="Pesquisar" class="pesquisar" id="pesquisar">
                     </div>
                     <div class="col-md-1 no-padding">
-                      <a class="button btn-pesquisar" onclick="window.open('/pesquisar/'+ {{query}})" href=""><i class="fa fa-search" style="font-size: 1.44em;"></i></a><!--P for pesquisar-->
+                      <a class="button btn-pesquisar" ng-click="window.open('/pesquisar/')" href=""><i class="fa fa-search" style="font-size: 1.44em;"></i></a><!--P for pesquisar-->
                     </div>
                   </div>
 
                 </div>
             </div>
 
-        {{/if}}
+          </div>
           <div ui-view class="row"></div>
 
       </div>

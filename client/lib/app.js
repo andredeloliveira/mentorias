@@ -27,3 +27,7 @@ function onReady() {
 }
 
 var query = '';
+var menu = 0;
+if(Meteor.user()){
+  menu = 1;
+}

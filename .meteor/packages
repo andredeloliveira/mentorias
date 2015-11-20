@@ -32,8 +32,6 @@ cfs:filesystem
 rzymek:fullcalendar
 nimble:restivus
 vitalets:angular-xeditable
-ecmascript
-blaze-html-templates
 aldeed:simple-schema
 alanning:roles
 angularui:ui-calendar

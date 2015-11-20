@@ -1,33 +1,50 @@
 
-angular.module("mentorias").controller("perfilDetalhesController", ['$scope', '$meteor', '$state','$stateParams',
-    function ($scope, $meteor, $state, $stateParams) {
+angular.module("mentorias").controller("perfilDetalhesController", ['$scope','$rootScope', '$meteor', '$state','$stateParams',
+    function ($scope,$rootScope ,$meteor, $state, $stateParams ) {
 
         /*usuário sendo requisitado*/
 
         $scope.userObject = {};
 
+        var subscriptionHandle;
+       //  $scope.userB = $scope.$meteorObject(Meteor.users, $stateParams.perfilId ,false).subscribe("users");
+    $meteor.subscribe("users", { _id: $stateParams.perfilId }).then(function (handle) {
+        console.log('Client Users subscription ready');
+        subscriptionHandle = handle;
+        // Get the control from the database and bind it to Angular's scope
+        $scope.control = $meteor.object(Meteor.users, { _id: $stateParams.perfilId } );
 
-        //$scope.user = $scope.$meteorObject(Meteor.users,$stateParams.userId,false);
-        $scope.userB = $scope.$meteorCollection(Meteor.users, $stateParams.userId,false).subscribe('oneUser');
+        // Get the actual object without the angular wrapping
+        self.thing = $scope.control.getRawObject();
+        $scope.user  = $scope.control.getRawObject();
+        console.log($scope.control.getRawObject());
+
 
         /*Novamente pega as info do banco e joga no usuário*/
-        $scope.loadUser = function(userB){
+        $scope.loadUsers = function(users){
+          var result = [];
 
+          console.log(users);
 
-          /*as propriedades do usuário*/
-          for( var prop in userB){
-            if(userB.hasOwnProperty(prop)){
-                return userB[prop];
+          for( var prop in users){
+            if(users.hasOwnProperty(prop)){
+              if(users[prop]._id){
+                result.push(users[prop]);
               }
             }
-        };
-        $scope.user = $scope.loadUser($scope.userB);
+          }
+          console.log(result);
+          return result;
+
+        }
+
+       //$scope.user = $scope.loadUsers($scope.userB);
         //$scope.user = $scope.$meteorObject(Meteor.users,$stateParams.userId,false).subscribe('users');
         $scope.error = '';
 
         $scope.images = $meteor.collectionFS(Images, false, Images).subscribe('images');
 
-          console.log($scope.user);
+        console.log($scope.user);
 
         /*
           Função para definir o sexo do usuário
@@ -97,45 +114,50 @@ angular.module("mentorias").controller("perfilDetalhesController", ['$scope', '$
         }
 
         /*definição memo*/
-        $scope.profileTitle = $scope.definirSexo($scope.user);
+       $scope.profileTitle = $scope.definirSexo($scope.user);
         $scope.defineView($scope.user, $rootScope.currentUser);
-        console.log($scope.viewEmpreendedor);
-        console.log($scope.viewMentor);
         $scope.stars = $scope.getStars($scope.user.profile.stars);
+        console.log($scope.stars);
         $scope.agendaDia = $('#agendaDia').fullCalendar($scope.user.profile.agendaDia);
         $scope.agendaMes = $('#agendaMes').fullCalendar($scope.user.profile.agendaMes);
 
         /*funcão que adiciona uma requisição de evento para o usuário X do usuário logado */
-        $scope.requisitaEvento = function(start, end, userDestino, currentUser){
+
+        handle.stop();
+
+        $scope.requisitaEvento = function(){
           /*Novo evento que será requisitado.*/
-          var newEvent = {
-            id: 'id',
-            title: 'title',
-            start: new Date(), //saporra tem que ter a data completa
-            end: new Date(), //saqui também (porra) pr amostrar a merda do tempo inicial e final
-            // className: 'CSS class for the event',
-            // color: 'color',
-            // backgroundColor: 'backgroundColor',
-            // borderColor: 'borderColor',
-            // textColor: 'textColor',
-            allDay: false, //vai fazer aparecer a hora que é esse lixo
-            userFrom: currentUser //e o otário que pede ajuda aos universitarios
-          };
+          // var newEvent = {
+          //   id:  $rootScope.currentUser._id + $scope.user._id,
+          //   title: titulo,
+          //   start: new Date()+3600, //saporra tem que ter a data completa
+          //   //end: new Date(), //saqui também (porra) pr amostrar a merda do tempo inicial e final
+          //   // className: 'CSS class for the event',
+          //   // color: 'color',
+          //   // backgroundColor: 'backgroundColor',
+          //   // borderColor: 'borderColor',
+          //   // textColor: 'textColor',
+          //   allDay: false, //vai fazer aparecer a hora que é esse lixo
+          //   userFrom: currentUser._id //e o otário que pede ajuda aos universitarios
+          // };
 
           //Mandando a requisição pro maldito:
-          Meteor.users.update(
-            {
-              _id: userDestino._id
-            }, {
+          Meteor.users.update({_id: $scope.user._id}, {
               $push : {
                 //saqui é pra merda do evento aparecer piscando no canto lá, igual um satanas
-                requisicoes: newEvent
+                "profile.requisicoes": 'fff'
+                }
               }
-            }
         );
+      };
 
 
-        };
+
+
+
+
+
+      });
 
 
 
