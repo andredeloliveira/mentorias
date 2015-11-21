@@ -1,15 +1,17 @@
 /*! HTML5 Boilerplate v5.2.0 | MIT License | https://html5boilerplate.com/ */
-
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
  * Kroc Camen, and the H5BP dev community and team.
  */
-
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
-@import("maran.css");
+@import(
+
+"maran.css"
+)
+;
 
 html {
     color       : #222;
@@ -251,22 +253,6 @@ textarea:focus, input:focus {
 
 }
 
-.stars {
-    font-size  : 1.22em;
-    margin-top : 10px;
-}
-
-.horas-mentorias {
-    font-size : 1.33em;
-}
-
-.icon-bar {
-    font-size    : 2.8em;
-    margin       : 2px;
-    border       : 1px;
-    border-color : #FFFFFF;
-}
-
 .button {
     color  : #FFFFFF;
     margin : 0;
@@ -352,10 +338,10 @@ textarea:focus, input:focus {
 }
 
 .pesquisar {
-    float  : left !important;
-    width  : 100%;
-    height : 32px !important;
-    padding-left: 30px;
+    float        : left !important;
+    width        : 100%;
+    height       : 32px !important;
+    padding-left : 30px;
 }
 
 .btn-pesquisar {
@@ -506,7 +492,8 @@ textarea:focus, input:focus {
 }
 
 #barra-controle .profile .identification {
-    margin-top : -10px;
+    margin-top    : -10px;
+    padding-right : 0;
 }
 
 #barra-controle .profile .habilidades {
@@ -530,16 +517,20 @@ textarea:focus, input:focus {
 }
 
 #barra-controle .score .stars {
-    margin : 10px 5px 0;
+    margin     : 10px 2px 0;
+    font-size  : 1.22em;
+    margin-top : 10px;
 }
 
 #barra-controle .score .horas-mentorias {
-    font-size   : 1.33em;
-    line-height : 40px
+    line-height : 40px;
+    font-size   : 1.43em;
+
 }
 
 #barra-controle .descricao p {
     text-align : justify;
+    font-size  : 12px;
 }
 
 #barra-controle .social {
@@ -548,9 +539,14 @@ textarea:focus, input:focus {
 
 #barra-controle .social a {
     display    : block;
-    font-size  : 9px;
+    font-size  : 8px;
     text-align : center;
     padding    : 5px;
+}
+
+#barra-controle .social .icon-bar {
+    font-size : 2.8em;
+    padding   : 3px 0;
 }
 
 #barra-controle .report button {
@@ -563,6 +559,48 @@ textarea:focus, input:focus {
     line-height : 32px;
 }
 
+@media (max-width : 1200px) {
+    #barra-controle .report .legenda {
+        font-size : 11px;
+    }
+
+    #barra-controle .social a {
+        font-size : 6px;
+        padding   : 8px 5px;
+    }
+
+}
+
+@media (max-width : 992px) {
+    #barra-controle .profile .habilidades {
+        margin-top : 5px;
+    }
+
+}
+
+@media (max-width : 768px) {
+    #barra-controle .report .legenda{
+        font-size: 17px;
+        margin-top: 5px;
+    }
+
+    #barra-controle .social {
+        padding: 0;
+    }
+
+    #barra-controle .descricao {
+        font-size  : 0.77em;
+    }
+
+    #barra-controle .score .stars {
+        font-size  : 0.77em;
+    }
+
+    #barra-controle .score .media-avaliacao {
+        font-size: 0.77em;
+    }
+}
+
 #barra-controle .report .numero {
     color       : #F98800;
     float       : right;
@@ -573,7 +611,6 @@ textarea:focus, input:focus {
 }
 
 /********************************Barra de Controle End********************************/
-
 
 /********************************Trajetória de Desenvolvimento********************************/
 
@@ -1009,7 +1046,7 @@ textarea:focus, input:focus {
 }
 
 .profile-actions {
-    width  : 100% !important;
+    width : 100% !important;
 }
 
 .no-padding {

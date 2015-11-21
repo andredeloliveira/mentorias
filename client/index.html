@@ -25,35 +25,9 @@
                   <p>{{currentUser.profile.name}}</p>
               {{/if}}
           </div> -->
-            <div ng-controller="pesquisaController">
-                <div class="row" ng-show="{{loggedIn}}">
-                    <div id="menu" class="container margin-top-30">
 
-                        <div class=" col-lg-2 col-md-2 col-xs-12 no-padding">
-                            <img src="/resources/Logo-Agripa.png" class="img-responsive">
-                        </div>
+            <ng-include src="'client/nav.html'"></ng-include>
 
-                        <div class="col-lg-7 col-md-7 col-xs-12" style="margin-top: 18px;">
-                            <a class="btn btn-default" href="/meuPerfil"> Meu Perfil</a>
-                            <a class="btn btn-default" href="/empresas"> Empresas</a> <!--precisamos da tela :/ -->
-                            <a class="btn btn-default" href="#"> Trajetórias</a>
-                            <a class="btn btn-default" href="#"><i class="fa fa-gear" style="font-size: 1.20em;"></i></a> <!--G is for gear button-->
-                            <a href="/logout" class="btn btn-default"><i class="fa fa-power-off" style="font-size: 1.20em;"></i></a> <!-- for logout apparently-->
-                        </div>
-
-                        <div class="col-lg-3 col-xs-12 col-md-3  no-padding" style="margin-top: 18px;">
-                            <div class="col-md-11 col-xs-11 no-padding">
-                                <input type="text" placeholder="Pesquisar" class="pesquisar" id="pesquisar">
-                            </div>
-                            <div class="col-md-1 no-padding" style="margin-left: -2px;">
-                                <a class="button btn-pesquisar" ng-click="window.open('/pesquisar/')" href=""><i class="fa fa-search" style="font-size: 1.40em;"></i></a><!--P for pesquisar-->
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
             <div ui-view></div>
 
         </div>
