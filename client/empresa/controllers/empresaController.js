@@ -14,17 +14,22 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
           });
 
          $rootScope.nomeUsuarios2 = [];
+          ObjUser = [];
             nomeUsuarios = _.map(arrUsuarios, function(parametro){
-           // nome = parametro.profile.name;
+            
+            id    = parametro._id;
+            nome  = parametro.profile.name;
+            email = parametro.emails[0].address;
 
-            $rootScope.nomeUsuarios2 = {
-              '_id':parametro._id,
-              'nome':parametro.profile.name,
-              'email':parametro
+            ObjUser = {
+              '_id':id,
+              'nome':nome,
+              'email':email
             }
 
-            //push(labirinto);
           });
+            console.log(nomeUsuarios);
+            //$rootScope.nomeUsuarios2 = push(ObjUser);
           console.log($rootScope, $rootScope.nomeUsuarios2);
           var usuarioLogado =  Meteor.userId();
           $scope.cadastroUsuarios = arrUsuarios;
@@ -94,7 +99,7 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
 
           if(!nEmpresa)
             vm.error = 'object undefined!';
-
+            console.log(nEmpresa);
             vm.empresa = {
             nome: nEmpresa.nome,
             website: nEmpresa.website,
@@ -191,7 +196,9 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
         console.log($scope.produtosLoaded);
         $scope.integrantes = [];
         $scope.produtos= [];
-     
+
+        console.log($rootScope.nomeUsuarios2, $rootScope, $scope.selected, $scope.integrantes);
+
         /*fim do controle das tags*/
     }
 ]);
