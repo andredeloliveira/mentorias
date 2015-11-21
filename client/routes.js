@@ -32,7 +32,7 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
             })
             .state('chat', {
                 url: '/chat',
-                templateUrl: 'client/perfis/chat/chat.ng.html',
+                templateUrl: 'client/chat/views/chat.ng.html',
                 controller: 'chatController',
                 controllerAs: 'chat'
             })
