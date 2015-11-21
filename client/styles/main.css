@@ -9,6 +9,7 @@
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
+@import("maran.css");
 
 html {
     color       : #222;
@@ -354,6 +355,7 @@ textarea:focus, input:focus {
     float  : left !important;
     width  : 100%;
     height : 32px !important;
+    padding-left: 30px;
 }
 
 .btn-pesquisar {
@@ -487,6 +489,91 @@ textarea:focus, input:focus {
 }
 
 /********************************Painel de Controle End********************************/
+
+/********************************Barra de Controle********************************/
+
+#barra-controle {
+
+}
+
+.profile-boxes {
+    min-height : 155px !important;
+    padding    : 10px;
+}
+
+#barra-controle .profile .picture {
+    margin-top : 12px;
+}
+
+#barra-controle .profile .identification {
+    margin-top : -10px;
+}
+
+#barra-controle .profile .habilidades {
+    clear      : both;
+    margin-top : 30px;
+}
+
+#barra-controle .profile .habilidades span {
+    margin-right : 5px;
+
+}
+
+#barra-controle .profile .habilidades i {
+    margin-right : 5px;
+
+}
+
+#barra-controle .score p {
+    text-align : center;
+    margin     : 0;
+}
+
+#barra-controle .score .stars {
+    margin : 10px 5px 0;
+}
+
+#barra-controle .score .horas-mentorias {
+    font-size   : 1.33em;
+    line-height : 40px
+}
+
+#barra-controle .descricao p {
+    text-align : justify;
+}
+
+#barra-controle .social {
+
+}
+
+#barra-controle .social a {
+    display    : block;
+    font-size  : 9px;
+    text-align : center;
+    padding    : 5px;
+}
+
+#barra-controle .report button {
+    padding      : 0px;
+    padding-left : 12px;
+}
+
+#barra-controle .report .legenda {
+    float       : left;
+    line-height : 32px;
+}
+
+#barra-controle .report .numero {
+    color       : #F98800;
+    float       : right;
+    border-left : 1px solid rgb(255, 255, 255);
+    padding     : 4px 12px;
+    font-weight : bold;
+    font-size   : 16px;
+}
+
+/********************************Barra de Controle End********************************/
+
 
 /********************************Trajetória de Desenvolvimento********************************/
 
@@ -812,11 +899,11 @@ textarea:focus, input:focus {
 
 /*********************************Helpers*********************************/
 .margin-top-60 {
-    margin-top : 30px;
+    margin-top : 60px;
 }
 
 .margin-top-30 {
-    margin-top : 60px;
+    margin-top : 30px;
 }
 
 .text-decoration-underline {
@@ -916,10 +1003,6 @@ textarea:focus, input:focus {
     border : 1px solid white;
 }
 
-.profile-boxes {
-    min-height : 145px !important;
-}
-
 .btn-default {
     background-color : transparent !important;
     color            : #fff;
@@ -927,7 +1010,6 @@ textarea:focus, input:focus {
 
 .profile-actions {
     width  : 100% !important;
-    margin : 5px 0px;
 }
 
 .no-padding {
@@ -1170,7 +1252,3 @@ a.color-white, a.color-white:hover {
     }
 }
 
-@import(
-"maran.css"
-)
-;

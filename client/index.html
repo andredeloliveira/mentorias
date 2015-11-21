@@ -6,18 +6,18 @@
     <meta charset="utf-8">
 </head>
 <body>
-  <div class="container no-padding">
-      <div ng-app="mentorias">
-          <!--essa parte será o cabeçalho para quem está logado, onde ficará o menu. Uma
-          directive pode ser feita para isso no futuro, ou então um novo html que pode
-        ser inserido utilizando as directive(?) do meteor
-        muitas melhorias podem ser feitas
-        -->
+    <div class="container-fluid">
+        <div ng-app="mentorias">
+            <!--essa parte será o cabeçalho para quem está logado, onde ficará o menu. Uma
+            directive pode ser feita para isso no futuro, ou então um novo html que pode
+          ser inserido utilizando as directive(?) do meteor
+          muitas melhorias podem ser feitas
+          -->
 
-          <small>{{$root.currentUser.profile.name}}</small>
-        <!--Meteor templating, não deu para separar o menu de outra forma-->
+            <small>{{$root.currentUser.profile.name}}</small>
+            <!--Meteor templating, não deu para separar o menu de outra forma-->
 
-          <!--<div class="navbar-right navbar-text">
+            <!--<div class="navbar-right navbar-text">
               <md-button ng-href="/login" ng-hide="$root.currentUser">Entrar</md-button>
               <md-button ng-href="/cadastroPerfil" ng-hide="$root.currentUser">Registrar</md-button>
               <md-button ng-href="/logout" ng-show="$root.currentUser">Sair</md-button>
@@ -25,37 +25,37 @@
                   <p>{{currentUser.profile.name}}</p>
               {{/if}}
           </div> -->
-        <div ng-controller="pesquisaController">
-          <div class="row" ng-show="{{loggedIn}}">
-             <div id="menu" class="container col-md-12 margin-top-60">
+            <div ng-controller="pesquisaController">
+                <div class="row" ng-show="{{loggedIn}}">
+                    <div id="menu" class="container margin-top-30">
 
-              <div class=" col-lg-3 col-md-3 col-xs-12">
-                  <img src="/resources/Logo-Agripa.png"  class="agripa-brand">
-                </div>
+                        <div class=" col-lg-2 col-md-2 col-xs-12 no-padding">
+                            <img src="/resources/Logo-Agripa.png" class="img-responsive">
+                        </div>
 
-                <div class="col-lg-6 col-md-6 col-xs-12 ">
-                  <a class="btn btn-default" href="/meuPerfil"> Meu Perfil</a>
-                  <a class="btn btn-default" href="/empresas"> Empresas</a> <!--precisamos da tela :/ -->
-                  <a class="btn btn-default" href="#"> Trajetórias</a>
-                  <a class="btn btn-default" href="#"><i class="fa fa-gear" style="font-size: 1.44em;" ></i></a> <!--G is for gear button-->
-                  <a href="/logout" class="btn btn-default"><i class="fa fa-power-off" style="font-size: 1.44em;" ></i></a> <!-- for logout apparently-->
-                </div>
+                        <div class="col-lg-7 col-md-7 col-xs-12" style="margin-top: 18px;">
+                            <a class="btn btn-default" href="/meuPerfil"> Meu Perfil</a>
+                            <a class="btn btn-default" href="/empresas"> Empresas</a> <!--precisamos da tela :/ -->
+                            <a class="btn btn-default" href="#"> Trajetórias</a>
+                            <a class="btn btn-default" href="#"><i class="fa fa-gear" style="font-size: 1.20em;"></i></a> <!--G is for gear button-->
+                            <a href="/logout" class="btn btn-default"><i class="fa fa-power-off" style="font-size: 1.20em;"></i></a> <!-- for logout apparently-->
+                        </div>
 
-                  <div class="col-lg-3 col-xs-12 col-md-3  no-padding">
-                    <div class="col-md-11 col-xs-11 no-padding">
-                      <input type="text" placeholder="Pesquisar" class="pesquisar" id="pesquisar">
+                        <div class="col-lg-3 col-xs-12 col-md-3  no-padding" style="margin-top: 18px;">
+                            <div class="col-md-11 col-xs-11 no-padding">
+                                <input type="text" placeholder="Pesquisar" class="pesquisar" id="pesquisar">
+                            </div>
+                            <div class="col-md-1 no-padding" style="margin-left: -2px;">
+                                <a class="button btn-pesquisar" ng-click="window.open('/pesquisar/')" href=""><i class="fa fa-search" style="font-size: 1.40em;"></i></a><!--P for pesquisar-->
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="col-md-1 no-padding">
-                      <a class="button btn-pesquisar" ng-click="window.open('/pesquisar/')" href=""><i class="fa fa-search" style="font-size: 1.44em;"></i></a><!--P for pesquisar-->
-                    </div>
-                  </div>
-
                 </div>
+
             </div>
+            <div ui-view></div>
 
-          </div>
-          <div ui-view class="row"></div>
-
-      </div>
-  </div>
+        </div>
+    </div>
 </body>
