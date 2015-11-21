@@ -1,7 +1,7 @@
 <div class="row" id="barra-controle">
     <div class="col-md-5 col-xs-12 no-padding">
         <div class="col-xs-6 profile-boxes border-white no-padding" style="display: inline-flex;">
-            <img src="http://lorempixel.com/264/153" class="img-responsive"/>
+            <img style="max-height: 152;" src="{{$root.currentUser.profile.profilePic.getFileRecord().url()}}" class="img-responsive"/>
         </div>
 
         <div class="col-xs-6 profile-boxes border-white profile">
@@ -14,19 +14,21 @@
             </div>
 
             <div class="col-xs-9 identification">
-                <span style="font-size: 0.77em;">Empreendedor</span>
+                <span style="font-size: 0.77em;">{{profileTitle}}</span>
                 <br>
 
-                <span style="font-size: 1.20em;">Renam Moreira</span>
+                <span style="font-size: 1.20em;">{{$root.currentUser.profile.name}}</span>
                 <br>
 
-                <span style="font-size:0.77em;">juliana.barreiro@email.com</span>
+                <span style="font-size:0.77em;">{{$root.currentUser.emails[0].address}}</span>
                 <br>
             </div>
 
             <div class="col-xs-12 no-padding habilidades">
-                <span style="font-size:0.77em;"><i class="glyphicon glyphicon-stop" style="color: #F98800;"></i>Buseness</span>
-                <span style="font-size:0.77em;"><i class="glyphicon glyphicon-stop" style="color: #005FEA;"></i>Administração</span>
+                <span style="font-size:0.77em;" ng-repeat="expertise in $root.currentUser.profile.expertise">
+                    <i class="glyphicon glyphicon-stop"></i>
+                    {{' ' +expertise + ' '}}
+                </span>
             </div>
         </div>
     </div>
@@ -35,11 +37,8 @@
         <div class="col-xs-3 col-sm-3 profile-boxes border-white score">
             <div>
                 <p>
-                    <span><i class="fa fa-star stars"></i></span>
-                    <span><i class="fa fa-star stars"></i></span>
-                    <span><i class="fa fa-star stars"></i></span>
-                    <span><i class="fa fa-star stars"></i></span>
-                    <span><i class="fa fa-star-half-o stars"></i></span>
+                    <span ng-repeat="n in [] | range:stars.blankStars"><i class="fa fa-star-o"></i></span>
+                    <span ng-repeat="n in [] | range:stars.realStars"><i class="fa fa-star"></i></span>
                 </p>
 
                 <p>
@@ -54,11 +53,20 @@
                     <p>
                         <small>Gist</small>
                     </p>
+
+                    <!--Trexo diferenciado-->
+                    <!--<b class="horas-mentorias" style="">
+                        {{user.profile.horasMentorias}} hs
+                    </b>
+
+                    <p>
+                        <small>de mentoria</small>
+                    </p>-->
                 </div>
 
                 <div class="col-xs-6 text-center">
                     <b class="horas-mentorias" style="">
-                        9
+                        {{user.profile.badges.length}}
                     </b>
 
                     <p>
@@ -70,22 +78,21 @@
 
         <div class="col-xs-5 col-sm-4 profile-boxes border-white descricao">
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A atque autem dolor dolores, doloribus, eius eligendi enim fugiat incidunt ipsam labore magnam, repellendus sapiente
-                similique voluptates!
+                {{user.profile.breve_descricao}}
             </p>
         </div>
 
         <div class="col-xs-1 col-sm-1 profile-boxes border-white social">
-            <a href="" class="border-white"><i class="fa fa-facebook icon-bar"></i></a>
-            <a href="" class="border-white"><i class="fa fa-linkedin icon-bar"></i></a>
-            <a href="" class="border-white"><i class="fa fa-twitter icon-bar"></i></a>
+            <a href="{{user.profile.facebook}}" class="border-white"><i class="fa fa-facebook icon-bar"></i></a>
+            <a href="{{user.profile.linkedIn}}" class="border-white"><i class="fa fa-linkedin icon-bar"></i></a>
+            <a href="{{user.profile.twitter}}" class="border-white"><i class="fa fa-twitter icon-bar"></i></a>
         </div>
 
         <div class="col-xs-3 col-sm-4 profile-boxes border-white report">
             <p>
                 <button class="btn btn-default profile-actions">
                     <span class="legenda"><i class="fa fa-commenting-o"></i> <span class="hidden-xs">Mensagens</span></span>
-                    <span class="numero">3</span>
+                    <span class="numero">{{$root.currentUser.profile.requisicoes.length}}</span>
                 </button>
             </p>
             <p>
@@ -101,6 +108,25 @@
                 </button>
             </p>
         </div>
+
+        <!--Trexo diferenciado-->
+        <!--<div class="col-xs-3 col-sm-4 profile-boxes border-white report" ng-show="viewEmpreendedor">
+            <p>
+                <button class="btn btn-default profile-actions">
+                    <span class="legenda"><i class="fa fa-commenting-o"></i> <span class="hidden-xs">Enviar Mensagem</span></span>
+                </button>
+            </p>
+            <p>
+                <button class="btn btn-default profile-actions">
+                    <span class="legenda"><i class="fa fa-calendar"></i> <span class="hidden-xs">Agendar Horário</span></span>
+                </button>
+            </p>
+            <p>
+                <button ng-click="requisitaEvento()"  class="btn btn-default profile-actions">
+                    <span class="legenda"><i class="fa fa-group"></i> <span class="hidden-xs">Solicitar Mentoria</span></span>
+                </button>
+            </p>
+        </div>-->
 
     </div>
 </div>
