@@ -10,20 +10,14 @@ angular.module("mentorias").controller("loginController", ['$scope', '$meteor', 
 
         /*a função de login em si.*/
         $scope.login = function (aUser) {
+         
+            $meteor.loginWithPassword(aUser.email, aUser.senha).then(function(){
 
-            $meteor.loginWithPassword(aUser.email, aUser.senha, handleError);
+                 $state.go('meuPerfil');
+            
+            }, function(err){ 
 
-            function handleError(err) {
-                if (err === undefined || err == "undefined" ) {
-                      console.log(err +'erro indefinido');
-                      $meteor.next();
-                    if (Meteor.user()) {
-                      console.log(err +'tenho um usuario');
-                      $meteor.next();   
-                    }
-                }
-                console.log(err);
-                if (err) {
+                  if (err) {
                     //err.error = 'Erro de login - ' + err;
                     if (err.reason == 'User not found') {
                         $scope.error = 'Usuário não encontrado!';
@@ -36,7 +30,9 @@ angular.module("mentorias").controller("loginController", ['$scope', '$meteor', 
                 } else {
                     $state.go('meuPerfil');
                 }
-            }
+              
+            });
+            
         }
     }
 ]);

@@ -10,9 +10,6 @@ Meteor.publish('allUsers',function(){
  return Meteor.users.find({}, {fields: {emails: 1, profile: 1}});
 });
 
-Meteor.publish("usersById", function(_id){
-  return Meteor.users.find({"users" : _id});
-});
 //empresas
 Meteor.publish("empresaByID", function(empresaId){
   retorno =  Empresas.find({_id:empresaId.empresaId});
@@ -21,16 +18,10 @@ Meteor.publish("empresaByID", function(empresaId){
 });
 
 Meteor.publish('imagensID', function(imgid) {
-  /*console.log("******************");
-  console.log(imgid);
-  console.log("******************");*/
    rs = Images.find({_id:imgid});
    return rs;
 });
 
-/*Meteor.publish("empresas", function(){
-  return Empresas.find({});
-});*/
 //roles
 Meteor.publish(null, function (){
   return Meteor.roles.find({});
@@ -39,13 +30,9 @@ Meteor.publish(null, function (){
 
 /*Meteor.publish('seguranca', function (group) {
   if (Roles.userIsInRole(this.userId, ['admin'], group)) {
-
     return Meteor.secrets.find({group: group});
-
   } else {
-
     this.stop();
     return;
-
   }
 });*/

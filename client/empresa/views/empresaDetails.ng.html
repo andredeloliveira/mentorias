@@ -3,24 +3,24 @@
   <div class="row profile-border" style="margin-top: 30px;">
 
     <div class="col-md-3 profile-boxes picture no-padding">
-    <img src="{{imagemEmpresa.getFileRecord().url()}}" class="profile-picture">
+      <img src="{{Empresa.profilePic.getFileRecord().url()}}" class="profile-picture">
     </div>
     <div class="col-md-2 profile-boxes">
 
         <div class="row">
-          <span style="font-size: 0.47em;"> {{detalhesEmpresa._id}}</span>
+          <span style="font-size: 0.47em;"> {{Empresa._id}}</span>
            <div class="col-md-12">
              <span style="font-size: 0.87em;">Empresa</span>
            </div>
         </div> 
         <div class="row">
           <div class="col-md-12">
-             <span style="font-size: 1.33em;" ng-bind="detalhesEmpresa.nome" ></span>     
+             <span style="font-size: 1.33em;" ng-bind="Empresa.nome" ></span>     
           </div>
         </div>
         <div class="row">
          <div class="col-md-12">
-            <span style="font-size:0.77em;" ng-bind="detalhesEmpresa.website"></span>     
+            <span style="font-size:0.77em;" ng-bind="Empresa.website"></span>     
          </div>
         </div>
       <div class="row">
@@ -59,7 +59,7 @@
 
     <div class="col-md-2 profile-boxes">
       <p class="text-center">
-       
+       {{Empresa.descricao}}
       </p>
     </div>
 
@@ -82,9 +82,15 @@
 
     </div>
     <div class="col-md-2 profile-boxes">
-      <button class="btn btn-default profile-actions" ><i class="fa fa-commenting-o"></i> Mensagens <span></span></button>
-      <button class="btn btn-default profile-actions" ><i class="fa fa-calendar"></i> Agenda <span></span></button>
-      <button class="btn btn-default profile-actions" ><i class="fa fa-group"></i> Ações de mentoria<span></span></button>
+      <button class="btn btn-default profile-actions" >
+        <i class="fa fa-commenting-o"></i> Mensagens <span></span>
+      </button>
+      <button class="btn btn-default profile-actions" >
+        <i class="fa fa-calendar"></i> Agenda <span></span>
+      </button>
+      <button class="btn btn-default profile-actions" >
+        <i class="fa fa-group"></i> Ações de mentoria<span></span>
+      </button>
     </div>
   </div>
   <!-- Calendario daqui pra baixo-->
@@ -92,38 +98,39 @@
 <div class="container">
 <div class="row">
 <div class="col-md-4">
+  <div class="col-md-12"> <h2>Integrantes</h2> </div>
 	<div id="dirSidebar" class="col-md-12">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="col-md-3">IMAGEM</div>
-				<div class="col-md-8"> Descrição</div>
-				<div class="col-md-1">açoes</div>
+		
+  
+    <div class="row" id="integrante">
+      <div class="col-md-12">
+				<div class="col-md-3">
+          <img src="resources/Logo_agripa_periodico.png" width="50" />
+        </div>
+				<div class="col-md-8"><p>Jefferson Maran - <span>(cargo)</span></p></div>
+				<div class="col-md-1"><a href="#">chave</a><br /><a href="#">X</a></div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-md-12">
-				teste
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				teste
-			</div>
-		</div>
+
+
 	</div>	
 </div> 
 <div class="col-md-8">
+<div class="col-md-12">
+  <h2>Produtos</h2>
+</div>
 
-<div class="col-sm-4">
+<div class="col-sm-4" ng-repeat="produto in listaprodutos">
     <div class="col-item">
       <div class="photo">
-        <img src="http://localhost:3000/resources/produtos/produtos.PNG" class="img-responsive" alt="a" />
+        <img src="resources/produtos/produtos.PNG" class="img-responsive" alt="a"  />
+        <!-- {{produto.imagem_destaque}} -->
       </div>
       <div class="info">
         <div class="row">
           <div class="detalhes col-md-12">
             <h5>
-          		Nome Produto
+          		{{produto.nome}}
             </h5>
           </div>
 
@@ -136,11 +143,13 @@
         </div>
         <div class="separator clear-left">
           <p class="btn-add">
-         	Detalhes do produto
+         	  {{produto.descricao}}
           </p>
         </div>
       </div>
     </div>
+
+
   </div>
 </div><!--fim coluna md-8-->
 

@@ -14,7 +14,7 @@
                         <!--<md-chips ng-model="produtos" readonly="ctrl.readonly">
                         </md-chips> -->
                         <md-contact-chips
-                                ng-model="produtos"
+                                ng-model="nEmpresa.produtos"
                                 md-contacts="querySearchProdutos($query)"
                                 md-contact-name="nome"
                                 md-require-match="true"
@@ -75,9 +75,16 @@
             </div>
             <!-- tags expertise-->
             <div ng-show="mostrarEtapa(2)">
-                <div class="row">
+                <div>
+
+                    <img class="img-responsive center-block" src="../resources/Logo-Agripa.png"/>
+
+                    <!--<md-chips ng-model="pc.tagNames" readonly="pc.readonly" placeholder="adicione uma expertise"
+                              delete-button-label="remova expertise" delete-hing="clique em delete para remover a tag"
+                              secondary-placeholder="+Expertise"></md-chips> -->
+                    <div class="row">
                     <div class="col-md-12" style="border:1px solid BLUE">
-                        <md-chips ng-model="itensSelecionados" md-autocomplete-snap md-require-match>
+                        <md-chips ng-model="nEmpresa.integrantes" md-autocomplete-snap md-require-match>
                             <md-autocomplete 
                                 md-autofocus="true"
                                 md-no-cache="true" 
@@ -91,23 +98,7 @@
                              <md-chip-template><span><em>{{$chip}}</em></span></md-chip-template>
                         </md-chips>
                     </div>
-            </div>
-                <div>
-
-                    <img class="img-responsive center-block" src="../resources/Logo-Agripa.png"/>
-
-                    <!--<md-chips ng-model="pc.tagNames" readonly="pc.readonly" placeholder="adicione uma expertise"
-                              delete-button-label="remova expertise" delete-hing="clique em delete para remover a tag"
-                              secondary-placeholder="+Expertise"></md-chips> -->
-                    <md-contact-chips
-                            ng-model="integrantes"
-                            md-contacts="querySearch($query)"
-                            md-contact-name="name"
-                            md-require-match="true"
-                            md-highlight-flags="i"
-                            filter-selected="filterSelected"
-                            placeholder="Integrantes">
-                    </md-contact-chips>
+                </div>
 
                     <!-- end twelve columns-->
                 </div>
