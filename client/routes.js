@@ -91,7 +91,7 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
                 controller: 'meuPerfilController',
                 resolve: {
                     "currentUser": ["$meteor", function ($meteor) {
-                        return $meteor.requireUser();
+                         return $meteor.waitForUser();
                     }]
                 }
             })
@@ -129,7 +129,7 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
                 conrollerAs: 'mpc',
                 resolve: {
                     "currentUser": ["$meteor", function ($meteor) {
-                        return $meteor.requireUser();
+                         return $meteor.waitForUser();
                     }]
                 }
             })
@@ -141,13 +141,8 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
                 controllerAs: 'lc',
                 resolve: {
                     "currentUser": ["$meteor", "$rootScope", "$state", function ($meteor, $rootScope, $state) {
-                        $meteor.waitForUser().then(function () {
-                            if ($rootScope.currentUser) {
-                                $state.go('home');
-                            }
-                        }, function (err) {
-                            console.log('Login error - ', err);
-                        });
+                        return $meteor.waitForUser();
+                       
                     }]
                 }
             })
@@ -159,7 +154,7 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
               controllerAs:'pdc',
               resolve: {
                   "currentUser": ["$meteor", function ($meteor) {
-                      return $meteor.requireUser();
+                     return $meteor.waitForUser();
                   }]
               }
             })

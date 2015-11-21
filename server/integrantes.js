@@ -1,0 +1,1 @@
+Integrantes = new Mongo.Collection("integrantes");

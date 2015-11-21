@@ -2,9 +2,17 @@ if (Meteor.isClient) {
 
 /*Controller para lidar com a página de visualização da empresa. */
 angular.module("mentorias").controller("empresaDetailsController", ["$scope", "$rootScope", "$stateParams", "$meteor",
-   function ($scope, $rootScope, $stateParams, $meteor) {
-var minha = 'teste';
-   	    
+   function ($scope, $rootScope, $stateParams, $meteor) { 	    
+
+ 		idEmpresa = $stateParams.empresaId;
+   		$scope.Empresa = $meteor.object(Empresas, idEmpresa);
+
+   		//$scope.Integrantes = $meteor.object(Integrantes);
+
+
+   		console.log("*******************");
+   		console.log($scope.Empresa);
+   		console.log("*******************");
    		$meteor.subscribe('allUsers').then(function(usersHandle){
    			allUsers = $meteor.collection(Meteor.users);
    				arrayUsers = $.map(allUsers, function(value, index) {
@@ -21,8 +29,7 @@ var minha = 'teste';
    				return [valor];
    			})
    			$scope.detalhesEmpresa = arrEmpresa[0];
-   			
-   			console.log($scope.detalhesEmpresa);
+   			//console.log($scope.detalhesEmpresa);
 
    			imgid = $scope.detalhesEmpresa.profilePic._id;
    			
@@ -33,7 +40,7 @@ var minha = 'teste';
 	   			img = $.map(arr, function(v, i){
 	   				return [v];
 	   			});
-	   			$scope.imagemEmpresa = img[0];
+	   			//$scope.imagemEmpresa = img[0];
    			});
    		})
 	
@@ -43,8 +50,8 @@ var minha = 'teste';
    				return [val];
    			})
    			$scope.listaprodutos = arrProdutos; 
-   			
-   			//console.log($scope.listaprodutos);
+
+   			console.log($scope.listaprodutos);
    		})
    		
    		// console.log($scope.listaprodutos, arrProdutos);
