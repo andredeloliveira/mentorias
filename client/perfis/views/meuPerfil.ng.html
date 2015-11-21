@@ -1,116 +1,24 @@
-<div class="container">
+<div class="container margin-top-30 space-footer background-blacked border-white">
 
-  <div class="row profile-border margin-top-30">
-    <!-- para a foto do perfil
+    <ng-include src="'client/barra-controle.html'"></ng-include>
 
-    A foto do perfil é carregada pela referencia do objeto d foto. profile é onde tem os campos especiais do usuário
-    A função getFileRecord, faz o Images.find({file:_id}); por trás, trazendo o objeto salvo no banco com a id da referencia
+    <!-- Calendario daqui pra baixo-->
 
-    Mais info ver: https://github.com/CollectionFS/Meteor-CollectionFS
-    -->
-    <div class="col-md-3 profile-boxes picture no-padding">
-    <img src="{{$root.currentUser.profile.profilePic.getFileRecord().url()}}" class="profile-picture">
-    </div>
-    <div class="col-md-2 profile-boxes">
-
-        <div class="row">
-           <div class="col-md-12">
-             <span style="font-size: 0.87em;">{{profileTitle}}</span>
-           </div>
+    <div class="row profile-border">
+        <div class="col-md-4">
+            <div class="row profile-border margin-top-30 space-footer">
+                <div id="agendaDia" class="text-center">
+                </div>
+            </div>
         </div>
-        <div class="row">
-          <div class="col-md-12">
-             <span style="font-size: 1.33em;">{{$root.currentUser.profile.name}}</span>
-          </div>
-        </div>
-        <div class="row">
-         <div class="col-md-12">
-            <span style="font-size:0.77em;">{{$root.currentUser.emails[0].address}}</span>
-         </div>
-        </div>
-      <div class="row">
-        <div class="col-md-12">
-            <span ng-repeat="expertise in $root.currentUser.profile.expertise">
-            <i class="fa fa-square"></i>
-            {{' ' +expertise + ' '}}
-          </span>
-        </div>
-      </div>
-    </div>
+        <div class="col-md-8 float-right">
 
-    <div class="col-md-2 profile-boxes">
-      <div class="row">
-
-        <div class="col-md-12" >
-          <span ng-repeat="n in [] | range:stars.realStars"><i class="fa fa-star stars"></i></span>
-          <span ng-repeat="n in [] | range:stars.blankStars"><i class="fa fa-star-o"></i></span>
-        </div>
-        <div class="col-md-10 centered">
-            media de avaliações
-        </div>
-
-      </div>
-
-      <div class="row">
-        <div class="col-md-6">
-          <h4 class="horas-mentorias text-center">{{$root.currentUser.profile.horasMentorias}} hs</h4>
-          <p class="text-center">mentoria</p>
-        </div>
-        <div class="col-md-6">
-          <h4 class="horas-mentorias text-center"> {{$root.currentUser.profile.badges.length}} </h4>
-          <p class="text-center">badges</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-2 profile-boxes">
-      <p class="text-center">
-        {{$root.currentUser.profile.breve_descricao}}
-      </p>
-    </div>
-
-    <div class="col-md-1 profile-boxes">
-      <div class="row">
-        <div class="col-md-9 centered">
-          <a href="{{$root.currentUser.profile.facebook}}"><i class="fa fa-facebook-official icon-bar"></i></a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-9 centered">
-          <a href="{{$root.currentUser.profile.twitter}}"><i class="fa fa-twitter icon-bar"></i></a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-9 centered">
-          <a href="{{$root.currentUser.profile.linkedIn}}"><i class="fa fa-linkedin icon-bar"></i></a>
-        </div>
-      </div>
-
-    </div>
-    <!-- fazer essas porra funcionarem pra amanha sem falta, preciso da merda da grana!-->
-    <div class="col-md-2 profile-boxes">
-      <button class="btn btn-default profile-actions" ><i class="fa fa-commenting-o"></i> Mensagens <span class="badge">{{$root.currentUser.profile.requisicoes.length}}</span></button>
-      <button class="btn btn-default profile-actions" ><i class="fa fa-calendar"></i> Agenda <span class="badge"></span></button>
-      <button class="btn btn-default profile-actions" ><i class="fa fa-group"></i> Ações de mentoria<span class="badge"></span></button>
-    </div>
-  </div>
-  <!-- Calendario daqui pra baixo-->
-
-  <div class="row profile-border" >
-    <div class="col-md-4">
-      <div class="row profile-border margin-top-30 space-footer">
-        <div id="agendaDia" class="text-center">
+            <div class="row profile-border margin-top-30 space-footer">
+                <div id="agendaMes" class="text-center"></div>
+            </div>
         </div>
     </div>
-    </div>
-  <div class="col-md-8 float-right">
+    <!-- fim da porra do calendário, daqui pra baixo estão as outras telas de choradeira (Mensagens e ações da mentoria,
 
-  <div class="row profile-border margin-top-30 space-footer">
-    <div id="agendaMes" class="text-center"></div>
-  </div>
-  </div>
-</div>
-<!-- fim da porra do calendário, daqui pra baixo estão as outras telas de choradeira (Mensagens e ações da mentoria,
-
-que na real são as solicitaçoes pra aceitar PORRA!) -->
+    que na real são as solicitaçoes pra aceitar PORRA!) -->
 </div>

@@ -1,30 +1,28 @@
-<template name="nav">
-    <div class="row">
-         <div id="menu" class="container col-md-12" layout="row" layout-align="center start" layout-padding style="margin-top: 60px;">
-            
-          <div class=" col-lg-3 col-md-3 col-xs-12">
-              <img src="/resources/Logo-Agripa.png"  class="agripa-brand">
-            </div>
-            
-            <div class="col-lg-6 col-md-6 col-xs-12 ">
-              <a class="btn btn-default" href="/meuPerfil"> Meu Perfil</a>
-              <a class="btn btn-default" href="#"> Empresas</a> <!--precisamos da tela :/ -->
-              <a class="btn btn-default" href="#"> Trajetórias</a>
-              <a class="btn btn-default" href="#"><i class="fa fa-gear" style="font-size: 1.44em;" ></i></a> <!--G is for gear button-->
-              <a href="/logout" class="btn btn-default"><i class="fa fa-power-off" style="font-size: 1.44em;" ></i></a> <!-- for logout apparently-->
-              {{> loginButtons}}
+<div ng-controller="pesquisaController">
+    <div class="row" ng-show="{{loggedIn}}">
+        <div id="menu" class="container margin-top-30">
+
+            <div class="col-sm-2 col-xs-12 no-padding">
+                <img src="/resources/Logo-Agripa.png" class="img-responsive">
             </div>
 
-            <div class="col-lg-3 col-xs-12 col-md-3  no-padding">
-              <div class="col-md-10 col-xs-10 no-padding">
-                <input type="text" placeholder="Pesquisar" class="pesquisar">   
-              </div>  
-              <div class="col-md-2 no-padding">
-                <a class="button btn-pesquisar" src="#">
-                  <i class="fa fa-search" style="font-size: 1.44em;"></i>
-                </a><!--P for pesquisar-->    
-              </div>
+            <div class="col-sm-7 col-xs-12" style="margin-top: 18px;">
+                <a class="btn btn-default" href="/meuPerfil"> Meu Perfil</a>
+                <a class="btn btn-default" href="/empresas"> Empresas</a> <!--precisamos da tela :/ -->
+                <a class="btn btn-default" href="/trajetoria-de-desenvolvimento"> Trajetórias</a>
+                <a class="btn btn-default" href="/painel-controle"><i class="fa fa-gear" style="font-size: 1.20em;"></i></a> <!--G is for gear button-->
+                <a href="/logout" class="btn btn-default"><i class="fa fa-power-off" style="font-size: 1.20em;"></i></a> <!-- for logout apparently-->
+                {{> loginButtons}}
+            </div>
+
+            <div class="col-sm-3 col-xs-12 no-padding" style="margin-top: 18px;">
+                <div class="col-xs-10 no-padding">
+                    <input type="text" placeholder="Pesquisar" class="pesquisar" id="pesquisar">
+                </div>
+                <div class="col-xs-2 no-padding" style="margin-left: -2px;">
+                    <a class="button btn-pesquisar" ng-click="window.open('/pesquisar/')" href=""><i class="fa fa-search" style="font-size: 1.40em;"></i></a><!--P for pesquisar-->
+                </div>
             </div>
         </div>
     </div>
-</template>
+</div>
