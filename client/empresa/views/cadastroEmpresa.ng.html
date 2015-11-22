@@ -11,12 +11,12 @@
                     <div class="margin-top-30">
                         <input type="text" ng-model="nEmpresa.nome" placeholder="Nome Empresa"> <br/><br/>
                         <input type="text" ng-model="nEmpresa.website" placeholder="Website"><br/><br/>
-                        
+
                         <md-chips ng-model="produtosModel" md-autocomplete-snap md-require-match>
                             <md-autocomplete 
                                 md-autofocus="true"
                                 md-no-cache="true" 
-                                md-min-length="0"
+                                md-min-length="1"
                                 md-selected-item="produtosSelecionados"
                                 md-search-text="searchText"
                                 md-items="produto in AllProdutos"

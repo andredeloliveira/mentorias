@@ -100,8 +100,7 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
               remap = {'_id':id, 'nome':nome,'email':email};
               return remap;
             });
-          console.log("******************");
-          console.log($scope.produtosModel);
+          
           nEmpresa.produtos = _.map($scope.produtosModel, 
             function(param){
               nome  = param.nome;
@@ -135,7 +134,7 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
           });
           if(id_empresa){
             alert(id_empresa+" empresa cadastrada com sucesso");
-            //$state.go('meuPerfil');
+            $state.go('meuPerfil');
           }
 
             
