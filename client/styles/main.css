@@ -434,7 +434,6 @@ textarea:focus, input:focus {
 
 #painel-controle .lista > li.item > .identification {
 
-
 }
 
 #painel-controle .lista > li > div:first-child {
@@ -444,7 +443,7 @@ textarea:focus, input:focus {
 }
 
 #painel-controle .lista > li > div:last-child {
-    width            : 70%;
+    width : 70%;
 }
 
 #painel-controle #trajetorias {
@@ -497,8 +496,8 @@ textarea:focus, input:focus {
 #painel-controle #trajetorias .requisicao > .solicitacao {
 }
 
-#painel-controle #trajetorias .requisicao > .solicitacao .botoes span{
-    margin-right: 5px;
+#painel-controle #trajetorias .requisicao > .solicitacao .botoes span {
+    margin-right : 5px;
 }
 
 #painel-controle #trajetorias .requisicao > .solicitacao p {
@@ -510,8 +509,8 @@ textarea:focus, input:focus {
 }
 
 #painel-controle #trajetorias .requisicao > .comentario p {
-    font-size : 0.85em;
-    text-align: justify;
+    font-size  : 0.85em;
+    text-align : justify;
 }
 
 /********************************Painel de Controle End********************************/
@@ -727,53 +726,78 @@ textarea:focus, input:focus {
     border-left : 1px solid #fff;
 }
 
-.trajetoria {
+#trajetoria-de-desenvolvimento .trajetoria {
 
 }
 
-.trajetoria thead {
+#trajetoria-de-desenvolvimento .trajetoria thead {
     border : 1px solid #fff;
 }
 
-.trajetoria thead tr {
+#trajetoria-de-desenvolvimento .trajetoria thead tr {
 
 }
 
-.trajetoria thead tr td {
+#trajetoria-de-desenvolvimento .trajetoria thead tr td {
     border-right : 2px solid #fff;
     font-weight  : bold;
     padding      : 5px 40px;
 }
 
-.trajetoria tbody {
+#trajetoria-de-desenvolvimento .trajetoria tbody {
 
 }
 
-.trajetoria tbody tr {
+#trajetoria-de-desenvolvimento .trajetoria tbody tr {
 
 }
 
-.trajetoria tbody tr td {
+#trajetoria-de-desenvolvimento .trajetoria tbody tr td {
     border-top : 0 none;
     padding    : 5px 0px 0 0;
 }
 
-.trajetoria tbody tr.linhas-verticais {
+#trajetoria-de-desenvolvimento .trajetoria tbody tr.linhas-verticais {
 
 }
 
-.trajetoria tbody tr.linhas-verticais td {
+#trajetoria-de-desenvolvimento .trajetoria tbody tr.linhas-verticais td {
     padding : 15px 0;
 }
 
-.trajetoria tbody tr.linhas-verticais td hr {
+#trajetoria-de-desenvolvimento .trajetoria tbody tr.linhas-verticais td hr {
     width     : 32px;
     transform : rotate(90deg);
     z-index   : 0;
     margin    : 0 auto;
 }
 
+#trajetoria-de-desenvolvimento .resumo {
+    margin : 30px 0;
+}
+
+#trajetoria-de-desenvolvimento .resumo h4 {
+    padding-left : 20px;
+}
+
+#trajetoria-de-desenvolvimento .resumo .quadrado {
+    background-color : rgb(85, 85, 85);
+    border           : 2px solid #fff;
+    padding          : 10px 20px;
+
+}
+
+#trajetoria-de-desenvolvimento .resumo .quadrado h3 {
+
+}
+
+#trajetoria-de-desenvolvimento .resumo .quadrado span {
+    color : #F98800;
+}
+
 /********************************Trajetória de Desenvolvimento End********************************/
+
+/********************************Chat********************************/
 
 #chat {
     overflow : hidden;
@@ -793,7 +817,9 @@ textarea:focus, input:focus {
     padding          : 0;
     border           : 1px solid rgb(255, 255, 255);
     overflow         : hidden;
-    background-color : rgba(123, 123, 123, 0.9);
+    background-color : rgba(140, 140, 140, 0.7);
+    min-height       : 500px;
+    max-height       : 500px;
 }
 
 #chat .lista > li {
@@ -801,83 +827,154 @@ textarea:focus, input:focus {
     overflow      : hidden;
 }
 
-#chat .lista > li > div {
-    float : left;
-}
-
-#chat .lista > li > div {
+#chat .lista > li div {
+    float   : left;
     padding : 5px;
 }
 
-#chat .lista > li > div.picture {
-    width            : 25%;
-    background-color : rgba(144, 144, 144, 0.9);
+#chat .lista > li > .picture {
+    width            : 30%;
+    background-color : rgba(160, 160, 160, 0.7);
     text-align       : center;
 }
 
-#chat .lista > li > div.details {
+#chat .lista > li > .picture img {
+    border : 1px solid #fff;
+}
+
+#chat .lista > li > .details {
     width : 60%;
 }
 
-#chat .lista > li > div.details p {
-    font-size : 12px;
+#chat .lista > li > .details p {
+    font-size     : 0.80em;
+    margin-bottom : 0;
 }
 
-#chat .lista > li > div.details h5 {
-    font-weight : bold;
+#chat .lista > li > .details h5 {
+    font-weight   : bold;
+    margin-bottom : 5px;
+    font-size     : 0.90em;
 }
 
-#chat .lista > li > div.time {
-    width : 15%;
+#chat .lista > li > .time {
+    width            : 10%;
+    background-color : rgba(144, 144, 144, 0.7);
+    padding          : 0;
 }
 
-#chat .lista > li > div.time small {
-    font-size : 10px;
+#chat .lista > li > .time span {
+    border        : 1px solid #FFF;
+    display       : block;
+    padding       : 3px 7px;
+    margin-top    : -1px;
+    margin-right  : -2px;
+    margin-bottom : 11px;
 }
 
-#chat .lista > li > div.buttons {
-    width : 15%;
+#chat .lista > li > .time small {
+    font-size : 0.60em;
+}
+
+#chat .lista > li > .buttons {
+    width       : 10%;
+    padding     : 0px;
+    padding-top : 13px;
+}
+
+#chat .lista > li > .buttons span {
+    border    : 1px solid rgb(255, 255, 255);
+    padding   : 5px;
+    font-size : 9px;
 }
 
 #chat #conversa {
     border           : 1px solid #fff;
     overflow         : hidden;
-    background-color : rgba(90, 90, 90, 0.9);
+    background-color : rgba(140, 140, 140, 0.7);
+    min-height       : 500px;
+    max-height       : 500px;
+    position         : relative;
 }
 
-#chat #conversa > div.mensagens {
-    border-bottom : 1px solid #fff;
+#chat #conversa > .mensagens {
+
 }
 
 #chat #conversa > .mensagens .mensagem {
-    margin   : 15px 0;
+    margin   : 15px;
     overflow : hidden;
     clear    : both;
 }
 
+#chat #conversa > .mensagens .picture {
+    padding : 0;
+}
+
+#chat #conversa > .mensagens .picture img {
+    border : 1px solid #fff;
+}
+
 #chat #conversa > .mensagens .mensagem.me .picture {
-
-}
-
-#chat #conversa > .mensagens .mensagem.me .text {
-    background-color : #fff;
-    color            : #444;
-    text-align       : right;
-}
-
-#chat #conversa > .mensagens .mensagem .text {
-    width : auto;
-}
-
-#chat #conversa > .mensagens .mensagem.other .picture {
     float : right;
 }
 
-#chat #conversa > .mensagens .mensagem.other .text {
+#chat #conversa > .mensagens .mensagem.me .text {
     background-color : #444;
     color            : #fff;
     float            : right;
-    text-align       : left;
+}
+
+#chat #conversa > .mensagens .mensagem .text {
+    width      : auto;
+    padding    : 6px 20px;
+    max-width  : 80%;
+    text-align : left;
+    position   : relative;
+}
+
+#chat #conversa > .mensagens .mensagem .triangle {
+    line-height  : 60px;
+    margin-right : -4px;
+}
+
+#chat #conversa > .mensagens .mensagem.me .triangle {
+    float       : right;
+    transform   : rotate(180deg);
+    color       : #444;
+    margin-left : -4px;
+}
+
+#chat #conversa > .mensagens .mensagem.other .triangle {
+    float : left;
+}
+
+#chat #conversa > .mensagens .mensagem .text .time {
+    position  : absolute;
+    bottom    : 1px;
+    right     : 4px;
+    font-size : 0.70em;
+    color     : #6B6B6B;
+}
+
+#chat #conversa > .mensagens .mensagem.other .picture {
+    float : left;
+}
+
+#chat #conversa > .mensagens .mensagem.other .text {
+    background-color : #fff;
+    color            : #444;
+    float            : left;
+}
+
+#chat #conversa > .pesquisa {
+    position         : absolute;
+    width            : 97%;
+    bottom           : 0px;
+    border-top       : 1px solid #fff;
+    padding          : 12px 0;
+    overflow         : hidden;
+    background-color : #6D6D6D;
 }
 
 /********************************Chat End********************************/
@@ -1041,6 +1138,7 @@ textarea:focus, input:focus {
 
 .background-blacked {
     background-color : rgba(0, 0, 0, 0.6);
+    overflow: hidden;
 }
 
 .background-grey {
@@ -1151,6 +1249,9 @@ a.color-white, a.color-white:hover {
     width : 100%;
 }
 
+.body-side-padding{
+    padding: 0 15px;
+}
 /**********************************Helpers End**********************************/
 
 /**********************************Bootstrap sobrescrita*********************/
