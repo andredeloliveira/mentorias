@@ -86,20 +86,33 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
             });
             $scope.nEmpresa.profilePic = fileObj;
             $scope.feedbackUpload = true;
-            console.log($scope.nEmpresa);
+            //console.log($scope.nEmpresa);
         };
 
         /*registra a nova empresa no banco*/
         vm.register = function(nEmpresa){
+          
+          nEmpresa.integrantes = _.map($scope.integrantesModel, 
+            function(param){
+              id    = param._id;
+              nome  = param.nome;
+              email = param.email;
+              remap = {'_id':id, 'nome':nome,'email':email};
+              return remap;
+            });
 
+          nEmpresa.produtos = null;
+
+          console.log(nEmpresa.integrantes);
           if(!nEmpresa)
             vm.error = 'object undefined!';
+            
             vm.empresa = {
             nome: nEmpresa.nome,
             website: nEmpresa.website,
             descricao: nEmpresa.breve_descricao,
-            produtos: nEmpresa.produtos,
-            integrantes: $scope.integrantesModel,
+            produtos:,
+            integrantes: nEmpresa.integrantes,
             facebook: nEmpresa.facebook,
             twitter: nEmpresa.twitter,
             linkedIn: nEmpresa.linkedIn,
@@ -107,26 +120,16 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
           };
 
           var id_empresa = Empresas.insert(vm.empresa, function(error, result){
-
+            console.log(result, error, vm.empresa, id_empresa);
             if(error){
-              vm.error = 'Erro ao inserir empresa'
+              vm.error = 'Erro ao inserir empresa';
+              alert(error+" erro inserir empresa");
             };
             return result;
           });
           if(id_empresa){
-            if (!nEmpresa.produtos && !nEmpresa.integrantes) {
-                    Empresas.upsert(id_empresa, {
-                    $set: 
-                    {
-                      "produtos":[],
-                      "integrantes":[]
-                    }
-                   });
-
-            };
-        
-
-          $state.go('meuPerfil');
+              alert(id_empresa+" empresa cadastrada com sucesso");
+            //$state.go('meuPerfil');
           }
 
             
@@ -141,7 +144,15 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
         /*load Produtos, Hard coded mesmo, porque né*/
 
         $scope.loadProdutos = function(){
-          var produtos = ['Jogos Digitais', 'Softwares', 'Eletrônicos', 'Realidade Virtual', 'Eficiência Energética', 'Bioarquitetura'];
+          var produtos = 
+          [
+            'Jogos Digitais', 
+            'Softwares', 
+            'Eletrônicos', 
+            'Realidade Virtual', 
+            'Eficiência Energética', 
+            'Bioarquitetura'
+          ];
 
           var result = produtos.map(function(value, index){
             var tempProd = {
