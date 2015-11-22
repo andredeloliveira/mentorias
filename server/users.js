@@ -12,7 +12,7 @@ Meteor.users.allow({
   update: function(userId){
     return (userId ? true : false);
   },
-  remove: function(userId){ 
+  remove: function(userId){
     return (userId ? true : false);
   }
 });
