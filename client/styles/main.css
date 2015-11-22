@@ -378,6 +378,7 @@ textarea:focus, input:focus {
 #painel-controle {
     border           : 1px solid #fff;
     background-color : rgba(0, 0, 0, 0.6);
+    padding-bottom   : 20px;
 }
 
 #painel-controle #lista-usuarios {
@@ -393,11 +394,15 @@ textarea:focus, input:focus {
     padding          : 0;
     border           : 1px solid rgb(255, 255, 255);
     overflow         : hidden;
-    background-color : rgba(123, 123, 123, 0.9);
+    background-color : rgba(127, 127, 127, 0.7);
 }
 
 #painel-controle .lista .item {
 
+}
+
+#painel-controle .lista .item .picture img {
+    border : 1px solid #fff;
 }
 
 #painel-controle .lista > li {
@@ -417,17 +422,23 @@ textarea:focus, input:focus {
     margin-bottom : 0;
 }
 
-#painel-controle .lista > li.item > div:first-child {
-    margin-bottom : 0;
+#painel-controle .lista > li.item > .picture {
+    margin-bottom    : 0;
+    background-color : rgba(110, 110, 110, 0.7);
 }
 
-#painel-controle .lista > li.item > div:last-child {
-    margin-bottom : 0;
+#painel-controle .lista > li.item > .identification {
+    margin-bottom    : 0;
+    background-color : rgba(60, 60, 60, 0.7);
+}
+
+#painel-controle .lista > li.item > .identification {
+
 }
 
 #painel-controle .lista > li > div:first-child {
     width            : 30%;
-    background-color : rgba(144, 144, 144, 0.9);
+    background-color : rgba(144, 144, 144, 0.7);
     text-align       : center;
 }
 
@@ -438,43 +449,123 @@ textarea:focus, input:focus {
 #painel-controle #trajetorias {
     border           : 1px solid #fff;
     overflow         : hidden;
-    background-color : rgba(90, 90, 90, 0.9);
+    background-color : rgba(90, 90, 90, 0.7);
 }
 
-#painel-controle #trajetorias > div {
+#painel-controle #trajetorias .requisicao {
+    padding       : 10px 0;
     border-bottom : 1px solid #fff;
-    padding       : 10px;
+    overflow      : hidden;
 }
 
-#painel-controle #trajetorias > div > div {
-    padding : 10px;
+#painel-controle #trajetorias .requisicao > div {
+    padding    : 0 10px;
+    min-height : 200px;
 }
 
-#painel-controle #trajetorias > div > div hr {
+#painel-controle #trajetorias .requisicao > div h5 {
+    margin-top : 0;
+}
+
+#painel-controle #trajetorias .requisicao > div hr {
     clear     : both;
     width     : 68px;
     transform : rotate(90deg);
 }
 
-#painel-controle #trajetorias > div > div p {
+#painel-controle #trajetorias .requisicao > div p {
     margin-bottom : 0;
 }
 
-#painel-controle #trajetorias > div div {
+#painel-controle #trajetorias .requisicao div {
     z-index : 1;
 }
 
-#painel-controle #trajetorias > div > div:first-child {
+#painel-controle #trajetorias .requisicao > .ligacao {
     border-right : 1px solid #fff;
-    padding      : 0 10px 0 0;
 }
 
-#painel-controle #trajetorias > div > div:last-child {
+#painel-controle #trajetorias .requisicao > .ligacao p {
+    font-size : 0.85em;
+}
+
+#painel-controle #trajetorias .requisicao > .ligacao .picture {
+    border : 1px solid #fff;
+}
+
+#painel-controle #trajetorias .requisicao > .solicitacao {
+}
+
+#painel-controle #trajetorias .requisicao > .solicitacao .botoes span {
+    margin-right : 5px;
+}
+
+#painel-controle #trajetorias .requisicao > .solicitacao p {
+    font-size : 0.85em;
+}
+
+#painel-controle #trajetorias .requisicao > .comentario {
     border-left : 1px solid #fff;
-    padding     : 0 0 0 10px;
+}
+
+#painel-controle #trajetorias .requisicao > .comentario p {
+    font-size  : 0.85em;
+    text-align : justify;
 }
 
 /********************************Painel de Controle End********************************/
+
+/********************************Scroll Bar Personalizado********************************/
+.vertical {
+    overflow : hidden;
+}
+
+.vertical .sbCtntCtnr * {
+    max-width : 16px !important;
+}
+
+.vertical {
+    height : 500px;
+}
+
+.vertical .sbCtntCtnr {
+    background : #CCC;
+    padding    : 0;
+    margin     : 0;
+    text-align : center;
+    border     : 1px solid #ABC;
+    display    : table;
+}
+
+.vertical .sbCtntCtnr {
+    height : 100%;
+    width  : 18px;
+    float  : right;
+}
+
+/*IE 8 requires !Doctype, IE 9 > supports, no IE 7 Support*/
+
+.sbCtntCtnr > * {
+    display : table-row;
+}
+
+.sbCtntCtnr > * span.middle {
+    display    : table-cell;
+    text-align : middle;
+    height     : 100%;
+    background : #797979;
+    width      : 100%;
+}
+
+.sbCtntCtnr > * span.middle > .scrollBtn {
+    min-height : 16px !important;
+    min-width  : 16px !important;
+    position   : relative;
+    background : #FFF;
+    display    : inline-block;
+}
+
+/********************************Scroll Bar Personalizado End********************************/
 
 /********************************Barra de Controle********************************/
 
@@ -498,7 +589,7 @@ textarea:focus, input:focus {
 
 #barra-controle .profile .habilidades {
     clear      : both;
-    margin-top : 30px;
+    margin-top : 15px;
 }
 
 #barra-controle .profile .habilidades span {
@@ -579,25 +670,25 @@ textarea:focus, input:focus {
 }
 
 @media (max-width : 768px) {
-    #barra-controle .report .legenda{
-        font-size: 17px;
-        margin-top: 5px;
+    #barra-controle .report .legenda {
+        font-size  : 17px;
+        margin-top : 5px;
     }
 
     #barra-controle .social {
-        padding: 0;
+        padding : 0;
     }
 
     #barra-controle .descricao {
-        font-size  : 0.77em;
+        font-size : 0.77em;
     }
 
     #barra-controle .score .stars {
-        font-size  : 0.77em;
+        font-size : 0.77em;
     }
 
     #barra-controle .score .media-avaliacao {
-        font-size: 0.77em;
+        font-size : 0.77em;
     }
 }
 
@@ -635,53 +726,78 @@ textarea:focus, input:focus {
     border-left : 1px solid #fff;
 }
 
-.trajetoria {
+#trajetoria-de-desenvolvimento .trajetoria {
 
 }
 
-.trajetoria thead {
+#trajetoria-de-desenvolvimento .trajetoria thead {
     border : 1px solid #fff;
 }
 
-.trajetoria thead tr {
+#trajetoria-de-desenvolvimento .trajetoria thead tr {
 
 }
 
-.trajetoria thead tr td {
+#trajetoria-de-desenvolvimento .trajetoria thead tr td {
     border-right : 2px solid #fff;
     font-weight  : bold;
     padding      : 5px 40px;
 }
 
-.trajetoria tbody {
+#trajetoria-de-desenvolvimento .trajetoria tbody {
 
 }
 
-.trajetoria tbody tr {
+#trajetoria-de-desenvolvimento .trajetoria tbody tr {
 
 }
 
-.trajetoria tbody tr td {
+#trajetoria-de-desenvolvimento .trajetoria tbody tr td {
     border-top : 0 none;
     padding    : 5px 0px 0 0;
 }
 
-.trajetoria tbody tr.linhas-verticais {
+#trajetoria-de-desenvolvimento .trajetoria tbody tr.linhas-verticais {
 
 }
 
-.trajetoria tbody tr.linhas-verticais td {
+#trajetoria-de-desenvolvimento .trajetoria tbody tr.linhas-verticais td {
     padding : 15px 0;
 }
 
-.trajetoria tbody tr.linhas-verticais td hr {
+#trajetoria-de-desenvolvimento .trajetoria tbody tr.linhas-verticais td hr {
     width     : 32px;
     transform : rotate(90deg);
     z-index   : 0;
     margin    : 0 auto;
 }
 
+#trajetoria-de-desenvolvimento .resumo {
+    margin : 30px 0;
+}
+
+#trajetoria-de-desenvolvimento .resumo h4 {
+    padding-left : 20px;
+}
+
+#trajetoria-de-desenvolvimento .resumo .quadrado {
+    background-color : rgb(85, 85, 85);
+    border           : 2px solid #fff;
+    padding          : 10px 20px;
+
+}
+
+#trajetoria-de-desenvolvimento .resumo .quadrado h3 {
+
+}
+
+#trajetoria-de-desenvolvimento .resumo .quadrado span {
+    color : #F98800;
+}
+
 /********************************Trajetória de Desenvolvimento End********************************/
+
+/********************************Chat********************************/
 
 #chat {
     overflow : hidden;
@@ -701,7 +817,9 @@ textarea:focus, input:focus {
     padding          : 0;
     border           : 1px solid rgb(255, 255, 255);
     overflow         : hidden;
-    background-color : rgba(123, 123, 123, 0.9);
+    background-color : rgba(140, 140, 140, 0.7);
+    min-height       : 500px;
+    max-height       : 500px;
 }
 
 #chat .lista > li {
@@ -709,114 +827,157 @@ textarea:focus, input:focus {
     overflow      : hidden;
 }
 
-#chat .lista > li > div {
-    float : left;
-}
-
-#chat .lista > li > div {
+#chat .lista > li div {
+    float   : left;
     padding : 5px;
 }
 
-#chat .lista > li > div.picture {
-    width            : 25%;
-    background-color : rgba(144, 144, 144, 0.9);
+#chat .lista > li > .picture {
+    width            : 30%;
+    background-color : rgba(160, 160, 160, 0.7);
     text-align       : center;
 }
 
-#chat .lista > li > div.details {
+#chat .lista > li > .picture img {
+    border : 1px solid #fff;
+}
+
+#chat .lista > li > .details {
     width : 60%;
 }
 
-#chat .lista > li > div.details p {
-    font-size : 12px;
+#chat .lista > li > .details p {
+    font-size     : 0.80em;
+    margin-bottom : 0;
 }
 
-#chat .lista > li > div.details h5 {
-    font-weight : bold;
+#chat .lista > li > .details h5 {
+    font-weight   : bold;
+    margin-bottom : 5px;
+    font-size     : 0.90em;
 }
 
-#chat .lista > li > div.time {
-    width : 15%;
+#chat .lista > li > .time {
+    width            : 10%;
+    background-color : rgba(144, 144, 144, 0.7);
+    padding          : 0;
 }
 
-#chat .lista > li > div.time small {
-    font-size : 10px;
+#chat .lista > li > .time span {
+    border        : 1px solid #FFF;
+    display       : block;
+    padding       : 3px 7px;
+    margin-top    : -1px;
+    margin-right  : -2px;
+    margin-bottom : 11px;
 }
 
-#chat .lista > li > div.buttons {
-    width : 15%;
+#chat .lista > li > .time small {
+    font-size : 0.60em;
+}
+
+#chat .lista > li > .buttons {
+    width       : 10%;
+    padding     : 0px;
+    padding-top : 13px;
+}
+
+#chat .lista > li > .buttons span {
+    border    : 1px solid rgb(255, 255, 255);
+    padding   : 5px;
+    font-size : 9px;
 }
 
 #chat #conversa {
     border           : 1px solid #fff;
     overflow         : hidden;
-    background-color : rgba(90, 90, 90, 0.9);
+    background-color : rgba(140, 140, 140, 0.7);
+    min-height       : 500px;
+    max-height       : 500px;
+    position         : relative;
 }
 
-#chat #conversa > div.mensagens {
-    border-bottom : 1px solid #fff;
+#chat #conversa > .mensagens {
+
 }
 
 #chat #conversa > .mensagens .mensagem {
-    margin   : 15px 0;
+    margin   : 15px;
     overflow : hidden;
     clear    : both;
 }
 
+#chat #conversa > .mensagens .picture {
+    padding : 0;
+}
+
+#chat #conversa > .mensagens .picture img {
+    border : 1px solid #fff;
+}
+
 #chat #conversa > .mensagens .mensagem.me .picture {
-
-}
-
-#chat #conversa > .mensagens .mensagem.me .text {
-    background-color : #fff;
-    color            : #444;
-    text-align       : right;
-}
-
-#chat #conversa > .mensagens .mensagem .text {
-    width : auto;
-}
-
-#chat #conversa > .mensagens .mensagem.other .picture {
     float : right;
 }
 
-#chat #conversa > .mensagens .mensagem.other .text {
+#chat #conversa > .mensagens .mensagem.me .text {
     background-color : #444;
     color            : #fff;
     float            : right;
-    text-align       : left;
+}
+
+#chat #conversa > .mensagens .mensagem .text {
+    width      : auto;
+    padding    : 6px 20px;
+    max-width  : 80%;
+    text-align : left;
+    position   : relative;
+}
+
+#chat #conversa > .mensagens .mensagem .triangle {
+    line-height  : 60px;
+    margin-right : -4px;
+}
+
+#chat #conversa > .mensagens .mensagem.me .triangle {
+    float       : right;
+    transform   : rotate(180deg);
+    color       : #444;
+    margin-left : -4px;
+}
+
+#chat #conversa > .mensagens .mensagem.other .triangle {
+    float : left;
+}
+
+#chat #conversa > .mensagens .mensagem .text .time {
+    position  : absolute;
+    bottom    : 1px;
+    right     : 4px;
+    font-size : 0.70em;
+    color     : #6B6B6B;
+}
+
+#chat #conversa > .mensagens .mensagem.other .picture {
+    float : left;
+}
+
+#chat #conversa > .mensagens .mensagem.other .text {
+    background-color : #fff;
+    color            : #444;
+    float            : left;
+}
+
+#chat #conversa > .pesquisa {
+    position         : absolute;
+    width            : 97%;
+    bottom           : 0px;
+    border-top       : 1px solid #fff;
+    padding          : 12px 0;
+    overflow         : hidden;
+    background-color : #6D6D6D;
 }
 
 /********************************Chat End********************************/
-
-/********************************Painel de Controle********************************/
-
-#painel-controle {
-
-}
-
-#painel-controle #lista-usuarios {
-
-}
-
-#painel-controle #lista-empresas {
-
-}
-
-#painel-controle .lista {
-
-}
-
-#painel-controle .lista .item {
-
-}
-
-#painel-controle .lista > div {
-
-}
-
-/********************************Painel de Controle********************************/
 
 /********************************Progress Bar********************************/
 .progressbar {
@@ -977,6 +1138,7 @@ textarea:focus, input:focus {
 
 .background-blacked {
     background-color : rgba(0, 0, 0, 0.6);
+    overflow: hidden;
 }
 
 .background-grey {
@@ -1087,6 +1249,9 @@ a.color-white, a.color-white:hover {
     width : 100%;
 }
 
+.body-side-padding{
+    padding: 0 15px;
+}
 /**********************************Helpers End**********************************/
 
 /**********************************Bootstrap sobrescrita*********************/
