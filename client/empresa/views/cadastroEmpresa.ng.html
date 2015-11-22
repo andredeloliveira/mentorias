@@ -11,17 +11,22 @@
                     <div class="margin-top-30">
                         <input type="text" ng-model="nEmpresa.nome" placeholder="Nome Empresa"> <br/><br/>
                         <input type="text" ng-model="nEmpresa.website" placeholder="Website"><br/><br/>
-                        <!--<md-chips ng-model="produtos" readonly="ctrl.readonly">
-                        </md-chips> -->
-                        <md-contact-chips
-                                ng-model="nEmpresa.produtos"
-                                md-contacts="querySearchProdutos($query)"
-                                md-contact-name="nome"
-                                md-require-match="true"
-                                md-highlight-flags="i"
-                                filter-selected="filterSelected"
-                                placeholder="Produtos">
-                        </md-contact-chips>
+                        
+                        <md-chips ng-model="produtosModel" md-autocomplete-snap md-require-match>
+                            <md-autocomplete 
+                                md-autofocus="true"
+                                md-no-cache="true" 
+                                md-min-length="0"
+                                md-selected-item="produtosSelecionados"
+                                md-search-text="searchText"
+                                md-items="produto in AllProdutos"
+                                md-item-text="produto._lowername"
+                                placeholder="Insira um produto...">
+                                <md-item-template>{{produto._lowername}}</md-item-template>
+                            </md-autocomplete>
+                             <md-chip-template><span><em>{{$chip._lowername}}</em></span></md-chip-template>
+                        </md-chips>
+
                     </div>
                 </div>
                 <!-- end row-->

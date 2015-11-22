@@ -111,7 +111,7 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
             nome: nEmpresa.nome,
             website: nEmpresa.website,
             descricao: nEmpresa.breve_descricao,
-            produtos:,
+            produtos:nEmpresa.produtos,
             integrantes: nEmpresa.integrantes,
             facebook: nEmpresa.facebook,
             twitter: nEmpresa.twitter,
@@ -128,8 +128,8 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
             return result;
           });
           if(id_empresa){
-              alert(id_empresa+" empresa cadastrada com sucesso");
-            //$state.go('meuPerfil');
+            alert(id_empresa+" empresa cadastrada com sucesso");
+            $state.go('meuPerfil');
           }
 
             
@@ -143,7 +143,6 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
 
         /*load Produtos, Hard coded mesmo, porque né*/
 
-        $scope.loadProdutos = function(){
           var produtos = 
           [
             'Jogos Digitais', 
@@ -154,15 +153,16 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
             'Bioarquitetura'
           ];
 
-          var result = produtos.map(function(value, index){
+          var Arrprodutos = _.map(produtos, function(value, index){
             var tempProd = {
               nome: value
             };
             tempProd._lowername = tempProd.nome.toLowerCase();
             return tempProd;
           });
-          return result;
-        }
+         
+        $rootScope.AllProdutos = Arrprodutos;
+
 
         /*Aqui será definida a lógica para o controller das tags*/
 
@@ -208,21 +208,23 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
           return results;
         };
 
-        $scope.selected = [];
        
+  
         $scope.filterSelected = true;
         $scope.readonly = false;
         $scope.usersLoaded = $scope.loadUsers($scope.users);
         //console.log($scope.usersLoaded);
-        $scope.produtosLoaded = $scope.loadProdutos();
-        console.log($scope.produtosLoaded);
+        //$scope.produtosLoaded = $scope.loadProdutos();
+        //console.log($scope.produtosLoaded);
         
-        $scope.produtos= [];
+        //arrays que realmente precisam
+        $scope.produtosModel= [];
+        $scope.produtosSelecionados = [];
+
 
         $scope.integrantesSelecionados = [];
         $scope.integrantesModel = [];
-        //console.log($rootScope.nomeUsuarios2, $rootScope, $scope.selected, $scope.integrantes);
-
+      
         /*fim do controle das tags*/
     }
 ]);
