@@ -1,7 +1,7 @@
 Empresas = new Mongo.Collection("empresa");
 
-/*
-Schemas = {};
+
+/*Schemas = {};
 
 Schemas.Empresa = new SimpleSchema({
     nome: {
@@ -15,18 +15,16 @@ Schemas.Empresa = new SimpleSchema({
         regEx: SimpleSchema.RegEx.Url,
         optional: true
     },
-    produtos: {
-        type: String,
-        label: "Produtos"
-    },
+    produtos: [
+          {}  
+
+    ],
+
     descricao_empresa: {
         type: String,
         label: "Descrição da Empresa"
     },
-    integrantes: {
-        type: String,
-        label: "Integrantes"
-    },
+    integrantes: [],
     facebook: {
         type: String,
         label: "Facebook",
@@ -53,6 +51,6 @@ Schemas.Empresa = new SimpleSchema({
         optional: true
     }
 });
-*/
-//Empresas.attachSchema(Schemas.Empresa);
 
+Empresas.attachSchema(Schemas.Empresa);
+*/

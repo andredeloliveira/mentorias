@@ -14,18 +14,18 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
           });
 
          $rootScope.nomeUsuarios2 = [];
+          ObjUser = [];
             nomeUsuarios = _.map(arrUsuarios, function(parametro){
-           // nome = parametro.profile.name;
 
-            $rootScope.nomeUsuarios2 = {
-              '_id':parametro._id,
-              'nome':parametro.profile.name,
-              'email':parametro
-            }
+            id    = parametro._id;
+            nome  = parametro.profile.name;
+            email = parametro.emails[0].address;
 
-            //push(labirinto);
+            ObjUser = {'_id':id, 'nome':nome,'email':email}
+            console.log(ObjUser);
+            $rootScope.nomeUsuarios2.push(ObjUser);
           });
-          console.log($rootScope, $rootScope.nomeUsuarios2);
+          console.log($rootScope.nomeUsuarios2);
           var usuarioLogado =  Meteor.userId();
           $scope.cadastroUsuarios = arrUsuarios;
           //console.log($scope.cadastroUsuarios, usuarioLogado);
@@ -86,15 +86,32 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
             });
             $scope.nEmpresa.profilePic = fileObj;
             $scope.feedbackUpload = true;
-            console.log($scope.nEmpresa);
+            //console.log($scope.nEmpresa);
         };
 
         /*registra a nova empresa no banco*/
         vm.register = function(nEmpresa){
-
+          
+          nEmpresa.integrantes = _.map($scope.integrantesModel, 
+            function(param){
+              id    = param._id;
+              nome  = param.nome;
+              email = param.email;
+              remap = {'_id':id, 'nome':nome,'email':email};
+              return remap;
+            });
+          
+          nEmpresa.produtos = _.map($scope.produtosModel, 
+            function(param){
+              nome  = param.nome;
+              lowername = param._lowename;
+              remap = {'nome':nome,'lowername':lowername};
+              return remap;
+            });
+          console.log(nEmpresa.produtos);
           if(!nEmpresa)
             vm.error = 'object undefined!';
-
+            
             vm.empresa = {
             nome: nEmpresa.nome,
             website: nEmpresa.website,
@@ -106,14 +123,21 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
             linkedIn: nEmpresa.linkedIn,
             profilePic: nEmpresa.profilePic
           };
+
           var id_empresa = Empresas.insert(vm.empresa, function(error, result){
+            console.log(result, error, vm.empresa, id_empresa);
             if(error){
-              vm.error = 'Erro ao inserir empresa'
+              vm.error = 'Erro ao inserir empresa';
+              alert(error+" erro inserir empresa");
             };
             return result;
           });
-          if(id_empresa)
+          if(id_empresa){
+            alert(id_empresa+" empresa cadastrada com sucesso");
             $state.go('meuPerfil');
+          }
+
+            
         }
         /*remove a dita cuja*/
         vm.remove = function(nEmpresa){
@@ -124,25 +148,33 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
 
         /*load Produtos, Hard coded mesmo, porque né*/
 
-        $scope.loadProdutos = function(){
-          var produtos = ['Jogos Digitais', 'Softwares', 'Eletrônicos', 'Realidade Virtual', 'Eficiência Energética', 'Bioarquitetura'];
+          var produtos = 
+          [
+            'Jogos Digitais', 
+            'Softwares', 
+            'Eletrônicos', 
+            'Realidade Virtual', 
+            'Eficiência Energética', 
+            'Bioarquitetura'
+          ];
 
-          var result = produtos.map(function(value, index){
+          var Arrprodutos = _.map(produtos, function(value, index){
             var tempProd = {
               nome: value
             };
             tempProd._lowername = tempProd.nome.toLowerCase();
             return tempProd;
           });
-          return result;
-        }
+         
+        $rootScope.AllProdutos = Arrprodutos;
+
 
         /*Aqui será definida a lógica para o controller das tags*/
 
         $scope.loadUsers = function(users){
           var result = [];
 
-          console.log(users);
+          //console.log(users);
 
           for( var prop in users){
             if(users.hasOwnProperty(prop)){
@@ -155,7 +187,7 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
               }
             }
           }
-          console.log(result);
+          //console.log(result);
           return result;
 
         }
@@ -177,21 +209,27 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
         $scope.querySearchProdutos = function(query){
           var results = query ?
             $scope.produtosLoaded.filter($scope.createFilterFor(query)) : [];
-          console.log(results);
+          //console.log(results);
           return results;
         };
 
-        $scope.selected = [];
        
+  
         $scope.filterSelected = true;
         $scope.readonly = false;
         $scope.usersLoaded = $scope.loadUsers($scope.users);
-        console.log($scope.usersLoaded);
-        $scope.produtosLoaded = $scope.loadProdutos();
-        console.log($scope.produtosLoaded);
-        $scope.integrantes = [];
-        $scope.produtos= [];
-     
+        //console.log($scope.usersLoaded);
+        //$scope.produtosLoaded = $scope.loadProdutos();
+        //console.log($scope.produtosLoaded);
+        
+        //arrays que realmente precisam
+        $scope.produtosModel= [];
+        $scope.produtosSelecionados = [];
+
+
+        $scope.integrantesSelecionados = [];
+        $scope.integrantesModel = [];
+      
         /*fim do controle das tags*/
     }
 ]);

@@ -9,10 +9,6 @@ angular.module("mentorias").controller("empresaDetailsController", ["$scope", "$
 
    		//$scope.Integrantes = $meteor.object(Integrantes);
 
-
-   		console.log("*******************");
-   		console.log($scope.Empresa);
-   		console.log("*******************");
    		$meteor.subscribe('allUsers').then(function(usersHandle){
    			allUsers = $meteor.collection(Meteor.users);
    				arrayUsers = $.map(allUsers, function(value, index) {

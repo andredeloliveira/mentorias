@@ -727,7 +727,7 @@ textarea:focus, input:focus {
 }
 
 #trajetoria-de-desenvolvimento .trajetoria {
-
+    border: 0 none;
 }
 
 #trajetoria-de-desenvolvimento .trajetoria thead {
@@ -741,7 +741,6 @@ textarea:focus, input:focus {
 #trajetoria-de-desenvolvimento .trajetoria thead tr td {
     border-right : 2px solid #fff;
     font-weight  : bold;
-    padding      : 5px 40px;
 }
 
 #trajetoria-de-desenvolvimento .trajetoria tbody {
@@ -755,6 +754,16 @@ textarea:focus, input:focus {
 #trajetoria-de-desenvolvimento .trajetoria tbody tr td {
     border-top : 0 none;
     padding    : 5px 0px 0 0;
+    position   : relative;
+}
+
+@media (max-width : 768px) {
+    #trajetoria-de-desenvolvimento .trajetoria thead tr td {
+        font-size: 0.75em;
+    }
+    #trajetoria-de-desenvolvimento .trajetoria tbody tr td{
+        font-size: 0.75em;
+    }
 }
 
 #trajetoria-de-desenvolvimento .trajetoria tbody tr.linhas-verticais {
@@ -770,6 +779,53 @@ textarea:focus, input:focus {
     transform : rotate(90deg);
     z-index   : 0;
     margin    : 0 auto;
+}
+
+#trajetoria-de-desenvolvimento .trajetoria .flag {
+    position : absolute;
+    top      : -100px;
+    left     : -106px;
+    width    : 114px;
+}
+
+#trajetoria-de-desenvolvimento .trajetoria .flag .legenda {
+    font-size    : 0.7em;
+    float        : right;
+    margin-right : 6px;
+}
+
+#trajetoria-de-desenvolvimento .trajetoria .flag .icon {
+    float  : right;
+    height: 17px;
+    position: relative;
+    z-index: 2;
+}
+
+#trajetoria-de-desenvolvimento .trajetoria .flag .icon.atraso {
+    margin-top: -5px;
+}
+
+#trajetoria-de-desenvolvimento .trajetoria .flag .icon.atraso:before {
+    font-family : 'Glyphicons Halflings';
+    content     : "\e014"
+}
+
+#trajetoria-de-desenvolvimento .trajetoria .flag .icon.atual {
+    border           : 3px solid rgb(255, 255, 255);
+    padding          : 5px;
+
+    background-color : rgb(249, 136, 0);
+
+}
+
+#trajetoria-de-desenvolvimento .trajetoria .flag .linha {
+    transform        : rotate(90deg);
+    background-color : #FFF;
+    height           : 4px;
+    width            : 60px;
+    position         : absolute;
+    right            : -22px;
+    bottom           : -23px;
 }
 
 #trajetoria-de-desenvolvimento .resumo {
@@ -1138,7 +1194,7 @@ textarea:focus, input:focus {
 
 .background-blacked {
     background-color : rgba(0, 0, 0, 0.6);
-    overflow: hidden;
+    overflow         : hidden;
 }
 
 .background-grey {
@@ -1249,9 +1305,10 @@ a.color-white, a.color-white:hover {
     width : 100%;
 }
 
-.body-side-padding{
-    padding: 0 15px;
+.body-side-padding {
+    padding : 0 15px;
 }
+
 /**********************************Helpers End**********************************/
 
 /**********************************Bootstrap sobrescrita*********************/
