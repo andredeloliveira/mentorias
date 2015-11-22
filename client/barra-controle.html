@@ -1,7 +1,7 @@
 <div class="row" id="barra-controle">
     <div class="col-md-5 col-xs-12 no-padding">
         <div class="col-xs-6 profile-boxes border-white no-padding" style="display: inline-flex;">
-            <img style="max-height: 152px;" src="{{$root.currentUser.profile.profilePic.getFileRecord().url()}}" class="img-responsive"/>
+            <img style="max-height: 152px;" src="{{$root.currentUser.profile.profilePic.getFileRecord().url()}}" class="img-responsive center-block"/>
         </div>
 
         <div class="col-xs-6 profile-boxes border-white profile">
@@ -37,8 +37,8 @@
         <div class="col-xs-3 col-sm-3 profile-boxes border-white score">
             <div>
                 <p>
-                    <span ng-repeat="n in [] | range:stars.blankStars"><i class="fa fa-star-o"></i></span>
-                    <span ng-repeat="n in [] | range:stars.realStars"><i class="fa fa-star"></i></span>
+                    <span ng-repeat="n in [] | range:stars.blankStars"><i class="fa fa-star-o stars"></i></span>
+                    <span ng-repeat="n in [] | range:stars.realStars"><i class="fa fa-star stars"></i></span>
                 </p>
 
                 <p>
