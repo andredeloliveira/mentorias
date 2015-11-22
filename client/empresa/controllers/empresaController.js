@@ -100,10 +100,16 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
               remap = {'_id':id, 'nome':nome,'email':email};
               return remap;
             });
-
-          nEmpresa.produtos = null;
-
-          console.log(nEmpresa.integrantes);
+          console.log("******************");
+          console.log($scope.produtosModel);
+          nEmpresa.produtos = _.map($scope.produtosModel, 
+            function(param){
+              nome  = param.nome;
+              lowername = param._lowename;
+              remap = {'nome':nome,'lowername':lowername};
+              return remap;
+            });
+          console.log(nEmpresa.produtos);
           if(!nEmpresa)
             vm.error = 'object undefined!';
             
@@ -129,7 +135,7 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
           });
           if(id_empresa){
             alert(id_empresa+" empresa cadastrada com sucesso");
-            $state.go('meuPerfil');
+            //$state.go('meuPerfil');
           }
 
             
