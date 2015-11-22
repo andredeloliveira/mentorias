@@ -84,18 +84,19 @@
                               secondary-placeholder="+Expertise"></md-chips> -->
                     <div class="row">
                     <div class="col-md-12" style="border:1px solid BLUE">
-                        <md-chips ng-model="nEmpresa.integrantes" md-autocomplete-snap md-require-match>
+                        <md-chips ng-model="integrantesModel" md-autocomplete-snap md-require-match>
                             <md-autocomplete 
                                 md-autofocus="true"
                                 md-no-cache="true" 
                                 md-min-length="0"
-                                md-selected-item="selected"
+                                md-selected-item="integrantesSelecionados"
                                 md-search-text="searchText"
                                 md-items="item in nomeUsuarios2"
+                                md-item-text="item.nome"
                                 placeholder="Insira um integrante...">
-                                <md-item-template>{{item}}</md-item-template>
+                                <md-item-template>{{item.nome}}</md-item-template>
                             </md-autocomplete>
-                             <md-chip-template><span><em>{{$chip}}</em></span></md-chip-template>
+                             <md-chip-template><span><em>{{$chip.nome}}</em></span></md-chip-template>
                         </md-chips>
                     </div>
                 </div>

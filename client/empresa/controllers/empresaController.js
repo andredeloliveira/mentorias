@@ -16,21 +16,16 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
          $rootScope.nomeUsuarios2 = [];
           ObjUser = [];
             nomeUsuarios = _.map(arrUsuarios, function(parametro){
-            
+
             id    = parametro._id;
             nome  = parametro.profile.name;
             email = parametro.emails[0].address;
 
-            ObjUser = {
-              '_id':id,
-              'nome':nome,
-              'email':email
-            }
-
+            ObjUser = {'_id':id, 'nome':nome,'email':email}
+            console.log(ObjUser);
+            $rootScope.nomeUsuarios2.push(ObjUser);
           });
-            console.log(nomeUsuarios);
-            //$rootScope.nomeUsuarios2 = push(ObjUser);
-          console.log($rootScope, $rootScope.nomeUsuarios2);
+          console.log($rootScope.nomeUsuarios2);
           var usuarioLogado =  Meteor.userId();
           $scope.cadastroUsuarios = arrUsuarios;
           //console.log($scope.cadastroUsuarios, usuarioLogado);
@@ -99,26 +94,42 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
 
           if(!nEmpresa)
             vm.error = 'object undefined!';
-            console.log(nEmpresa);
             vm.empresa = {
             nome: nEmpresa.nome,
             website: nEmpresa.website,
             descricao: nEmpresa.breve_descricao,
-            produtos:nEmpresa.produtos,
-            integrantes: nEmpresa.integrantes,
+            produtos: nEmpresa.produtos,
+            integrantes: $scope.integrantesModel,
             facebook: nEmpresa.facebook,
             twitter: nEmpresa.twitter,
             linkedIn: nEmpresa.linkedIn,
             profilePic: nEmpresa.profilePic
           };
+
           var id_empresa = Empresas.insert(vm.empresa, function(error, result){
+
             if(error){
               vm.error = 'Erro ao inserir empresa'
             };
             return result;
           });
-          if(id_empresa)
-            $state.go('meuPerfil');
+          if(id_empresa){
+            if (!nEmpresa.produtos && !nEmpresa.integrantes) {
+                    Empresas.upsert(id_empresa, {
+                    $set: 
+                    {
+                      "produtos":[],
+                      "integrantes":[]
+                    }
+                   });
+
+            };
+        
+
+          $state.go('meuPerfil');
+          }
+
+            
         }
         /*remove a dita cuja*/
         vm.remove = function(nEmpresa){
@@ -147,7 +158,7 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
         $scope.loadUsers = function(users){
           var result = [];
 
-          console.log(users);
+          //console.log(users);
 
           for( var prop in users){
             if(users.hasOwnProperty(prop)){
@@ -160,7 +171,7 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
               }
             }
           }
-          console.log(result);
+          //console.log(result);
           return result;
 
         }
@@ -182,7 +193,7 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
         $scope.querySearchProdutos = function(query){
           var results = query ?
             $scope.produtosLoaded.filter($scope.createFilterFor(query)) : [];
-          console.log(results);
+          //console.log(results);
           return results;
         };
 
@@ -191,13 +202,15 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
         $scope.filterSelected = true;
         $scope.readonly = false;
         $scope.usersLoaded = $scope.loadUsers($scope.users);
-        console.log($scope.usersLoaded);
+        //console.log($scope.usersLoaded);
         $scope.produtosLoaded = $scope.loadProdutos();
         console.log($scope.produtosLoaded);
-        $scope.integrantes = [];
+        
         $scope.produtos= [];
 
-        console.log($rootScope.nomeUsuarios2, $rootScope, $scope.selected, $scope.integrantes);
+        $scope.integrantesSelecionados = [];
+        $scope.integrantesModel = [];
+        //console.log($rootScope.nomeUsuarios2, $rootScope, $scope.selected, $scope.integrantes);
 
         /*fim do controle das tags*/
     }
