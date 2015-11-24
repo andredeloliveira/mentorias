@@ -6,7 +6,7 @@ Meteor.publish("oneUser", function(userId){
 });
 
 Meteor.publish("userByName", function(name){
-  return Meteor.users.find({'profile.name':name},{fields: {_id:1,emails:1, profile:1}});
+  return Meteor.users.find({'profile.name': name});
 });
 
 Meteor.publish("empresaByName", function(name){

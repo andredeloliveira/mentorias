@@ -8,11 +8,11 @@ angular.module("mentorias").controller("perfilDetalhesController", ['$scope','$r
 
         var subscriptionHandle;
        //  $scope.userB = $scope.$meteorObject(Meteor.users, $stateParams.perfilId ,false).subscribe("users");
-    $meteor.subscribe("users", { _id: $stateParams.perfilId }).then(function (handle) {
+    $scope.$meteorSubscribe("users", { _id: $stateParams.perfilId }).then(function (handle) {
         console.log('Client Users subscription ready');
         subscriptionHandle = handle;
         // Get the control from the database and bind it to Angular's scope
-        $scope.control = $meteor.object(Meteor.users, { _id: $stateParams.perfilId } );
+        $scope.control = $scope.$meteorObject(Meteor.users, { _id: $stateParams.perfilId },false);
 
         // Get the actual object without the angular wrapping
         self.thing = $scope.control.getRawObject();
@@ -62,7 +62,7 @@ angular.module("mentorias").controller("perfilDetalhesController", ['$scope','$r
             result = 'Empreendedor';
           }
           return result;
-        };
+        }
 
         /*função para as a média de nota do usuário*/
         /*Função que vai tratar a média das notas.
@@ -100,7 +100,7 @@ angular.module("mentorias").controller("perfilDetalhesController", ['$scope','$r
           };
           return tempStars;
 
-        };
+        }
 
         //função que define quem é que tá vendo essa parada
         $scope.defineView = function(user, currentUser){
@@ -115,15 +115,15 @@ angular.module("mentorias").controller("perfilDetalhesController", ['$scope','$r
 
         /*definição memo*/
        $scope.profileTitle = $scope.definirSexo($scope.user);
-        $scope.defineView($scope.user, $rootScope.currentUser);
+        $scope.defineView($scope.control.getRawObject(), $rootScope.currentUser);
         $scope.stars = $scope.getStars($scope.user.profile.stars);
-        console.log($scope.stars);
+        console.log();
         $scope.agendaDia = $('#agendaDia').fullCalendar($scope.user.profile.agendaDia);
         $scope.agendaMes = $('#agendaMes').fullCalendar($scope.user.profile.agendaMes);
 
         /*funcão que adiciona uma requisição de evento para o usuário X do usuário logado */
 
-        handle.stop();
+
 
         $scope.requisitaEvento = function(){
           /*Novo evento que será requisitado.*/
@@ -145,15 +145,11 @@ angular.module("mentorias").controller("perfilDetalhesController", ['$scope','$r
           Meteor.users.update({_id:$scope.user._id}, {$push: {"profile.requisicoes": newEvent}});
 
 
-        };
-
-
-
-
-
-
+        }
 
       });
+
+      console.log($scope.user);
 
 
 

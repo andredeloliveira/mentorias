@@ -1,6 +1,118 @@
 <div class="body-side-padding margin-top-30 space-footer background-blacked border-white">
 
-    <ng-include src="'client/barra-controle.html'"></ng-include>
+  <div class="row" id="barra-controle">
+      <div class="col-md-5 col-xs-12 no-padding">
+          <div class="col-xs-6 profile-boxes border-white no-padding" style="display: inline-flex;">
+              <img style="max-height: 152px;" src="{{user.profile.profilePic.getFileRecord().url()}}" class="img-responsive center-block"/>
+          </div>
+
+          <div class="col-xs-6 profile-boxes border-white profile">
+              <div class="pull-right">
+                  <a class="btn btn-default" style="padding: 1px 6px; font-size:0.77em"><i class="fa fa-pencil"></i> Editar</a>
+              </div>
+
+              <div class="col-xs-3 no-padding picture">
+                  <img src="http://lorempixel.com/100/100" class="img-responsive"/>
+              </div>
+
+              <div class="col-xs-9 identification">
+                  <span style="font-size: 0.77em;">{{profileTitle}}</span>
+                  <br>
+
+                  <span style="font-size: 1.20em;">{{user.profile.name}}</span>
+                  <br>
+
+                  <span style="font-size:0.77em;">{{user.emails[0].address}}</span>
+                  <br>
+              </div>
+
+              <div class="col-xs-12 no-padding habilidades">
+                  <span style="font-size:0.77em;" ng-repeat="expertise in user.profile.expertise">
+                      <i class="glyphicon glyphicon-stop"></i>
+                      {{' ' +expertise + ' '}}
+                  </span>
+              </div>
+          </div>
+      </div>
+
+      <div class="col-md-7 col-sm-12 no-padding">
+          <div class="col-xs-3 col-sm-3 profile-boxes border-white score">
+              <div>
+                  <p>
+                      <span ng-repeat="n in [] | range:stars.blankStars"><i class="fa fa-star-o stars"></i></span>
+                      <span ng-repeat="n in [] | range:stars.realStars"><i class="fa fa-star stars"></i></span>
+                  </p>
+
+                  <p>
+                      <small class="media-avaliacao">media de avaliações</small>
+                  </p>
+
+                  <br/>
+
+                  <div class="col-xs-6 text-center">
+                      <img src="http://lorempixel.com/100/100" width="40"/>
+
+                      <p>
+                          <small>Gist</small>
+                      </p>
+
+                      <!--Trexo diferenciado-->
+                      <!--<b class="horas-mentorias" style="">
+                          {{user.profile.horasMentorias}} hs
+                      </b>
+
+                      <p>
+                          <small>de mentoria</small>
+                      </p>-->
+                  </div>
+
+                  <div class="col-xs-6 text-center">
+                      <b class="horas-mentorias" style="">
+                          {{user.profile.badges.length}}
+                      </b>
+
+                      <p>
+                          <small>badges</small>
+                      </p>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-xs-5 col-sm-4 profile-boxes border-white descricao">
+              <p>
+                  {{user.profile.breve_descricao}}
+              </p>
+          </div>
+
+          <div class="col-xs-1 col-sm-1 profile-boxes border-white social">
+              <a href="{{user.profile.facebook}}" class="border-white"><i class="fa fa-facebook icon-bar"></i></a>
+              <a href="{{user.profile.linkedIn}}" class="border-white"><i class="fa fa-linkedin icon-bar"></i></a>
+              <a href="{{user.profile.twitter}}" class="border-white"><i class="fa fa-twitter icon-bar"></i></a>
+          </div>
+
+
+
+          <div class="col-xs-3 col-sm-4 profile-boxes border-white report" ng-show="viewEmpreendedor">
+              <p>
+                  <button class="btn btn-default profile-actions">
+                      <span class="legenda"><i class="fa fa-commenting-o"></i> <span class="hidden-xs">Enviar Mensagem</span></span>
+                  </button>
+              </p>
+              <p>
+                  <button class="btn btn-default profile-actions">
+                      <span class="legenda"><i class="fa fa-calendar"></i> <span class="hidden-xs">Agendar Horário</span></span>
+                  </button>
+              </p>
+              <p>
+                  <button ng-click="requisitaEvento()"  class="btn btn-default profile-actions">
+                      <span class="legenda"><i class="fa fa-group"></i> <span class="hidden-xs">Solicitar Mentoria</span></span>
+                  </button>
+              </p>
+          </div>
+
+      </div>
+  </div>
+
 
     <!-- Calendario daqui pra baixo-->
 
