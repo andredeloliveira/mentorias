@@ -5,6 +5,13 @@ Meteor.publish("oneUser", function(userId){
   return Meteor.users.findOne({_id: userId}, {fields: {_id:1,emails:1, profile:1}});
 });
 
+Meteor.publish("userByName", function(name){
+  return Meteor.users.find({'profile.name':name},{fields: {_id:1,emails:1, profile:1}});
+});
+
+Meteor.publish("empresaByName", function(name){
+  return Empresas.find({nome: name});
+});
 Meteor.users.allow({
   insert: function(userId){
     return (userId ? true : false);
@@ -12,7 +19,7 @@ Meteor.users.allow({
   update: function(userId){
     return (userId ? true : false);
   },
-  remove: function(userId){ 
+  remove: function(userId){
     return (userId ? true : false);
   }
 });

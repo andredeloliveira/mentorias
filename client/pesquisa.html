@@ -1,0 +1,32 @@
+<div ng-repeat="user in users">
+  <div class="col-md-12 no-padding">
+    <a href="/perfis/{{user._id}}">
+      <h4>{{user.profile.name}}</h4>
+    <div class="col-md-6">
+      <img src="{{user.profile.profilePic.getFileRecord().url()}}"  alt="{{user.profile.name}}" style="height: 240px; width:240px;" />
+
+    </div>
+    <div class="col-md-6">
+
+      <span>{{user.profile.tipo_conta}}</span><br>
+      <span>{{user.emails[0].address}}</span>
+    </div>
+  </a>
+
+</div>
+</div>
+<div ng-repeat="empresa in empresas">
+  <div class="col-md-12 no-padding">
+    <a href="/empresas/{{empresa._id}}">
+      <h4>{{empresa.nome}}</h4>
+    <div class="col-md-6">
+      <img src="{{empresa.profilePic.getFileRecord().url()}}"  alt="{{empresa.nome}}" style="height: 240px; width:240px;" />
+
+    </div>
+    <div class="col-md-6">
+      <span>{{empresa.website}}</span>
+    </div>
+  </a>
+
+</div>
+</div>

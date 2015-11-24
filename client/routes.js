@@ -87,7 +87,7 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
             /*para a home...*/
             .state('home', {
                 url: '/',
-                templateUrl: 'client/perfis/views/meuPerfil.ng.html',
+                templateUrl: 'client/home/views/home.ng.html',
                 controller: 'meuPerfilController',
                 resolve: {
                     "currentUser": ["$meteor", function ($meteor) {
@@ -142,7 +142,7 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
                 resolve: {
                     "currentUser": ["$meteor", "$rootScope", "$state", function ($meteor, $rootScope, $state) {
                         return $meteor.waitForUser();
-                       
+
                     }]
                 }
             })
@@ -171,6 +171,18 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
                         });
                     }]
                 }
+            })
+            //pesquisar
+            .state('pesquisar',{
+              url:'/pesquisa/:query',
+              templateUrl: 'client/pesquisa.ng.html',
+              controller: 'resultadoPesquisaController',
+              controllerAs: 'rpc',
+              resolve: {
+                  "currentUser": ["$meteor", function ($meteor) {
+                     return $meteor.waitForUser();
+                  }]
+              }
             });
 
         /*caso alguma merda acontença, redireciona pra página inicial. Caso isso aconteça abra ao debug e chore*/

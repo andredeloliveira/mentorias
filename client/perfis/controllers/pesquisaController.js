@@ -6,24 +6,16 @@ angular.module("mentorias").controller("pesquisaController", ['$scope', '$stateP
       }else {
         $scope.loggedIn = 0;
       }
-      console.log($rootScope.currentUser);
-      $meteor.subscribe('users').then(function(usersHandle){
-                        $scope.allUsers = $meteor.collection(Meteor.users,false);
-                                arrayUsers = $.map($scope.allUsers, function(value, index) {
-                        return [value];
-                        });
-                        $scope.usuarios = arrayUsers;
-                });
-      /*E todas as empresas também*/
-      $meteor.subscribe('empresas').then(function(empresasHandle){
-          $scope.allEmpresas = $meteor.collection(Empresas,false);
-          arrayEmpresas = $.map($scope.allEmpresas,function(value, index){
-            return [value];
-          });
-          $scope.empresas = arrayEmpresas;
-      });
 
+      $scope.query = '';
 
+      /*Parque que realmente importa para a  pesquisa*/
+      $scope.pesquisa = function(){
+        console.log('esta funcionando');
+        if($scope.query){
+          $state.go('pesquisar',{query: $scope.query});
+        }
+      };
 
 
 
