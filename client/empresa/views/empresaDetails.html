@@ -1,21 +1,40 @@
 
 <div class="body-side-padding margin-top-30 space-footer background-blacked border-white">
+ <form editable-form name="EmpresaForm" onaftersave="updateEmpresa()">
   <div class="row profile-border" style="margin-top: 30px;">
-
+   
     <div class="col-md-3 profile-boxes picture no-padding">
       <img src="{{Empresa.profilePic.getFileRecord().url()}}" class="profile-picture">
+
     </div>
     <div class="col-md-2 profile-boxes">
+      <div class="row">
+        <div class="pull-right">
+            <a class="btn btn-default" ng-click="EmpresaForm.$show()" ng-hide="EmpresaForm.$visible" style="padding: 1px 6px; font-size:0.77em">
+              <i class="fa fa-pencil"></i> 
+              Editar
+            </a>
+            <span ng-show="EmpresaForm.$visible">
+              <a class="btn btn-primary" ng-disabled="EmpresaForm.$waiting" ng-click="dc.updateEmpresa()">
+                Salvar
+              </a>
+              <a class="btn btn-default" ng-disabled="EmpresaForm.$waiting" ng-click="EmpresaForm.$cancel()">
+                Cancelar
+              </a>
+            </span>
 
+        </div>
+      </div>
         <div class="row">
-          <span style="font-size: 0.47em;"> {{Empresa._id}}</span>
            <div class="col-md-12">
              <span style="font-size: 0.87em;">Empresa</span>
            </div>
         </div> 
         <div class="row">
           <div class="col-md-12">
-             <span style="font-size: 1.33em;" ng-bind="Empresa.nome" ></span>     
+             <span style="font-size: 1.33em;" class="col-md-12" editable-text="Empresa.nome" e-form="EmpresaForm">
+               {{Empresa.nome || 'Nome da Empresa'}}
+             </span>     
           </div>
         </div>
         <div class="row">
@@ -25,7 +44,10 @@
         </div>
       <div class="row">
         <div class="col-md-12">
-          <span>acho que aqui serao as tags</span>
+             <span style="font-size:0.77em;" ng-repeat="produtoTag in Empresa.produtos">
+                    <i class="glyphicon glyphicon-stop"></i>
+                    {{' ' +produtoTag.nome + ' '}}
+                </span>
         </div>
       </div>
     </div>
@@ -58,25 +80,25 @@
     </div>
 
     <div class="col-md-2 profile-boxes">
-      <p class="text-center">
-       {{Empresa.descricao}}
-      </p>
+    <p  editable-textarea="Empresa.descricao" class="lined-textarea" e-form="EmpresaForm" e-rows="2"> 
+        {{ Empresa.descricao || 'empty' }}
+    </p>
     </div>
 
     <div class="col-md-1 profile-boxes">
       <div class="row">
         <div class="col-md-9 centered">
-          <a href=""><i class="fa fa-facebook-official icon-bar"></i></a>   
+          <a href="" class="col-md-12"><i class="fa fa-facebook-official icon-bar"></i></a>   
         </div>
       </div>
       <div class="row">
         <div class="col-md-9 centered">
-          <a href=""><i class="fa fa-twitter icon-bar"></i></a>
+          <a href="" class="col-md-12" ><i class="fa fa-twitter icon-bar"></i></a>
         </div>
       </div>
       <div class="row">
         <div class="col-md-9 centered">
-          <a href=""><i class="fa fa-linkedin icon-bar"></i></a>
+          <a href="" class="col-md-12" ><i class="fa fa-linkedin icon-bar"></i></a>
         </div>
       </div>
 
@@ -92,14 +114,16 @@
         <i class="fa fa-group"></i> Ações de mentoria<span></span>
       </button>
     </div>
+
   </div>
-  <!-- Calendario daqui pra baixo-->
-</div>
+ </form>
+  </div>
+
 <div class="container">
 <div class="row">
 <div class="col-md-4">
   <div class="col-md-12"> <h2>Integrantes</h2> </div>
-	<div id="dirSidebar" class="col-md-12">
+	<div id="dirSidebar" class="col-md-12" ng-repeat="integrante in Empresa.integrantes">
 		
   
     <div class="row" id="integrante">
@@ -107,8 +131,8 @@
 				<div class="col-md-3">
           <img src="resources/Logo_agripa_periodico.png" width="50" />
         </div>
-				<div class="col-md-8"><p>Jefferson Maran - <span>(cargo)</span></p></div>
-				<div class="col-md-1"><a href="#">chave</a><br /><a href="#">X</a></div>
+				<div class="col-md-7"><p>{{integrante.nome}} - <span>(cargo)</span></p></div>
+				<div class="col-md-2"><a href="#">chave</a><br /><a href="#">X</a></div>
 			</div>
 		</div>
 
@@ -120,7 +144,7 @@
   <h2>Produtos</h2>
 </div>
 
-<div class="col-sm-4" ng-repeat="produto in listaprodutos">
+<div class="col-sm-4" ng-repeat="produto in Empresa.produtos">
     <div class="col-item">
       <div class="photo">
         <img src="resources/produtos/produtos.PNG" class="img-responsive" alt="a"  />

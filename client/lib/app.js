@@ -1,4 +1,4 @@
-angular.module('mentorias', ['angular-meteor','ui.router','ngMaterial']);
+angular.module('mentorias', ['angular-meteor','ui.router','ngMaterial', 'xeditable']);
 
 var themeIcons = ['$mdIconProvider' , function ($mdIconProvider) {
 

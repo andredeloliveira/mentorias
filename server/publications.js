@@ -12,7 +12,12 @@ Meteor.publish('allUsers',function(){
 
 //empresas
 Meteor.publish("empresaByID", function(empresaId){
-  retorno =  Empresas.find({_id:empresaId.empresaId});
+  valorId = empresaId.empresaId;
+  /*console.log("************************");
+  console.log(valorId);
+  console.log("************************");
+  */
+  retorno =  Empresas.find({_id:valorId});
   //console.log(retorno);
   return retorno;
 });
