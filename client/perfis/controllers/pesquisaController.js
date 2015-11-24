@@ -6,9 +6,16 @@ angular.module("mentorias").controller("pesquisaController", ['$scope', '$stateP
       }else {
         $scope.loggedIn = 0;
       }
-      console.log(query);
 
+      $scope.query = '';
 
+      /*Parque que realmente importa para a  pesquisa*/
+      $scope.pesquisa = function(){
+        console.log('esta funcionando');
+        if($scope.query){
+          $state.go('pesquisar',{query: $scope.query});
+        }
+      };
 
 
 

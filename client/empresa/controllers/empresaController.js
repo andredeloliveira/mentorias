@@ -91,8 +91,8 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
 
         /*registra a nova empresa no banco*/
         vm.register = function(nEmpresa){
-          
-          nEmpresa.integrantes = _.map($scope.integrantesModel, 
+
+          nEmpresa.integrantes = _.map($scope.integrantesModel,
             function(param){
               id    = param._id;
               nome  = param.nome;
@@ -100,8 +100,8 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
               remap = {'_id':id, 'nome':nome,'email':email};
               return remap;
             });
-          
-          nEmpresa.produtos = _.map($scope.produtosModel, 
+
+          nEmpresa.produtos = _.map($scope.produtosModel,
             function(param){
               nome  = param.nome;
               lowername = param._lowename;
@@ -111,7 +111,7 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
           console.log(nEmpresa.produtos);
           if(!nEmpresa)
             vm.error = 'object undefined!';
-            
+
             vm.empresa = {
             nome: nEmpresa.nome,
             website: nEmpresa.website,
@@ -137,7 +137,7 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
             $state.go('meuPerfil');
           }
 
-            
+
         }
         /*remove a dita cuja*/
         vm.remove = function(nEmpresa){
@@ -148,13 +148,13 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
 
         /*load Produtos, Hard coded mesmo, porque né*/
 
-          var produtos = 
+          var produtos =
           [
-            'Jogos Digitais', 
-            'Softwares', 
-            'Eletrônicos', 
-            'Realidade Virtual', 
-            'Eficiência Energética', 
+            'Jogos Digitais',
+            'Softwares',
+            'Eletrônicos',
+            'Realidade Virtual',
+            'Eficiência Energética',
             'Bioarquitetura'
           ];
 
@@ -165,7 +165,7 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
             tempProd._lowername = tempProd.nome.toLowerCase();
             return tempProd;
           });
-         
+
         $rootScope.AllProdutos = Arrprodutos;
 
 
@@ -213,15 +213,15 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
           return results;
         };
 
-       
-  
+
+
         $scope.filterSelected = true;
         $scope.readonly = false;
         $scope.usersLoaded = $scope.loadUsers($scope.users);
         //console.log($scope.usersLoaded);
         //$scope.produtosLoaded = $scope.loadProdutos();
         //console.log($scope.produtosLoaded);
-        
+
         //arrays que realmente precisam
         $scope.produtosModel= [];
         $scope.produtosSelecionados = [];
@@ -229,7 +229,7 @@ angular.module("mentorias").controller("empresaController", ['$scope', '$rootSco
 
         $scope.integrantesSelecionados = [];
         $scope.integrantesModel = [];
-      
+
         /*fim do controle das tags*/
     }
 ]);

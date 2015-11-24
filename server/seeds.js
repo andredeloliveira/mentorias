@@ -4,7 +4,7 @@
     password: "123123",
     profile: { name: "Big Boss" },
     roles : ['root']
-  }, 
+  },
   {
     username : "Mentor",
     email: "mentor@mentor.com",
@@ -26,13 +26,13 @@ var empresasSeeds =[
 "nome":"CloudSource" ,
 "website":"http://nuvem.coffee",
 "produtos":{
-	"id":"1001", 
+	"id":"1001",
 	"id":"2001",
 	"id":"3001"
 },
 "descricao_empresa":"dsfsdfsdf",
 "integrantes-empresa":{
-	"id":"1", 
+	"id":"1",
 	"id":"2",
 	"id":"3",
 },
@@ -46,13 +46,13 @@ var empresasSeeds =[
 "nome":"Magnidea" ,
 "website":"http://nuvem.coffee",
 "produtos":{
-	"id":"1001", 
+	"id":"1001",
 	"id":"2001",
 	"id":"3001"
 },
 "descricao_empresa":"",
 "integrantes-empresa":{
-	"id":1, 
+	"id":1,
 	"id":2,
 	"id":3
 },
@@ -66,13 +66,13 @@ var empresasSeeds =[
 "nome":"Consvita" ,
 "website":"http://nuvem.coffee",
 "produtos":{
-	"id":"1001", 
+	"id":"1001",
 	"id":"2001",
 	"id":"3001"
 },
 "descricao_empresa":"",
 "integrantes-empresa":{
-	"id":1, 
+	"id":1,
 	"id":2,
 	"id":3
 },
@@ -126,13 +126,13 @@ if(Produtos.find().count() === 0){
 }
 //Meteor.Produtos.remove('passar o id');
 //TODO normalizar com ISSUE 13
-var users = [
-      {name:"empreendedor-admin",email:"empreendedor-admin@example.com",roles:['empreendedor-admin']},
-      {name:"empreendedor-gestor",email:"empreendedor-gestor@example.com",roles:['empreendedor-gestor']},
-      {name:"empreendedor",email:"empreendedor@example.com",roles:['empreendedor']},
-      {name:"mentor",email:"mentor@example.com",roles:['mentor']},
-      {name:"pmo",email:"pmo@example.com",roles:['pmo']}
-    ];
+// var users = [
+//       {name:"empreendedor-admin",email:"empreendedor-admin@example.com",roles:['empreendedor-admin']},
+//       {name:"empreendedor-gestor",email:"empreendedor-gestor@example.com",roles:['empreendedor-gestor']},
+//       {name:"empreendedor",email:"empreendedor@example.com",roles:['empreendedor']},
+//       {name:"mentor",email:"mentor@example.com",roles:['mentor']},
+//       {name:"pmo",email:"pmo@example.com",roles:['pmo']}
+//     ];
 
 /*_.each(users, function (user) {
   var id;
@@ -144,11 +144,11 @@ var users = [
   });
 
   if (user.roles.length > 0) {
-    // Need _id of existing user record so this call must come 
+    // Need _id of existing user record so this call must come
     // after `Accounts.createUser` or `Accounts.onCreate`
     Roles.addUsersToRoles(id, user.roles, 'grupo');
   }
 });*/
 
 //remover usuarios por id
-//Meteor.users.remove('passar id');  
+//Meteor.users.remove('passar id');

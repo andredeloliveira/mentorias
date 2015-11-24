@@ -87,7 +87,7 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
             /*para a home...*/
             .state('home', {
                 url: '/',
-                templateUrl: 'client/perfis/views/meuPerfil.ng.html',
+                templateUrl: 'client/home/views/home.ng.html',
                 controller: 'meuPerfilController',
                 resolve: {
                     "currentUser": ["$meteor", function ($meteor) {
