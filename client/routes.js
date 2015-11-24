@@ -3,14 +3,17 @@ angular.module("mentorias").run(['$rootScope', '$state', function ($rootScope, $
     $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
         // We can catch the error thrown when the $requireUser promise is rejected
         // and redirect the user back to the main page
-        if (error === 'AUTH_REQUIRED') {
-            $state.go('login');
-        }
-        if (error === 'FORBIDDEN') {
-             $state.go('403');
-        }
-        if (error === 'NOT_FOUND') {
-             $state.go('404');
+
+        switch (error) {
+          case 'FORBIDDEN':
+            $state.go('403');
+            break;
+          case 'NOT_FOUND':
+            $state.go('404');
+            break;
+          default:
+            state.go('login');
+
         }
     });
 }]);
@@ -32,62 +35,62 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
             })
             .state('chat', {
                 url: '/chat',
-                templateUrl: 'client/chat/views/chat.ng.html',
+                templateUrl: 'client/chat/views/chat.html',
                 controller: 'chatController',
                 controllerAs: 'chat'
             })
             .state('modais', {
                 url: '/modais',
-                templateUrl: 'client/perfis/views/modais.ng.html',
+                templateUrl: 'client/perfis/views/modais.html',
                 controller: 'modaisController',
                 controllerAs: 'modal'
             })
             .state('painel-controle', {
                 url: '/painel-controle',
-                templateUrl: 'client/perfis/views/painel-controle.ng.html',
+                templateUrl: 'client/perfis/views/painel-controle.html',
                 controller: 'painelControleController',
                 controllerAs: 'pc'
             })
             .state('criar-trajetoria', {
                 url: '/criar-trajetoria',
-                templateUrl: 'client/trajetoria/views/criar-trajetoria.ng.html',
+                templateUrl: 'client/trajetoria/views/criar-trajetoria.html',
                 controller: 'criarTrajetoriaController',
                 controllerAs: 'vt'
             })
             .state('visualizar-trajetoria', {
                 url: '/visualizar-trajetoria',
-                templateUrl: 'client/trajetoria/views/visualizar-trajetoria.ng.html',
+                templateUrl: 'client/trajetoria/views/visualizar-trajetoria.html',
                 controller: 'visualizarTrajetoriaController',
                 controllerAs: 'vt'
             })
             .state('trajetoria-de-desenvolvimento', {
                 url: '/trajetoria-de-desenvolvimento',
-                templateUrl: 'client/trajetoria/views/trajetoria-de-desenvolvimento.ng.html',
+                templateUrl: 'client/trajetoria/views/trajetoria-de-desenvolvimento.html',
                 controller: 'trajetoriaDesenvolvimentoController',
                 controllerAs: 'td'
             })
             .state('trocar-senha', {
                 url: '/trocar-senha',
-                templateUrl: 'client/perfis/views/trocar-senha.ng.html',
+                templateUrl: 'client/perfis/views/trocar-senha.html',
                 controller: 'trocarSenhaController',
                 controllerAs: 'tsc'
             })
             .state('recuperar-senha', {
                 url: '/recuperar-senha',
-                templateUrl: 'client/perfis/views/recuperar-senha.ng.html',
+                templateUrl: 'client/perfis/views/recuperar-senha.html',
                 controller: 'recuperarSenhaController',
                 controllerAs: 'rsc'
             })
             .state('cadastroPerfil', {
                 url: '/cadastroPerfil',
-                templateUrl: 'client/perfis/views/cadastroPerfil.ng.html',
+                templateUrl: 'client/perfis/views/cadastroPerfil.html',
                 controller: 'perfilController',
                 controllerAs: 'pc'
             })
             /*para a home...*/
             .state('home', {
                 url: '/',
-                templateUrl: 'client/home/views/home.ng.html',
+                templateUrl: 'client/home/views/home.html',
                 controller: 'meuPerfilController',
                 resolve: {
                     "currentUser": ["$meteor", function ($meteor) {
@@ -97,34 +100,34 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
             })
             .state('proximaEtapa', {
                 url: '/proximaEtapa',
-                templateUrl: 'client/perfis/views/proximaEtapa.ng.html',
+                templateUrl: 'client/perfis/views/proximaEtapa.html',
                 controller: 'proximaEtapaController'
             })
             /*para a lista de empresas*/
             .state('empresas', {
                 url: '/empresas',
-                templateUrl: 'client/empresa/views/empresas.ng.html',
+                templateUrl: 'client/empresa/views/empresas.html',
                 controller: 'empresasController',
                 controllerAs: 'ecs'
             })
             /*para ver os detahes da Empresa*/
             .state('DetalhesEmpresa', {
                 url: '/detalhesEmpresa/:empresaId',
-                templateUrl: 'client/empresa/views/empresaDetails.ng.html',
+                templateUrl: 'client/empresa/views/empresaDetails.html',
                 controller: 'empresaDetailsController',
                 controllerAs: 'dc'
             })
             /*para o cadastro de Empresa*/
             .state('cadastroEmpresa', {
                 url: '/cadastroEmpresa',
-                templateUrl: 'client/empresa/views/cadastroEmpresa.ng.html',
+                templateUrl: 'client/empresa/views/cadastroEmpresa.html',
                 controller: 'empresaController',
                 controllerAs: 'ec'
             })
             /*para a página meu perfil*/
             .state('meuPerfil', {
                 url: '/meuPerfil',
-                templateUrl: 'client/perfis/views/meuPerfil.ng.html',
+                templateUrl: 'client/perfis/views/meuPerfil.html',
                 controller: 'meuPerfilController',
                 conrollerAs: 'mpc',
                 resolve: {
@@ -136,7 +139,7 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
             /*para a página de login*/
             .state('login', {
                 url: '/login',
-                templateUrl: 'client/perfis/views/login.ng.html',
+                templateUrl: 'client/perfis/views/login.html',
                 controller: 'loginController',
                 controllerAs: 'lc',
                 resolve: {
@@ -149,7 +152,7 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
             //detalhes do perfil (quando um terceiro acessa o perfil)
             .state('perfilDetalhes',{
               url:'/perfis/:perfilId',
-              templateUrl: 'client/perfis/views/perfilDetalhes.ng.html',
+              templateUrl: 'client/perfis/views/perfilDetalhes.html',
               controller:'perfilDetalhesController',
               controllerAs:'pdc',
               resolve: {
@@ -175,7 +178,7 @@ angular.module('mentorias').config(['$urlRouterProvider', '$stateProvider', '$lo
             //pesquisar
             .state('pesquisar',{
               url:'/pesquisa/:query',
-              templateUrl: 'client/pesquisa.ng.html',
+              templateUrl: 'client/pesquisa.html',
               controller: 'resultadoPesquisaController',
               controllerAs: 'rpc',
               resolve: {
