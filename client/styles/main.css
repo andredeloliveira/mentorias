@@ -753,16 +753,37 @@ textarea:focus, input:focus {
 
 #trajetoria-de-desenvolvimento .trajetoria tbody tr td {
     border-top : 0 none;
-    padding    : 5px 0px 0 0;
+    padding    : 0px 0px 0 0;
     position   : relative;
+}
+
+#trajetoria-de-desenvolvimento .trajetoria tbody tr td .active {
+    border  : 1px solid #FFF;
+    display : inline-block;
+    padding : 3px 10px;
+}
+
+#trajetoria-de-desenvolvimento .trajetoria tbody tr td .linhas-verticais {
+    background-color : rgb(255, 255, 255);
+    height           : 1px;
+    transform        : rotate(90deg);
+    width            : 22px;
+    margin           : 0px auto;
+    bottom           : -14px;
+    position         : relative;
+}
+
+#trajetoria-de-desenvolvimento .trajetoria tbody tr td {
+    white-space : nowrap;
 }
 
 @media (max-width : 768px) {
     #trajetoria-de-desenvolvimento .trajetoria thead tr td {
-        font-size: 0.75em;
+        font-size : 0.75em;
     }
-    #trajetoria-de-desenvolvimento .trajetoria tbody tr td{
-        font-size: 0.75em;
+
+    #trajetoria-de-desenvolvimento .trajetoria tbody tr td {
+        font-size : 0.75em;
     }
 }
 
@@ -795,14 +816,14 @@ textarea:focus, input:focus {
 }
 
 #trajetoria-de-desenvolvimento .trajetoria .flag .icon {
-    float  : right;
-    height: 17px;
-    position: relative;
-    z-index: 2;
+    float    : right;
+    height   : 17px;
+    position : relative;
+    z-index  : 2;
 }
 
 #trajetoria-de-desenvolvimento .trajetoria .flag .icon.atraso {
-    margin-top: -5px;
+    margin-top : -5px;
 }
 
 #trajetoria-de-desenvolvimento .trajetoria .flag .icon.atraso:before {
@@ -837,7 +858,7 @@ textarea:focus, input:focus {
 }
 
 #trajetoria-de-desenvolvimento .resumo .quadrado {
-    background-color : rgb(85, 85, 85);
+    background-color : rgba(144, 144, 144, 0.7);
     border           : 2px solid #fff;
     padding          : 10px 20px;
 
