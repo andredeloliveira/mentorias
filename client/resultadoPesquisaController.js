@@ -7,15 +7,18 @@ angular.module("mentorias").controller("resultadoPesquisaController", ['$scope',
         do SQL.
       */
        var regEx = "/(["+ $stateParams.query + "])\w+/";
-       var regQuery = new RegExp(regEx);
+       var regQuery = new RegExp(regEx,'i');
        console.log(regQuery);
-        $scope.users = $meteor.collection(Meteor.users,false).subscribe('userByName', regQuery);
+        $scope.$meteorSubscribe("users").then(function(handler){
+          $scope.users = $scope.$meteorCollection(Meteor.users,{'profile.name': $scope.query});
+          console.log($scope.users);
+        });
         $scope.empresas = $meteor.collection(Empresas, false).subscribe('empresaByName', regQuery);
 
 
 
 
-      console.log($scope.users);
+
       console.log($scope.empresas);
 
       /*eu sei q é codigo duplicado, maas quero fazer funcionar agora, eum uma manutenção evolutiva

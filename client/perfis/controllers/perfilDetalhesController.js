@@ -5,6 +5,7 @@ angular.module("mentorias").controller("perfilDetalhesController", ['$scope','$r
         /*usuário sendo requisitado*/
 
         $scope.userObject = {};
+        $scope.nSolicitacao = {};
 
         var subscriptionHandle;
        //  $scope.userB = $scope.$meteorObject(Meteor.users, $stateParams.perfilId ,false).subscribe("users");
@@ -128,21 +129,28 @@ angular.module("mentorias").controller("perfilDetalhesController", ['$scope','$r
         $scope.requisitaEvento = function(){
           /*Novo evento que será requisitado.*/
           var newEvent = {
-            id:  $rootScope.currentUser._id + $scope.user._id,
-            title: 'titulo',
+            id:  $rootScope.currentUser._id + ' ' + new Date(),
+            title: 'titulo teste',
             start: new Date()+3600, //saporra tem que ter a data completa
-            //end: new Date(), //saqui também (porra) pr amostrar a merda do tempo inicial e final
+            end: new Date()+8000, //saqui também (porra) pr amostrar a merda do tempo inicial e final
             // className: 'CSS class for the event',
-            // color: 'color',
-            // backgroundColor: 'backgroundColor',
+             color: '#FFFFFF',
+             backgroundColor: '#F00F00',
             // borderColor: 'borderColor',
             // textColor: 'textColor',
             allDay: false, //vai fazer aparecer a hora que é esse lixo
-            userFrom: $rootScope.currentUser._id //e o otário que pede ajuda aos universitarios
+
           };
 
           //Mandando a requisição pro maldito:
-          Meteor.users.update({_id:$scope.user._id}, {$push: {"profile.requisicoes": newEvent}});
+          var solicitacao = {
+            userSolicitado: $scope.user._id,
+            userFrom: $rootScope.currentUser.profile.name,
+            event: newEvent
+          };
+          //solicitação sendo enviada
+          Solicitacoes.insert(solicitacao);
+          console.log('solicitacao inserido');
 
 
         }
@@ -151,6 +159,8 @@ angular.module("mentorias").controller("perfilDetalhesController", ['$scope','$r
 
       console.log($scope.user);
 
+      //pra data e hora da solicitação
+      var DataHoraSolicitacaoAgent = $('#dateTime').datetimepicker();
 
 
 

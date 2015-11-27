@@ -6,14 +6,36 @@ angular.module("mentorias").controller("meuPerfilController", ['$scope', '$meteo
         /*curretView é a visualização que será selecionada nos botões da extrema direita da página do perfil
         0 é para a agenda.
         0 = agenda;
-        1 = mensagens
-        2 = açoes do mentor
+        1 = açoes do mentor
+        2 = mensagens
+
         */
         $scope.currentView = 0;
+        if(Meteor.user() === null )
+          $state.go('login');
+
+        console.log(Meteor.userId());
 
         $scope.images = $meteor.collectionFS(Images, false, Images).subscribe('images');
-        console.log($rootScope.currentUser);
 
+
+        /*Carrega solicitações*/
+        $scope.solicitacoes = $meteor.collection(Solicitacoes,false).subscribe('solicitacoes',$rootScope.currentUser._id);
+        console.log($scope.solicitacoes);
+
+        // $scope.$meteorSubscribe("solicitacoes", { userSolicitado: $rootScope.currentUser._id }).then(function (handle) {
+        //     console.log('Client solicitacoes subscription ready');
+        //
+        //     // Get the control from the database and bind it to Angular's scope
+        //     $scope.solicitacoes = $scope.$meteorCollection(Solicitacoes,false);
+        //
+        //     // Get the actual object without the angular wrapping
+        //     console.log($scope.solicitacoes);
+        //   });
+
+        /*Isso vai mostrar quantos compromissos tem na agenda*/
+
+        $scope.numCompromissos = 0;
         /*
           sexo do usuário definido aqui.
         */
@@ -43,7 +65,7 @@ angular.module("mentorias").controller("meuPerfilController", ['$scope', '$meteo
           };
           /*Mostra a view  - retorna um boolean caso a view selecionada for a em questão*/
           $scope.showView = function(view){
-            return $scope.curretView === view;
+            return $scope.currentView === view;
           };
           /*para criar um evento no calendario*/
           $scope.createEvent = function(event){
@@ -85,14 +107,39 @@ angular.module("mentorias").controller("meuPerfilController", ['$scope', '$meteo
             return tempStars;
 
           };
+
+          /*Função que aceita a solicitação da mentoria*/
+          $scope.aceitarRequisicao = function(requisicao){
+            if(requisicao){
+              Meteor.users.update({_id: $rootScope.currentUser._id}, {$push: {'profile.agendaMes.events': requisicao.event}});
+              Meteor.users.update({_id: $rootScope.currentUser._id}, {$push: {'profile.agendaDia.events': requisicao.event}});
+              Solicitacoes.remove({_id: requisicao._id});
+            }
+
+          }
+
+          $scope.negarRequisicao = function(requisicao){
+            if(requisicao){
+              Solicitacao.remove({_id: requisicao._id})
+            }
+
+
+          }
+
+
+
         /*essa parte do código é pra lidar com o JQuery e o caledar. Posteriormente sera mudado o modo
         de acesso, etc. Mas primeiro, o objetivo é fazer funcionar*/
         var calendario  = $('#agendaMes').fullCalendar($rootScope.currentUser.profile.agendaMes);
+        console.log($rootScope.currentUser.profile.agendaMes);
 
         var calendarioDia = $('#agendaDia').fullCalendar($rootScope.currentUser.profile.agendaDia);
 
+
         $scope.stars = $scope.getStars($rootScope.currentUser.profile.stars);
         console.log($scope.stars);
+
+
 
     }
 ]);

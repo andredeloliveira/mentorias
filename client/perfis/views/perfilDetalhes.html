@@ -104,9 +104,9 @@
                   </button>
               </p>
               <p>
-                  <button ng-click="requisitaEvento()"  class="btn btn-default profile-actions">
+                  <a href="javascript:" data-toggle="modal" data-target="#modal-solicitar-mentoria" ng-click="requisitaEvento()"  class="btn btn-default profile-actions">
                       <span class="legenda"><i class="fa fa-group"></i> <span class="hidden-xs">Solicitar Mentoria</span></span>
-                  </button>
+                  </a>
               </p>
           </div>
 
@@ -128,4 +128,36 @@
             </div>
         </div>
     </div>
+
+    <!--Modais daqui pra baixo. Esperançosamente isso vai dar certo-->
+
+    <div class="modal fade" id="modal-solicitar-mentoria" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <strong class="modal-b-title">Solicitação de Mentoria</strong>
+                    <a href="javascript:" class="close modal-close-icon border-white border-radious-none color-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+
+                    <div class="text-center">
+                        <h4 class="modal-title" id="myModalLabel">Solicitação de Mentoria</h4>
+                        <small>Selecione os detalhes para a mentoria desejada:</small>
+                    </div>
+                </div>
+                <div class="modal-body overflow-hidden">
+                    <div class="col-md-12">
+                        <input type="text" name="titulo" placeholder="Assunto"/>
+                        <input type="text" name="data" placeholder="Data/hora" id="dateTime">
+
+                    </div>
+                </div>
+                <div class="modal-footer text-center">
+                    <button type="button" class="btn btn-default background-transparent border-radious-none border-white color-white"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Negar</button>
+                    <button type="button" class="btn btn-primary background-transparent border-radious-none border-white color-white"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Aceitar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 </div>

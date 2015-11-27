@@ -30,7 +30,24 @@ Meteor.publish('imagensID', function(imgid) {
 //roles
 Meteor.publish(null, function (){
   return Meteor.roles.find({});
-})
+});
+
+Meteor.publish("solicitacoes", function(idUserSolicitado){
+    return Solicitacoes.find({userSolicitado: idUserSolicitado});
+});
+
+Solicitacoes.allow({
+  insert: function(){
+    return true;
+  },
+  update: function(){
+    return true;
+  },
+  remove: function(){
+    return true;
+  }
+});
+
 
 
 /*Meteor.publish('seguranca', function (group) {
