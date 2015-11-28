@@ -1,36 +1,27 @@
 <div class="body-side-padding margin-top-30 space-footer background-blacked border-white">
 
-    <ng-include src="'client/barra-controle.html'"></ng-include>
-
-
     <div id="trajetoria-de-desenvolvimento">
 
         <h3 class="text-center">Trajetória de Desenvolvimento</h3>
+        <div class="text-right">
+            <div class="pull-right" style="margin-left: 10px">
+                <a class="btn btn-default" href="#"><span class="glyphicon glyphicon-plus" style="margin-right: 10px" aria-hidden="true"></span> Adiantar Conclusão</a>
+            </div>
 
+            <div class="pull-right">
+                <a class="btn btn-default" href="#">Ver exemplo</a>
+            </div>
+        </div>
+        <br/>
         <div>
             <table class="table text-center table-responsive trajetoria margin-top-30">
                 <thead>
                     <tr>
-                        <td width="15%" bgcolor="#80C8A4">
-                            15%
+                        <td width="" bgcolor="#80C8A4">
+
                         </td>
-                        <td width="20%" bgcolor="#C280D2">
-                            20%
-                        </td>
-                        <td width="6%" bgcolor="#FCC480">
-                            6%
-                        </td>
-                        <td width="18%" bgcolor="#80AFF5">
-                            18%
-                        </td>
-                        <td width="6%" bgcolor="#F98800">
-                            6%
-                        </td>
-                        <td width="30%" bgcolor="#005FEA">
-                            30%
-                        </td>
-                        <td width="20%" bgcolor="#C63E59">
-                            20%
+                        <td width="" bgcolor="#C280D2">
+
                         </td>
                     </tr>
                 </thead>
@@ -42,83 +33,57 @@
                         <td>
                             <hr/>
                         </td>
-                        <td>
-                            <hr/>
-                        </td>
-                        <td>
-                            <hr/>
-                        </td>
-                        <td>
-                            <hr/>
-                        </td>
-                        <td>
-                            <hr/>
-                        </td>
-                        <td>
-                            <hr/>
-                        </td>
                     </tr>
 
                     <tr>
                         <td>
-                            <strong>Benchmarking</strong> <br/>
-                            10 a 20/11
+                            <div class="active">
+                                <strong>Nome etapa 1</strong> <br/>
+
+                                <div class="linhas-verticais"></div>
+                            </div>
                         </td>
                         <td>
-                            <strong>Geração de Alternativas</strong> <br/>
-                            20/11 a 03/05
-                        </td>
-                        <td>
-                            <strong>1 Entrega</strong> <br/>
-                            03 a 05/12
-                        </td>
-                        <td>
-                            <strong>Desenvolvimento</strong> <br/>
-                            17 a 20/12
-                        </td>
-                        <td>
-                            <strong>2 Entrega</strong> <br/>
-                            17 a 20/12
-                        </td>
-                        <td>
-                            <strong>Finalização</strong> <br/>
-                            20/12 a 20/01
-                        </td>
-                        <td>
-                            <strong>Entrega Final</strong> <br/>
-                            20 a 21/01
+                            <strong>Nome etapa 2</strong> <br/>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <div class="border-white margin-top-30 col-md-10 pull-right background-grey trajetoria-detalhe row no-padding">
+        <div class="border-white col-md-10 pull-right background-grey trajetoria-detalhe row no-padding">
             <div class="col-md-4">
                 <h4>Descrição</h4>
 
-                <textarea style="height: 80px" name="" class="border-white" id="" placeholder="Defina uma recompença para esta etapa"></textarea><br/><br/>
+                <textarea style="height: 80px" name="" class="border-white" id="" placeholder="Defina uma recompença para esta etapa"></textarea><br/>
 
                 <h4>Prazo</h4>
-
-                <input type="text" placeholder="Data inicial"/><br/>
-                <input type="text" placeholder="Data final"/>
+                <div class="date-choice">
+                    <label class="btn-100-percent" for="">
+                        <input type="text" placeholder="Data inicial"/><a href="#">
+                        <span class="fa fa-calendar" aria-hidden="true"></span></a><br/>
+                    </label>
+                    <label class="btn-100-percent" for="">
+                        <input type="text" placeholder="Data final"/><a href="#">
+                        <span class="fa fa-calendar" aria-hidden="true"></span></a>
+                    </label>
+                </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 side-white-border">
                 <h4>Ações (mínimo uma ação)</h4>
 
                 <textarea style="height: 100px" name="" class="border-white" id="" placeholder="Defina uma recompença para esta etapa"></textarea><br/><br/>
 
                 <div class="col-md-7 center-block float-none">
-                    <a class="btn btn-default btn-100-percent" href="/cadastroEmpresa">Incluir Ação</a>
+                    <a class="btn btn-default btn-100-percent" href="#"><span class="glyphicon glyphicon-plus" style="margin-right: 10px" aria-hidden="true"></span> Adicionar Ação</a>
                 </div>
                 <br/>
 
                 <div class="col-sm-12  col-xs-12">
-                    <span class="pull-left">Cor: </span>
+                    <span class="pull-left" style="margin-right: 15px">Cor </span>
 
-                    <div class="input-squared pull-left" style="background-color: #009148">
-                        <input type="radio" id="vermelho" name="cor" value="vermelho"><label for="vermelho"></label>
+                    <div class="input-squared pull-left" style="    background-color: #009148">
+                        <input type="radio" id="verde" name="cor" value="verde"><label for="verde"></label>
                     </div>
                     <div class="input-squared pull-left" style="background-color: #005FEA">
                         <input type="radio" id="azul" name="cor" value="azul"><label for="azul"></label>
@@ -132,19 +97,21 @@
                     <div class="input-squared pull-left" style="background-color: #F98800">
                         <input type="radio" id="amarelo" name="cor" value="amarelo"><label for="amarelo"></label>
                     </div>
+
                 </div>
+
             </div>
             <div class="col-md-4">
                 <h4>Recompensa (opcional)</h4>
 
-                <textarea style="height: 110px" name="" class="border-white" id="" placeholder="Defina uma recompença para esta etapa"></textarea><br/><br/>
+                <textarea style="height: 100px" name="" class="border-white" id="" placeholder="Defina uma recompença para esta etapa"></textarea><br/><br/>
 
                 <div class="row">
                     <div class="col-md-6">
-                        <a class="btn btn-default btn-100-percent" href="/cadastroEmpresa">Adiantar Conclusão</a>
+                        <a class="btn btn-default btn-100-percent" href="#"><span class="glyphicon glyphicon-remove" style="margin-right: 10px" aria-hidden="true"></span> Excluir Etapa</a>
                     </div>
                     <div class="col-md-6">
-                        <a class="btn btn-default btn-100-percent" href="/perfil">Solicitar alteração</a>
+                        <a class="btn btn-default btn-100-percent" href="#">Concluir Etapa</a>
                     </div>
                 </div>
             </div>
@@ -153,4 +120,3 @@
     </div>
 
 </div>
-
