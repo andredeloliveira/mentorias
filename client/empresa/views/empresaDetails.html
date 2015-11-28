@@ -1,181 +1,187 @@
-
 <div class="body-side-padding margin-top-30 space-footer background-blacked border-white">
- <form editable-form name="EmpresaForm" onaftersave="updateEmpresa()">
-  <div class="row profile-border" style="margin-top: 30px;">
-   
-    <div class="col-md-3 profile-boxes picture no-padding">
-      <img src="{{Empresa.profilePic.getFileRecord().url()}}" class="profile-picture">
 
-    </div>
-    <div class="col-md-2 profile-boxes">
-      <div class="row">
-        <div class="pull-right">
-            <a class="btn btn-default" ng-click="EmpresaForm.$show()" ng-hide="EmpresaForm.$visible" style="padding: 1px 6px; font-size:0.77em">
-              <i class="fa fa-pencil"></i> 
-              Editar
-            </a>
+    <ng-include src="'client/barra-controle-empresa.html'"></ng-include>
+
+    <!--<form editable-form name="EmpresaForm" onaftersave="updateEmpresa()">
+        <div class="row profile-border" style="margin-top: 30px;">
+
+            <div class="col-md-3 profile-boxes picture no-padding">
+                <img src="{{Empresa.profilePic.getFileRecord().url()}}" class="profile-picture">
+
+            </div>
+            <div class="col-md-2 profile-boxes">
+                <div class="row">
+                    <div class="pull-right">
+                        <a class="btn btn-default" ng-click="EmpresaForm.$show()" ng-hide="EmpresaForm.$visible" style="padding: 1px 6px; font-size:0.77em">
+                            <i class="fa fa-pencil"></i>
+                            Editar
+                        </a>
             <span ng-show="EmpresaForm.$visible">
               <a class="btn btn-primary" ng-disabled="EmpresaForm.$waiting" ng-click="dc.updateEmpresa()">
-                Salvar
+                  Salvar
               </a>
               <a class="btn btn-default" ng-disabled="EmpresaForm.$waiting" ng-click="EmpresaForm.$cancel()">
-                Cancelar
+                  Cancelar
               </a>
             </span>
 
-        </div>
-      </div>
-        <div class="row">
-           <div class="col-md-12">
-             <span style="font-size: 0.87em;">Empresa</span>
-           </div>
-        </div> 
-        <div class="row">
-          <div class="col-md-12">
-             <span style="font-size: 1.33em;" class="col-md-12" editable-text="Empresa.nome" e-form="EmpresaForm">
-               {{Empresa.nome || 'Nome da Empresa'}}
-             </span>     
-          </div>
-        </div>
-        <div class="row">
-         <div class="col-md-12">
-            <span style="font-size:0.77em;" ng-bind="Empresa.website"></span>     
-         </div>
-        </div>
-      <div class="row">
-        <div class="col-md-12">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <span style="font-size: 0.87em;">Empresa</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                         <span style="font-size: 1.33em;" class="col-md-12" editable-text="Empresa.nome" e-form="EmpresaForm">
+                             {{Empresa.nome || 'Nome da Empresa'}}
+                         </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <span style="font-size:0.77em;" ng-bind="Empresa.website"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
              <span style="font-size:0.77em;" ng-repeat="produtoTag in Empresa.produtos">
                     <i class="glyphicon glyphicon-stop"></i>
-                    {{' ' +produtoTag.nome + ' '}}
+                 {{' ' +produtoTag.nome + ' '}}
                 </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2 profile-boxes">
+                <div class="row">
+                    <div class="col-md-8 centered">
+                        <span><i class="fa fa-star stars"></i></span>
+                        <span><i class="fa fa-star stars"></i></span>
+                        <span><i class="fa fa-star stars"></i></span>
+                        <span><i class="fa fa-star stars"></i></span>
+                        <span><i class="fa fa-star-half-o stars"></i></span>
+                    </div>
+                    <div class="col-md-10 centered">
+                        media de avaliações
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="horas-mentorias text-center">hs</h4>
+
+                        <p class="text-center">mentoria</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h4 class="horas-mentorias text-center">9</h4>
+
+                        <p class="text-center">badges</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2 profile-boxes">
+                <p editable-textarea="Empresa.descricao" class="lined-textarea" e-form="EmpresaForm" e-rows="2">
+                    {{ Empresa.descricao || 'empty' }}
+                </p>
+            </div>
+
+            <div class="col-md-1 profile-boxes">
+                <div class="row">
+                    <div class="col-md-9 centered">
+                        <a href="" class="col-md-12"><i class="fa fa-facebook-official icon-bar"></i></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-9 centered">
+                        <a href="" class="col-md-12"><i class="fa fa-twitter icon-bar"></i></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-9 centered">
+                        <a href="" class="col-md-12"><i class="fa fa-linkedin icon-bar"></i></a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2 profile-boxes">
+                <button class="btn btn-default profile-actions">
+                    <i class="fa fa-commenting-o"></i> Mensagens <span></span>
+                </button>
+                <button class="btn btn-default profile-actions">
+                    <i class="fa fa-calendar"></i> Agenda <span></span>
+                </button>
+                <button class="btn btn-default profile-actions">
+                    <i class="fa fa-group"></i> Ações de mentoria<span></span>
+                </button>
+            </div>
+
         </div>
-      </div>
+    </form>-->
+
+
+    <div id="empresa">
+
+        <div class="col-md-3 no-padding">
+            <h3 class="text-center">Integrantes</h3>
+
+            <ul id="lista-integrantes" class="lista">
+                <li class="ng-scope" ng-repeat="integrante in Empresa.integrantes">
+                    <div class="picture">
+                        <img src="http://lorempixel.com/200/200" class="img-responsive"/>
+                    </div>
+                    <div class="details">
+                        <h5>{{integrante.nome || 'Nome'}}</h5>
+
+                        <p>Empreendedor</p>
+
+                    </div>
+                    <div class="buttons">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </div>
+                </li>
+
+                <li class="add-integrante">
+                    <div class="picture">
+                        <span class="border-white" aria-hidden="true">+</span>
+                    </div>
+                    <div class="details">
+                        Adicionar Integrantes
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-md-9">
+
+            <h3 class="text-center">Produtos</h3>
+
+            <!-- ngRepeat: produto in Empresa.produtos -->
+            <div class="border-white overflow-hidden produtos">
+                <div class="col-sm-4 ng-scope produto no-padding" ng-repeat="produto in Empresa.produtos">
+                    <div class="header">
+                        <div class="photo">
+                            <img src="/resources/produtos/produtos.PNG" class="img-responsive" alt="a"> <!-- {{produto.imagem_destaque}} -->
+                        </div>
+                        <br/>
+                        <h4 class="text-center">{{produto.nome || 'Nome do Produto '}}</h4>
+                    </div>
+                    <div class="body">
+                        <p class="descricao">{{produto.descricao || 'Descrição '}}</p><br/>
+
+                        <div>
+                            <a href="" class="btn btn-default" style="margin-right: -5px;"><i class="fa fa-pencil" style="margin-right: 10px"></i>Editar</a>
+                            <a href="" class="btn btn-default"><span class="glyphicon glyphicon-remove" style="margin-right: 10px" aria-hidden="true"></span>Excluir</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
-
-    <div class="col-md-2 profile-boxes">
-      <div class="row">
-        <div class="col-md-8 centered">
-          <span><i class="fa fa-star stars"></i></span>
-          <span><i class="fa fa-star stars"></i></span>
-          <span><i class="fa fa-star stars"></i></span>
-          <span><i class="fa fa-star stars"></i></span>
-          <span><i class="fa fa-star-half-o stars"></i></span>
-        </div>
-        <div class="col-md-10 centered">
-            media de avaliações
-        </div>
-
-      </div>
-
-      <div class="row">
-        <div class="col-md-6">
-          <h4 class="horas-mentorias text-center">hs</h4>
-          <p class="text-center">mentoria</p>
-        </div>
-        <div class="col-md-6">
-          <h4 class="horas-mentorias text-center">9</h4> 
-          <p class="text-center">badges</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-2 profile-boxes">
-    <p  editable-textarea="Empresa.descricao" class="lined-textarea" e-form="EmpresaForm" e-rows="2"> 
-        {{ Empresa.descricao || 'empty' }}
-    </p>
-    </div>
-
-    <div class="col-md-1 profile-boxes">
-      <div class="row">
-        <div class="col-md-9 centered">
-          <a href="" class="col-md-12"><i class="fa fa-facebook-official icon-bar"></i></a>   
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-9 centered">
-          <a href="" class="col-md-12" ><i class="fa fa-twitter icon-bar"></i></a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-9 centered">
-          <a href="" class="col-md-12" ><i class="fa fa-linkedin icon-bar"></i></a>
-        </div>
-      </div>
-
-    </div>
-    <div class="col-md-2 profile-boxes">
-      <button class="btn btn-default profile-actions" >
-        <i class="fa fa-commenting-o"></i> Mensagens <span></span>
-      </button>
-      <button class="btn btn-default profile-actions" >
-        <i class="fa fa-calendar"></i> Agenda <span></span>
-      </button>
-      <button class="btn btn-default profile-actions" >
-        <i class="fa fa-group"></i> Ações de mentoria<span></span>
-      </button>
-    </div>
-
-  </div>
- </form>
-  </div>
-
-<div class="container">
-<div class="row">
-<div class="col-md-4">
-  <div class="col-md-12"> <h2>Integrantes</h2> </div>
-	<div id="dirSidebar" class="col-md-12" ng-repeat="integrante in Empresa.integrantes">
-		
-  
-    <div class="row" id="integrante">
-      <div class="col-md-12">
-				<div class="col-md-3">
-          <img src="resources/Logo_agripa_periodico.png" width="50" />
-        </div>
-				<div class="col-md-7"><p>{{integrante.nome}} - <span>(cargo)</span></p></div>
-				<div class="col-md-2"><a href="#">chave</a><br /><a href="#">X</a></div>
-			</div>
-		</div>
-
-
-	</div>	
-</div> 
-<div class="col-md-8">
-<div class="col-md-12">
-  <h2>Produtos</h2>
-</div>
-
-<div class="col-sm-4" ng-repeat="produto in Empresa.produtos">
-    <div class="col-item">
-      <div class="photo">
-        <img src="resources/produtos/produtos.PNG" class="img-responsive" alt="a"  />
-        <!-- {{produto.imagem_destaque}} -->
-      </div>
-      <div class="info">
-        <div class="row">
-          <div class="detalhes col-md-12">
-            <h5>
-          		{{produto.nome}}
-            </h5>
-          </div>
-
-          <div class="rating hidden-sm col-md-12">
-            <i class="detalhes-text-color glyphicon glyphicon-star"></i>
-            <i class="detalhes-text-color glyphicon glyphicon-star"></i>
-            <i class="detalhes-text-color glyphicon glyphicon-star"></i>
-            <i class="glyphicon glyphicon-star"></i>
-          </div>
-        </div>
-        <div class="separator clear-left">
-          <p class="btn-add">
-         	  {{produto.descricao}}
-          </p>
-        </div>
-      </div>
-    </div>
-
-
-  </div>
-</div><!--fim coluna md-8-->
-
-</div>
 </div>

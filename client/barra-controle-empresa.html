@@ -1,0 +1,149 @@
+<div class="row" id="barra-controle">
+    <form editable-form name="EmpresaForm" onaftersave="updateEmpresa()">
+        <div class="col-md-5 col-xs-12 no-padding">
+            <div class="col-xs-6 profile-boxes border-white no-padding" style="display: inline-flex;">
+                <img style="max-height: 152px;" src="{{Empresa.profilePic.getFileRecord().url()}}" class="img-responsive center-block"/>
+            </div>
+
+            <div class="col-xs-6 profile-boxes border-white profile">
+                <div class="pull-right">
+                    <a class="btn btn-default" ng-click="EmpresaForm.$show()" ng-hide="EmpresaForm.$visible" style="padding: 1px 6px; font-size:0.77em">
+                        <i class="fa fa-pencil"></i> Editar
+                    </a>
+                    <span ng-show="EmpresaForm.$visible">
+                        <a class="btn btn-primary" ng-disabled="EmpresaForm.$waiting" ng-click="dc.updateEmpresa()">
+                            Salvar
+                        </a>
+                        <a class="btn btn-default" ng-disabled="EmpresaForm.$waiting" ng-click="EmpresaForm.$cancel()">
+                            Cancelar
+                        </a>
+                    </span>
+                </div>
+
+                <div class="col-xs-3 no-padding picture">
+                    <img src="http://lorempixel.com/100/100" class="img-responsive"/>
+                </div>
+
+                <div class="col-xs-9 identification">
+                    <span style="font-size: 0.77em;">Empresa</span>
+                    <br>
+
+                    <span style="font-size: 1.33em;" class="col-md-12" editable-text="Empresa.nome" e-form="EmpresaForm">
+                        {{Empresa.nome || 'Nome da Empresa'}}
+                    </span>
+                    <br>
+
+                    <span style="font-size:0.77em;" ng-bind="Empresa.website"></span>
+                    <br>
+                </div>
+
+                <div class="col-xs-12 no-padding habilidades">
+                <span style="font-size:0.77em;" ng-repeat="produtoTag in Empresa.produtos">
+                    <i class="glyphicon glyphicon-stop"></i>
+                    {{' ' +produtoTag.nome + ' '}}
+                </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-7 col-sm-12 no-padding">
+            <div class="col-xs-3 col-sm-3 profile-boxes border-white score">
+                <div>
+                    <p>
+                        <span><i class="fa fa-star stars"></i></span>
+                        <span><i class="fa fa-star stars"></i></span>
+                        <span><i class="fa fa-star stars"></i></span>
+                        <span><i class="fa fa-star stars"></i></span>
+                        <span><i class="fa fa-star-half-o stars"></i></span>
+                    </p>
+
+                    <p>
+                        <small class="media-avaliacao">media de avaliações</small>
+                    </p>
+
+                    <br/>
+
+                    <div class="col-xs-6 text-center">
+                        <img src="http://lorempixel.com/100/100" width="40"/>
+
+                        <p>
+                            <small>Gist</small>
+                        </p>
+
+                        <!--Trexo diferenciado-->
+                        <!--<b class="horas-mentorias" style="">
+                        {{user.profile.horasMentorias}} hs
+                    </b>
+
+                    <p>
+                        <small>de mentoria</small>
+                    </p>-->
+                    </div>
+
+                    <div class="col-xs-6 text-center">
+                        <b class="horas-mentorias" style="">
+                            {{user.profile.badges.length || 0}}
+                        </b>
+
+                        <p>
+                            <small>badges</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-5 col-sm-4 profile-boxes border-white descricao">
+                <p editable-textarea="Empresa.descricao" e-form="EmpresaForm" e-rows="2">
+                    {{ Empresa.descricao || 'empty' }}
+                </p>
+            </div>
+
+            <div class="col-xs-1 col-sm-1 profile-boxes border-white social">
+                <a href="{{user.profile.facebook}}" class="border-white"><i class="fa fa-facebook icon-bar"></i></a>
+                <a href="{{user.profile.linkedIn}}" class="border-white"><i class="fa fa-linkedin icon-bar"></i></a>
+                <a href="{{user.profile.twitter}}" class="border-white"><i class="fa fa-twitter icon-bar"></i></a>
+            </div>
+
+            <div class="col-xs-3 col-sm-4 profile-boxes border-white report">
+                <p>
+                    <button class="btn btn-default profile-actions">
+                        <span class="legenda"><i class="fa fa-commenting-o"></i> <span class="hidden-xs">Mensagens</span></span>
+                        <span class="numero">0</span>
+                    </button>
+                </p>
+                <p>
+                    <button class="btn btn-default profile-actions">
+                        <span class="legenda"><i class="fa fa-calendar"></i> <span class="hidden-xs">Agenda</span></span>
+                        <span class="numero">0</span>
+                    </button>
+                </p>
+                <p>
+                    <button class="btn btn-default profile-actions">
+                        <span class="legenda"><i class="fa fa-group"></i> <span class="hidden-xs">Ações de mentoria</span></span>
+                        <span class="numero">0</span>
+                    </button>
+                </p>
+            </div>
+
+            <!--Trexo diferenciado-->
+            <!--<div class="col-xs-3 col-sm-4 profile-boxes border-white report" ng-show="viewEmpreendedor">
+                <p>
+                    <button class="btn btn-default profile-actions">
+                        <span class="legenda"><i class="fa fa-commenting-o"></i> <span class="hidden-xs">Enviar Mensagem</span></span>
+                    </button>
+                </p>
+                <p>
+                    <button class="btn btn-default profile-actions">
+                        <span class="legenda"><i class="fa fa-calendar"></i> <span class="hidden-xs">Agendar Horário</span></span>
+                    </button>
+                </p>
+                <p>
+                    <button ng-click="requisitaEvento()"  class="btn btn-default profile-actions">
+                        <span class="legenda"><i class="fa fa-group"></i> <span class="hidden-xs">Solicitar Mentoria</span></span>
+                    </button>
+                </p>
+            </div>-->
+
+        </div>
+    </form>
+</div>

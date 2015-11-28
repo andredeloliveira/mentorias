@@ -640,7 +640,7 @@ textarea:focus, input:focus {
     padding   : 3px 0;
 }
 
-#barra-controle .report button {
+#barra-controle .report button, #barra-controle .report a {
     padding      : 0px;
     padding-left : 12px;
 }
@@ -1084,6 +1084,125 @@ textarea:focus, input:focus {
 }
 
 /********************************Chat End********************************/
+
+/********************************Empresa ********************************/
+
+#empresa .lista {
+    list-style       : none;
+    padding          : 0;
+    border           : 1px solid rgb(255, 255, 255);
+    overflow         : hidden;
+    background-color : rgba(140, 140, 140, 0.7);
+    min-height       : 500px;
+    max-height       : 500px;
+}
+
+#empresa .lista > li {
+    border-bottom : 1px solid rgb(255, 255, 255);
+    overflow      : hidden;
+}
+
+#empresa .lista > li div {
+    float   : left;
+    padding : 5px;
+}
+
+#empresa .lista > li > .picture {
+    width            : 30%;
+    background-color : rgba(160, 160, 160, 0.7);
+    text-align       : center;
+}
+
+#empresa .lista > li > .picture img {
+    border : 1px solid #fff;
+}
+
+#empresa .lista > li > .details {
+    width : 60%;
+}
+
+#empresa .lista > li > .details p {
+    font-size     : 0.80em;
+    margin-bottom : 0;
+}
+
+#empresa .lista > li > .details h5 {
+    font-weight   : bold;
+    margin-bottom : 5px;
+    font-size     : 0.90em;
+}
+
+#empresa .lista > li > .time {
+    width            : 10%;
+    background-color : rgba(144, 144, 144, 0.7);
+    padding          : 0;
+}
+
+#empresa .lista > li > .time span {
+    border        : 1px solid #FFF;
+    display       : block;
+    padding       : 3px 7px;
+    margin-top    : -1px;
+    margin-right  : -2px;
+    margin-bottom : 11px;
+}
+
+#empresa .lista > li > .time small {
+    font-size : 0.60em;
+}
+
+#empresa .lista > li > .buttons {
+    width       : 10%;
+    padding     : 0px;
+    padding-top : 13px;
+}
+
+#empresa .lista > li > .buttons span {
+    border        : 1px solid #FFF;
+    padding       : 5px;
+    font-size     : 11px;
+    width         : 24px;
+    text-align    : center;
+    margin-bottom : -2px;
+}
+
+#empresa .lista > li.add-integrante > .picture span {
+    padding: 2px 8px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#empresa .lista > li.add-integrante > .details  {
+
+}
+
+#empresa .produto {
+    padding : 15px;
+}
+
+#empresa .produto > div {
+    padding : 15px;
+}
+
+#empresa .produto .header {
+    background-color : rgba(200, 200, 200, 0.5);
+}
+
+#empresa .produto .body {
+    background-color : rgba(150, 150, 150, 0.5);
+    text-align       : center;
+}
+
+#empresa .produtos .produto:nth-child(3n+2) .body {
+    padding : 15px 0;
+}
+
+#empresa .produtos .produto:nth-child(3n+2) .descricao {
+    border-right : 1px solid #fff;
+    border-left  : 1px solid #fff;
+}
+
+/********************************Empresa End********************************/
 
 /********************************Progress Bar********************************/
 .progressbar {
